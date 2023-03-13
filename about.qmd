@@ -1,0 +1,15 @@
+---
+title: "About"
+---
+
+## About this site
+
+```{r}
+1 + 1
+```
+
+type / to add content.  
+once I save the content then it will appear on page.   
+No!, it will appear when I saved and reload page.  
+
+## Other comments

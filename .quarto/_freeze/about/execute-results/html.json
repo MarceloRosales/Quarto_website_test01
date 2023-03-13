@@ -1,0 +1,14 @@
+{
+  "hash": "c9341a6d8ae653ad1c2ac1ba42c773ae",
+  "result": {
+    "markdown": "---\ntitle: \"About\"\n---\n\n\n## About this site\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\ntype / to add content.  \nonce I save the content then it will appear on page.   \nNo!, it will appear when I saved and reload page.  \n\n## Other comments",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

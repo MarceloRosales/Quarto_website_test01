@@ -1,0 +1,32 @@
+{
+    "id": "4FB7D308",
+    "path": "~/Documents/GitHub/Quarto/quarto-trials/quarto_website/Lightbox_Example.qmd",
+    "project_path": "Lightbox_Example.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1678689541890.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "10,0",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "537:451.1111145019531"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1678695304,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1678695304924,
+    "read_only": false,
+    "read_only_alternatives": []
+}

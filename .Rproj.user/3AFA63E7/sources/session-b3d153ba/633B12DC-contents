@@ -1,0 +1,12 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+---
+
+This file is the the main page for the blogs.\
+All subsequent blog files need to be saved in the posts folder.\
+The yml in this file will direct to the folder and the way is displayed.

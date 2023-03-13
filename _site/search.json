@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto_website",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2\n\n\ntype / to add content.\nonce I save the content then it will appear on page.\nNo!, it will appear when I saved and reload page."
+  },
+  {
+    "objectID": "Lightbox_Example.html",
+    "href": "Lightbox_Example.html",
+    "title": "Complete Lightbox Example",
+    "section": "",
+    "text": "Here is a simple image with a description. This also overrides the description position and places it to the left of the image.\n\n\n\nBeach in Chilmark"
+  },
+  {
+    "objectID": "Lightbox_Example.html#elsewhere",
+    "href": "Lightbox_Example.html#elsewhere",
+    "title": "Complete Lightbox Example",
+    "section": "Elsewhere",
+    "text": "Elsewhere\nThe below demonstrates placing more than one image in a gallery. Note the usage of the layout-ncol which arranges the images on the page side by date. Adding the group attribute to the markdown images places the images in a gallery grouped together based upon the group name provided.\n\n\n\n\n\nAquinnah\n\n\n\n\n\nOak Bluffs\n\n\n\n\n\n\n\nVineyard lighthouse"
+  },
+  {
+    "objectID": "Lightbox_Example.html#with-computation-code-chunks",
+    "href": "Lightbox_Example.html#with-computation-code-chunks",
+    "title": "Complete Lightbox Example",
+    "section": "With computation code chunks",
+    "text": "With computation code chunks\nOptions for lightbox can be passed using chunk options.\n\nplot(1:10, rnorm(10))\n\n\n\n\nSimple demo R plot\n\n\n\n\n\nplot(cars)\n\n\n\n\nPlot about cars data\n\n\n\n\nIt is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.\n\nplot(mtcars)\n\n\n\n\nCaption for first plot\n\n\n\nplot(cars)\n\n\n\n\nCaption for second plot\n\n\n\n\nWhen lightbox: auto in main YAML config, you can opt-out lightbox on a plot by setting lightbox: false\n\nplot(mtcars)\n\n\n\n\nmtcars"
+  },
+  {
+    "objectID": "Lightbox_Example.html#credits",
+    "href": "Lightbox_Example.html#credits",
+    "title": "Complete Lightbox Example",
+    "section": "Credits",
+    "text": "Credits\nThe images in this example were used under the Unsplash license, view originals below:\n\nChilmark Beach\nAquinnah\nGingerbread House\nEdgartown Light\nEdgartown Sailboat"
+  },
+  {
+    "objectID": "posts/Blog.html",
+    "href": "posts/Blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "This file is the the main page for the blogs.\nAll subsequent blog files need to be saved in the posts folder.\nThe yml in this file will direct to the folder and the way is displayed.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThis is the title of the post\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2adPost.html",
+    "href": "posts/2adPost.html",
+    "title": "This is the title of the post",
+    "section": "",
+    "text": "this the second post."
+  },
+  {
+    "objectID": "posts/1stPost.html",
+    "href": "posts/1stPost.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is my first post in a trial."
+  },
+  {
+    "objectID": "about.html#other-comments",
+    "href": "about.html#other-comments",
+    "title": "About",
+    "section": "Other comments",
+    "text": "Other comments"
+  }
+]
