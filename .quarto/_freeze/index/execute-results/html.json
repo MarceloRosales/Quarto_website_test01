@@ -1,7 +1,7 @@
 {
-  "hash": "2fec28ab372e215179cc682da35622a1",
+  "hash": "33adabbf22eef52cf70e919fdd50003e",
   "result": {
-    "markdown": "---\ntitle: \"quarto_website\"\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: \"quarto_website\"\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\nAdded at 20230315-1228\\\nAdded at 20230315-1316\n\nPhotos:\n\n![](images/favicon.png){fig-alt=\"Favicon\"}\n![](images/nav_img.png)\n\n\n\n\n\nupdate\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

@@ -46,7 +46,7 @@
     "href": "index.html",
     "title": "quarto_website",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nAdded at 20230315-1228\nAdded at 20230315-1316\nPhotos:\n \nupdate"
   },
   {
     "objectID": "about.html",
@@ -67,6 +67,6 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "This file is the the main page for the blogs.\nAll subsequent blog files need to be saved in the posts folder.\nThe yml in this file will direct to the folder and the way is displayed.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThis is the title of the post\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\nNo matching items"
+    "text": "This file is the the main page for the blogs.\nAll subsequent blog files need to be saved in the posts folder.\nThe yml in this file will direct to the folder and the way is displayed.　\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThis is the title of the post\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\nNo matching items"
   }
 ]

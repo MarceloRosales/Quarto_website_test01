@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto_website - Complete Lightbox Example</title>
+<title>MySite - Complete Lightbox Example</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,15 +93,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -136,8 +139,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">quarto_website</span>
+    <a href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/" class="navbar-brand navbar-brand-logo">
+    <img src="./images/nav_img.png" alt="link to Mkdocs" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/">
+    <span class="navbar-title">MySite</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -161,7 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">example</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/quarto-dev/quarto-cli/issues"><i class="bi bi-bug" role="img">
+</i> 
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/quarto-dev/quarto-cli/discussions"><i class="bi bi-chat-right-text" role="img">
+</i> 
+ <span class="dropdown-text">Ask a Question</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/faq/index.qmd"><i class="bi bi-question-circle" role="img">
+</i> 
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -208,7 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here is a simple image with a description. This also overrides the description position and places it to the left of the image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/mv-0.jpg" class="lightbox" data-description="Chilmark
+<p><a href="images/mv-0.jpg" class="lightbox" title="Beach in Chilmark" data-description="Chilmark
 
 has
 
@@ -294,7 +325,7 @@ places.
 
 <em>credit:</em>
 
-<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" data-gallery="quarto-lightbox-gallery-1" title="Beach in Chilmark"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
+<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" data-gallery="quarto-lightbox-gallery-1"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Beach in Chilmark</figcaption><p></p>
 </figure>
 </div>
@@ -306,7 +337,7 @@ places.
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-1.jpg" class="lightbox" data-description="The
+<p><a href="images/mv-1.jpg" class="lightbox" title="Aquinnah" data-description="The
 
 waves
 
@@ -330,13 +361,13 @@ beautiful
 
 summer
 
-day." data-gallery="elsewhere" title="Aquinnah"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
+day." data-gallery="elsewhere"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Aquinnah</figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-3.jpg" class="lightbox" data-description="Oak
+<p><a href="images/mv-3.jpg" class="lightbox" title="Oak Bluffs" data-description="Oak
 
 Bluffs
 
@@ -364,7 +395,7 @@ party
 
 like
 
-atmosphere." data-gallery="elsewhere" title="Oak Bluffs"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
+atmosphere." data-gallery="elsewhere"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Oak Bluffs</figcaption><p></p>
 </figure>
 </div>
@@ -372,7 +403,7 @@ atmosphere." data-gallery="elsewhere" title="Oak Bluffs"><img src="images/mv-3.j
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 100.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-2.jpg" class="lightbox" data-description="The
+<p><a href="images/mv-2.jpg" class="lightbox" title="Vineyard lighthouse" data-description="The
 
 Edgartown
 
@@ -408,7 +439,7 @@ to
 
 Edgartown
 
-Harbor." data-gallery="elsewhere" title="Vineyard lighthouse"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
+Harbor." data-gallery="elsewhere"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Vineyard lighthouse</figcaption><p></p>
 </figure>
 </div>
@@ -423,7 +454,7 @@ Harbor." data-gallery="elsewhere" title="Vineyard lighthouse"><img src="images/m
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" title="Simple demo R plot" data-description="This
 
 is
 
@@ -433,7 +464,7 @@ to
 
 10
 
-plot" data-gallery="r-graph" title="Simple demo R plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+plot" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Simple demo R plot</figcaption><p></p>
 </figure>
 </div>
@@ -444,7 +475,7 @@ plot" data-gallery="r-graph" title="Simple demo R plot"><img src="Lightbox_Examp
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-description="We
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" title="Plot about cars data" data-description="We
 
 see
 
@@ -454,7 +485,7 @@ cars
 
 data
 
-above" data-gallery="r-graph" title="Plot about cars data"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+above" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Plot about cars data</figcaption><p></p>
 </figure>
 </div>
@@ -466,7 +497,7 @@ above" data-gallery="r-graph" title="Plot about cars data"><img src="Lightbox_Ex
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" title="Caption for first plot" data-description="This
 
 is
 
@@ -478,7 +509,7 @@ for
 
 first
 
-graph" data-gallery="cars" title="Caption for first plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+graph" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for first plot</figcaption><p></p>
 </figure>
 </div>
@@ -487,7 +518,7 @@ graph" data-gallery="cars" title="Caption for first plot"><img src="Lightbox_Exa
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="lightbox" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="lightbox" title="Caption for second plot" data-description="This
 
 is
 
@@ -499,7 +530,7 @@ for
 
 second
 
-graph" data-gallery="cars" title="Caption for second plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></a></p>
+graph" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for second plot</figcaption><p></p>
 </figure>
 </div>
@@ -553,6 +584,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -667,7 +813,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":true,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":true,"selector":".lightbox","descPosition":"bottom"});</script>
 
 
 
