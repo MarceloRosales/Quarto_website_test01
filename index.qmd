@@ -15,11 +15,8 @@ Added at 20230315-1316
 
 Photos:
 
-![](images/favicon.png){fig-alt="Favicon"}
-![](images/nav_img.png)
-
-
-
-
+![](images/favicon.png){fig-alt="Favicon"} ![](images/nav_img.png)
 
 update
+
+![](images/img01.png)

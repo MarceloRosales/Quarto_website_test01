@@ -7,6 +7,13 @@
     "text": "this the second post."
   },
   {
+    "objectID": "posts/Quarto_templates.html",
+    "href": "posts/Quarto_templates.html",
+    "title": "Jolla template",
+    "section": "",
+    "text": "What do I have to add here?.\n\n  \n \nFinley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana.\n\n\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011\n\n\n\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Sept 2012 - April 2018\n\n \n  \n   \n  \n    \n     twitter\n  \n  \n    \n     Github"
+  },
+  {
     "objectID": "posts/1stPost.html",
     "href": "posts/1stPost.html",
     "title": "Post With Code",
@@ -51,22 +58,85 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Marcelo",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\ntype / to add content.\nonce I save the content then it will appear on page.\nNo!, it will appear when I saved and reload page."
+    "text": "1 + 1\n\n[1] 2\n\n\nHere I use the quarto template trestles and place the yaml label in this files yml.\nInterestingly, if in the _quarto.yml nav code is like\n\nnavbar:\n    left:\n      - href: index.qmd\n        text: Home\n      - about.qmd # No href not text, directly the file name. \n      - href: Lightbox_Example.qmd\n        text: Lightbox\n\nThe title will change the name of nav tab, even if in the _quarto.yml is label “About”, but only while in this page. The tab will display the title of this file’s yml, but when not in this file, the nav tab label will revert to the label from the _quarto.yml file.\nI found usefull information in this pages:\n- Creating your personal website using quarto\ntype / to add content.\nonce I save the content then it will appear on page.\nNo!, it will appear when I saved and reload page."
   },
   {
     "objectID": "about.html#other-comments",
     "href": "about.html#other-comments",
-    "title": "About",
+    "title": "Marcelo",
     "section": "Other comments",
     "text": "Other comments"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
+    "objectID": "files/Software/RStudio/R_install.html",
+    "href": "files/Software/RStudio/R_install.html",
+    "title": "RStudio Install",
     "section": "",
-    "text": "This file is the the main page for the blogs.\nAll subsequent blog files need to be saved in the posts folder.\nThe yml in this file will direct to the folder and the way is displayed.　\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThis is the title of the post\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nPost description\n\n\n\n\n\n\nMar 13, 2023\n\n\nMarcelo Rosales\n\n\n\n\n\n\nNo matching items"
+    "text": "install"
+  },
+  {
+    "objectID": "files/Software/RStudio/R_install.html#another-subtitle.",
+    "href": "files/Software/RStudio/R_install.html#another-subtitle.",
+    "title": "RStudio Install",
+    "section": "Another subtitle.",
+    "text": "Another subtitle."
+  },
+  {
+    "objectID": "files/Software/ImageJ/ImgJ_install.html",
+    "href": "files/Software/ImageJ/ImgJ_install.html",
+    "title": "ImageJ Install",
+    "section": "",
+    "text": "install"
+  },
+  {
+    "objectID": "files/Software/ImageJ/ImgJ_install.html#another-subtitle.",
+    "href": "files/Software/ImageJ/ImgJ_install.html#another-subtitle.",
+    "title": "ImageJ Install",
+    "section": "Another subtitle.",
+    "text": "Another subtitle."
+  },
+  {
+    "objectID": "files/Software/Analyze12/Analyze12_install.html",
+    "href": "files/Software/Analyze12/Analyze12_install.html",
+    "title": "Analyze12 Install",
+    "section": "",
+    "text": "install"
+  },
+  {
+    "objectID": "files/Software/Analyze12/Analyze12_install.html#another-subtitle.",
+    "href": "files/Software/Analyze12/Analyze12_install.html#another-subtitle.",
+    "title": "Analyze12 Install",
+    "section": "Another subtitle.",
+    "text": "Another subtitle."
+  },
+  {
+    "objectID": "files/Software/Analyze12/index.html",
+    "href": "files/Software/Analyze12/index.html",
+    "title": "Analyze12",
+    "section": "",
+    "text": "Landing…"
+  },
+  {
+    "objectID": "files/Software/Analyze12/index.html#another-subtitle.",
+    "href": "files/Software/Analyze12/index.html#another-subtitle.",
+    "title": "Analyze12",
+    "section": "Another subtitle.",
+    "text": "Another subtitle."
+  },
+  {
+    "objectID": "files/Software/RStudio/R_Packages.html",
+    "href": "files/Software/RStudio/R_Packages.html",
+    "title": "R Packages",
+    "section": "",
+    "text": "How to manage Packes."
+  },
+  {
+    "objectID": "files/Software/RStudio/R_Packages.html#another-subtitle.",
+    "href": "files/Software/RStudio/R_Packages.html#another-subtitle.",
+    "title": "R Packages",
+    "section": "Another subtitle.",
+    "text": "Another subtitle.\nText"
   }
 ]

@@ -2,8 +2,23 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/Quarto_templates.html",
       "/posts/2adPost.html",
       "/posts/1stPost.html"
+    ]
+  },
+  {
+    "listing": "/files/Software/RStudio/index.html",
+    "items": [
+      "/files/Software/RStudio/R_Packages.html",
+      "/files/Software/RStudio/R_install.html"
+    ]
+  },
+  {
+    "listing": "/files/Software/ImageJ/index.html",
+    "items": [
+      "/files/Software/ImageJ/ImgJ_install.html",
+      "/files/Software/ImageJ/ImgJ_Packages.html"
     ]
   }
 ]

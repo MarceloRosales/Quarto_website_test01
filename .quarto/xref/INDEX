@@ -19,5 +19,32 @@
   },
   "posts/1stPost.qmd": {
     "1stPost.html": "b5cff2c3"
+  },
+  "Quarto_templates.qmd": {
+    "Quarto_templates.html": "0bb27d33"
+  },
+  "posts/Quarto_templates.qmd": {
+    "Quarto_templates.html": "16500009"
+  },
+  "files/Software/RStudio/R_install.qmd": {
+    "R_install.html": "65e8b937"
+  },
+  "files/Software/RStudio/index.qmd": {
+    "index.html": "37f37e15"
+  },
+  "files/Software/ImageJ/ImgJ_install.qmd": {
+    "ImgJ_install.html": "f71a0d3d"
+  },
+  "files/Software/ImageJ/index.qmd": {
+    "index.html": "00bcbbfc"
+  },
+  "files/Software/Analyze12/Analyze12_install.qmd": {
+    "Analyze12_install.html": "0f140048"
+  },
+  "files/Software/Analyze12/index.qmd": {
+    "index.html": "542bc9c8"
+  },
+  "files/Software/RStudio/R_Packages.qmd": {
+    "R_Packages.html": "dcb7c8ba"
   }
 }

@@ -1,5 +1,19 @@
 ---
-title: "About"
+title: "Marcelo" # This changes name of nav tab. 
+image: images/img01.png
+about: 
+  template: trestles
+  image-shape: rounded
+  image-width: 15em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/
+    - text: Twitter
+#      href: 
+    - text: GitHub
+      href: https://github.com/marcelorosales
+    - text: Email
+      href: mailto:marcelo@dent.niigata-u.ac.jp
 ---
 
 ## About this site
@@ -8,8 +22,27 @@ title: "About"
 1 + 1
 ```
 
-type / to add content.  
-once I save the content then it will appear on page.   
-No!, it will appear when I saved and reload page.  
+Here I use the quarto [template](https://quarto.org/docs/websites/website-about.html#templates) `trestles` and place the yaml label in this files yml.\
+Interestingly, if in the `_quarto.yml` nav code is like
+
+```{r, eval=FALSE}
+
+navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd # No href not text, directly the file name. 
+      - href: Lightbox_Example.qmd
+        text: Lightbox
+```
+
+The title will change the name of nav tab, even if in the \_quarto.yml is label "About", but only while in this page. The tab will display the title of this file's yml, but when not in this file, the nav tab label will revert to the label from the `_quarto.yml` file.
+
+I found usefull information in this pages:\
+- [Creating your personal website using quarto](https://ucsb-meds.github.io/creating-quarto-websites/)
+
+type / to add content.\
+once I save the content then it will appear on page.\
+No!, it will appear when I saved and reload page.
 
 ## Other comments

@@ -2,6 +2,13 @@
   "listingMap": {
     "blog.qmd": [
       "posts"
+    ],
+    "files/Software/RStudio/index.qmd": [
+      "guide.yml",
+      "B3049D40"
+    ],
+    "files/Software/ImageJ/index.qmd": [
+      "B3049D40"
     ]
   }
 }

@@ -1,0 +1,9 @@
+---
+title: "ImageJ Install"
+---
+
+## How to install ImageJ
+
+install
+
+## Another subtitle.

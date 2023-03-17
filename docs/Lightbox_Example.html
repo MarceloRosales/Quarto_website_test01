@@ -130,6 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="MySite - Complete Lightbox Example">
+<meta property="og:description" content="Here is a simple image with a description. This also overrides the description position and places it to the left of the image.">
+<meta property="og:site-name" content="MySite">
 </head>
 
 <body class="nav-fixed">
@@ -159,19 +162,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="./about.html">
  <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./Lightbox_Example.html" aria-current="page">
- <span class="menu-text">Lightbox</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-software" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Software</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-software">    
+        <li>
+    <a class="dropdown-item" href="./files/Software/RStudio/R_install.html">
+ <span class="dropdown-text">RStudio</span></a>
   </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">example</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-navsubmenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">NavSubmenu</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-example">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-navsubmenu">    
         <li>
     <a class="dropdown-item" href="https://github.com/quarto-dev/quarto-cli/issues"><i class="bi bi-bug" role="img">
 </i> 
@@ -189,6 +199,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/quarto-dev/quarto-cli"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://quarto.org/docs/blog/index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -239,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here is a simple image with a description. This also overrides the description position and places it to the left of the image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/mv-0.jpg" class="lightbox" title="Beach in Chilmark" data-description="Chilmark
+<p><a href="images/mv-0.jpg" class="lightbox" data-description="Chilmark
 
 has
 
@@ -325,7 +347,7 @@ places.
 
 <em>credit:</em>
 
-<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" data-gallery="quarto-lightbox-gallery-1"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
+<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" title="Beach in Chilmark" data-gallery="quarto-lightbox-gallery-1"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Beach in Chilmark</figcaption><p></p>
 </figure>
 </div>
@@ -337,7 +359,7 @@ places.
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-1.jpg" class="lightbox" title="Aquinnah" data-description="The
+<p><a href="images/mv-1.jpg" class="lightbox" data-description="The
 
 waves
 
@@ -361,13 +383,13 @@ beautiful
 
 summer
 
-day." data-gallery="elsewhere"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
+day." title="Aquinnah" data-gallery="elsewhere"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Aquinnah</figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-3.jpg" class="lightbox" title="Oak Bluffs" data-description="Oak
+<p><a href="images/mv-3.jpg" class="lightbox" data-description="Oak
 
 Bluffs
 
@@ -395,7 +417,7 @@ party
 
 like
 
-atmosphere." data-gallery="elsewhere"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
+atmosphere." title="Oak Bluffs" data-gallery="elsewhere"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Oak Bluffs</figcaption><p></p>
 </figure>
 </div>
@@ -403,7 +425,7 @@ atmosphere." data-gallery="elsewhere"><img src="images/mv-3.jpg" class="img-flui
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 100.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-2.jpg" class="lightbox" title="Vineyard lighthouse" data-description="The
+<p><a href="images/mv-2.jpg" class="lightbox" data-description="The
 
 Edgartown
 
@@ -439,7 +461,7 @@ to
 
 Edgartown
 
-Harbor." data-gallery="elsewhere"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
+Harbor." title="Vineyard lighthouse" data-gallery="elsewhere"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Vineyard lighthouse</figcaption><p></p>
 </figure>
 </div>
@@ -454,7 +476,7 @@ Harbor." data-gallery="elsewhere"><img src="images/mv-2.jpg" class="img-fluid fi
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" title="Simple demo R plot" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-description="This
 
 is
 
@@ -464,7 +486,7 @@ to
 
 10
 
-plot" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+plot" title="Simple demo R plot" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Simple demo R plot</figcaption><p></p>
 </figure>
 </div>
@@ -475,7 +497,7 @@ plot" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unname
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" title="Plot about cars data" data-description="We
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-description="We
 
 see
 
@@ -485,7 +507,7 @@ cars
 
 data
 
-above" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+above" title="Plot about cars data" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Plot about cars data</figcaption><p></p>
 </figure>
 </div>
@@ -497,7 +519,7 @@ above" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnam
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" title="Caption for first plot" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-description="This
 
 is
 
@@ -509,7 +531,7 @@ for
 
 first
 
-graph" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+graph" title="Caption for first plot" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for first plot</figcaption><p></p>
 </figure>
 </div>
@@ -518,7 +540,7 @@ graph" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="lightbox" title="Caption for second plot" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="lightbox" data-description="This
 
 is
 
@@ -530,7 +552,7 @@ for
 
 second
 
-graph" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></a></p>
+graph" title="Caption for second plot" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for second plot</figcaption><p></p>
 </figure>
 </div>
@@ -813,7 +835,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":true,"selector":".lightbox","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":true,"openEffect":"zoom","selector":".lightbox"});</script>
 
 
 

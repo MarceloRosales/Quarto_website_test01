@@ -1,0 +1,9 @@
+---
+title: "Analyze12 Install"
+---
+
+## How to install Analyze12
+
+install
+
+## Another subtitle.

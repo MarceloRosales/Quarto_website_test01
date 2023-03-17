@@ -1,0 +1,19 @@
+---
+title: "ImageJ"
+author: "Marcelo Rosales"
+subtitle: Comprehensive guide to using 
+page-layout: article
+anchor-sections: true
+search: false
+listing:
+  id: ImageJ
+#  template: ../../ejs/links.ejs
+#  contents: guide.yml
+#image: /images/hero_right.png
+---
+
+## Landing Page?
+
+Landing...
+
+## Another subtitle.

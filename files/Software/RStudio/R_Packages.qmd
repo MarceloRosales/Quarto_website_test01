@@ -1,0 +1,12 @@
+---
+title: "R Packages"
+author: "Marcelo Rosales"
+---
+
+## R packages
+
+How to manage Packes.
+
+## Another subtitle.  
+
+Text

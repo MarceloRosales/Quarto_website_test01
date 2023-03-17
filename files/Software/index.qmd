@@ -1,0 +1,14 @@
+---
+title: "Software"
+author: "Marcelo Rosales"
+---
+
+# All related to Software
+
+Software used:
+
+-   RStudio
+-   ImageJ
+-   Analyze12
+
+Info and How to's.
