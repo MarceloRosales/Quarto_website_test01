@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "posts/quarto_start.html",
+    "href": "posts/quarto_start.html",
+    "title": "Starting with quarto",
+    "section": "",
+    "text": "Since the appearance of quarto, perhaps it would be more effective to write all in .qmd files cos of its advantages,\n\nimages can be added easily and automatically\nimg captions\ncode writing and\ncompatible with Zotero bibliography (for word, Rstudio and quarto)\nAlmost same code/outcome flexibility as Mkdocs code package.\nQmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code.\nVisual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format)."
+  },
+  {
+    "objectID": "posts/quarto_start.html#quarto",
+    "href": "posts/quarto_start.html#quarto",
+    "title": "Starting with quarto",
+    "section": "Quarto",
+    "text": "Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org ."
+  },
+  {
+    "objectID": "posts/quarto_start.html#running-code",
+    "href": "posts/quarto_start.html#running-code",
+    "title": "Starting with quarto",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).\nyou can write chunk options in the body of a code chunk after #|, e.g.,\n\n\n\n\n\nThis is a long long long long caption.\n\n\n\n\nfor more info see here.\nSeattle Precipitation by Day (2012 to 2016)\nFor ojs and pkp (public knowledge project) install packages first. follow this pkp installation guide\nhttps://pkp.sfu.ca/software/ojs/download/\n\ndata = FileAttachment(\"../data/seattle-weather.csv\")\n  .csv({typed: true})\n  \nPlot.plot({\n  width: 800, height: 500, padding: 0,\n  color: { scheme: \"blues\", type: \"sqrt\"},\n  y: { tickFormat: i => \"JFMAMJJASOND\"[i] },\n  marks: [\n    Plot.cell(data, Plot.group({fill: \"mean\"}, {\n      x: d => d.date.getUTCDate(),\n      y: d => d.date.getUTCMonth(),\n      fill: \"precipitation\", \n      inset: 0.5\n    }))\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAir Quality\nFigure 1 further explores the impact of temperature on ozone level.\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n\n\n\n\nFigure 1: Temperature and ozone level.\n\n\n\n\nFor a demonstration of a line plot on a polar axis, see Figure 2.\n\n# Pre-intallation required through terminal:\n# pip install numpy\n# pip install matplotlib\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 2: A line plot on a polar axis\n\n\n\n\nIf error: ModuleNotFoundError: No module named ‘numpy’ in Python\nSee here\nPython test.\n\n\nimport numpy as np\n\n\nlibrary(reticulate)\n\n\nRunning Code summary\nRelated to code and code chunks.\nIn yml sections:\n---\nformat: \n  html: \n    code-fold: show\n    code-copy: true\n    code-overflow: wrap\n---\nIn chuncks:\n#| eval: false\n#| echo: false\n#| my-chunk, echo = FALSE, fig.width = 10,\n#| label: fig-airquality\n#| fig.cap = \"This is a long long long long caption.\"\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n# For python, pre-intallation required through terminal:\n# pip install numpy\n# pip install matplotlib\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n1 + 1"
+  },
+  {
+    "objectID": "posts/quarto_start.html#seattle-precipitation-by-day-2012-to-2016",
+    "href": "posts/quarto_start.html#seattle-precipitation-by-day-2012-to-2016",
+    "title": "Starting with quarto",
+    "section": "Seattle Precipitation by Day (2012 to 2016)",
+    "text": "Seattle Precipitation by Day (2012 to 2016)\nFor ojs and pkp (public knowledge project) install packages first. follow this pkp installation guide\nhttps://pkp.sfu.ca/software/ojs/download/\n\n\nCode\ndata = FileAttachment(\"../data/seattle-weather.csv\")\n  .csv({typed: true})\n  \nPlot.plot({\n  width: 800, height: 500, padding: 0,\n  color: { scheme: \"blues\", type: \"sqrt\"},\n  y: { tickFormat: i => \"JFMAMJJASOND\"[i] },\n  marks: [\n    Plot.cell(data, Plot.group({fill: \"mean\"}, {\n      x: d => d.date.getUTCDate(),\n      y: d => d.date.getUTCMonth(),\n      fill: \"precipitation\", \n      inset: 0.5\n    }))\n  ]\n})"
+  },
+  {
+    "objectID": "posts/quarto_start.html#air-quality",
+    "href": "posts/quarto_start.html#air-quality",
+    "title": "Starting with quarto",
+    "section": "Air Quality",
+    "text": "Air Quality\nFigure 1 further explores the impact of temperature on ozone level.\n\n\nCode\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n\n\n\n\n\nFigure 1: Temperature and ozone level.\n\n\n\n\nFor a demonstration of a line plot on a polar axis, see Figure 2.\n\n\nCode\n# Pre-intallation required through terminal:\n# pip install numpy\n# pip install matplotlib\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 2: A line plot on a polar axis\n\n\n\n\nIf error: ModuleNotFoundError: No module named ‘numpy’ in Python\nSee here\nPython test.\n\n\nCode\n\nimport numpy as np\n\n\n\n\nCode\nlibrary(reticulate)"
+  },
+  {
+    "objectID": "posts/quarto_start.html#nav-and-sidebar",
+    "href": "posts/quarto_start.html#nav-and-sidebar",
+    "title": "Starting with quarto",
+    "section": "Nav and sidebar",
+    "text": "Nav and sidebar\n\nproject:\n  type: website\n  output-dir: docs\n\nwebsite:\n  title: \"MySite\"\n  image: \"images/img01.png\" # where this images goes?. only works with specifit themes?...\n  favicon: \"images/favicon.png\" # Small icon in the bewbrowser tab (ex. uni logo)\n  open-graph: true #https://quarto.org/docs/websites/website-tools.html, https://www.youtube.com/watch?v=QwEQKM4YRnU&t=2s\n  #twitter-card: true #https://quarto.org/docs/websites/website-tools.html#twitter-cards\n  search: true \n  navbar:\n    background: light # this is the color option of the nav bg, but I set color in format: with theme.scss. # Options:`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`\n    logo: \"images/nav_img.png\" # logo in nav bar.\n    logo-alt: \"link to Mkdocs\"\n    logo-href: \"https://marcelorosales.github.io/MkDocsTest1/MkDocs/\"\n    collapse-below: lg\n    \n    left:\n      - href: index.qmd\n        text: Home\n      - href: about.qmd\n        text: \"About\"\n      - text: \"Software\"\n        menu: \n          - href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.\n            text: \"RStudio\"\n          - href: files/Software/ImageJ/index.qmd\n            text: \"ImageJ\"\n          - href: files/Software/Analyze12/index.qmd\n            text: \"Analyze12\"\n      - text: \"Blog\"\n        href: blog.qmd\n      - text: \"NavSubmenu\"\n        menu:\n          - text: \"Report a Bug\"\n            icon: \"bug\"\n            href: \"https://github.com/quarto-dev/quarto-cli/issues\"\n          - text: \"Ask a Question\"\n            icon: \"chat-right-text\"\n            href: \"https://github.com/quarto-dev/quarto-cli/discussions\"\n          - text: \"FAQ\"\n            icon: \"question-circle\"\n#            href: docs/faq/index.qmd\n    right: \n      - icon: github\n        href: https://github.com/quarto-dev/quarto-cli\n#        text: Quarto GitHub\n      - icon: rss\n        href: https://quarto.org/docs/blog/index.xml\n        \n  sidebar:\n    - id: RStudio \n      title: \"Get Started with the RStudio\"\n      style: \"floating\"\n      collapse-level: 2\n      align: left\n      contents:  \n        - files/Software/RStudio/index.qmd  \n        - text: \"Install\"\n          href: files/Software/RStudio/R_install.qmd  \n        - text: \"R Packages\"\n          href: files/Software/RStudio/R_Packages.qmd\n\n    - id: ImageJ \n      title: \"Get Started with ImageJ\"\n      style: \"floating\"\n      collapse-level: 2\n      align: left\n      contents:  \n        - files/Software/ImageJ/index.qmd  \n        - text: \"Install\"\n          href: files/Software/ImageJ/ImgJ_install.qmd  \n        - text: \"R Packages\"\n          href: files/Software/ImageJ/ImgJ_Packages.qmd\n\nformat:\n  html:\n    toc: true\n    theme:\n      light: [cosmo, theme.scss]\n      dark: [cosmo, theme-dark.scss] # change theme (cosmo) colors and formats in the scss files\n    code-copy: true\n    code-overflow: wrap\n    css: styles.css\n    include-after-body: js.html\n    grid:\n      sidebar-width: 250px\n      body-width: 900px\n      margin-width: 300px\n\n\neditor: visual"
+  },
+  {
     "objectID": "posts/2adPost.html",
     "href": "posts/2adPost.html",
     "title": "This is the title of the post",
@@ -84,16 +126,37 @@
     "text": "Another subtitle."
   },
   {
-    "objectID": "files/Software/ImageJ/ImgJ_install.html",
-    "href": "files/Software/ImageJ/ImgJ_install.html",
-    "title": "ImageJ Install",
+    "objectID": "files/Software/RStudio/R_Packages.html",
+    "href": "files/Software/RStudio/R_Packages.html",
+    "title": "R Packages",
     "section": "",
-    "text": "install"
+    "text": "How to manage Packes."
   },
   {
-    "objectID": "files/Software/ImageJ/ImgJ_install.html#another-subtitle.",
-    "href": "files/Software/ImageJ/ImgJ_install.html#another-subtitle.",
-    "title": "ImageJ Install",
+    "objectID": "files/Software/RStudio/R_Packages.html#another-subtitle.",
+    "href": "files/Software/RStudio/R_Packages.html#another-subtitle.",
+    "title": "R Packages",
+    "section": "Another subtitle.",
+    "text": "Another subtitle.\nText"
+  },
+  {
+    "objectID": "files/Software/index.html",
+    "href": "files/Software/index.html",
+    "title": "Software",
+    "section": "",
+    "text": "All related to Software\nSoftware used:\n\nRStudio\nImageJ\nAnalyze12\n\nInfo and How to’s."
+  },
+  {
+    "objectID": "files/Software/Analyze12/index.html",
+    "href": "files/Software/Analyze12/index.html",
+    "title": "Analyze12",
+    "section": "",
+    "text": "Landing…"
+  },
+  {
+    "objectID": "files/Software/Analyze12/index.html#another-subtitle.",
+    "href": "files/Software/Analyze12/index.html#another-subtitle.",
+    "title": "Analyze12",
     "section": "Another subtitle.",
     "text": "Another subtitle."
   },
@@ -112,31 +175,45 @@
     "text": "Another subtitle."
   },
   {
-    "objectID": "files/Software/Analyze12/index.html",
-    "href": "files/Software/Analyze12/index.html",
-    "title": "Analyze12",
-    "section": "",
-    "text": "Landing…"
-  },
-  {
-    "objectID": "files/Software/Analyze12/index.html#another-subtitle.",
-    "href": "files/Software/Analyze12/index.html#another-subtitle.",
-    "title": "Analyze12",
-    "section": "Another subtitle.",
-    "text": "Another subtitle."
-  },
-  {
-    "objectID": "files/Software/RStudio/R_Packages.html",
-    "href": "files/Software/RStudio/R_Packages.html",
-    "title": "R Packages",
+    "objectID": "files/Software/Analyze12/Analyze12_Packages.html",
+    "href": "files/Software/Analyze12/Analyze12_Packages.html",
+    "title": "Analyze12 Packages",
     "section": "",
     "text": "How to manage Packes."
   },
   {
-    "objectID": "files/Software/RStudio/R_Packages.html#another-subtitle.",
-    "href": "files/Software/RStudio/R_Packages.html#another-subtitle.",
-    "title": "R Packages",
+    "objectID": "files/Software/Analyze12/Analyze12_Packages.html#another-subtitle.",
+    "href": "files/Software/Analyze12/Analyze12_Packages.html#another-subtitle.",
+    "title": "Analyze12 Packages",
     "section": "Another subtitle.",
     "text": "Another subtitle.\nText"
+  },
+  {
+    "objectID": "files/Software/ImageJ/ImgJ_Packages.html",
+    "href": "files/Software/ImageJ/ImgJ_Packages.html",
+    "title": "ImageJ Packages",
+    "section": "",
+    "text": "How to manage Packes."
+  },
+  {
+    "objectID": "files/Software/ImageJ/ImgJ_Packages.html#another-subtitle.",
+    "href": "files/Software/ImageJ/ImgJ_Packages.html#another-subtitle.",
+    "title": "ImageJ Packages",
+    "section": "Another subtitle.",
+    "text": "Another subtitle.\nText"
+  },
+  {
+    "objectID": "files/Software/ImageJ/ImgJ_install.html",
+    "href": "files/Software/ImageJ/ImgJ_install.html",
+    "title": "ImageJ Install",
+    "section": "",
+    "text": "install"
+  },
+  {
+    "objectID": "files/Software/ImageJ/ImgJ_install.html#another-subtitle.",
+    "href": "files/Software/ImageJ/ImgJ_install.html#another-subtitle.",
+    "title": "ImageJ Install",
+    "section": "Another subtitle.",
+    "text": "Another subtitle."
   }
 ]

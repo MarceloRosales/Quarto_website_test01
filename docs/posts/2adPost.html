@@ -99,10 +99,25 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../about.html">
  <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../Lightbox_Example.html">
- <span class="menu-text">Lightbox</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-software" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Software</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-software">    
+        <li>
+    <a class="dropdown-item" href="../files/Software/RStudio/index.html">
+ <span class="dropdown-text">RStudio</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../files/Software/ImageJ/index.html">
+ <span class="dropdown-text">ImageJ</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../files/Software/Analyze12/index.html">
+ <span class="dropdown-text">Analyze12</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../blog.html">
  <span class="menu-text">Blog</span></a>
@@ -122,13 +137,21 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="dropdown-text">Ask a Question</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/faq/index.qmd"><i class="bi bi-question-circle" role="img">
-</i> 
- <span class="dropdown-text">FAQ</span></a>
-  </li>  
+        <li class="dropdown-header">FAQ</li>
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/quarto-dev/quarto-cli"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://quarto.org/docs/blog/index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>

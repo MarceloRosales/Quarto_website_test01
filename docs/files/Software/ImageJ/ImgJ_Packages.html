@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marcelo Rosales">
 
-<title>MySite - Blog</title>
+<title>MySite - ImageJ Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,51 +62,15 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<style>
-    .quarto-title-block .quarto-title-banner {
-      background: #EDF3F9;
-    }
-    </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="MySite - Blog">
-<meta property="og:description" content="This file is the the “main page” i will called it “landing page” for the blogs.
-this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website.">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="MySite - ImageJ Packages">
+<meta property="og:description" content="How to manage Packes.">
 <meta property="og:site-name" content="MySite">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,7 +78,7 @@ this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website.">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/" class="navbar-brand navbar-brand-logo">
-    <img src="./images/nav_img.png" alt="link to Mkdocs" class="navbar-logo">
+    <img src="../../../images/nav_img.png" alt="link to Mkdocs" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/">
     <span class="navbar-title">MySite</span>
@@ -127,11 +90,11 @@ this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website.">
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="../../../index.html">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="../../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -140,21 +103,21 @@ this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website.">
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-software">    
         <li>
-    <a class="dropdown-item" href="./files/Software/RStudio/index.html">
+    <a class="dropdown-item" href="../../../files/Software/RStudio/index.html">
  <span class="dropdown-text">RStudio</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./files/Software/ImageJ/index.html">
+    <a class="dropdown-item" href="../../../files/Software/ImageJ/index.html">
  <span class="dropdown-text">ImageJ</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./files/Software/Analyze12/index.html">
+    <a class="dropdown-item" href="../../../files/Software/Analyze12/index.html">
  <span class="dropdown-text">Analyze12</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page">
+    <a class="nav-link" href="../../../blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -172,7 +135,11 @@ this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website.">
 </i> 
  <span class="dropdown-text">Ask a Question</span></a>
   </li>  
-        <li class="dropdown-header">FAQ</li>
+        <li>
+    <a class="dropdown-item" href="../../../docs/faq/index.qmd"><i class="bi bi-question-circle" role="img">
+</i> 
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -195,223 +162,88 @@ this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website.">
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">ImageJ Packages</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Blog</h1>
-                      </div>
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/Software/ImageJ/index.html" class="sidebar-item-text sidebar-link">ImageJ</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/Software/ImageJ/ImgJ_install.html" class="sidebar-item-text sidebar-link">Install</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../files/Software/ImageJ/ImgJ_Packages.html" class="sidebar-item-text sidebar-link active">R Packages</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#imagej-packages" id="toc-imagej-packages" class="nav-link active" data-scroll-target="#imagej-packages">ImageJ packages</a></li>
+  <li><a href="#another-subtitle." id="toc-another-subtitle." class="nav-link" data-scroll-target="#another-subtitle.">Another subtitle.</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">ImageJ Packages</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Marcelo Rosales </p>
+          </div>
   </div>
     
   
-  <div class="quarto-title-meta">
-
-      
     
-      
-    </div>
-    
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(4)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(2)</span></div><div class="category" data-category="quarto">quarto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="templates">templates <span class="quarto-category-count">(1)</span></div><div class="category" data-category="website">website <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+</header>
+
+<section id="imagej-packages" class="level2">
+<h2 class="anchored" data-anchor-id="imagej-packages">ImageJ packages</h2>
+<p>How to manage Packes.</p>
+</section>
+<section id="another-subtitle." class="level2">
+<h2 class="anchored" data-anchor-id="another-subtitle.">Another subtitle.</h2>
+<p>Text</p>
 
 
+</section>
 
-
-<p>This file is the the “main page” i will called it “landing page” for the blogs.<br>
-this files is in: ~/Documents/GitHub/Quarto/quarto-trials/quarto_website. =&gt; Can I place this file directly into the posts folder??</p>
-<p>All subsequent blog files need to be saved in the posts folder.<br>
-The yml in this file will direct to the folder and the way is displayed.　 In other words, the yml section, the listing for this page comes from the contenst in the foldes posts…“contents: posts”</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="quarto,code,website" data-listing-date-sort="1679238000000" data-listing-file-modified-sort="1679299912506" data-listing-reading-time-sort="9.72">
-<div class="thumbnail">
-<a href="./posts/quarto_start.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/quarto_start.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/quarto_start.html">
-<h3 class="no-anchor listing-title">
-Starting with quarto
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('quarto'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('website'); return false;">
-website
-</div>
-</div>
-<a href="./posts/quarto_start.html">
-<div class="listing-description">
-<p>how to start with quarto for documentation</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/quarto_start.html">
-<div class="listing-date">
-Mar 20, 2023
-</div>
-<div class="listing-author">
-Marcelo Rosales
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="quarto,code,templates" data-listing-date-sort="1678892400000" data-listing-file-modified-sort="1678948985556" data-listing-reading-time-sort="0.475">
-<div class="thumbnail">
-<a href="./posts/Quarto_templates.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/Quarto_templates.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/Quarto_templates.html">
-<h3 class="no-anchor listing-title">
-Jolla template
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('quarto'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('templates'); return false;">
-templates
-</div>
-</div>
-<a href="./posts/Quarto_templates.html">
-<div class="listing-description">
-<p>quarto templates</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/Quarto_templates.html">
-<div class="listing-date">
-Mar 16, 2023
-</div>
-<div class="listing-author">
-Marcelo Rosales
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="news,code,analysis" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678696220589" data-listing-reading-time-sort="0.035">
-<div class="thumbnail">
-<p><a href="./posts/2adPost.html"> <img src="./posts/images/image-179419747.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2adPost.html">
-<h3 class="no-anchor listing-title">
-This is the title of the post
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-</div>
-<a href="./posts/2adPost.html">
-<div class="listing-description">
-<p>Post description</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2adPost.html">
-<div class="listing-date">
-Mar 13, 2023
-</div>
-<div class="listing-author">
-Marcelo Rosales
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="news,code,analysis" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678696223890" data-listing-reading-time-sort="0.04">
-<div class="thumbnail">
-<p><a href="./posts/1stPost.html"> <img src="./posts/images/image-321642482.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/1stPost.html">
-<h3 class="no-anchor listing-title">
-Post With Code
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-</div>
-<a href="./posts/1stPost.html">
-<div class="listing-description">
-<p>Post description</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/1stPost.html">
-<div class="listing-date">
-Mar 13, 2023
-</div>
-<div class="listing-author">
-Marcelo Rosales
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,13 +1,5 @@
 [
   {
-    "listing": "/blog.html",
-    "items": [
-      "/posts/Quarto_templates.html",
-      "/posts/2adPost.html",
-      "/posts/1stPost.html"
-    ]
-  },
-  {
     "listing": "/files/Software/RStudio/index.html",
     "items": [
       "/files/Software/RStudio/R_Packages.html",
@@ -19,6 +11,15 @@
     "items": [
       "/files/Software/ImageJ/ImgJ_install.html",
       "/files/Software/ImageJ/ImgJ_Packages.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/quarto_start.html",
+      "/posts/Quarto_templates.html",
+      "/posts/2adPost.html",
+      "/posts/1stPost.html"
     ]
   }
 ]
