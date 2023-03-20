@@ -176,6 +176,8 @@ import matplotlib.pyplot as plt
 
 ## Nav and sidebar
 
+Nav bar example use in this page
+
 ```{r, eval=FALSE}
 project:
   type: website
