@@ -59,7 +59,7 @@ plot(cars)
 
 for more info see [here](https://yihui.org/knitr/options/).
 
-**Seattle Precipitation by Day (2012 to 2016)**  
+**Seattle Precipitation by Day (2012 to 2016)**
 
 For ojs and pkp (public knowledge project) install packages first. follow this [pkp installation guide](https://typeset.io/resources/how-to-install-ojs-a-step-by-step-guide/)
 
@@ -84,7 +84,7 @@ Plot.plot({
 })
 ```
 
-**Air Quality**  
+**Air Quality**
 
 @fig-airquality further explores the impact of temperature on ozone level.
 
@@ -142,11 +142,11 @@ library(reticulate)
 
 ### Running Code summary
 
-Related to code and code chunks. 
+Related to code and code chunks.
 
 In yml sections:
 
-```
+```         
 ---
 format: 
   html: 
@@ -155,8 +155,10 @@ format:
     code-overflow: wrap
 ---
 ```
+
 In chuncks:
-```{}
+
+```         
 #| eval: false
 #| echo: false
 #| my-chunk, echo = FALSE, fig.width = 10,
@@ -172,7 +174,6 @@ import matplotlib.pyplot as plt
 
 1 + 1
 ```
-
 
 ## Nav and sidebar
 

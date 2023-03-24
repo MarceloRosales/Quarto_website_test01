@@ -1,0 +1,404 @@
+---
+title: "R and Rstudio Install, setup and Package Management"
+description: "How to install and upgrade R and RStudio"
+author: "Marcelo Rosales"
+date: "2023/03/24"
+categories:
+  - R
+  - RStudio
+  - Install
+  - Rpackage
+format: 
+  html: 
+    code-fold: false
+    code-copy: true
+    code-overflow: wrap
+---
+
+## Installing/Upgarading R and RStudio
+
+References Pages to visit first:\
+[Painless way to install a new version of R?](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r)\
+[How to migrate Rstudio files and installed packages ( by version to a new computer )](https://stackoverflow.com/questions/67660414/how-to-migrate-rstudio-files-and-installed-packages-by-version-to-a-new-comput)\
+[An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way)\
+[Loading packages: the difference between R's library() and require() functions](https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/)\
+[Bioconductor](https://www.bioconductor.org/install/)\
+[Install/Update R and R packages](https://yiweiniu.github.io/blog/2019/07/Install-Update-R-and-R-packages/)\
+[restore all R packages after installing a new version of R?](https://stackoverflow.com/questions/65817504/restore-all-r-packages-after-installing-a-new-version-of-r)\
+[How to Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2015/06/how-to-upgrade-r-without-losing-your-packages/)\
+[Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/)\
+[Update and migrate R](https://gist.github.com/arcaravaggi/20acc42e3e245cc268a95269de024b2d)\
+[Profiles package](https://github.com/jmgirard/profiles)\
+[Rprofile.site file example for Startup customization](https://www.statmethods.net/interface/customizing.html)\
+[Managing R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf)
+
+Trick for doing the upgrade, from installing the software to copying all the settings/packages over?First you install the new version, then run this in the old version:
+
+### Run in the old version of R
+
+```{r}
+#| eval: false  
+setwd("C:/Temp/")
+packages <- installed.packages()[,"Package"]
+save(packages, file="Rpackages")
+```
+
+Followed by this in the new version:
+
+### Run in the new version
+
+```{r}
+#| eval: false  
+setwd("C:/Temp/")
+load("Rpackages")
+for (p in setdiff(packages, installed.packages()[,"Package"]))
+install.packages(p)
+```
+
+### For windows
+
+Using Installr
+
+```{r}
+#| eval: false  
+
+#From https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r
+
+# Run in the old version of R (or via RStudio)
+setwd("C:/Temp/") 
+packages <- installed.packages()[,"Package"] 
+save(packages, file="Rpackages") 
+
+# INSTALL NEW R VERSION
+if(!require(installr)) { install.packages("installr"); require(installr)} #load / install+load installr
+# See here for more on installr: https://www.r-statistics.com/2013/03/updating-r-from-r-on-windows-using-the-installr-package/  
+
+# step by step functions:
+check.for.updates.R() # tells you if there is a new version of R or not.
+install.R() # download and run the latest R installer... This install.R seems to be a windows only command. 
+
+# Install library - run in the new version of R. This calls package names and installs them from repos, thus all packages should be correct to the most recent version
+setwd("C:/Temp/") 
+load("Rpackages") 
+for (p in setdiff(packages, installed.packages()[,"Package"])) 
+install.packages(p) 
+
+# Installr includes a package migration tool but this simply copies packages, it does not update them
+copy.packages.between.libraries() # copy your packages to the newest R installation from the one version before it (if ask=T, it will ask you between which two versions to perform the copying)
+```
+
+## Upgrading R on Windows and Mac
+
+https://www.r-statistics.com/tag/installr/ 
+
+### Windows
+
+If you are using **Windows** you can easily upgrade to the latest version of R using the installr package. Simply run the following code in Rgui:
+
+```{r}
+#| eval: false  
+
+install.packages("installr") # install 
+setInternet2(TRUE) # only for R versions older than 3.3.0
+installr::updateR() # updating R.
+# If you wish it to go faster, run: installr::updateR(T)
+```
+
+Running "updateR()" will detect if there is a new R version available, and if so it will download+install it (etc.). There is also a step by step tutorial (with screenshots) on how to upgrade R on Windows, using the installr package. If you only see the option to upgrade to an older version of R, then change your mirror or try again in a few hours (it usually take around 24 hours for all CRAN mirrors to get the latest version of R).
+
+### Mac
+
+If you are using **Mac** you can easily upgrade to the latest version of R using Andrea Cirillo's updateR package. The package is not on CRAN, so you'll need to run the following code in Rgui:
+
+```{r}
+#| eval: false  
+
+install.packages("devtools")
+devtools::install_github("AndreaCirilloAC/updateR")
+updateR(admin_password = "PASSWORD") # Where "PASSWORD" stands for your system password
+```
+
+MBP15 The downloaded source packages are in **"/private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages"** MBP20 The downloaded binary packages are in **/var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages**
+
+Option 1
+
+[Painless way to install a new version of R?](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r)
+
+Files are `.rda`
+
+```{r}
+#| eval: false  
+#--run in the old version of R
+setwd("C:/Temp/")
+packages <- installed.packages()[,"Package"]
+save(packages, file="Rpackages")
+
+#--run in the new version
+setwd("C:/Temp/")
+load("Rpackages")
+for (p in setdiff(packages, installed.packages()[,"Package"]))
+install.packages(p)
+
+
+#-----
+
+# Just for completeness, you can save your packages in another directory on your computer.
+install.packages("thepackage",lib="/path/to/directory/with/libraries")
+#You can change the default .Library value using the function .libPaths too
+.libPaths("/path/to/directory/with/libraries")
+
+# -----
+
+#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R versionbusing an .RData file containing an updated list with all packages.
+
+library(utils)
+
+## Check necessary packages
+load("G:\Setinfo\R\packagelist.RData") # includes a vector "pkgs"
+installed <- pkgs %in% installed.packages()[, 'Package']
+if (length(pkgs[!installed]) >=1){
+  install.packages(pkgs[!installed])
+}
+# I make the packagelist.RData by specifying .Last() in my Rprofile.site. This updates the package list if I installed some :
+
+.Last <- function(){
+  pkgs <- installed.packages()[,1]
+  if (length(pkgs) > length(installed)){
+    save(pkgs,file="G:\Setinfo\R\packagelist.RData")
+  }
+}
+
+```
+
+Option 2:\
+[How to migrate Rstudio files and installed packages ( by version to a new computer )](https://stackoverflow.com/questions/67660414/how-to-migrate-rstudio-files-and-installed-packages-by-version-to-a-new-comput)\
+
+Save as `.csv files`.\
+Or `.xlsx files`.\
+
+```{r}
+#| eval: false  
+
+getwd()
+setwd()
+# /Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/file_name.csv  
+
+installed <- as.data.frame(installed.packages())
+write.csv(installed, 'installed_previously.csv') # Path/to/folder/installed_previously.csv 
+installedPreviously <- read.csv('installed_previously.csv') # Path/to/folder/installed_previously.csv 
+baseR <- as.data.frame(installed.packages())
+toInstall <- setdiff(installedPreviously, baseR)
+
+# the first thing to do would be to make sure that the set of currently installed packages is up-to-date. 
+
+update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
+  new_pacs <- paste( setdiff( installedPreviously$Package, baseR$Package), 
+                       collapse=",")
+  install.packages( new_pacs, dependencies=TRUE)
+
+# For excel files, requires: 
+install.packages("writexl")
+library("writexl")
+write_xlsx(the_dataframe_name,"path/to/folder/file_name.xlsx")
+  
+```
+
+## An efficient way to istall and load R packages
+
+[An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way)\
+
+### Inefficient way to install and load R packages:\
+
+```{r}
+#| eval: false
+# Installation of required packages
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("readxl")
+install.packages("dplyr")
+
+# Load packages
+library("tidyverse")
+library("ggplot2")
+library("readxl")
+library("dplyr")
+```
+
+### More efficient way
+
+```{r}
+#| eval: false
+
+# Package names
+packages <- c("ggplot2", "readxl", "dplyr", "tidyr", ...)
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+### Most efficient way
+
+`{pacman} package`\
+After this article was published, a reader informed me about the {pacman} package. After having read the documentation and try it out myself, I learned that the function p_load() from {pacman} checks to see if a package is installed, if not it attempts to install the package and then loads it. It can also be applied to several packages at once, all this in a very condensed way:
+
+```{r}
+#| eval: false
+install.packages("pacman")
+
+pacman::p_load(ggplot2, tidyr, dplyr)
+
+## Make sure your current packages are up to date
+update.packages()
+## devtools is required
+library(devtools)
+install_github("trinker/pacman")
+
+```
+
+Find more about this package on [CRAN](https://github.com/trinker/pacman). [Introduction to the pacman Package in R (3 Examples)](https://statisticsglobe.com/pacman-r-package)\
+
+`{librarian} package`\
+Like `{pacman}`, the `shelf()` function from the `{librarian}` package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor's Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no "" around package names).\
+
+Last but not least, the `{librarian}` package allows to load packages automatically at the start of every R session (thanks to the `lib_startup()` function) and search for new packages on CRAN by keywords or regular expressions (thanks to the `browse_cran()` function).\
+
+Here is an example of how to install missing packages and load them with the `shelf()` function:
+
+```{r}
+#| eval: false
+
+# From CRAN:
+install.packages("librarian")
+
+librarian::shelf(ggplot2, DesiQuintans / desiderata, pander)
+```
+
+For CRAN packages, provide the package name as normal without "" and for GitHub packages, provide the username and package name separated by / (i.e., UserName/RepoName as shown for the desiderata package).
+
+Find more about this package on CRAN.
+
+## Location of the R packages
+
+
+```{bash}
+#| eval: false
+#| code-overflow: wrap
+#| 
+# _> In Terminal
+
+# MBP15: The downloaded source packages are in:
+open /private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages 
+
+# MBP20: The downloaded binary packages are in:
+open  /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages 
+
+```
+
+
+## Summary
+
+#### Saved installed packages
+
+```{r}
+#| eval: false
+#| 
+# 20230324
+# Update current packages.
+update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
+
+# Upgrade packages of Bioconductor
+# Install packages from a newer version of Bioconductor.
+# https://www.bioconductor.org/install/ 
+
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.16")
+
+#--run in the old version of R
+# MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")
+RSpacks230324MBP15 <- installed.packages()[,"Package"]
+save(RSpacks230324MBP15, file="/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15")
+
+#--run in the new version
+# MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")
+
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15")
+for (p in setdiff(RSpacks230324MBP15, installed.packages()[,"Package"]))
+  install.packages(p)
+```
+
+#### Copy/Paste Rstudio global settings and preferences if necessary.
+
+```{bash}
+#| eval: false
+#| 
+# Copy/Paste Rstudio global settings and preferences.. 
+
+# In terminal _> 
+open ~/.config/rstudio
+
+# Search and Copy file to same place as packages files. 
+rstudio-prefs.json
+```
+
+#### Brew cask upgrade R and Rstudio.
+
+```{bash}
+#| eval: false
+#| 
+# IN _> Upgrade R and rstudio
+brew update
+brew upgrade --cask r
+# password
+#`brew cleanup` has not been run in the last 30 days, running now...
+
+# Upgrade RStudio
+brew upgrade --cask rstudio
+
+# Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. 
+rstudio-prefs.json
+
+```
+
+#### Errors and trouble shooting. 
+
+When opening R new version... an error message is displayed. 
+
+```{bash}
+#| code-block-bg: false
+#| code-block-border-left: "#31BAE9"
+#| eval: false
+
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+[R.app GUI 1.79 (8198) x86_64-apple-darwin17.0]
+
+WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.
+Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
+```
+
+A solution:
+For english:
+[Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c)  
+
+```{bash}
+#| eval: false
+defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
+defaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示
+```
+
+[For Japanese:](https://maku77.github.io/r/basic/locale.html).  \
+
+
+
+

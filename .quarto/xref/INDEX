@@ -58,5 +58,8 @@
   },
   "posts/quarto_start.qmd": {
     "quarto_start.html": "23ee1345"
+  },
+  "posts/RStudio_install.qmd": {
+    "RStudio_install.html": "2f491c60"
   }
 }
