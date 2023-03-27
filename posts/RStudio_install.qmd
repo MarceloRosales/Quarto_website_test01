@@ -286,7 +286,7 @@ Find more about this package on CRAN.
 ## Location of the R packages
 
 
-```{bash}
+```{r}
 #| eval: false
 #| code-overflow: wrap
 #| 
@@ -335,7 +335,7 @@ for (p in setdiff(RSpacks230324MBP15, installed.packages()[,"Package"]))
 
 #### Copy/Paste Rstudio global settings and preferences if necessary.
 
-```{bash}
+```{r}
 #| eval: false
 #| 
 # Copy/Paste Rstudio global settings and preferences.. 
@@ -349,7 +349,7 @@ rstudio-prefs.json
 
 #### Brew cask upgrade R and Rstudio.
 
-```{bash}
+```{r}
 #| eval: false
 #| 
 # IN _> Upgrade R and rstudio
@@ -370,7 +370,7 @@ rstudio-prefs.json
 
 When opening R new version... an error message is displayed. 
 
-```{bash}
+```{r}
 #| code-block-bg: false
 #| code-block-border-left: "#31BAE9"
 #| eval: false
@@ -391,7 +391,7 @@ A solution:
 For english:
 [Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c)  
 
-```{bash}
+```{r}
 #| eval: false
 defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
 defaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示
