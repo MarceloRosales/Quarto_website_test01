@@ -1,0 +1,64 @@
+---
+title: "GIT Management"
+description: "git and git commands"
+author: "Marcelo Rosales"
+date: "2023/03/27"
+categories:
+  - R
+  - version
+  - Git
+  - Rpackages
+format: 
+  html: 
+    code-fold: false
+    code-copy: true
+    code-overflow: wrap
+---
+
+## branch is ahead error
+
+```
+#| eval: false
+git add .
+git commit -m "python intsall"
+```
+remote: fatal error in commit_refs
+To https://github.com/MarceloRosales/Quarto_website_test01.git
+ ! [remote rejected] master -> master (failure)
+**error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**
+
+
+Solution:  
+
+> ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT  EVEN IF SAVED!!  SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING
+
+[git - Your branch is ahead of 'origin/master' by 1 commit](https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit){target="_blank"}
+
+git reset HEAD^ --soft (Save your changes, back to last commit)
+git reset HEAD^ --hard (Discard changes, back to last commit)
+
+
+[This one worked!!](https://www.nblog09.com/w/2019/01/24/git-ahead/){target="_blank"}
+
+```{}
+#| evaleval: false
+#| 
+git pull origin {branch name}
+git reset --hard origin/{branch name}
+git branch
+```
+
+```{}
+#| evaleval: false
+
+git pull     
+git merge 
+git pull origin
+git reset --hard origin/master
+# HEAD is now at 4fd3039 R, RStudio and packages upgrade
+git pull
+git push
+git add .
+git commit -m "message"
+git push
+```

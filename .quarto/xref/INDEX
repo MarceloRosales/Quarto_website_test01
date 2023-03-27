@@ -64,5 +64,8 @@
   },
   "posts/Python.qmd": {
     "Python.html": "cae917fc"
+  },
+  "posts/Git.qmd": {
+    "Git.html": "3211557d"
   }
 }

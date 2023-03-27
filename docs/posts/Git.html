@@ -8,9 +8,9 @@
 
 <meta name="author" content="Marcelo Rosales">
 <meta name="dcterms.date" content="2023-03-27">
-<meta name="description" content="How to install and upgrade Python pip">
+<meta name="description" content="git and git commands">
 
-<title>MySite - Python</title>
+<title>MySite - GIT Management</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,69 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -130,8 +67,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="MySite - Python">
-<meta property="og:description" content="How to install and upgrade Python pip">
+<meta property="og:title" content="MySite - GIT Management">
+<meta property="og:description" content="git and git commands">
 <meta property="og:site-name" content="MySite">
 </head>
 
@@ -233,14 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-python" id="toc-install-python" class="nav-link active" data-scroll-target="#install-python">Install python</a>
-  <ul class="collapse">
-  <li><a href="#install-python-with-brew" id="toc-install-python-with-brew" class="nav-link" data-scroll-target="#install-python-with-brew">Install python with brew</a></li>
-  <li><a href="#how-to-install-pip-on-mac" id="toc-how-to-install-pip-on-mac" class="nav-link" data-scroll-target="#how-to-install-pip-on-mac">How to Install Pip on Mac</a></li>
-  <li><a href="#install-pyenv-to-manage-python-versions" id="toc-install-pyenv-to-manage-python-versions" class="nav-link" data-scroll-target="#install-pyenv-to-manage-python-versions">Install pyenv to Manage Python Versions</a></li>
-  <li><a href="#set-python-to-local-or-global" id="toc-set-python-to-local-or-global" class="nav-link" data-scroll-target="#set-python-to-local-or-global">Set Python to Local or Global</a></li>
-  <li><a href="#install-jupiter" id="toc-install-jupiter" class="nav-link" data-scroll-target="#install-jupiter">Install Jupiter</a></li>
-  </ul></li>
+  <li><a href="#branch-is-ahead-error" id="toc-branch-is-ahead-error" class="nav-link active" data-scroll-target="#branch-is-ahead-error">branch is ahead error</a></li>
   </ul>
 </nav>
     </div>
@@ -249,17 +179,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python</h1>
+<h1 class="title">GIT Management</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Python</div>
-    <div class="quarto-category">Install</div>
-    <div class="quarto-category">Packages</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">version</div>
+    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Rpackages</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    How to install and upgrade Python pip
+    git and git commands
   </div>
 </div>
 
@@ -286,134 +217,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="install-python" class="level2">
-<h2 class="anchored" data-anchor-id="install-python">Install python</h2>
-<p>I first try:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install <span class="sc">--</span>upgrade</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ERROR<span class="sc">:</span> You must give at least one requirement to <span class="fu">install</span> (see <span class="st">"pip help install"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[notice] A new release of pip available<span class="sc">:</span> <span class="dv">22</span>.<span class="fl">2.1</span> <span class="ot">-&gt;</span> <span class="dv">23</span>.<span class="fl">0.1</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>[notice] To update, run<span class="sc">:</span> python3<span class="fl">.9</span> <span class="sc">-</span>m pip install <span class="sc">--</span>upgrade pip</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Then I tried</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>brew install python3.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Displayed: <strong>Warning:</strong> No available formula with the name “python3.”.<br>
-Did you mean python@3.9, python@3.8, python@3.7, python@3.11 or python@3.10?<br>
-==&gt; Searching for similarly named formulae and casks…<br>
-==&gt; Formulae boost-python3 python@3.10 ✔ python@3.11 python@3.7 python@3.8 python@3.9 ✔</p>
-<section id="install-python-with-brew" class="level3">
-<h3 class="anchored" data-anchor-id="install-python-with-brew">Install python with brew</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>brew install python<span class="sc">@</span><span class="fl">3.8</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Or version needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>However, this install all version of python.<br>
-==&gt; python@3.10 Python has been installed as /usr/local/bin/python3.10</p>
-<p>Unversioned and major-versioned symlinks <code>python</code>, <code>python3</code>, <code>python-config</code>, <code>python3-config</code>, <code>pip</code>, <code>pip3</code>, etc. pointing to <code>python3.10</code>, <code>python3.10-config</code>, <code>pip3.10</code> etc., respectively, have been installed into:<br>
-<code>/usr/local/opt/python@3.10/libexec/bin</code></p>
-<p>You can install Python packages with<br>
-<code>pip3.10 install &lt;package&gt;</code><br>
-They will install into the site-package directory:<br>
-/usr/local/lib/python3.10/site-packages</p>
-<p>tkinter is no longer included with this formula, but it is available separately:<br>
-<code>brew install python-tk\@3.10</code></p>
-<p>If you do not need a specific version of Python, and always want Homebrew’s <code>python3</code> in your PATH:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  brew install python3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>See: https://docs.brew.sh/Homebrew-and-Python</p>
-<p><strong>Warning:</strong> python@3.11 3.11.2_1 is already installed and up-to-date.</p>
-<p>python3.9 -m pip install –upgrade pip<br>
-pip install –upgrade pip<br>
-python –version<br>
-&gt;_Python 3.8.10</p>
-<p>pip3 –version<br>
-</p>
-<section id="a-single-command-to-run-python-3" class="level4">
-<h4 class="anchored" data-anchor-id="a-single-command-to-run-python-3">A Single Command to Run Python 3</h4>
-<p>For some of you reading this, this command may be enough. You can run Python 3 using this command (with the 3 at the end).<br>
-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>python3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>To exit python help window press ++Cnt+z++</strong></p>
-</section>
-</section>
-<section id="how-to-install-pip-on-mac" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-install-pip-on-mac">How to Install Pip on Mac</h3>
-<p><a href="https://phoenixnap.com/kb/install-pip-mac" target="_blank">link</a></p>
-<p>Pip is a package management system used for installing and managing Python software packages and libraries. The software and libraries are stored in a repository called the Python Package Index (PyPI).</p>
-<p><strong>Prerequisites:</strong></p>
-<ul>
-<li>A system running macOS</li>
-<li>Python installed</li>
-<li>A user account with administrator-level privileges</li>
-</ul>
-<section id="install-pip-on-macos-via-brew" class="level4">
-<h4 class="anchored" data-anchor-id="install-pip-on-macos-via-brew">Install Pip on macOS via brew</h4>
-<p>To install pip on macOS through Homebrew. Make sure you have Homebrew installed by running the following command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>brew install python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>The command installs the latest Python, pip, and setuptools.</strong></p>
-</section>
-<section id="install-pip-on-macos-via-get-pip.py" class="level4">
-<h4 class="anchored" data-anchor-id="install-pip-on-macos-via-get-pip.py">Install Pip on macOS via get-pip.py</h4>
-<p>Follow the steps below to install Pip:</p>
-<p>1. Press Command + Space Bar and type in Terminal. Click the app icon to open a new terminal window.<br>
-2. Check your Python version to make sure Python3 is installed: <code>python3 --version</code><br>
-3. Download pip by running the following command: <code>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code><br>
-The curl command allows you to specify a direct download link. Use the <code>-o</code> option to set the name of the downloaded file.<br>
-4. Install the downloaded package by running: <code>python3 get-pip.py</code><br>
-5. Verify Pip Installation: <code>pip --version</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>python3 <span class="sc">--</span>version</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>curl https<span class="sc">:</span><span class="er">//</span>bootstrap.pypa.io<span class="sc">/</span>get<span class="sc">-</span>pip.py <span class="sc">-</span>o get<span class="sc">-</span>pip.py</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>python3 get<span class="sc">-</span>pip.py</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pip <span class="sc">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="install-pyenv-to-manage-python-versions" class="level3">
-<h3 class="anchored" data-anchor-id="install-pyenv-to-manage-python-versions">Install pyenv to Manage Python Versions</h3>
-<p><a href="https://www.freecodecamp.org/news/python-version-on-mac-update/" target="_blank">link</a></p>
-<p>Run this command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>brew install pyenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="how-to-use-pyenv-to-install-python-or-update-your-python-version" class="level4">
-<h4 class="anchored" data-anchor-id="how-to-use-pyenv-to-install-python-or-update-your-python-version">How to Use pyenv to Install Python or Update Your Python Version</h4>
-<p>Now you just need to run the following command: pyenv install {# of the py version to install}</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pyenv install <span class="dv">3</span>.<span class="fl">9.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="set-python-to-local-or-global" class="level3">
-<h3 class="anchored" data-anchor-id="set-python-to-local-or-global">Set Python to Local or Global</h3>
-<p><a href="https://medium.com/@iamclement/how-to-install-jupyter-notebook-on-mac-using-homebrew-528c39fd530f" target="_blank">link</a></p>
-<p>If you only want to use Python 3.x for a specific project, then cd to your specific directory and type:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pyenv local <span class="fl">3.</span>x.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you’d prefer to just have Python 3.x installed globally throughout your operating system, then type:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pyenv global <span class="fl">3.</span>x.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="install-jupiter" class="level3">
-<h3 class="anchored" data-anchor-id="install-jupiter">Install Jupiter</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>brew install jupyter</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Jupyter</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>jupyter notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="branch-is-ahead-error" class="level2">
+<h2 class="anchored" data-anchor-id="branch-is-ahead-error">branch is ahead error</h2>
+<pre><code>#| eval: false
+git add .
+git commit -m "python intsall"</code></pre>
+<p>remote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! [remote rejected] master -&gt; master (failure) <strong>error: failed to push some refs to ‘https://github.com/MarceloRosales/Quarto_website_test01.git’</strong></p>
+<p>Solution:</p>
+<blockquote class="blockquote">
+<p>ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit" target="_blank">git - Your branch is ahead of ‘origin/master’ by 1 commit</a></p>
+<p>git reset HEAD^ –soft (Save your changes, back to last commit) git reset HEAD^ –hard (Discard changes, back to last commit)</p>
+<p><a href="https://www.nblog09.com/w/2019/01/24/git-ahead/" target="_blank">This one worked!!</a></p>
+<pre><code>#| evaleval: false
+#| 
+git pull origin {branch name}
+git reset --hard origin/{branch name}
+git branch</code></pre>
+<pre><code>#| evaleval: false
+
+git pull     
+git merge 
+git pull origin
+git reset --hard origin/master
+# HEAD is now at 4fd3039 R, RStudio and packages upgrade
+git pull
+git push
+git add .
+git commit -m "message"
+git push</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

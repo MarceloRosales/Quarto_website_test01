@@ -7,7 +7,7 @@ categories:
   - R
   - RStudio
   - Install
-  - Rpackage
+  - Rpackages
 format: 
   html: 
     code-fold: false
