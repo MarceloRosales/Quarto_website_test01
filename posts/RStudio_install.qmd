@@ -18,19 +18,19 @@ format:
 ## Installing/Upgarading R and RStudio
 
 References Pages to visit first:\
-[Painless way to install a new version of R?](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r)\
-[How to migrate Rstudio files and installed packages ( by version to a new computer )](https://stackoverflow.com/questions/67660414/how-to-migrate-rstudio-files-and-installed-packages-by-version-to-a-new-comput)\
-[An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way)\
-[Loading packages: the difference between R's library() and require() functions](https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/)\
-[Bioconductor](https://www.bioconductor.org/install/)\
-[Install/Update R and R packages](https://yiweiniu.github.io/blog/2019/07/Install-Update-R-and-R-packages/)\
-[restore all R packages after installing a new version of R?](https://stackoverflow.com/questions/65817504/restore-all-r-packages-after-installing-a-new-version-of-r)\
-[How to Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2015/06/how-to-upgrade-r-without-losing-your-packages/)\
-[Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/)\
-[Update and migrate R](https://gist.github.com/arcaravaggi/20acc42e3e245cc268a95269de024b2d)\
-[Profiles package](https://github.com/jmgirard/profiles)\
-[Rprofile.site file example for Startup customization](https://www.statmethods.net/interface/customizing.html)\
-[Managing R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf)
+[Painless way to install a new version of R?](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r){target="_blank"}\
+[How to migrate Rstudio files and installed packages ( by version to a new computer )](https://stackoverflow.com/questions/67660414/how-to-migrate-rstudio-files-and-installed-packages-by-version-to-a-new-comput){target="_blank"}\
+[An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way){target="_blank"}\
+[Loading packages: the difference between R's library() and require() functions](https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/){target="_blank"}\
+[Bioconductor](https://www.bioconductor.org/install/){target="_blank"}\
+[Install/Update R and R packages](https://yiweiniu.github.io/blog/2019/07/Install-Update-R-and-R-packages/){target="_blank"}\
+[restore all R packages after installing a new version of R?](https://stackoverflow.com/questions/65817504/restore-all-r-packages-after-installing-a-new-version-of-r){target="_blank"}\
+[How to Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2015/06/how-to-upgrade-r-without-losing-your-packages/){target="_blank"}\
+[Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/){target="_blank"}\
+[Update and migrate R](https://gist.github.com/arcaravaggi/20acc42e3e245cc268a95269de024b2d){target="_blank"}\
+[Profiles package](https://github.com/jmgirard/profiles){target="_blank"}\
+[Rprofile.site file example for Startup customization](https://www.statmethods.net/interface/customizing.html){target="_blank"}\
+[Managing R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf){target="_blank"}\
 
 Trick for doing the upgrade, from installing the software to copying all the settings/packages over?First you install the new version, then run this in the old version:
 
