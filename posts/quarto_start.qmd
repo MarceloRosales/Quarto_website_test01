@@ -61,7 +61,7 @@ for more info see [here](https://yihui.org/knitr/options/).
 
 **Seattle Precipitation by Day (2012 to 2016)**
 
-For ojs and pkp (public knowledge project) install packages first. follow this [pkp installation guide](https://typeset.io/resources/how-to-install-ojs-a-step-by-step-guide/)
+For ojs and pkp (public knowledge project) install packages first. follow this [pkp installation guide](https://typeset.io/resources/how-to-install-ojs-a-step-by-step-guide/){target="_blank"}.  \
 
 https://pkp.sfu.ca/software/ojs/download/
 
@@ -102,12 +102,31 @@ ggplot(airquality, aes(Temp, Ozone)) +
 
 For a demonstration of a line plot on a polar axis, see @fig-polar.
 
+
+> Make sure that the console in the r and not in Python. In the top label you will see either the R logo with > or the python logo with >>>, to exit python console press esc and you will go back to the R console. 
+
+```{r}
+library(reticulate)
+
+```
+
+```{}
+pip install numpy
+pip install matplotlib
+pip3 install numpy
+pip3 install matplotlib
+python3 -m pip install numpy
+python3.11 -m pip install --upgrade pip
+pip3.10 install numpy
+python3.10 -m pip install --upgrade pip
+```
+
+
 ```{python}
 #| label: fig-polar
 #| fig-cap: "A line plot on a polar axis"
 # Pre-intallation required through terminal:
-# pip install numpy
-# pip install matplotlib
+
 
 import numpy as np
 import matplotlib.pyplot as plt

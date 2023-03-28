@@ -89,7 +89,7 @@ copy.packages.between.libraries() # copy your packages to the newest R installat
 
 ## Upgrading R on Windows and Mac
 
-https://www.r-statistics.com/tag/installr/ 
+https://www.r-statistics.com/tag/installr/
 
 ### Windows
 
@@ -105,6 +105,10 @@ installr::updateR() # updating R.
 ```
 
 Running "updateR()" will detect if there is a new R version available, and if so it will download+install it (etc.). There is also a step by step tutorial (with screenshots) on how to upgrade R on Windows, using the installr package. If you only see the option to upgrade to an older version of R, then change your mirror or try again in a few hours (it usually take around 24 hours for all CRAN mirrors to get the latest version of R).
+
+Also chekck the video:\
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZKBeV4BNeuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Mac
 
@@ -149,7 +153,7 @@ install.packages("thepackage",lib="/path/to/directory/with/libraries")
 
 # -----
 
-#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R versionbusing an .RData file containing an updated list with all packages.
+#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R version by using an .RData file containing an updated list with all packages.
 
 library(utils)
 
@@ -266,6 +270,18 @@ Find more about this package on [CRAN](https://github.com/trinker/pacman). [Intr
 `{librarian} package`\
 Like `{pacman}`, the `shelf()` function from the `{librarian}` package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor's Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no "" around package names).\
 
+**Biobase: Base functions for Bioconductor**
+[DOI: 10.18129/B9.bioc.Biobase](https://bioconductor.org/packages/release/bioc/html/Biobase.html){target="_blank"}\
+Installation:\
+To install this package, start R (version "4.2") and enter:\
+```{r}
+#| eval: false
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("Biobase")
+```
+
 Last but not least, the `{librarian}` package allows to load packages automatically at the start of every R session (thanks to the `lib_startup()` function) and search for new packages on CRAN by keywords or regular expressions (thanks to the `browse_cran()` function).\
 
 Here is an example of how to install missing packages and load them with the `shelf()` function:
@@ -366,7 +382,11 @@ rstudio-prefs.json
 
 ```
 
-#### Errors and trouble shooting. 
+## Errors and trouble shooting. 
+
+### non-UTF8 locale error in R
+
+**WARNING: You're using a non-UTF8 locale**\
 
 When opening R new version... an error message is displayed. 
 
@@ -398,6 +418,20 @@ defaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示
 ```
 
 [For Japanese:](https://maku77.github.io/r/basic/locale.html).  \
+
+
+### There is already an App at '/Applications
+
+**Error: It seems there is already an App at '/Applications/Rstudio'**\
+[is it possible to override the legacy app when install using brew](https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew){targe="_blanck"}
+
+Some times is not possible to install, re-intall or upgrade a program via brew cos first installation was made manually (downloaded zip or tar files).\
+This leaves a "legacy" app. To fix it use the **`--force`** attribute while installing 
+
+```{r}
+#| eval: false
+brew install --cask rstudio --force
+```
 
 
 

@@ -253,6 +253,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#location-of-the-r-packages" id="toc-location-of-the-r-packages" class="nav-link" data-scroll-target="#location-of-the-r-packages">Location of the R packages</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#errors-and-trouble-shooting." id="toc-errors-and-trouble-shooting." class="nav-link" data-scroll-target="#errors-and-trouble-shooting.">Errors and trouble shooting.</a>
+  <ul class="collapse">
+  <li><a href="#non-utf8-locale-error-in-r" id="toc-non-utf8-locale-error-in-r" class="nav-link" data-scroll-target="#non-utf8-locale-error-in-r">non-UTF8 locale error in R</a></li>
+  <li><a href="#there-is-already-an-app-at-applications" id="toc-there-is-already-an-app-at-applications" class="nav-link" data-scroll-target="#there-is-already-an-app-at-applications">There is already an App at ’/Applications</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -367,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="upgrading-r-on-windows-and-mac" class="level2">
 <h2 class="anchored" data-anchor-id="upgrading-r-on-windows-and-mac">Upgrading R on Windows and Mac</h2>
-<p>https://www.r-statistics.com/tag/installr/&nbsp;</p>
+<p>https://www.r-statistics.com/tag/installr/</p>
 <section id="windows" class="level3">
 <h3 class="anchored" data-anchor-id="windows">Windows</h3>
 <p>If you are using <strong>Windows</strong> you can easily upgrade to the latest version of R using the installr package. Simply run the following code in Rgui:</p>
@@ -378,6 +383,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If you wish it to go faster, run: installr::updateR(T)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Running “updateR()” will detect if there is a new R version available, and if so it will download+install it (etc.). There is also a step by step tutorial (with screenshots) on how to upgrade R on Windows, using the installr package. If you only see the option to upgrade to an older version of R, then change your mirror or try again in a few hours (it usually take around 24 hours for all CRAN mirrors to get the latest version of R).</p>
+<p>Also chekck the video:<br>
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZKBeV4BNeuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
 </section>
 <section id="mac" class="level3">
 <h3 class="anchored" data-anchor-id="mac">Mac</h3>
@@ -413,7 +422,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># -----</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R versionbusing an .RData file containing an updated list with all packages.</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R version by using an .RData file containing an updated list with all packages.</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(utils)</span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -520,14 +529,24 @@ After this article was published, a reader informed me about the {pacman} packag
 <p><code>{librarian} package</code><br>
 Like <code>{pacman}</code>, the <code>shelf()</code> function from the <code>{librarian}</code> package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor’s Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no “” around package names).<br>
 </p>
+<p><strong>Biobase: Base functions for Bioconductor</strong> <a href="https://bioconductor.org/packages/release/bioc/html/Biobase.html" target="_blank">DOI: 10.18129/B9.bioc.Biobase</a><br>
+Installation:<br>
+To install this package, start R (version “4.2”) and enter:<br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Biobase"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Last but not least, the <code>{librarian}</code> package allows to load packages automatically at the start of every R session (thanks to the <code>lib_startup()</code> function) and search for new packages on CRAN by keywords or regular expressions (thanks to the <code>browse_cran()</code> function).<br>
 </p>
 <p>Here is an example of how to install missing packages and load them with the <code>shelf()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From CRAN:</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"librarian"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(ggplot2, DesiQuintans <span class="sc">/</span> desiderata, pander)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From CRAN:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"librarian"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(ggplot2, DesiQuintans <span class="sc">/</span> desiderata, pander)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For CRAN packages, provide the package name as normal without “” and for GitHub packages, provide the username and package name separated by / (i.e., UserName/RepoName as shown for the desiderata package).</p>
 <p>Find more about this package on CRAN.</p>
@@ -536,13 +555,13 @@ Like <code>{pacman}</code>, the <code>shelf()</code> function from the <code>{li
 <section id="location-of-the-r-packages" class="level2">
 <h2 class="anchored" data-anchor-id="location-of-the-r-packages">Location of the R packages</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _&gt; In Terminal</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: The downloaded source packages are in:</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>open <span class="sc">/</span>private<span class="sc">/</span>var<span class="sc">/</span>folders<span class="sc">/</span>xc<span class="sc">/</span>rxn5vywj3lvd_qt78ss92cc80000gn<span class="sc">/</span>T<span class="sc">/</span>Rtmp8TJvA5<span class="sc">/</span>downloaded_packages </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: The downloaded binary packages are in:</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>open  <span class="sc">/</span>var<span class="sc">/</span>folders<span class="sc">/</span>1v<span class="sc">/</span>nbx_5tgn553dq8s639lyln5c0000gn<span class="sc">/</span>T<span class="sc">/</span><span class="er">/</span>Rtmp8AkWwy<span class="sc">/</span>downloaded_packages </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _&gt; In Terminal</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: The downloaded source packages are in:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>open <span class="sc">/</span>private<span class="sc">/</span>var<span class="sc">/</span>folders<span class="sc">/</span>xc<span class="sc">/</span>rxn5vywj3lvd_qt78ss92cc80000gn<span class="sc">/</span>T<span class="sc">/</span>Rtmp8TJvA5<span class="sc">/</span>downloaded_packages </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: The downloaded binary packages are in:</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>open  <span class="sc">/</span>var<span class="sc">/</span>folders<span class="sc">/</span>1v<span class="sc">/</span>nbx_5tgn553dq8s639lyln5c0000gn<span class="sc">/</span>T<span class="sc">/</span><span class="er">/</span>Rtmp8AkWwy<span class="sc">/</span>downloaded_packages </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="summary" class="level2">
@@ -550,81 +569,96 @@ Like <code>{pacman}</code>, the <code>shelf()</code> function from the <code>{li
 <section id="saved-installed-packages" class="level4">
 <h4 class="anchored" data-anchor-id="saved-installed-packages">Saved installed packages</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 20230324</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Update current packages.</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">checkBuilt=</span><span class="cn">TRUE</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)  <span class="co">#check spelling of arguments</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade packages of Bioconductor</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages from a newer version of Bioconductor.</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.bioconductor.org/install/ </span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="at">version =</span> <span class="st">"3.16"</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#--run in the old version of R</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>RSpacks230324MBP15 <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(RSpacks230324MBP15, <span class="at">file=</span><span class="st">"/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15"</span>)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#--run in the new version</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15"</span>)</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="fu">setdiff</span>(RSpacks230324MBP15, <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]))</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 20230324</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Update current packages.</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">checkBuilt=</span><span class="cn">TRUE</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)  <span class="co">#check spelling of arguments</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade packages of Bioconductor</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages from a newer version of Bioconductor.</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.bioconductor.org/install/ </span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="at">version =</span> <span class="st">"3.16"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#--run in the old version of R</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>RSpacks230324MBP15 <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(RSpacks230324MBP15, <span class="at">file=</span><span class="st">"/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15"</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">#--run in the new version</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15"</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="fu">setdiff</span>(RSpacks230324MBP15, <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]))</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="copypaste-rstudio-global-settings-and-preferences-if-necessary." class="level4">
 <h4 class="anchored" data-anchor-id="copypaste-rstudio-global-settings-and-preferences-if-necessary.">Copy/Paste Rstudio global settings and preferences if necessary.</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy/Paste Rstudio global settings and preferences.. </span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In terminal _&gt; </span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>open <span class="sc">~</span><span class="er">/</span>.config<span class="sc">/</span>rstudio</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Search and Copy file to same place as packages files. </span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>rstudio<span class="sc">-</span>prefs.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy/Paste Rstudio global settings and preferences.. </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In terminal _&gt; </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>open <span class="sc">~</span><span class="er">/</span>.config<span class="sc">/</span>rstudio</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Search and Copy file to same place as packages files. </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>rstudio<span class="sc">-</span>prefs.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="brew-cask-upgrade-r-and-rstudio." class="level4">
 <h4 class="anchored" data-anchor-id="brew-cask-upgrade-r-and-rstudio.">Brew cask upgrade R and Rstudio.</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IN _&gt; Upgrade R and rstudio</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>brew update</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>brew upgrade <span class="sc">--</span>cask r</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># password</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#`brew cleanup` has not been run in the last 30 days, running now...</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade RStudio</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>brew upgrade <span class="sc">--</span>cask rstudio</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. </span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>rstudio<span class="sc">-</span>prefs.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IN _&gt; Upgrade R and rstudio</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>brew update</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>brew upgrade <span class="sc">--</span>cask r</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># password</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#`brew cleanup` has not been run in the last 30 days, running now...</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade RStudio</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>brew upgrade <span class="sc">--</span>cask rstudio</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. </span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>rstudio<span class="sc">-</span>prefs.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="errors-and-trouble-shooting." class="level4">
-<h4 class="anchored" data-anchor-id="errors-and-trouble-shooting.">Errors and trouble shooting.</h4>
+</section>
+<section id="errors-and-trouble-shooting." class="level2">
+<h2 class="anchored" data-anchor-id="errors-and-trouble-shooting.">Errors and trouble shooting.</h2>
+<section id="non-utf8-locale-error-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="non-utf8-locale-error-in-r">non-UTF8 locale error in R</h3>
+<p><strong>WARNING: You’re using a non-UTF8 locale</strong><br>
+</p>
 <p>When opening R new version… an error message is displayed.</p>
 <div class="cell" data-code-block-bg="false" data-code-block-border-left="#31BAE9">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>During startup <span class="sc">-</span> Warning messages<span class="sc">:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span> Setting LC_CTYPE failed, using <span class="st">"C"</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">:</span> Setting LC_COLLATE failed, using <span class="st">"C"</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">:</span> Setting LC_TIME failed, using <span class="st">"C"</span> </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">:</span> Setting LC_MESSAGES failed, using <span class="st">"C"</span> </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">:</span> Setting LC_MONETARY failed, using <span class="st">"C"</span> </span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>[R.app GUI <span class="fl">1.79</span> (<span class="dv">8198</span>) x86_64<span class="sc">-</span>apple<span class="sc">-</span>darwin17<span class="fl">.0</span>]</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>WARNING<span class="sc">:</span> You<span class="st">'re using a non-UTF8 locale, therefore only ASCII characters will work.</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="st">Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>During startup <span class="sc">-</span> Warning messages<span class="sc">:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span> Setting LC_CTYPE failed, using <span class="st">"C"</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">:</span> Setting LC_COLLATE failed, using <span class="st">"C"</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">:</span> Setting LC_TIME failed, using <span class="st">"C"</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">:</span> Setting LC_MESSAGES failed, using <span class="st">"C"</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">:</span> Setting LC_MONETARY failed, using <span class="st">"C"</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>[R.app GUI <span class="fl">1.79</span> (<span class="dv">8198</span>) x86_64<span class="sc">-</span>apple<span class="sc">-</span>darwin17<span class="fl">.0</span>]</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>WARNING<span class="sc">:</span> You<span class="st">'re using a non-UTF8 locale, therefore only ASCII characters will work.</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="st">Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A solution: For english: <a href="https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c">Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using “C”</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>defaults write org.R<span class="sc">-</span>project.R force.LANG en_US.UTF<span class="dv">-8</span>  <span class="co"># 英語表示</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>defaults write org.R<span class="sc">-</span>project.R force.LANG ja_JP.UTF<span class="dv">-8</span>  <span class="co"># 日本語表示</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>defaults write org.R<span class="sc">-</span>project.R force.LANG en_US.UTF<span class="dv">-8</span>  <span class="co"># 英語表示</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>defaults write org.R<span class="sc">-</span>project.R force.LANG ja_JP.UTF<span class="dv">-8</span>  <span class="co"># 日本語表示</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://maku77.github.io/r/basic/locale.html">For Japanese:</a>.<br>
 </p>
+</section>
+<section id="there-is-already-an-app-at-applications" class="level3">
+<h3 class="anchored" data-anchor-id="there-is-already-an-app-at-applications">There is already an App at ’/Applications</h3>
+<p><strong>Error: It seems there is already an App at ‘/Applications/Rstudio’</strong><br>
+<a href="https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew" data-targe="_blanck">is it possible to override the legacy app when install using brew</a></p>
+<p>Some times is not possible to install, re-intall or upgrade a program via brew cos first installation was made manually (downloaded zip or tar files).<br>
+This leaves a “legacy” app. To fix it use the <strong><code>--force</code></strong> attribute while installing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>brew install <span class="sc">--</span>cask rstudio <span class="sc">--</span>force</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
