@@ -233,8 +233,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#git-commands" id="toc-git-commands" class="nav-link active" data-scroll-target="#git-commands">Git Commands</a></li>
-  <li><a href="#branch-is-ahead-error" id="toc-branch-is-ahead-error" class="nav-link" data-scroll-target="#branch-is-ahead-error">branch is ahead error</a></li>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link active" data-scroll-target="#install-git">Install git</a></li>
+  <li><a href="#git-commands" id="toc-git-commands" class="nav-link" data-scroll-target="#git-commands">Git Commands</a></li>
+  <li><a href="#branch-is-ahead-error" id="toc-branch-is-ahead-error" class="nav-link" data-scroll-target="#branch-is-ahead-error">Branch is ahead error</a></li>
   </ul>
 </nav>
     </div>
@@ -281,10 +282,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="install-git" class="level2">
+<h2 class="anchored" data-anchor-id="install-git">Install git</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="git-commands" class="level2">
 <h2 class="anchored" data-anchor-id="git-commands">Git Commands</h2>
-<p><a href="https://education.github.com/git-cheat-sheet-education.pdf">Git cheat sheet</a>{traget=“_blank} <a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf">Git cheat sheet2</a>{traget=“_blank} <a href="" data-traget="&quot;_blank">Git cheat sheet3</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name “Your Name”</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank">Git cheat sheet</a><br>
+<a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf" target="_blank">Git cheat sheet2</a><br>
+<a href="https://github.com/WebDevStudios/CLI-Cheat-Sheet/blob/master/git-commands.md" target="_blank">Git cheat sheet3</a><br>
+<a href="https://gist.github.com/akras14/3d242d80af8388ebca60" target="_blank">Git cheat sheet4</a><br>
+<a href="" target="_blank">Git cheat sheet3</a></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
@@ -305,35 +313,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 <section id="branch-is-ahead-error" class="level2">
-<h2 class="anchored" data-anchor-id="branch-is-ahead-error">branch is ahead error</h2>
-<pre><code>#| eval: false
-git add .
-git commit -m "python intsall"</code></pre>
-<p>remote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! [remote rejected] master -&gt; master (failure) <strong>error: failed to push some refs to ‘https://github.com/MarceloRosales/Quarto_website_test01.git’</strong></p>
+<h2 class="anchored" data-anchor-id="branch-is-ahead-error">Branch is ahead error</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"python intsall"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>error message</strong></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! <span class="dt">\[</span>remote rejected<span class="dt">\]</span> master <span class="at">-</span><span class="op">&gt;</span> master <span class="er">(</span><span class="ex">failure</span><span class="kw">)</span> <span class="ex">**error:</span> failed to push some refs to <span class="st">'https://github.com/MarceloRosales/Quarto_website_test01.git'</span><span class="pp">**</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Solution:</p>
 <blockquote class="blockquote">
-<p>ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING</p>
+<p>ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.</p>
 </blockquote>
 <p><a href="https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit" target="_blank">git - Your branch is ahead of ‘origin/master’ by 1 commit</a></p>
-<p>git reset HEAD^ –soft (Save your changes, back to last commit) git reset HEAD^ –hard (Discard changes, back to last commit)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD^ <span class="at">--soft</span> <span class="er">(</span><span class="ex">Save</span> your changes, back to last commit<span class="kw">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD^ <span class="at">--hard</span> <span class="er">(</span><span class="ex">Discard</span> changes, back to last commit<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><a href="https://www.nblog09.com/w/2019/01/24/git-ahead/" target="_blank">This one worked!!</a></p>
-<pre><code>#| evaleval: false
-#| 
-git pull origin {branch name}
-git reset --hard origin/{branch name}
-git branch</code></pre>
-<pre><code>#| evaleval: false
-
-git pull     
-git merge 
-git pull origin
-git reset --hard origin/master
-# HEAD is now at 4fd3039 R, RStudio and packages upgrade
-git pull
-git push
-git add .
-git commit -m "message"
-git push</code></pre>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin {branch name}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> origin/{branch name}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode .bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull     </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> origin/master</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># HEAD is now at 4fd3039 R, RStudio and packages upgrade</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

@@ -15,20 +15,21 @@ format:
     code-overflow: wrap
 ---
 
-## Git Commands
+## Install git
 
-[Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf){traget="_blank}
-[Git cheat sheet2](https://about.gitlab.com/images/press/git-cheat-sheet.pdf){traget="_blank}
-[Git cheat sheet3](  ){traget="_blank}
-
-```{.bash}
-git config --global user.name “Your Name”
+``` bash
+brew install git   
 ```
 
+## Git Commands
 
+[Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf){target="_blank"}\
+[Git cheat sheet2](https://about.gitlab.com/images/press/git-cheat-sheet.pdf){target="_blank"}\
+[Git cheat sheet3](https://github.com/WebDevStudios/CLI-Cheat-Sheet/blob/master/git-commands.md){target="_blank"}\
+[Git cheat sheet4](https://gist.github.com/akras14/3d242d80af8388ebca60){target="_blank"}\
+[Git cheat sheet3](){target="_blank"}
 
-
-```{.bash filename="Terminal"}
+``` {.bash filename="Terminal"}
 
 git init
 git clone [url]
@@ -42,46 +43,39 @@ git checkout
 git commit -m "[message]"
 git push
 git pull
-
 ```
 
+## Branch is ahead error
 
-## branch is ahead error
-
-```
-#| eval: false
+``` {.bash}
 git add .
 git commit -m "python intsall"
 ```
-remote: fatal error in commit_refs
-To https://github.com/MarceloRosales/Quarto_website_test01.git
- ! [remote rejected] master -> master (failure)
-**error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**
 
+```{.bash filename="error message"}
+remote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \[remote rejected\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**
+```
 
-Solution:  
+Solution:
 
-> ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT  EVEN IF SAVED!!  SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING
+> ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.
 
 [git - Your branch is ahead of 'origin/master' by 1 commit](https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit){target="_blank"}
 
+``` bash
 git reset HEAD^ --soft (Save your changes, back to last commit)
 git reset HEAD^ --hard (Discard changes, back to last commit)
-
+```
 
 [This one worked!!](https://www.nblog09.com/w/2019/01/24/git-ahead/){target="_blank"}
 
-```{}
-#| evaleval: false
-#| 
+``` {.bash filename="terminal"}
 git pull origin {branch name}
 git reset --hard origin/{branch name}
 git branch
 ```
 
-```{}
-#| evaleval: false
-
+``` .bash
 git pull     
 git merge 
 git pull origin

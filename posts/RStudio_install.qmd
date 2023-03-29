@@ -393,11 +393,7 @@ Find more about this package on CRAN.
 
 ## Location of the R packages
 
-```{r}
-#| eval: false
-#| code-overflow: wrap
-#| 
-# _> In Terminal
+```{.bash filename="terminal"}
 
 # MBP15: The downloaded source packages are in:
 open /private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages 
@@ -468,7 +464,7 @@ write_xlsx(Rpkgs_MBP20_230329df1,"/Users/marcelorosales/Box Sync/Github/RStudio_
 
 # -----
 
-#　3. Once the new version up and running, reload the saved packages and re-install them from CRAN.
+#　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.
 
 #--run in the new version
 # MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")
@@ -480,28 +476,22 @@ for (p in setdiff(RSpacks230324MBP15, installed.packages()[,"Package"]))
 
 ### Copy/Paste Rstudio global settings and preferences if necessary.
 
-```{r filename="Terminal"}
-#| eval: false
-#| 
+```{.bash filename="Terminal"}
 # Copy/Paste Rstudio global settings and preferences.. 
-
-# In terminal _> 
 open ~/.config/rstudio
 
 # Search and Copy file to same place as packages files. 
 rstudio-prefs.json
 ```
 
-``` {.bash filename="Terminal"}
+``` {.bash}
 open ~/.config/rstudio
 ```
 
 ### Brew cask upgrade R and Rstudio.
 
-```{r}
-#| eval: false
-#| 
-# IN _> Upgrade R and rstudio
+```{.bash filename="Terminal"}
+# Upgrade R and rstudio
 brew update
 brew upgrade --cask r
 # password
@@ -540,30 +530,25 @@ WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will wo
 Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
 ```
 
-A solution: For english: [Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c)
+A solution: For english:   
+- [Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c){target="_blank"}   
+- [For Japanese:](https://maku77.github.io/r/basic/locale.html){target="_blank"}.\
 
-```{r}
-#| eval: false
+```{.bash filename="Terminal"}
 defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
 defaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示
 ```
 
-[For Japanese:](https://maku77.github.io/r/basic/locale.html).\
 
 ### There is already an App... (legacy)
 
 **Error: It seems there is already an App at '/Applications/Rstudio'**\
-[is it possible to override the legacy app when install using brew](https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew){targe="_blanck"}
+[is it possible to override the legacy app when install using brew](https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew){targe="_blank"}
 
 Some times is not possible to install, re-intall or upgrade a program via brew because first installation was made manually (downloaded zip or tar files).\
 This leaves a "legacy" app. To fix it use the **`--force`** attribute while installing
 
-``` bash
+``` {.bash}
 brew install --cask rstudio --force
 ```
 
-try a different
-
-``` bash
-brew --version
-```
