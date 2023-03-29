@@ -270,13 +270,13 @@
     "href": "posts/Git.html#branch-is-ahead-error",
     "title": "GIT Management",
     "section": "Branch is ahead error",
-    "text": "Branch is ahead error\ngit add .\ngit commit -m \"python intsall\"\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push"
+    "text": "Branch is ahead error\ngit add .\ngit commit -m \"python install\"\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push"
   },
   {
     "objectID": "posts/Git.html#git-commands",
     "href": "posts/Git.html#git-commands",
     "title": "GIT Management",
     "section": "Git Commands",
-    "text": "Git Commands\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n\ngit init\ngit clone [url]\n\n# Stage & Snapshot\n\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull"
+    "text": "Git Commands\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n# Start control version\ngit init\ngit clone [url]\n\n# Stage & Snapshot\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull"
   }
 ]

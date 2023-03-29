@@ -17,7 +17,7 @@ format:
 
 ## Install git
 
-``` bash
+```{.bash}
 brew install git   
 ```
 
@@ -30,12 +30,11 @@ brew install git
 [Git cheat sheet3](){target="_blank"}
 
 ``` {.bash filename="Terminal"}
-
+# Start control version
 git init
 git clone [url]
 
 # Stage & Snapshot
-
 git pull
 git status
 git add .
@@ -49,7 +48,7 @@ git pull
 
 ``` {.bash}
 git add .
-git commit -m "python intsall"
+git commit -m "python install"
 ```
 
 ```{.bash filename="error message"}

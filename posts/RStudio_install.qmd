@@ -552,3 +552,6 @@ This leaves a "legacy" app. To fix it use the **`--force`** attribute while inst
 brew install --cask rstudio --force
 ```
 
+
+
+
