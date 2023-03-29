@@ -15,6 +15,37 @@ format:
     code-overflow: wrap
 ---
 
+## Git Commands
+
+[Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf){traget="_blank}
+[Git cheat sheet2](https://about.gitlab.com/images/press/git-cheat-sheet.pdf){traget="_blank}
+[Git cheat sheet3](  ){traget="_blank}
+
+```{.bash}
+git config --global user.name “Your Name”
+```
+
+
+
+
+```{.bash filename="Terminal"}
+
+git init
+git clone [url]
+
+# Stage & Snapshot
+
+git pull
+git status
+git add .
+git checkout
+git commit -m "[message]"
+git push
+git pull
+
+```
+
+
 ## branch is ahead error
 
 ```
