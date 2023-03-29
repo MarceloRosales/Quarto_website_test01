@@ -34,6 +34,8 @@ References Pages to visit first:\
 
 Trick for doing the upgrade, from installing the software to copying all the settings/packages over?First you install the new version, then run this in the old version:
 
+## Stack Overflow
+
 ### Run in the old version of R
 
 ```{r}
@@ -87,6 +89,94 @@ install.packages(p)
 copy.packages.between.libraries() # copy your packages to the newest R installation from the one version before it (if ask=T, it will ask you between which two versions to perform the copying)
 ```
 
+## R-bloglers
+
+### How to Upgrade R Without Losing Your Packages
+
+1.  Before you upgrade, build a temp file with all of your old packages. **Files saved as .rda files.**\
+
+```{r}
+#| eval: false
+tmp <- installed.packages()
+installedpkgs <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+save(installedpkgs, file="installed_old.rda")
+```
+
+2.  Install the new version of R and let it do it's thing.
+
+3.  Once you've got the new version up and running, reload the saved packages and re-install them from CRAN.
+
+```{r}
+#| eval: false
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+install.packages(missing)
+update.packages()
+```
+
+Note: If you had any packages from BioConductor, you can update those too!
+
+```{r}
+#| eval: false
+
+source("http://bioconductor.org/biocLite.R")
+chooseBioCmirror()
+biocLite()
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+for (i in 1:length(missing)) biocLite(missing[i])
+
+```
+
+::: {.callout-caution collapse="false"}
+### About `bioLite` package
+
+Update: 'biocLite' is not available for new versions of R
+
+```{r, eval=false}
+#| eval: false
+install.packages("biocLite") # Warning in install.packages : package ‘biocLite’ is not available for this version of R
+```
+
+BiocLite is not a thing anymore, it was used in the old versions of Bioconductor to install packages, now you can directly use BiocManager::install().
+
+For example:
+
+```{r}
+#| eval: false
+BiocManager::install("limma")
+```
+:::
+
+### Save files as csv or excel .xlsx
+
+#### csv files
+
+```{r}
+#| eval: false
+
+write.csv(data_frame, 'path/to/forder/and/file_name.csv') # or set wd and just type file_name.csv
+
+```
+
+#### excel files
+
+Convert first to a data frame.
+
+```{r}
+#| eval: false
+
+install.packages("writexl")
+library("writexl")
+the_dataframe_name <- as.data.frame(data)
+write_xlsx(the_dataframe_name,"path/to/folder/and/file_name.xlsx")
+
+```
+
 ## Upgrading R on Windows and Mac
 
 https://www.r-statistics.com/tag/installr/
@@ -108,7 +198,9 @@ Running "updateR()" will detect if there is a new R version available, and if so
 
 Also chekck the video:\
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZKBeV4BNeuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZKBeV4BNeuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
 
 ### Mac
 
@@ -211,7 +303,7 @@ write_xlsx(the_dataframe_name,"path/to/folder/file_name.xlsx")
 
 [An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way)\
 
-### Inefficient way to install and load R packages:\
+### Inefficient way to install and load R packages:
 
 ```{r}
 #| eval: false
@@ -270,10 +362,10 @@ Find more about this package on [CRAN](https://github.com/trinker/pacman). [Intr
 `{librarian} package`\
 Like `{pacman}`, the `shelf()` function from the `{librarian}` package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor's Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no "" around package names).\
 
-**Biobase: Base functions for Bioconductor**
-[DOI: 10.18129/B9.bioc.Biobase](https://bioconductor.org/packages/release/bioc/html/Biobase.html){target="_blank"}\
+**Biobase: Base functions for Bioconductor** [DOI: 10.18129/B9.bioc.Biobase](https://bioconductor.org/packages/release/bioc/html/Biobase.html){target="_blank"}\
 Installation:\
 To install this package, start R (version "4.2") and enter:\
+
 ```{r}
 #| eval: false
 if (!require("BiocManager", quietly = TRUE))
@@ -301,7 +393,6 @@ Find more about this package on CRAN.
 
 ## Location of the R packages
 
-
 ```{r}
 #| eval: false
 #| code-overflow: wrap
@@ -316,15 +407,16 @@ open  /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_pa
 
 ```
 
-
 ## Summary
 
-#### Saved installed packages
+### Saved installed packages
 
 ```{r}
 #| eval: false
-#| 
-# 20230324
+
+# 1. Before you upgrade, update all old packages.
+
+# Update 20230329
 # Update current packages.
 update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
 
@@ -334,24 +426,61 @@ update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
 
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
-BiocManager::install(version = "3.16")
+BiocManager::install(version = "3.16") # Or the newest version
+
+# ------
+# 2. Before you upgrade, build a temp and save file with all of your old packages.
 
 #--run in the old version of R
+
 # MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")
-RSpacks230324MBP15 <- installed.packages()[,"Package"]
-save(RSpacks230324MBP15, file="/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15")
+Rpkgs_MBP20_230329 <- installed.packages()[,"Package"] # save as vector values?
+save(Rpkgs_MBP20_230329, file="/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329") # Or Rpkgs_MBP20_230329.rda
+
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329") # load as values (vector?)
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda") # load as values (vector?)
+
+ # As .rda file
+tmp <- installed.packages() # save in environment as data (dataframe?)
+Rpkgs_MBP20_230329 <- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # save as vector package names.
+save(Rpkgs_MBP20_230329, file="/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda") # save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  
+
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda") # In environment is back to installedpkgs.  
+
+# Save as csv requires a dataframe (df)
+Rpkgs_MBP20_230329 <- installed.packages()[,"Package"] # save only the Package (name) variable as vector values?, still can be save as csv
+write.csv(Rpkgs_MBP20_230329, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv')
+
+# Or df with all the info of packages
+Rpkgs_MBP20_230329df1 <- as.data.frame(installed.packages())
+
+write.csv(Rpkgs_MBP20_230329df1, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.csv')
+
+# Save as excel requires a dataframe (df)
+# install.packages("writexl")
+library("writexl")
+write_xlsx(Rpkgs_MBP20_230329df1,"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx")
+
+
+# ------
+
+# 3. Install the new version of R (use homebrew). See Brew cask upgrade below.
+
+# -----
+
+#　3. Once the new version up and running, reload the saved packages and re-install them from CRAN.
 
 #--run in the new version
 # MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")
 
-load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/RSpacks230324MBP15")
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda")
 for (p in setdiff(RSpacks230324MBP15, installed.packages()[,"Package"]))
   install.packages(p)
 ```
 
-#### Copy/Paste Rstudio global settings and preferences if necessary.
+### Copy/Paste Rstudio global settings and preferences if necessary.
 
-```{r}
+```{r filename="Terminal"}
 #| eval: false
 #| 
 # Copy/Paste Rstudio global settings and preferences.. 
@@ -363,7 +492,11 @@ open ~/.config/rstudio
 rstudio-prefs.json
 ```
 
-#### Brew cask upgrade R and Rstudio.
+``` {.bash filename="Terminal"}
+open ~/.config/rstudio
+```
+
+### Brew cask upgrade R and Rstudio.
 
 ```{r}
 #| eval: false
@@ -382,15 +515,15 @@ rstudio-prefs.json
 
 ```
 
-## Errors and trouble shooting. 
+## Errors and trouble shooting.
 
 ### non-UTF8 locale error in R
 
 **WARNING: You're using a non-UTF8 locale**\
 
-When opening R new version... an error message is displayed. 
+When opening R new version... an error message is displayed.
 
-```{r}
+``` {.bash filename="error message"}
 #| code-block-bg: false
 #| code-block-border-left: "#31BAE9"
 #| eval: false
@@ -407,9 +540,7 @@ WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will wo
 Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
 ```
 
-A solution:
-For english:
-[Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c)  
+A solution: For english: [Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c)
 
 ```{r}
 #| eval: false
@@ -417,22 +548,22 @@ defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
 defaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示
 ```
 
-[For Japanese:](https://maku77.github.io/r/basic/locale.html).  \
+[For Japanese:](https://maku77.github.io/r/basic/locale.html).\
 
-
-### There is already an App at '/Applications
+### There is already an App... (legacy)
 
 **Error: It seems there is already an App at '/Applications/Rstudio'**\
 [is it possible to override the legacy app when install using brew](https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew){targe="_blanck"}
 
-Some times is not possible to install, re-intall or upgrade a program via brew cos first installation was made manually (downloaded zip or tar files).\
-This leaves a "legacy" app. To fix it use the **`--force`** attribute while installing 
+Some times is not possible to install, re-intall or upgrade a program via brew because first installation was made manually (downloaded zip or tar files).\
+This leaves a "legacy" app. To fix it use the **`--force`** attribute while installing
 
-```{r}
-#| eval: false
+``` bash
 brew install --cask rstudio --force
 ```
 
+try a different
 
-
-
+``` bash
+brew --version
+```
