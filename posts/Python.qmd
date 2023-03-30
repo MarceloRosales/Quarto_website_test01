@@ -19,7 +19,6 @@ format:
 I first try:
 
 ```{.bash}
-#| eval: false
 pip install --upgrade
 
 ERROR: You must give at least one requirement to install (see "pip help install")
@@ -120,7 +119,6 @@ The curl command allows you to specify a direct download link. Use the `-o` opti
 5. Verify Pip Installation: `pip --version`
 
 ```{.bash}
-#| eval: false
 python3 --version
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
@@ -134,7 +132,6 @@ pip --version
 Run this command:
 
 ```{.bash}
-#| eval: false
 brew install pyenv
 ```
 
@@ -143,7 +140,6 @@ brew install pyenv
 Now you just need to run the following command: pyenv install {# of the py version to install}
 
 ```{.bash}
-#| eval: false
 pyenv install 3.9.2
 ```
 
@@ -154,21 +150,18 @@ pyenv install 3.9.2
 If you only want to use Python 3.x for a specific project, then cd to your specific directory and type:
 
 ```{.bash}
-#| eval: false
 pyenv local 3.x.x
 ```
 
 If you'd prefer to just have Python 3.x installed globally throughout your operating system, then type:
 
 ```{.bash}
-#| eval: false
 pyenv global 3.x.x
 ```
 
 ### Install Jupiter
 
 ```{.bash}
-#| eval: false
 brew install jupyter
 # Start Jupyter
 jupyter notebook
