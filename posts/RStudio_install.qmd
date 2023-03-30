@@ -403,6 +403,31 @@ open  /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_pa
 
 ```
 
+
+## Comparing files
+
+To compare and find whether two files differ and where, there are a few packages.    
+
+```{r}
+#| eval: false
+
+library(tools)
+md5sum("path/to/file1") == md5sum("path/to/file2")
+
+library(diffobj)
+diffFile("path/to/file1", "path/to/file2")   # or `diffChr` if you data is in R already
+
+library(diffr)
+diffr("path/to/file1", "path/to/file2")
+
+ses(readLines("path/to/file1"), readLines("path/to/file1"))
+
+packages <- installed.packages()
+structure(packages)
+
+```
+
+
 ## Summary
 
 ### Saved installed packages
