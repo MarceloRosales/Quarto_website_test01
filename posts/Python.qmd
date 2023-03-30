@@ -18,7 +18,7 @@ format:
 
 I first try:
 
-```{r}
+```{.bash}
 #| eval: false
 pip install --upgrade
 
@@ -28,7 +28,7 @@ ERROR: You must give at least one requirement to install (see "pip help install"
 [notice] To update, run: python3.9 -m pip install --upgrade pip
 
 # Then I tried
-brew install python3.
+brew install python3
 ```
 
 Displayed: **Warning:** No available formula with the name "python3.".\
@@ -38,14 +38,13 @@ Did you mean python\@3.9, python\@3.8, python\@3.7, python\@3.11 or python\@3.10
 
 ### Install python with brew
 
-```{r}
-#| eval: false
+```{.bash}
 brew install python@3.8 
 # Or version needed
 ```
 
-However, this install all version of python.\
-==\> python\@3.10 Python has been installed as /usr/local/bin/python3.10
+However, this install all version of python.   
+==> python@3.10 Python has been installed as /usr/local/bin/python3.10    
 
 Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to `python3.10`, `python3.10-config`, `pip3.10` etc., respectively, have been installed into:\
 `/usr/local/opt/python@3.10/libexec/bin`
@@ -60,8 +59,7 @@ tkinter is no longer included with this formula, but it is available separately:
 
 If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
 
-```{r}
-#| eval: false
+```{.bash}
   brew install python3
 ```
 
@@ -74,14 +72,15 @@ pip install --upgrade pip\
 python --version\
 \>\_Python 3.8.10
 
-pip3 --version\
+```{.bash}
+pip3 --vesrion
+```
 
 #### A Single Command to Run Python 3
 
 For some of you reading this, this command may be enough. You can run Python 3 using this command (with the 3 at the end).\
 
-```{r}
-#| eval: false
+```{.bash}
 python3
 ```
 
@@ -103,8 +102,7 @@ Pip is a package management system used for installing and managing Python softw
 
 To install pip on macOS through Homebrew. Make sure you have Homebrew installed by running the following command:
 
-```{r}
-#| eval: false
+```{.bash}
 brew install python
 ```
 
@@ -121,7 +119,7 @@ The curl command allows you to specify a direct download link. Use the `-o` opti
 4. Install the downloaded package by running: `python3 get-pip.py`\
 5. Verify Pip Installation: `pip --version`
 
-```{r}
+```{.bash}
 #| eval: false
 python3 --version
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -135,7 +133,7 @@ pip --version
 
 Run this command:
 
-```{r}
+```{.bash}
 #| eval: false
 brew install pyenv
 ```
@@ -144,31 +142,32 @@ brew install pyenv
 
 Now you just need to run the following command: pyenv install {# of the py version to install}
 
-```{r}
+```{.bash}
 #| eval: false
 pyenv install 3.9.2
 ```
 
 ### Set Python to Local or Global
+
 [link](https://medium.com/@iamclement/how-to-install-jupyter-notebook-on-mac-using-homebrew-528c39fd530f){target="_blank"}
 
 If you only want to use Python 3.x for a specific project, then cd to your specific directory and type:
-```{r}
+
+```{.bash}
 #| eval: false
 pyenv local 3.x.x
 ```
 
-If you’d prefer to just have Python 3.x installed globally throughout your operating system, then type:
+If you'd prefer to just have Python 3.x installed globally throughout your operating system, then type:
 
-```{r}
+```{.bash}
 #| eval: false
 pyenv global 3.x.x
 ```
 
+### Install Jupiter
 
-### Install Jupiter 
-
-```{r}
+```{.bash}
 #| eval: false
 brew install jupyter
 # Start Jupyter
@@ -176,6 +175,53 @@ jupyter notebook
 
 ```
 
+## Summary
+
+```{.bash filename="Terminal"}
+
+pip3 --version
+brew install python3 
+brew install python #same as above
+brew install pyenv
+brew install jupyter
+pip install --upgrade pip
+python3.11 -m pip install --upgrade pip
+
+pip install numpy
+pip install matplotlib   #Still asking for numpy
+
+# This code made it work...
+pip3 install numpy
+pip3 install matplotlib
+
+# Optional commands to make python run in RStudio:
+python3 -m pip install numpy
+python3.11 -m pip install --upgrade pip
+pip3.10 install numpy
+python3.10 -m pip install --upgrade pip
+```
+
+
+## Errors and Troubleshooting
+
+::: {.callout-warning filename="error"}
+In background Jobs:
+
+Error: ModuleNotFoundError: No module named 'numpy'
+Execution halted
+
+::: {.callout-tip icon=false}
+
+####### Solution
+
+```{.bash}
+pip3 install numpy
+pip3 install matplotlib
+```
+
+:::
+
+:::
 
 
 
