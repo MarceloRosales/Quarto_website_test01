@@ -26,9 +26,20 @@ Since the appearance of quarto, perhaps it would be more effective to write all 
 -   Qmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code.
 -   Visual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format).
 
-## Quarto
+## Quarto install or upgrade
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org .
+
+```{.bash filename="terminal-brew"}
+brew install --cask quarto 
+brew upgrade --cask quarto
+```
+
+:::{.callout-note}
+
+20230330 upgrade: quarto --version: 1.2.475 (Release Candidate — v1.3.296 available as CLI, but not as brew cask)
+:::
+
 
 ## Running Code
 
@@ -110,9 +121,9 @@ library(reticulate)
 
 ```
 
-```{}
-pip install numpy
-pip install matplotlib
+```{.bash}
+# install python see Python
+
 pip3 install numpy
 pip3 install matplotlib
 python3 -m pip install numpy
