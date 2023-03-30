@@ -322,9 +322,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! <span class="dt">\[</span>remote rejected<span class="dt">\]</span> master <span class="at">-</span><span class="op">&gt;</span> master <span class="er">(</span><span class="ex">failure</span><span class="kw">)</span> <span class="ex">**error:</span> failed to push some refs to <span class="st">'https://github.com/MarceloRosales/Quarto_website_test01.git'</span><span class="pp">**</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Solution:</p>
-<blockquote class="blockquote">
-<p>ALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.</p>
-</blockquote>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ALL SOLUTIONS <strong><em>REVERT TO LAST COMMIT AND DELETE ALL CONTENT</em></strong> EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.</p>
+</div>
+</div>
 <p><a href="https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit" target="_blank">git - Your branch is ahead of ‘origin/master’ by 1 commit</a></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD^ <span class="at">--soft</span> <span class="er">(</span><span class="ex">Save</span> your changes, back to last commit<span class="kw">)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD^ <span class="at">--hard</span> <span class="er">(</span><span class="ex">Discard</span> changes, back to last commit<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

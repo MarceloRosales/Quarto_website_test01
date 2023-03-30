@@ -83,7 +83,8 @@ For some of you reading this, this command may be enough. You can run Python 3 u
 python3
 ```
 
-**To exit python help window press ++Cnt+z++**
+**To exit python help window press ++Cnt+z++** 
+
 
 ### How to Install Pip on Mac
 
