@@ -7,6 +7,6 @@ author: "Marcelo Rosales"
 
 How to manage Packes.
 
-## Another subtitle.  
+## Another subtitle.
 
 Text

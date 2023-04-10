@@ -109,7 +109,7 @@
     "href": "Lightbox_Example.html",
     "title": "Complete Lightbox Example",
     "section": "",
-    "text": "Here is a simple image with a description. This also overrides the description position and places it to the left of the image.\n\n\n\nBeach in Chilmark"
+    "text": "An extension that uses the GLightbox javascript library to add lightbox styling and behavior to images in your HTML documents.\nSee quarto-ext/lightbox or the web example at Example lightbox Document at the bottom of this page."
   },
   {
     "objectID": "Lightbox_Example.html#elsewhere",
@@ -226,14 +226,14 @@
   {
     "objectID": "files/Software/ImageJ/ImgJ_Packages.html",
     "href": "files/Software/ImageJ/ImgJ_Packages.html",
-    "title": "ImageJ Packages",
+    "title": "ImageJ_Package",
     "section": "",
     "text": "How to manage Packes."
   },
   {
     "objectID": "files/Software/ImageJ/ImgJ_Packages.html#another-subtitle.",
     "href": "files/Software/ImageJ/ImgJ_Packages.html#another-subtitle.",
-    "title": "ImageJ Packages",
+    "title": "ImageJ_Package",
     "section": "Another subtitle.",
     "text": "Another subtitle.\nText"
   },
@@ -334,5 +334,61 @@
     "title": "GIT Management",
     "section": "Git Config",
     "text": "Git Config\ngit config --global user.name \"{your name}\" # Quotes if there is a space between the names\ngit config --global user.email your_email@service.com\n\n# Specify default editor\ngit config --global core.editor \"code --wait\"  # VScode as default editor\ngit config --global -e  # Opens defautl editor # Opens default editor to edit all the global settings. \n\n# How to handle end of lines. In windows: \\r, \\n; on mac: \\n. May provoke conflicts, cofig property \"core.autocrlf\" (11:41)\n# Windows:\ngit config --global core.autocrlf true\n# Mac:\ngit config --global core.autocrlf input\nTo have a colorfull terminal window like in the video install\nOn Mac: Zsh with git plugin\nWindows: posh-git\nvideo1\nvideo2\nUsing zsh on Windows\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n# Start control version\ngit init\nls -a # To see hidden files\nopen .git\ngit clone [url]\n\n# Stage & Snapshot\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull\n\nrm [file_name]  # removes/delete file\nmv [old_filename] [new_filename]"
+  },
+  {
+    "objectID": "Lightbox_Example.html#installation",
+    "href": "Lightbox_Example.html#installation",
+    "title": "Complete Lightbox Example",
+    "section": "Installation",
+    "text": "Installation\nTo install this extension in your current directory (or into the Quarto project that you’re currently working in), use the following command:\nquarto add quarto-ext/lightbox"
+  },
+  {
+    "objectID": "Lightbox_Example.html#usage",
+    "href": "Lightbox_Example.html#usage",
+    "title": "Complete Lightbox Example",
+    "section": "Usage",
+    "text": "Usage\nThe Lightbox extension is implemented as a filter in Quarto. Once installed, using the extension is easy.\n\nApply To Images Automatically\nThe Lightbox extension can automatically give images in your web page a lightbox treatment. You can enable this like:\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\nlightbox: auto\n---\n\n![A Lovely Image](mv-1.jpg)\nYou can exclude an image from receiving this automatic treatment by giving it a nolightbox class, like so:\n![Don't lightbox me!](mv-1.jpg){.nolightbox}\n\n\nChoose Specific Images\n\nAdd lightbox to the list of filters in your _quarto.yml file or your document front matter. For example:\n\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\n---\n\nAdd the class lightbox to any images that you’d like to have the lightbox treatment. For example:\n\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\n---\n\n![A Lovely Image](mv-1.jpg){.lightbox}"
+  },
+  {
+    "objectID": "Lightbox_Example.html#galleries",
+    "href": "Lightbox_Example.html#galleries",
+    "title": "Complete Lightbox Example",
+    "section": "Galleries",
+    "text": "Galleries\nIn addition to simply providing a lightbox treatment for individual images, you can also group images into a ‘gallery’. When the user activates the lightbox, they will be able to page through the images in the gallery without returning to the main document. To create galleries of images, apply a group attribute (with a name) to the images that you’d like to gather into a gallery. Images with the same group name will be placed together in a gallery when given a lightbox treatment.\nFor example, the following three images will be treated as a gallery:\n![A Lovely Image](mv-1.jpg){group=\"my-gallery\"}\n\n![Another Lovely Image](mv-2.jpg){group=\"my-gallery\"}\n\n![The Last Lovely Image](mv-3.jpg){group=\"my-gallery\"}"
+  },
+  {
+    "objectID": "Lightbox_Example.html#global-options",
+    "href": "Lightbox_Example.html#global-options",
+    "title": "Complete Lightbox Example",
+    "section": "Global Options",
+    "text": "Global Options\nThe following options may be specified in the front matter for lightbox:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\nmatch\nSet this to auto if you’d like any image to be given lightbox treatment. If you omit this, only images with the class lightbox will be given the lightbox treatment.\n\n\neffect\nThe effect that should be used when opening and closing the lightbox. One of fade, zoom, none. Defaults to zoom.\n\n\ndesc-position\nThe position of the title and description when displaying a lightbox. One of top, bottom, left, right. Defaults to bottom.\n\n\nloop\nWhether galleries should ‘loop’ to first image in the gallery if the user continues past the last image of the gallery. Boolean that defaults to true.\n\n\ncss-class\nA class name to apply to the lightbox to allow css targeting. This will replace the lightbox class with your custom class name.\n\n\n\nA complete example:\n---\ntitle: Complete Lightbox Example\nfilters:\n  - lightbox\nlightbox:\n  match: auto\n  effect: fade\n  desc-position: right\n  loop: false\n  css-class: \"my-css-class\"\n---"
+  },
+  {
+    "objectID": "Lightbox_Example.html#per-image-attributes",
+    "href": "Lightbox_Example.html#per-image-attributes",
+    "title": "Complete Lightbox Example",
+    "section": "Per Image Attributes",
+    "text": "Per Image Attributes\nThe following options may be specified as attributes on individual images to control the lightbox behavior:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\ndesc-position\nThe position of the title and description when displaying a lightbox. One of top, bottom, left, right. Defaults to bottom"
+  },
+  {
+    "objectID": "Lightbox_Example.html#using-lightbox-with-computation-cells",
+    "href": "Lightbox_Example.html#using-lightbox-with-computation-cells",
+    "title": "Complete Lightbox Example",
+    "section": "Using lightbox with computation cells",
+    "text": "Using lightbox with computation cells\nOptions for lightbox can be passed using chunk option lightbox like the following:\n::: {.cell lightbox='{\"group\":\"r-graph\",\"description\":\"This is 1 to 10 plot\"}'}\n\n```{.r .cell-code}\nplot(1:10, rnorm(10))\n```\n\n::: {.cell-output-display}\n![Simple demo R plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\nIt is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.\n::: {.cell lightbox='{\"group\":\"cars\",\"description\":[\"This is the decription for first graph\",\"This is the decription for second graph\"]}'}\n\n```{.r .cell-code}\nplot(mtcars)\n```\n\n::: {.cell-output-display}\n![Caption for first plot](Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n\n```{.r .cell-code}\nplot(cars)\n```\n\n::: {.cell-output-display}\n![Caption for second plot](Lightbox_Example_files/figure-html/unnamed-chunk-2-2.png){width=672}\n:::\n:::\nWhen lightbox: auto is in main YAML config, you can opt-out lightbox on a plot by setting lightbox: false When lightbox: auto is not set, you can opt-in for lightbox on a specific plot by setting lightbox: true or by setting lightbox with some options."
+  },
+  {
+    "objectID": "Lightbox_Example.html#example",
+    "href": "Lightbox_Example.html#example",
+    "title": "Complete Lightbox Example",
+    "section": "Example",
+    "text": "Example\nHere is the source code for a minimal example: example.qmd\nThis is the output of example.qmd."
+  },
+  {
+    "objectID": "Lightbox_Example.html#chilmark",
+    "href": "Lightbox_Example.html#chilmark",
+    "title": "Complete Lightbox Example",
+    "section": "Chilmark",
+    "text": "Chilmark\nHere is a simple image with a description. This also overrides the description position and places it to the left of the image.\n\n\n\nBeach in Chilmark"
   }
 ]

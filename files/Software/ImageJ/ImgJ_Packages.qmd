@@ -1,5 +1,5 @@
 ---
-title: "ImageJ Packages"
+title: "ImageJ_Package"
 author: "Marcelo Rosales"
 ---
 

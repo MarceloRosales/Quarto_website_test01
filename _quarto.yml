@@ -71,7 +71,7 @@ website:
         - files/Software/ImageJ/index.qmd  
         - text: "Install"
           href: files/Software/ImageJ/ImgJ_install.qmd  
-        - text: "R Packages"
+        - text: "ImgJ Packade"
           href: files/Software/ImageJ/ImgJ_Packages.qmd
 
 format:
