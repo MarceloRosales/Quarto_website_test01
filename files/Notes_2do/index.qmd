@@ -42,8 +42,8 @@ lightbox: auto
 ```
 
 ```
-```` markdown
-```{r}
+``` markdown
+```{.r}
 #| fig-cap: 
 #|   - Caption for first plot
 #|   - Caption for second plot

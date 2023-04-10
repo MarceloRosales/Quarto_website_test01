@@ -299,29 +299,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="al">![Another Lovely Image](mv-2.jpg)</span>{group="my-gallery"}</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="al">![The Last Lovely Image](mv-3.jpg)</span>{group="my-gallery"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>```` markdown
-::: {.cell lightbox='{"group":"cars","description":["This is the decription for first graph","This is the decription for second graph"]}'}
-
-```{.r .cell-code}
-plot(mtcars)</code></pre>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Caption for first plot</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Caption for second plot</figcaption><p></p>
-</figure>
-</div>
-</div>
-<p>::: `<code></code></p>
+<pre><code>``` markdown
+```{.r}
+#| fig-cap: 
+#|   - Caption for first plot
+#|   - Caption for second plot
+#| lightbox: 
+#|   group: cars
+#|   description: 
+#|     - This is the decription for first graph
+#|     - This is the decription for second graph
+plot(mtcars)
+plot(cars)</code></pre>
+<p>`<code></code></p>
 </section>
 <section id="symlinks-in-git" class="level3">
 <h3 class="anchored" data-anchor-id="symlinks-in-git">Symlinks in Git</h3>

@@ -126,10 +126,10 @@ git push --set-upstream origin {branch name}
 ## To delete a branch. Caution!! Can not delete if you are in branch
 git branch -d {branch name}
 
-
-
-
-
+## Discard/Unstage ex .DS_Store file from git panel
+find . -name ".DS_Store" -delete  #Find all ".DS_Store" files in all folders and delete
+git restore .DS_Store 
+git restore .
 
 
 ```
@@ -211,22 +211,15 @@ Steps:
 1. Uncommit/Discard/Unstage the .DS_Store file from git panel
 
 ```{.bash}
-git restore .DS_Store 
-# If it is the only file on stage
+git restore .DS_Store  # If it is the only file on stage
 git restore .  
-
 ls -a  #find if still present
-
-find . -name ".DS_Store" -delete  #This will find all ".DS_Store" files in all folders
+find . -name ".DS_Store" -delete  #Find all ".DS_Store" files in all folders and delete
 
 git status
-
 git add . 
-
 git commit -m "delete all DS_Store files"
-
 git push
-
 git pull 
 
 ```
