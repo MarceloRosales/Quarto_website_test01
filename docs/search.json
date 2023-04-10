@@ -1,47 +1,5 @@
 [
   {
-    "objectID": "posts/RStudio_install.html",
-    "href": "posts/RStudio_install.html",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "",
-    "text": "References Pages to visit first:\nPainless way to install a new version of R?\nHow to migrate Rstudio files and installed packages ( by version to a new computer )\nAn efficient way to install and load R packages\nLoading packages: the difference between R’s library() and require() functions\nBioconductor\nInstall/Update R and R packages\nrestore all R packages after installing a new version of R?\nHow to Upgrade R Without Losing Your Packages\nUpgrade R Without Losing Your Packages\nUpdate and migrate R\nProfiles package\nRprofile.site file example for Startup customization\nManaging R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf\n\nTrick for doing the upgrade, from installing the software to copying all the settings/packages over?First you install the new version, then run this in the old version:"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#upgrading-r-on-windows-and-mac",
-    "href": "posts/RStudio_install.html#upgrading-r-on-windows-and-mac",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Upgrading R on Windows and Mac",
-    "text": "Upgrading R on Windows and Mac\nhttps://www.r-statistics.com/tag/installr/\n\nWindows\nIf you are using Windows you can easily upgrade to the latest version of R using the installr package. Simply run the following code in Rgui:\n\ninstall.packages(\"installr\") # install \nsetInternet2(TRUE) # only for R versions older than 3.3.0\ninstallr::updateR() # updating R.\n# If you wish it to go faster, run: installr::updateR(T)\n\nRunning “updateR()” will detect if there is a new R version available, and if so it will download+install it (etc.). There is also a step by step tutorial (with screenshots) on how to upgrade R on Windows, using the installr package. If you only see the option to upgrade to an older version of R, then change your mirror or try again in a few hours (it usually take around 24 hours for all CRAN mirrors to get the latest version of R).\nAlso chekck the video:\n\n\n\n\n\nMac\nIf you are using Mac you can easily upgrade to the latest version of R using Andrea Cirillo’s updateR package. The package is not on CRAN, so you’ll need to run the following code in Rgui:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"AndreaCirilloAC/updateR\")\nupdateR(admin_password = \"PASSWORD\") # Where \"PASSWORD\" stands for your system password\n\nMBP15 The downloaded source packages are in “/private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages” MBP20 The downloaded binary packages are in /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages\nOption 1\nPainless way to install a new version of R?\nFiles are .rda\n\n#--run in the old version of R\nsetwd(\"C:/Temp/\")\npackages <- installed.packages()[,\"Package\"]\nsave(packages, file=\"Rpackages\")\n\n#--run in the new version\nsetwd(\"C:/Temp/\")\nload(\"Rpackages\")\nfor (p in setdiff(packages, installed.packages()[,\"Package\"]))\ninstall.packages(p)\n\n\n#-----\n\n# Just for completeness, you can save your packages in another directory on your computer.\ninstall.packages(\"thepackage\",lib=\"/path/to/directory/with/libraries\")\n#You can change the default .Library value using the function .libPaths too\n.libPaths(\"/path/to/directory/with/libraries\")\n\n# -----\n\n#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R version by using an .RData file containing an updated list with all packages.\n\nlibrary(utils)\n\n## Check necessary packages\nload(\"G:\\Setinfo\\R\\packagelist.RData\") # includes a vector \"pkgs\"\ninstalled <- pkgs %in% installed.packages()[, 'Package']\nif (length(pkgs[!installed]) >=1){\n  install.packages(pkgs[!installed])\n}\n# I make the packagelist.RData by specifying .Last() in my Rprofile.site. This updates the package list if I installed some :\n\n.Last <- function(){\n  pkgs <- installed.packages()[,1]\n  if (length(pkgs) > length(installed)){\n    save(pkgs,file=\"G:\\Setinfo\\R\\packagelist.RData\")\n  }\n}\n\nOption 2:\nHow to migrate Rstudio files and installed packages ( by version to a new computer )\n\nSave as .csv files.\nOr .xlsx files.\n\n\ngetwd()\nsetwd()\n# /Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/file_name.csv  \n\ninstalled <- as.data.frame(installed.packages())\nwrite.csv(installed, 'installed_previously.csv') # Path/to/folder/installed_previously.csv \ninstalledPreviously <- read.csv('installed_previously.csv') # Path/to/folder/installed_previously.csv \nbaseR <- as.data.frame(installed.packages())\ntoInstall <- setdiff(installedPreviously, baseR)\n\n# the first thing to do would be to make sure that the set of currently installed packages is up-to-date. \n\nupdate.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments\n  new_pacs <- paste( setdiff( installedPreviously$Package, baseR$Package), \n                       collapse=\",\")\n  install.packages( new_pacs, dependencies=TRUE)\n\n# For excel files, requires: \ninstall.packages(\"writexl\")\nlibrary(\"writexl\")\nwrite_xlsx(the_dataframe_name,\"path/to/folder/file_name.xlsx\")"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#an-efficient-way-to-istall-and-load-r-packages",
-    "href": "posts/RStudio_install.html#an-efficient-way-to-istall-and-load-r-packages",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "An efficient way to istall and load R packages",
-    "text": "An efficient way to istall and load R packages\nAn efficient way to install and load R packages\n\n\nInefficient way to install and load R packages:\n\n# Installation of required packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"readxl\")\ninstall.packages(\"dplyr\")\n\n# Load packages\nlibrary(\"tidyverse\")\nlibrary(\"ggplot2\")\nlibrary(\"readxl\")\nlibrary(\"dplyr\")\n\n\n\nMore efficient way\n\n# Package names\npackages <- c(\"ggplot2\", \"readxl\", \"dplyr\", \"tidyr\", ...)\n\n# Install packages not yet installed\ninstalled_packages <- packages %in% rownames(installed.packages())\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Packages loading\ninvisible(lapply(packages, library, character.only = TRUE))\n\n\n\nMost efficient way\n{pacman} package\nAfter this article was published, a reader informed me about the {pacman} package. After having read the documentation and try it out myself, I learned that the function p_load() from {pacman} checks to see if a package is installed, if not it attempts to install the package and then loads it. It can also be applied to several packages at once, all this in a very condensed way:\n\ninstall.packages(\"pacman\")\n\npacman::p_load(ggplot2, tidyr, dplyr)\n\n## Make sure your current packages are up to date\nupdate.packages()\n## devtools is required\nlibrary(devtools)\ninstall_github(\"trinker/pacman\")\n\nFind more about this package on CRAN. Introduction to the pacman Package in R (3 Examples)\n\n{librarian} package\nLike {pacman}, the shelf() function from the {librarian} package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor’s Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no “” around package names).\n\nBiobase: Base functions for Bioconductor DOI: 10.18129/B9.bioc.Biobase\nInstallation:\nTo install this package, start R (version “4.2”) and enter:\n\n\nif (!require(\"BiocManager\", quietly = TRUE))\n    install.packages(\"BiocManager\")\n\nBiocManager::install(\"Biobase\")\n\nLast but not least, the {librarian} package allows to load packages automatically at the start of every R session (thanks to the lib_startup() function) and search for new packages on CRAN by keywords or regular expressions (thanks to the browse_cran() function).\n\nHere is an example of how to install missing packages and load them with the shelf() function:\n\n# From CRAN:\ninstall.packages(\"librarian\")\n\nlibrarian::shelf(ggplot2, DesiQuintans / desiderata, pander)\n\nFor CRAN packages, provide the package name as normal without “” and for GitHub packages, provide the username and package name separated by / (i.e., UserName/RepoName as shown for the desiderata package).\nFind more about this package on CRAN."
-  },
-  {
-    "objectID": "posts/RStudio_install.html#location-of-the-r-packages",
-    "href": "posts/RStudio_install.html#location-of-the-r-packages",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Location of the R packages",
-    "text": "Location of the R packages\n\n\nterminal\n\n\n# MBP15: The downloaded source packages are in:\nopen /private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages \n\n# MBP20: The downloaded binary packages are in:\nopen  /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#summary",
-    "href": "posts/RStudio_install.html#summary",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Summary",
-    "text": "Summary\n\nSaved installed packages\n\n# 1. Before you upgrade, update all old packages.\n\n# Update 20230329\n# Update current packages.\nupdate.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments\n\n# Upgrade packages of Bioconductor\n# Install packages from a newer version of Bioconductor.\n# https://www.bioconductor.org/install/ \n\nif (!require(\"BiocManager\", quietly = TRUE))\n  install.packages(\"BiocManager\")\nBiocManager::install(version = \"3.16\") # Or the newest version\n\n# ------\n# 2. Before you upgrade, build a temp and save file with all of your old packages.\n\n#--run in the old version of R\n\n# MBP15: setwd(\"/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/\")\nRpkgs_MBP20_230329 <- installed.packages()[,\"Package\"] # save as vector values?\nsave(Rpkgs_MBP20_230329, file=\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329\") # Or Rpkgs_MBP20_230329.rda\n\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329\") # load as values (vector?)\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda\") # load as values (vector?)\n\n # As .rda file\ntmp <- installed.packages() # save in environment as data (dataframe?)\nRpkgs_MBP20_230329 <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1]) # save as vector package names.\nsave(Rpkgs_MBP20_230329, file=\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda\") # save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  \n\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda\") # In environment is back to installedpkgs.  \n\n# Save as csv requires a dataframe (df)\nRpkgs_MBP20_230329 <- installed.packages()[,\"Package\"] # save only the Package (name) variable as vector values?, still can be save as csv\nwrite.csv(Rpkgs_MBP20_230329, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv')\n\n# Or df with all the info of packages\nRpkgs_MBP20_230329df1 <- as.data.frame(installed.packages())\n\nwrite.csv(Rpkgs_MBP20_230329df1, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.csv')\n\n# Save as excel requires a dataframe (df)\n# install.packages(\"writexl\")\nlibrary(\"writexl\")\nwrite_xlsx(Rpkgs_MBP20_230329df1,\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx\")\n\n\n# ------\n\n# 3. Install the new version of R (use homebrew). See Brew cask upgrade below.\n\n# -----\n\n#　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.\n\n#--run in the new version\n# MBP20: setwd(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/\")\n\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda\")\nfor (p in setdiff(RSpacks230324MBP15, installed.packages()[,\"Package\"]))\n  install.packages(p)\n\n\n\nCopy/Paste Rstudio global settings and preferences if necessary.\n\n\nTerminal\n\n# Copy/Paste Rstudio global settings and preferences.. \nopen ~/.config/rstudio\n\n# Search and Copy file to same place as packages files. \nrstudio-prefs.json\n\nopen ~/.config/rstudio\n\n\nBrew cask upgrade R and Rstudio.\n\n\nTerminal\n\n# Upgrade R and rstudio\nbrew update\nbrew upgrade --cask r\n# password\n#`brew cleanup` has not been run in the last 30 days, running now...\n\n# Upgrade RStudio\nbrew upgrade --cask rstudio\n\n# Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. \nrstudio-prefs.json"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#errors-and-trouble-shooting.",
-    "href": "posts/RStudio_install.html#errors-and-trouble-shooting.",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Errors and trouble shooting.",
-    "text": "Errors and trouble shooting.\n\nnon-UTF8 locale error in R\nWARNING: You’re using a non-UTF8 locale\n\nWhen opening R new version… an error message is displayed.\n\n\nerror message\n\n#| code-block-bg: false\n#| code-block-border-left: \"#31BAE9\"\n#| eval: false\n\nDuring startup - Warning messages:\n1: Setting LC_CTYPE failed, using \"C\" \n2: Setting LC_COLLATE failed, using \"C\" \n3: Setting LC_TIME failed, using \"C\" \n4: Setting LC_MESSAGES failed, using \"C\" \n5: Setting LC_MONETARY failed, using \"C\" \n[R.app GUI 1.79 (8198) x86_64-apple-darwin17.0]\n\nWARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.\nPlease read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.\n\nA solution: For english:\n- Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using “C”\n- For Japanese:.\n\n\n\nTerminal\n\ndefaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示\ndefaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示\n\n\n\nThere is already an App… (legacy)\nError: It seems there is already an App at ‘/Applications/Rstudio’\nis it possible to override the legacy app when install using brew\nSome times is not possible to install, re-intall or upgrade a program via brew because first installation was made manually (downloaded zip or tar files).\nThis leaves a “legacy” app. To fix it use the --force attribute while installing\nbrew install --cask rstudio --force"
-  },
-  {
     "objectID": "posts/quarto_start.html",
     "href": "posts/quarto_start.html",
     "title": "Starting with quarto",
@@ -49,11 +7,11 @@
     "text": "Since the appearance of quarto, perhaps it would be more effective to write all in .qmd files cos of its advantages,\n\nimages can be added easily and automatically\nimg captions\ncode writing and\ncompatible with Zotero bibliography (for word, Rstudio and quarto)\nAlmost same code/outcome flexibility as Mkdocs code package.\nQmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code.\nVisual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format)."
   },
   {
-    "objectID": "posts/quarto_start.html#quarto",
-    "href": "posts/quarto_start.html#quarto",
+    "objectID": "posts/quarto_start.html#quarto-install-or-upgrade",
+    "href": "posts/quarto_start.html#quarto-install-or-upgrade",
     "title": "Starting with quarto",
-    "section": "Quarto",
-    "text": "Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org ."
+    "section": "Quarto install or upgrade",
+    "text": "Quarto install or upgrade\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org .\n\n\nterminal-brew\n\nbrew install --cask quarto \nbrew upgrade --cask quarto\n\n\n\n\n\n\n\nNote\n\n\n\n20230330 upgrade: quarto –version: 1.2.475 (Release Candidate — v1.3.296 available as CLI, but not as brew cask)"
   },
   {
     "objectID": "posts/quarto_start.html#running-code",
@@ -77,6 +35,20 @@
     "text": "I first try:\npip install --upgrade\n\nERROR: You must give at least one requirement to install (see \"pip help install\")\n\n[notice] A new release of pip available: 22.2.1 -> 23.0.1\n[notice] To update, run: python3.9 -m pip install --upgrade pip\n\n# Then I tried\nbrew install python3\nDisplayed: Warning: No available formula with the name “python3.”.\nDid you mean python@3.9, python@3.8, python@3.7, python@3.11 or python@3.10?\n==> Searching for similarly named formulae and casks…\n==> Formulae boost-python3 python@3.10 ✔ python@3.11 python@3.7 python@3.8 python@3.9 ✔\n\n\nbrew install python@3.8 \n# Or version needed\nHowever, this install all version of python.\n==> python@3.10 Python has been installed as /usr/local/bin/python3.10\nUnversioned and major-versioned symlinks python, python3, python-config, python3-config, pip, pip3, etc. pointing to python3.10, python3.10-config, pip3.10 etc., respectively, have been installed into:\n/usr/local/opt/python@3.10/libexec/bin\nYou can install Python packages with\npip3.10 install <package>\nThey will install into the site-package directory:\n/usr/local/lib/python3.10/site-packages\ntkinter is no longer included with this formula, but it is available separately:\nbrew install python-tk\\@3.10\nIf you do not need a specific version of Python, and always want Homebrew’s python3 in your PATH:\n  brew install python3\nSee: https://docs.brew.sh/Homebrew-and-Python\nWarning: python@3.11 3.11.2_1 is already installed and up-to-date.\npython3.9 -m pip install –upgrade pip\npip install –upgrade pip\npython –version\n>_Python 3.8.10\npip3 --vesrion\n\n\nFor some of you reading this, this command may be enough. You can run Python 3 using this command (with the 3 at the end).\n\npython3\nTo exit python help window press ++Cnt+z++\nTo print, press . To open an existing new project, press .\n\n\n\n\nlink\nPip is a package management system used for installing and managing Python software packages and libraries. The software and libraries are stored in a repository called the Python Package Index (PyPI).\nPrerequisites:\n\nA system running macOS\nPython installed\nA user account with administrator-level privileges\n\n\n\nTo install pip on macOS through Homebrew. Make sure you have Homebrew installed by running the following command:\nbrew install python\nThe command installs the latest Python, pip, and setuptools.\n\n\n\nFollow the steps below to install Pip:\n1. Press Command + Space Bar and type in Terminal. Click the app icon to open a new terminal window.\n2. Check your Python version to make sure Python3 is installed: python3 --version\n3. Download pip by running the following command: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py\nThe curl command allows you to specify a direct download link. Use the -o option to set the name of the downloaded file.\n4. Install the downloaded package by running: python3 get-pip.py\n5. Verify Pip Installation: pip --version\npython3 --version\ncurl https://bootstrap.pypa.io/get-pip.py -o get-pip.py\npython3 get-pip.py\npip --version\n\n\n\n\nlink\nRun this command:\nbrew install pyenv\n\n\nNow you just need to run the following command: pyenv install {# of the py version to install}\npyenv install 3.9.2\n\n\n\n\nlink\nIf you only want to use Python 3.x for a specific project, then cd to your specific directory and type:\npyenv local 3.x.x\nIf you’d prefer to just have Python 3.x installed globally throughout your operating system, then type:\npyenv global 3.x.x\n\n\n\nbrew install jupyter\n# Start Jupyter\njupyter notebook"
   },
   {
+    "objectID": "posts/Python.html#summary",
+    "href": "posts/Python.html#summary",
+    "title": "Python",
+    "section": "Summary",
+    "text": "Summary\n\n\nTerminal\n\n\npip3 --version\nbrew install python3 \nbrew install python #same as above\nbrew install pyenv\nbrew install jupyter\npip install --upgrade pip\npython3.11 -m pip install --upgrade pip\n\npip install numpy\npip install matplotlib   #Still asking for numpy\n\n# This code made it work...\npip3 install numpy\npip3 install matplotlib\n\n# Optional commands to make python run in RStudio:\npython3 -m pip install numpy\npython3.11 -m pip install --upgrade pip\npip3.10 install numpy\npython3.10 -m pip install --upgrade pip"
+  },
+  {
+    "objectID": "posts/Python.html#errors-and-troubleshooting",
+    "href": "posts/Python.html#errors-and-troubleshooting",
+    "title": "Python",
+    "section": "Errors and Troubleshooting",
+    "text": "Errors and Troubleshooting\n\n\n\n\n\n\nWarning\n\n\n\nIn background Jobs:\nError: ModuleNotFoundError: No module named ‘numpy’ Execution halted\n\n\n\n\n\n\nSolution\n\n\n\npip3 install numpy\npip3 install matplotlib"
+  },
+  {
     "objectID": "posts/Git.html",
     "href": "posts/Git.html",
     "title": "GIT Management",
@@ -84,11 +56,95 @@
     "text": "brew install git   \nIn windows, git provides the Git BASH app, a BASH emulation used to run Git form the command line."
   },
   {
+    "objectID": "posts/Git.html#git-config",
+    "href": "posts/Git.html#git-config",
+    "title": "GIT Management",
+    "section": "Git Config",
+    "text": "Git Config\ngit config --global user.name \"{your name}\" # Quotes if there is a space between the names\ngit config --global user.email your_email@service.com\n\n# Specify default editor\ngit config --global core.editor \"code --wait\"  # VScode as default editor\ngit config --global -e  # Opens defautl editor # Opens default editor to edit all the global settings. \n\n# How to handle end of lines. In windows: \\r, \\n; on mac: \\n. May provoke conflicts, cofig property \"core.autocrlf\" (11:41)\n# Windows:\ngit config --global core.autocrlf true\n# Mac:\ngit config --global core.autocrlf input\nTo have a colorfull terminal window like in the video install\nOn Mac: Zsh with git plugin\nWindows: posh-git\nvideo1\nvideo2\nUsing zsh on Windows\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n# Start control version\ngit init\nls -a # To see hidden files\nopen .git\ngit clone [url]\n\n# Stage & Snapshot\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull\n\nrm [file_name]  # removes/delete file\nmv [old_filename] [new_filename]"
+  },
+  {
+    "objectID": "posts/Git.html#video-tutorials",
+    "href": "posts/Git.html#video-tutorials",
+    "title": "GIT Management",
+    "section": "Video Tutorials",
+    "text": "Video Tutorials\n\n\n\n\n\n\n\n\nterminal\n\nbrew install git\ngit --version\ngit init\ngit init --bare # Repository for only push and pull, not changes possible  \ngit status\ngit add {filename}\ngit add .   \ngit commit -m \"{message}\" # If forgot -m (1:06:40), press i, --INSERT-- type message\ngit commit -am \"{message}\" # If modify file already added to git you can use \"-a\" flag, for new files use the \"add\" flag. \ngit diff # to see the differences and modifications on the files.\ngit diff --color-words # color code for added and deleted portions of each file.\ngit log\ngit log --pertty=oneline #Log as one line, not showing all the changes.\ngit diff {commit log#} {commit log#}\n# 1:24:00\ngit branch\ngit branch --all\ngit branch {branch name1} # To create a new branch\ngit branch checkout {branch name1} #To change/jump branches\ngit status\ngit commit -am \"Changes in the new branch\"\ngit log #Check HEAD -> {branch name1}\ngit log --pretty=oneline #To see all commits log\ngit checkout -b {branch name2} #Jump to branch2 and if it doesn't exist create it. \ngit diff {branch name1}...{branch name2} #To see differences between branches.  \n\n## Mergin braches to master.  Go to master first.\ngit checkout master\ngit branch\ngit merge {branch name}\n\n## To push a branch from local to github\ngit push --set-upstream origin {branch name}\n\n## To delete a branch. Caution!! Can not delete if you are in branch\ngit branch -d {branch name}"
+  },
+  {
+    "objectID": "posts/Git.html#trouble-shooting.",
+    "href": "posts/Git.html#trouble-shooting.",
+    "title": "GIT Management",
+    "section": "Trouble shooting.",
+    "text": "Trouble shooting.\n\nBranch is ahead error\n\n\nterminal\n\ngit add .\ngit commit -m \"python install\"\n\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\n\n\n\n\n\nImportant\n\n\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push\n\n\nDelete .DS_Store recursively from all directories and sub-directories.\nOn a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.\nSolution:\n\nAdd the .DS_Store to the .gitignore file > save > commit.\n\nCheck if file still recurs.\n\n\ngit status\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n        modified:   .DS_Store\nSometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.\nTo remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:\nfind . -name \".DS_Store\" -delete\nSteps: 1. Uncommit/Discard/Unstage the .DS_Store file from git panel\ngit restore .DS_Store \n# If it is the only file on stage\ngit restore .  \n\nls -a  #find if still present\n\nfind . -name \".DS_Store\" -delete  #This will find all \".DS_Store\" files in all folders\n\ngit status\n\ngit add . \n\ngit commit -m \"delete all DS_Store files\"\n\ngit push\n\ngit pull \n\nRender > commit > push > pull.\n.DS_Store file will be automatically created by Mac in the folder, but it won’t appear on the stageing steps anymore."
+  },
+  {
     "objectID": "posts/2adPost.html",
     "href": "posts/2adPost.html",
     "title": "This is the title of the post",
     "section": "",
     "text": "this the second post."
+  },
+  {
+    "objectID": "posts/RStudio_install.html",
+    "href": "posts/RStudio_install.html",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "",
+    "text": "References Pages to visit first:\nPainless way to install a new version of R?\nHow to migrate Rstudio files and installed packages ( by version to a new computer )\nAn efficient way to install and load R packages\nLoading packages: the difference between R’s library() and require() functions\nBioconductor\nInstall/Update R and R packages\nrestore all R packages after installing a new version of R?\nHow to Upgrade R Without Losing Your Packages\nUpgrade R Without Losing Your Packages\nUpdate and migrate R\nProfiles package\nRprofile.site file example for Startup customization\nManaging R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf\n\nTrick for doing the upgrade, from installing the software to copying all the settings/packages over?First you install the new version, then run this in the old version:"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#stack-overflow",
+    "href": "posts/RStudio_install.html#stack-overflow",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "Stack Overflow",
+    "text": "Stack Overflow\n\nRun in the old version of R\n\nsetwd(\"C:/Temp/\")\npackages <- installed.packages()[,\"Package\"]\nsave(packages, file=\"Rpackages\")\n\nFollowed by this in the new version:\n\n\nRun in the new version\n\nsetwd(\"C:/Temp/\")\nload(\"Rpackages\")\nfor (p in setdiff(packages, installed.packages()[,\"Package\"]))\ninstall.packages(p)\n\n\n\nFor windows\nUsing Installr\n\n#From https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r\n\n# Run in the old version of R (or via RStudio)\nsetwd(\"C:/Temp/\") \npackages <- installed.packages()[,\"Package\"] \nsave(packages, file=\"Rpackages\") \n\n# INSTALL NEW R VERSION\nif(!require(installr)) { install.packages(\"installr\"); require(installr)} #load / install+load installr\n# See here for more on installr: https://www.r-statistics.com/2013/03/updating-r-from-r-on-windows-using-the-installr-package/  \n\n# step by step functions:\ncheck.for.updates.R() # tells you if there is a new version of R or not.\ninstall.R() # download and run the latest R installer... This install.R seems to be a windows only command. \n\n# Install library - run in the new version of R. This calls package names and installs them from repos, thus all packages should be correct to the most recent version\nsetwd(\"C:/Temp/\") \nload(\"Rpackages\") \nfor (p in setdiff(packages, installed.packages()[,\"Package\"])) \ninstall.packages(p) \n\n# Installr includes a package migration tool but this simply copies packages, it does not update them\ncopy.packages.between.libraries() # copy your packages to the newest R installation from the one version before it (if ask=T, it will ask you between which two versions to perform the copying)"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#r-bloglers",
+    "href": "posts/RStudio_install.html#r-bloglers",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "R-bloglers",
+    "text": "R-bloglers\n\nHow to Upgrade R Without Losing Your Packages\n\nBefore you upgrade, build a temp file with all of your old packages. Files saved as .rda files.\n\n\n\ntmp <- installed.packages()\ninstalledpkgs <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1])\nsave(installedpkgs, file=\"installed_old.rda\")\n\n\nInstall the new version of R and let it do it’s thing.\nOnce you’ve got the new version up and running, reload the saved packages and re-install them from CRAN.\n\n\nload(\"installed_old.rda\")\ntmp <- installed.packages()\ninstalledpkgs.new <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1])\nmissing <- setdiff(installedpkgs, installedpkgs.new)\ninstall.packages(missing)\nupdate.packages()\n\nNote: If you had any packages from BioConductor, you can update those too!\n\nsource(\"http://bioconductor.org/biocLite.R\")\nchooseBioCmirror()\nbiocLite()\nload(\"installed_old.rda\")\ntmp <- installed.packages()\ninstalledpkgs.new <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1])\nmissing <- setdiff(installedpkgs, installedpkgs.new)\nfor (i in 1:length(missing)) biocLite(missing[i])\n\n\n\n\n\n\n\nAbout bioLite package\n\n\n\n\n\nUpdate: ‘biocLite’ is not available for new versions of R\n\ninstall.packages(\"biocLite\") # Warning in install.packages : package ‘biocLite’ is not available for this version of R\n\nBiocLite is not a thing anymore, it was used in the old versions of Bioconductor to install packages, now you can directly use BiocManager::install().\nFor example:\n\nBiocManager::install(\"limma\")\n\n\n\n\n\n\nSave files as csv or excel .xlsx\n\ncsv files\n\nwrite.csv(data_frame, 'path/to/forder/and/file_name.csv') # or set wd and just type file_name.csv\n\n\n\nexcel files\nConvert first to a data frame.\n\ninstall.packages(\"writexl\")\nlibrary(\"writexl\")\nthe_dataframe_name <- as.data.frame(data)\nwrite_xlsx(the_dataframe_name,\"path/to/folder/and/file_name.xlsx\")"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#upgrading-r-on-windows-and-mac",
+    "href": "posts/RStudio_install.html#upgrading-r-on-windows-and-mac",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "Upgrading R on Windows and Mac",
+    "text": "Upgrading R on Windows and Mac\nhttps://www.r-statistics.com/tag/installr/\n\nWindows\nIf you are using Windows you can easily upgrade to the latest version of R using the installr package. Simply run the following code in Rgui:\n\ninstall.packages(\"installr\") # install \nsetInternet2(TRUE) # only for R versions older than 3.3.0\ninstallr::updateR() # updating R.\n# If you wish it to go faster, run: installr::updateR(T)\n\nRunning “updateR()” will detect if there is a new R version available, and if so it will download+install it (etc.). There is also a step by step tutorial (with screenshots) on how to upgrade R on Windows, using the installr package. If you only see the option to upgrade to an older version of R, then change your mirror or try again in a few hours (it usually take around 24 hours for all CRAN mirrors to get the latest version of R).\nAlso chekck the video:\n\n\n\n\n\nMac\nIf you are using Mac you can easily upgrade to the latest version of R using Andrea Cirillo’s updateR package. The package is not on CRAN, so you’ll need to run the following code in Rgui:\n\ninstall.packages(\"devtools\")\ndevtools::install_github(\"AndreaCirilloAC/updateR\")\nupdateR(admin_password = \"PASSWORD\") # Where \"PASSWORD\" stands for your system password\n\nMBP15 The downloaded source packages are in “/private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages” MBP20 The downloaded binary packages are in /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages\nOption 1\nPainless way to install a new version of R?\nFiles are .rda\n\n#--run in the old version of R\nsetwd(\"C:/Temp/\")\npackages <- installed.packages()[,\"Package\"]\nsave(packages, file=\"Rpackages\")\n\n#--run in the new version\nsetwd(\"C:/Temp/\")\nload(\"Rpackages\")\nfor (p in setdiff(packages, installed.packages()[,\"Package\"]))\ninstall.packages(p)\n\n\n#-----\n\n# Just for completeness, you can save your packages in another directory on your computer.\ninstall.packages(\"thepackage\",lib=\"/path/to/directory/with/libraries\")\n#You can change the default .Library value using the function .libPaths too\n.libPaths(\"/path/to/directory/with/libraries\")\n\n# -----\n\n#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R version by using an .RData file containing an updated list with all packages.\n\nlibrary(utils)\n\n## Check necessary packages\nload(\"G:\\Setinfo\\R\\packagelist.RData\") # includes a vector \"pkgs\"\ninstalled <- pkgs %in% installed.packages()[, 'Package']\nif (length(pkgs[!installed]) >=1){\n  install.packages(pkgs[!installed])\n}\n# I make the packagelist.RData by specifying .Last() in my Rprofile.site. This updates the package list if I installed some :\n\n.Last <- function(){\n  pkgs <- installed.packages()[,1]\n  if (length(pkgs) > length(installed)){\n    save(pkgs,file=\"G:\\Setinfo\\R\\packagelist.RData\")\n  }\n}\n\nOption 2:\nHow to migrate Rstudio files and installed packages ( by version to a new computer )\n\nSave as .csv files.\nOr .xlsx files.\n\n\ngetwd()\nsetwd()\n# /Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/file_name.csv  \n\ninstalled <- as.data.frame(installed.packages())\nwrite.csv(installed, 'installed_previously.csv') # Path/to/folder/installed_previously.csv \ninstalledPreviously <- read.csv('installed_previously.csv') # Path/to/folder/installed_previously.csv \nbaseR <- as.data.frame(installed.packages())\ntoInstall <- setdiff(installedPreviously, baseR)\n\n# the first thing to do would be to make sure that the set of currently installed packages is up-to-date. \n\nupdate.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments\n  new_pacs <- paste( setdiff( installedPreviously$Package, baseR$Package), \n                       collapse=\",\")\n  install.packages( new_pacs, dependencies=TRUE)\n\n# For excel files, requires: \ninstall.packages(\"writexl\")\nlibrary(\"writexl\")\nwrite_xlsx(the_dataframe_name,\"path/to/folder/file_name.xlsx\")"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#an-efficient-way-to-istall-and-load-r-packages",
+    "href": "posts/RStudio_install.html#an-efficient-way-to-istall-and-load-r-packages",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "An efficient way to istall and load R packages",
+    "text": "An efficient way to istall and load R packages\nAn efficient way to install and load R packages\n\n\nInefficient way to install and load R packages:\n\n# Installation of required packages\ninstall.packages(\"tidyverse\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"readxl\")\ninstall.packages(\"dplyr\")\n\n# Load packages\nlibrary(\"tidyverse\")\nlibrary(\"ggplot2\")\nlibrary(\"readxl\")\nlibrary(\"dplyr\")\n\n\n\nMore efficient way\n\n# Package names\npackages <- c(\"ggplot2\", \"readxl\", \"dplyr\", \"tidyr\", ...)\n\n# Install packages not yet installed\ninstalled_packages <- packages %in% rownames(installed.packages())\nif (any(installed_packages == FALSE)) {\n  install.packages(packages[!installed_packages])\n}\n\n# Packages loading\ninvisible(lapply(packages, library, character.only = TRUE))\n\n\n\nMost efficient way\n{pacman} package\nAfter this article was published, a reader informed me about the {pacman} package. After having read the documentation and try it out myself, I learned that the function p_load() from {pacman} checks to see if a package is installed, if not it attempts to install the package and then loads it. It can also be applied to several packages at once, all this in a very condensed way:\n\ninstall.packages(\"pacman\")\n\npacman::p_load(ggplot2, tidyr, dplyr)\n\n## Make sure your current packages are up to date\nupdate.packages()\n## devtools is required\nlibrary(devtools)\ninstall_github(\"trinker/pacman\")\n\nFind more about this package on CRAN. Introduction to the pacman Package in R (3 Examples)\n\n{librarian} package\nLike {pacman}, the shelf() function from the {librarian} package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor’s Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no “” around package names).\n\nBiobase: Base functions for Bioconductor DOI: 10.18129/B9.bioc.Biobase\nInstallation:\nTo install this package, start R (version “4.2”) and enter:\n\n\nif (!require(\"BiocManager\", quietly = TRUE))\n    install.packages(\"BiocManager\")\n\nBiocManager::install(\"Biobase\")\n\nLast but not least, the {librarian} package allows to load packages automatically at the start of every R session (thanks to the lib_startup() function) and search for new packages on CRAN by keywords or regular expressions (thanks to the browse_cran() function).\n\nHere is an example of how to install missing packages and load them with the shelf() function:\n\n# From CRAN:\ninstall.packages(\"librarian\")\n\nlibrarian::shelf(ggplot2, DesiQuintans / desiderata, pander)\n\nFor CRAN packages, provide the package name as normal without “” and for GitHub packages, provide the username and package name separated by / (i.e., UserName/RepoName as shown for the desiderata package).\nFind more about this package on CRAN."
+  },
+  {
+    "objectID": "posts/RStudio_install.html#location-of-the-r-packages",
+    "href": "posts/RStudio_install.html#location-of-the-r-packages",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "Location of the R packages",
+    "text": "Location of the R packages\n\n\nterminal\n\n\n# MBP15: The downloaded source packages are in:\nopen /private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages \n\n# MBP20: The downloaded binary packages are in:\nopen  /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#comparing-files",
+    "href": "posts/RStudio_install.html#comparing-files",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "Comparing files",
+    "text": "Comparing files\nTo compare and find whether two files differ and where, there are a few packages.\n\nlibrary(tools)\nmd5sum(\"path/to/file1\") == md5sum(\"path/to/file2\")\n\nlibrary(diffobj)\ndiffFile(\"path/to/file1\", \"path/to/file2\")   # or `diffChr` if you data is in R already\n\nlibrary(diffr)\ndiffr(\"path/to/file1\", \"path/to/file2\")\n\nses(readLines(\"path/to/file1\"), readLines(\"path/to/file1\"))\n\npackages <- installed.packages()\nstructure(packages)"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#summary",
+    "href": "posts/RStudio_install.html#summary",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "Summary",
+    "text": "Summary\n\nSaved installed packages\n\n# 1. Before you upgrade, update all old packages.\n\n# Update 20230329\n# Update current packages.\nupdate.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments\n\n# Upgrade packages of Bioconductor\n# Install packages from a newer version of Bioconductor.\n# https://www.bioconductor.org/install/ \n\nif (!require(\"BiocManager\", quietly = TRUE))\n  install.packages(\"BiocManager\")\nBiocManager::install(version = \"3.16\") # Or the newest version\n\n# ------\n# 2. Before you upgrade, build a temp and save file with all of your old packages.\n\n#--run in the old version of R\n\n# MBP15: setwd(\"/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/\")\nRpkgs_MBP20_230329 <- installed.packages()[,\"Package\"] # save as vector values?\nsave(Rpkgs_MBP20_230329, file=\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329\") # Or Rpkgs_MBP20_230329.rda\n\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329\") # load as values (vector?)\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda\") # load as values (vector?)\n\n # As .rda file\ntmp <- installed.packages() # save in environment as data (dataframe?)\nRpkgs_MBP20_230329 <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1]) # save as vector package names.\nsave(Rpkgs_MBP20_230329, file=\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda\") # save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  \n\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda\") # In environment is back to installedpkgs.  \n\n# Save as csv requires a dataframe (df)\nRpkgs_MBP20_230329 <- installed.packages()[,\"Package\"] # save only the Package (name) variable as vector values?, still can be save as csv\nwrite.csv(Rpkgs_MBP20_230329, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv')\n\n# Or df with all the info of packages\nRpkgs_MBP20_230329df1 <- as.data.frame(installed.packages())\n\nwrite.csv(Rpkgs_MBP20_230329df1, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.csv')\n\n# Save as excel requires a dataframe (df)\n# install.packages(\"writexl\")\nlibrary(\"writexl\")\nwrite_xlsx(Rpkgs_MBP20_230329df1,\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx\")\n\n\n# ------\n\n# 3. Install the new version of R (use homebrew). See Brew cask upgrade below.\n\n# -----\n\n#　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.\n\n#--run in the new version\n# MBP20: setwd(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/\")\n\nload(\"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda\")\nfor (p in setdiff(RSpacks230324MBP15, installed.packages()[,\"Package\"]))\n  install.packages(p)\n\n\n\nCopy/Paste Rstudio global settings and preferences if necessary.\n\n\nTerminal\n\n# Copy/Paste Rstudio global settings and preferences.. \nopen ~/.config/rstudio\n\n# Search and Copy file to same place as packages files. \nrstudio-prefs.json\n\nopen ~/.config/rstudio\n\n\nBrew cask upgrade R and Rstudio.\n\n\nTerminal\n\n# Upgrade R and rstudio\nbrew update\nbrew upgrade --cask r\n# password\n#`brew cleanup` has not been run in the last 30 days, running now...\n\n# Upgrade RStudio\nbrew upgrade --cask rstudio\n\n# Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. \nrstudio-prefs.json"
+  },
+  {
+    "objectID": "posts/RStudio_install.html#errors-and-trouble-shooting.",
+    "href": "posts/RStudio_install.html#errors-and-trouble-shooting.",
+    "title": "R and Rstudio Install, setup and Package Management",
+    "section": "Errors and trouble shooting.",
+    "text": "Errors and trouble shooting.\n\nnon-UTF8 locale error in R\nWARNING: You’re using a non-UTF8 locale\n\nWhen opening R new version… an error message is displayed.\n\n\nerror message\n\n#| code-block-bg: false\n#| code-block-border-left: \"#31BAE9\"\n#| eval: false\n\nDuring startup - Warning messages:\n1: Setting LC_CTYPE failed, using \"C\" \n2: Setting LC_COLLATE failed, using \"C\" \n3: Setting LC_TIME failed, using \"C\" \n4: Setting LC_MESSAGES failed, using \"C\" \n5: Setting LC_MONETARY failed, using \"C\" \n[R.app GUI 1.79 (8198) x86_64-apple-darwin17.0]\n\nWARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.\nPlease read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.\n\nA solution: For english:\n- Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using “C”\n- For Japanese:.\n\n\n\nTerminal\n\ndefaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示\ndefaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示\n\n\n\nThere is already an App… (legacy)\nError: It seems there is already an App at ‘/Applications/Rstudio’\nis it possible to override the legacy app when install using brew\nSome times is not possible to install, re-intall or upgrade a program via brew because first installation was made manually (downloaded zip or tar files).\nThis leaves a “legacy” app. To fix it use the --force attribute while installing\nbrew install --cask rstudio --force"
   },
   {
     "objectID": "posts/Quarto_templates.html",
@@ -112,6 +168,62 @@
     "text": "An extension that uses the GLightbox javascript library to add lightbox styling and behavior to images in your HTML documents.\nSee quarto-ext/lightbox or the web example at Example lightbox Document at the bottom of this page."
   },
   {
+    "objectID": "Lightbox_Example.html#installation",
+    "href": "Lightbox_Example.html#installation",
+    "title": "Complete Lightbox Example",
+    "section": "Installation",
+    "text": "Installation\nTo install this extension in your current directory (or into the Quarto project that you’re currently working in), use the following command:\nquarto add quarto-ext/lightbox"
+  },
+  {
+    "objectID": "Lightbox_Example.html#usage",
+    "href": "Lightbox_Example.html#usage",
+    "title": "Complete Lightbox Example",
+    "section": "Usage",
+    "text": "Usage\nThe Lightbox extension is implemented as a filter in Quarto. Once installed, using the extension is easy.\n\nApply To Images Automatically\nThe Lightbox extension can automatically give images in your web page a lightbox treatment. You can enable this like:\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\nlightbox: auto\n---\n\n![A Lovely Image](mv-1.jpg)\nYou can exclude an image from receiving this automatic treatment by giving it a nolightbox class, like so:\n![Don't lightbox me!](mv-1.jpg){.nolightbox}\n\n\nChoose Specific Images\n\nAdd lightbox to the list of filters in your _quarto.yml file or your document front matter. For example:\n\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\n---\n\nAdd the class lightbox to any images that you’d like to have the lightbox treatment. For example:\n\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\n---\n\n![A Lovely Image](mv-1.jpg){.lightbox}"
+  },
+  {
+    "objectID": "Lightbox_Example.html#galleries",
+    "href": "Lightbox_Example.html#galleries",
+    "title": "Complete Lightbox Example",
+    "section": "Galleries",
+    "text": "Galleries\nIn addition to simply providing a lightbox treatment for individual images, you can also group images into a ‘gallery’. When the user activates the lightbox, they will be able to page through the images in the gallery without returning to the main document. To create galleries of images, apply a group attribute (with a name) to the images that you’d like to gather into a gallery. Images with the same group name will be placed together in a gallery when given a lightbox treatment.\nFor example, the following three images will be treated as a gallery:\n![A Lovely Image](mv-1.jpg){group=\"my-gallery\"}\n\n![Another Lovely Image](mv-2.jpg){group=\"my-gallery\"}\n\n![The Last Lovely Image](mv-3.jpg){group=\"my-gallery\"}"
+  },
+  {
+    "objectID": "Lightbox_Example.html#global-options",
+    "href": "Lightbox_Example.html#global-options",
+    "title": "Complete Lightbox Example",
+    "section": "Global Options",
+    "text": "Global Options\nThe following options may be specified in the front matter for lightbox:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\nmatch\nSet this to auto if you’d like any image to be given lightbox treatment. If you omit this, only images with the class lightbox will be given the lightbox treatment.\n\n\neffect\nThe effect that should be used when opening and closing the lightbox. One of fade, zoom, none. Defaults to zoom.\n\n\ndesc-position\nThe position of the title and description when displaying a lightbox. One of top, bottom, left, right. Defaults to bottom.\n\n\nloop\nWhether galleries should ‘loop’ to first image in the gallery if the user continues past the last image of the gallery. Boolean that defaults to true.\n\n\ncss-class\nA class name to apply to the lightbox to allow css targeting. This will replace the lightbox class with your custom class name.\n\n\n\nA complete example:\n---\ntitle: Complete Lightbox Example\nfilters:\n  - lightbox\nlightbox:\n  match: auto\n  effect: fade\n  desc-position: right\n  loop: false\n  css-class: \"my-css-class\" #only if custom css file exists.\n---"
+  },
+  {
+    "objectID": "Lightbox_Example.html#per-image-attributes",
+    "href": "Lightbox_Example.html#per-image-attributes",
+    "title": "Complete Lightbox Example",
+    "section": "Per Image Attributes",
+    "text": "Per Image Attributes\nThe following options may be specified as attributes on individual images to control the lightbox behavior:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\ndesc-position\nThe position of the title and description when displaying a lightbox. One of top, bottom, left, right. Defaults to bottom"
+  },
+  {
+    "objectID": "Lightbox_Example.html#using-lightbox-with-computation-cells",
+    "href": "Lightbox_Example.html#using-lightbox-with-computation-cells",
+    "title": "Complete Lightbox Example",
+    "section": "Using lightbox with computation cells",
+    "text": "Using lightbox with computation cells\nOptions for lightbox can be passed using chunk option lightbox like the following:\n#| fig-cap: Simple demo R plot \n#| lightbox:\n#|   group: r-graph\n#|   description: This is 1 to 10 plot\nplot(1:10, rnorm(10))\nIt is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.\n::: {.cell lightbox='{\"group\":\"cars\",\"description\":[\"This is the decription for first graph\",\"This is the decription for second graph\"]}'}\n\n```{.r .cell-code}\nplot(mtcars)\n```\n\n::: {.cell-output-display}\n![Caption for first plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n```{.r .cell-code}\nplot(cars)\n```\n\n::: {.cell-output-display}\n![Caption for second plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n:::\nWhen lightbox: auto is in main YAML config, you can opt-out lightbox on a plot by setting lightbox: false When lightbox: auto is not set, you can opt-in for lightbox on a specific plot by setting lightbox: true or by setting lightbox with some options."
+  },
+  {
+    "objectID": "Lightbox_Example.html#example",
+    "href": "Lightbox_Example.html#example",
+    "title": "Complete Lightbox Example",
+    "section": "Example",
+    "text": "Example\nHere is the source code for a minimal example: example.qmd\nThis is the output of example.qmd."
+  },
+  {
+    "objectID": "Lightbox_Example.html#chilmark",
+    "href": "Lightbox_Example.html#chilmark",
+    "title": "Complete Lightbox Example",
+    "section": "Chilmark",
+    "text": "Chilmark\nHere is a simple image with a description. This also overrides the description position and places it to the left of the image.\n\n\n\nBeach in Chilmark"
+  },
+  {
     "objectID": "Lightbox_Example.html#elsewhere",
     "href": "Lightbox_Example.html#elsewhere",
     "title": "Complete Lightbox Example",
@@ -131,6 +243,13 @@
     "title": "Complete Lightbox Example",
     "section": "Credits",
     "text": "Credits\nThe images in this example were used under the Unsplash license, view originals below:\n\nChilmark Beach\nAquinnah\nGingerbread House\nEdgartown Light\nEdgartown Sailboat"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto_website",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nAdded at 20230315-1228\nAdded at 20230315-1316\nPhotos:\n \nupdate"
   },
   {
     "objectID": "about.html",
@@ -179,7 +298,7 @@
     "href": "files/Software/index.html",
     "title": "Software",
     "section": "",
-    "text": "All related to Software\nSoftware used:\n\nRStudio\nImageJ\nAnalyze12\n\nInfo and How to’s."
+    "text": "All related to Software\nSoftware used:\n\nRStudio\nGit\nImageJ\nAnalyze12\n\nInfo and How to’s."
   },
   {
     "objectID": "files/Software/Analyze12/index.html",
@@ -252,150 +371,94 @@
     "text": "Another subtitle."
   },
   {
-    "objectID": "posts/RStudio_install.html#stack-overflow",
-    "href": "posts/RStudio_install.html#stack-overflow",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Stack Overflow",
-    "text": "Stack Overflow\n\nRun in the old version of R\n\nsetwd(\"C:/Temp/\")\npackages <- installed.packages()[,\"Package\"]\nsave(packages, file=\"Rpackages\")\n\nFollowed by this in the new version:\n\n\nRun in the new version\n\nsetwd(\"C:/Temp/\")\nload(\"Rpackages\")\nfor (p in setdiff(packages, installed.packages()[,\"Package\"]))\ninstall.packages(p)\n\n\n\nFor windows\nUsing Installr\n\n#From https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r\n\n# Run in the old version of R (or via RStudio)\nsetwd(\"C:/Temp/\") \npackages <- installed.packages()[,\"Package\"] \nsave(packages, file=\"Rpackages\") \n\n# INSTALL NEW R VERSION\nif(!require(installr)) { install.packages(\"installr\"); require(installr)} #load / install+load installr\n# See here for more on installr: https://www.r-statistics.com/2013/03/updating-r-from-r-on-windows-using-the-installr-package/  \n\n# step by step functions:\ncheck.for.updates.R() # tells you if there is a new version of R or not.\ninstall.R() # download and run the latest R installer... This install.R seems to be a windows only command. \n\n# Install library - run in the new version of R. This calls package names and installs them from repos, thus all packages should be correct to the most recent version\nsetwd(\"C:/Temp/\") \nload(\"Rpackages\") \nfor (p in setdiff(packages, installed.packages()[,\"Package\"])) \ninstall.packages(p) \n\n# Installr includes a package migration tool but this simply copies packages, it does not update them\ncopy.packages.between.libraries() # copy your packages to the newest R installation from the one version before it (if ask=T, it will ask you between which two versions to perform the copying)"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#r-bloglers",
-    "href": "posts/RStudio_install.html#r-bloglers",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "R-bloglers",
-    "text": "R-bloglers\n\nHow to Upgrade R Without Losing Your Packages\n\nBefore you upgrade, build a temp file with all of your old packages. Files saved as .rda files.\n\n\n\ntmp <- installed.packages()\ninstalledpkgs <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1])\nsave(installedpkgs, file=\"installed_old.rda\")\n\n\nInstall the new version of R and let it do it’s thing.\nOnce you’ve got the new version up and running, reload the saved packages and re-install them from CRAN.\n\n\nload(\"installed_old.rda\")\ntmp <- installed.packages()\ninstalledpkgs.new <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1])\nmissing <- setdiff(installedpkgs, installedpkgs.new)\ninstall.packages(missing)\nupdate.packages()\n\nNote: If you had any packages from BioConductor, you can update those too!\n\nsource(\"http://bioconductor.org/biocLite.R\")\nchooseBioCmirror()\nbiocLite()\nload(\"installed_old.rda\")\ntmp <- installed.packages()\ninstalledpkgs.new <- as.vector(tmp[is.na(tmp[,\"Priority\"]), 1])\nmissing <- setdiff(installedpkgs, installedpkgs.new)\nfor (i in 1:length(missing)) biocLite(missing[i])\n\n\n\n\n\n\n\nAbout bioLite package\n\n\n\n\n\nUpdate: ‘biocLite’ is not available for new versions of R\n\ninstall.packages(\"biocLite\") # Warning in install.packages : package ‘biocLite’ is not available for this version of R\n\nBiocLite is not a thing anymore, it was used in the old versions of Bioconductor to install packages, now you can directly use BiocManager::install().\nFor example:\n\nBiocManager::install(\"limma\")\n\n\n\n\n\n\nSave files as csv or excel .xlsx\n\ncsv files\n\nwrite.csv(data_frame, 'path/to/forder/and/file_name.csv') # or set wd and just type file_name.csv\n\n\n\nexcel files\nConvert first to a data frame.\n\ninstall.packages(\"writexl\")\nlibrary(\"writexl\")\nthe_dataframe_name <- as.data.frame(data)\nwrite_xlsx(the_dataframe_name,\"path/to/folder/and/file_name.xlsx\")"
-  },
-  {
-    "objectID": "posts/Git.html#branch-is-ahead-error",
-    "href": "posts/Git.html#branch-is-ahead-error",
-    "title": "GIT Management",
-    "section": "Branch is ahead error",
-    "text": "Branch is ahead error\n\n\nterminal\n\ngit add .\ngit commit -m \"python install\"\n\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\n\n\n\n\n\nImportant\n\n\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push"
-  },
-  {
-    "objectID": "posts/Git.html#git-commands",
-    "href": "posts/Git.html#git-commands",
-    "title": "GIT Management",
-    "section": "Git Commands",
-    "text": "Git Commands\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n# Start control version\ngit init\ngit clone [url]\n\n# Stage & Snapshot\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull"
-  },
-  {
-    "objectID": "posts/Python.html#errors-and-troubleshooting",
-    "href": "posts/Python.html#errors-and-troubleshooting",
-    "title": "Python",
-    "section": "Errors and Troubleshooting",
-    "text": "Errors and Troubleshooting\n\n\n\n\n\n\nWarning\n\n\n\nIn background Jobs:\nError: ModuleNotFoundError: No module named ‘numpy’ Execution halted\n\n\n\n\n\n\nSolution\n\n\n\npip3 install numpy\npip3 install matplotlib"
-  },
-  {
-    "objectID": "posts/Python.html#summary",
-    "href": "posts/Python.html#summary",
-    "title": "Python",
-    "section": "Summary",
-    "text": "Summary\n\n\nTerminal\n\n\npip3 --version\nbrew install python3 \nbrew install python #same as above\nbrew install pyenv\nbrew install jupyter\npip install --upgrade pip\npython3.11 -m pip install --upgrade pip\n\npip install numpy\npip install matplotlib   #Still asking for numpy\n\n# This code made it work...\npip3 install numpy\npip3 install matplotlib\n\n# Optional commands to make python run in RStudio:\npython3 -m pip install numpy\npython3.11 -m pip install --upgrade pip\npip3.10 install numpy\npython3.10 -m pip install --upgrade pip"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#comparing-files-differences",
-    "href": "posts/RStudio_install.html#comparing-files-differences",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Comparing files (differences)",
-    "text": "Comparing files (differences)\nTo find whether two files differ and where, there are a few packages.\n\nlibrary(tools)\nmd5sum(\"path/to/file1\") == md5sum(\"path/to/file2\")\n\nlibrary(diffobj)\ndiffFile(\"path/to/file1\", \"path/to/file2\")   # or `diffChr` if you data in R already\n\nlibrary(diffr)\ndiffr(\"path/to/file1\", \"path/to/file2\")\n\nses(readLines(\"path/to/file1\"), readLines(\"path/to/file1\"))\n\npackages <- installed.packages()\nstructure(packages)"
-  },
-  {
-    "objectID": "posts/RStudio_install.html#comparing-files",
-    "href": "posts/RStudio_install.html#comparing-files",
-    "title": "R and Rstudio Install, setup and Package Management",
-    "section": "Comparing files",
-    "text": "Comparing files\nTo compare and find whether two files differ and where, there are a few packages.\n\nlibrary(tools)\nmd5sum(\"path/to/file1\") == md5sum(\"path/to/file2\")\n\nlibrary(diffobj)\ndiffFile(\"path/to/file1\", \"path/to/file2\")   # or `diffChr` if you data is in R already\n\nlibrary(diffr)\ndiffr(\"path/to/file1\", \"path/to/file2\")\n\nses(readLines(\"path/to/file1\"), readLines(\"path/to/file1\"))\n\npackages <- installed.packages()\nstructure(packages)"
-  },
-  {
-    "objectID": "posts/quarto_start.html#quarto-install-or-upgrade",
-    "href": "posts/quarto_start.html#quarto-install-or-upgrade",
-    "title": "Starting with quarto",
-    "section": "Quarto install or upgrade",
-    "text": "Quarto install or upgrade\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org .\n\n\nterminal-brew\n\nbrew install --cask quarto \nbrew upgrade --cask quarto\n\n\n\n\n\n\n\nNote\n\n\n\n20230330 upgrade: quarto –version: 1.2.475 (Release Candidate — v1.3.296 available as CLI, but not as brew cask)"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quarto_website",
+    "objectID": "posts/Lightbox_Example.html",
+    "href": "posts/Lightbox_Example.html",
+    "title": "Complete Lightbox Example",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nAdded at 20230315-1228\nAdded at 20230315-1316\nPhotos:\n \nupdate"
+    "text": "An extension that uses the GLightbox javascript library to add lightbox styling and behavior to images in your HTML documents.\nSee quarto-ext/lightbox or the web example at Example lightbox Document at the bottom of this page."
   },
   {
-    "objectID": "posts/Git.html#video-tutorials",
-    "href": "posts/Git.html#video-tutorials",
-    "title": "GIT Management",
-    "section": "Video Tutorials",
-    "text": "Video Tutorials\n\n\n\n\n\n\n\n\nterminal\n\nbrew install git\ngit --version\ngit init\ngit init --bare # Repository for only push and pull, not changes possible  \ngit status\ngit add {filename}\ngit add .   \ngit commit -m \"{message}\" # If forgot -m (1:06:40), press i, --INSERT-- type message\ngit commit -am \"{message}\" # If modify file already added to git you can use \"-a\" flag, for new files use the \"add\" flag. \ngit diff # to see the differences and modifications on the files.\ngit diff --color-words # color code for added and deleted portions of each file.\ngit log\ngit log --pertty=oneline #Log as one line, not showing all the changes.\ngit diff {commit log#} {commit log#}\n# 1:24:00\ngit branch\ngit branch --all\ngit branch {branch name1} # To create a new branch\ngit branch checkout {branch name1} #To change/jump branches\ngit status\ngit commit -am \"Changes in the new branch\"\ngit log #Check HEAD -> {branch name1}\ngit log --pretty=oneline #To see all commits log\ngit checkout -b {branch name2} #Jump to branch2 and if it doesn't exist create it. \ngit diff {branch name1}...{branch name2} #To see differences between branches.  \n\n## Mergin braches to master.  Go to master first.\ngit checkout master\ngit branch\ngit merge {branch name}\n\n## To push a branch from local to github\ngit push --set-upstream origin {branch name}\n\n## To delete a branch. Caution!! Can not delete if you are in branch\ngit branch -d {branch name}"
-  },
-  {
-    "objectID": "posts/Git.html#git-config",
-    "href": "posts/Git.html#git-config",
-    "title": "GIT Management",
-    "section": "Git Config",
-    "text": "Git Config\ngit config --global user.name \"{your name}\" # Quotes if there is a space between the names\ngit config --global user.email your_email@service.com\n\n# Specify default editor\ngit config --global core.editor \"code --wait\"  # VScode as default editor\ngit config --global -e  # Opens defautl editor # Opens default editor to edit all the global settings. \n\n# How to handle end of lines. In windows: \\r, \\n; on mac: \\n. May provoke conflicts, cofig property \"core.autocrlf\" (11:41)\n# Windows:\ngit config --global core.autocrlf true\n# Mac:\ngit config --global core.autocrlf input\nTo have a colorfull terminal window like in the video install\nOn Mac: Zsh with git plugin\nWindows: posh-git\nvideo1\nvideo2\nUsing zsh on Windows\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n# Start control version\ngit init\nls -a # To see hidden files\nopen .git\ngit clone [url]\n\n# Stage & Snapshot\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull\n\nrm [file_name]  # removes/delete file\nmv [old_filename] [new_filename]"
-  },
-  {
-    "objectID": "Lightbox_Example.html#installation",
-    "href": "Lightbox_Example.html#installation",
+    "objectID": "posts/Lightbox_Example.html#installation",
+    "href": "posts/Lightbox_Example.html#installation",
     "title": "Complete Lightbox Example",
     "section": "Installation",
     "text": "Installation\nTo install this extension in your current directory (or into the Quarto project that you’re currently working in), use the following command:\nquarto add quarto-ext/lightbox"
   },
   {
-    "objectID": "Lightbox_Example.html#usage",
-    "href": "Lightbox_Example.html#usage",
+    "objectID": "posts/Lightbox_Example.html#usage",
+    "href": "posts/Lightbox_Example.html#usage",
     "title": "Complete Lightbox Example",
     "section": "Usage",
     "text": "Usage\nThe Lightbox extension is implemented as a filter in Quarto. Once installed, using the extension is easy.\n\nApply To Images Automatically\nThe Lightbox extension can automatically give images in your web page a lightbox treatment. You can enable this like:\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\nlightbox: auto\n---\n\n![A Lovely Image](mv-1.jpg)\nYou can exclude an image from receiving this automatic treatment by giving it a nolightbox class, like so:\n![Don't lightbox me!](mv-1.jpg){.nolightbox}\n\n\nChoose Specific Images\n\nAdd lightbox to the list of filters in your _quarto.yml file or your document front matter. For example:\n\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\n---\n\nAdd the class lightbox to any images that you’d like to have the lightbox treatment. For example:\n\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\n---\n\n![A Lovely Image](mv-1.jpg){.lightbox}"
   },
   {
-    "objectID": "Lightbox_Example.html#galleries",
-    "href": "Lightbox_Example.html#galleries",
+    "objectID": "posts/Lightbox_Example.html#galleries",
+    "href": "posts/Lightbox_Example.html#galleries",
     "title": "Complete Lightbox Example",
     "section": "Galleries",
     "text": "Galleries\nIn addition to simply providing a lightbox treatment for individual images, you can also group images into a ‘gallery’. When the user activates the lightbox, they will be able to page through the images in the gallery without returning to the main document. To create galleries of images, apply a group attribute (with a name) to the images that you’d like to gather into a gallery. Images with the same group name will be placed together in a gallery when given a lightbox treatment.\nFor example, the following three images will be treated as a gallery:\n![A Lovely Image](mv-1.jpg){group=\"my-gallery\"}\n\n![Another Lovely Image](mv-2.jpg){group=\"my-gallery\"}\n\n![The Last Lovely Image](mv-3.jpg){group=\"my-gallery\"}"
   },
   {
-    "objectID": "Lightbox_Example.html#global-options",
-    "href": "Lightbox_Example.html#global-options",
+    "objectID": "posts/Lightbox_Example.html#global-options",
+    "href": "posts/Lightbox_Example.html#global-options",
     "title": "Complete Lightbox Example",
     "section": "Global Options",
     "text": "Global Options\nThe following options may be specified in the front matter for lightbox:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\nmatch\nSet this to auto if you’d like any image to be given lightbox treatment. If you omit this, only images with the class lightbox will be given the lightbox treatment.\n\n\neffect\nThe effect that should be used when opening and closing the lightbox. One of fade, zoom, none. Defaults to zoom.\n\n\ndesc-position\nThe position of the title and description when displaying a lightbox. One of top, bottom, left, right. Defaults to bottom.\n\n\nloop\nWhether galleries should ‘loop’ to first image in the gallery if the user continues past the last image of the gallery. Boolean that defaults to true.\n\n\ncss-class\nA class name to apply to the lightbox to allow css targeting. This will replace the lightbox class with your custom class name.\n\n\n\nA complete example:\n---\ntitle: Complete Lightbox Example\nfilters:\n  - lightbox\nlightbox:\n  match: auto\n  effect: fade\n  desc-position: right\n  loop: false\n  css-class: \"my-css-class\" #only if custom css file exists.\n---"
   },
   {
-    "objectID": "Lightbox_Example.html#per-image-attributes",
-    "href": "Lightbox_Example.html#per-image-attributes",
+    "objectID": "posts/Lightbox_Example.html#per-image-attributes",
+    "href": "posts/Lightbox_Example.html#per-image-attributes",
     "title": "Complete Lightbox Example",
     "section": "Per Image Attributes",
     "text": "Per Image Attributes\nThe following options may be specified as attributes on individual images to control the lightbox behavior:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\ndesc-position\nThe position of the title and description when displaying a lightbox. One of top, bottom, left, right. Defaults to bottom"
   },
   {
-    "objectID": "Lightbox_Example.html#using-lightbox-with-computation-cells",
-    "href": "Lightbox_Example.html#using-lightbox-with-computation-cells",
+    "objectID": "posts/Lightbox_Example.html#using-lightbox-with-computation-cells",
+    "href": "posts/Lightbox_Example.html#using-lightbox-with-computation-cells",
     "title": "Complete Lightbox Example",
     "section": "Using lightbox with computation cells",
-    "text": "Using lightbox with computation cells\nOptions for lightbox can be passed using chunk option lightbox like the following:\n#| fig-cap: Simple demo R plot \n#| lightbox:\n#|   group: r-graph\n#|   description: This is 1 to 10 plot\nplot(1:10, rnorm(10))\nIt is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.\n::: {.cell lightbox='{\"group\":\"cars\",\"description\":[\"This is the decription for first graph\",\"This is the decription for second graph\"]}'}\n\n```{.r .cell-code}\nplot(mtcars)\n```\n\n::: {.cell-output-display}\n![Caption for first plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n```{.r .cell-code}\nplot(cars)\n```\n\n::: {.cell-output-display}\n![Caption for second plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n:::\nWhen lightbox: auto is in main YAML config, you can opt-out lightbox on a plot by setting lightbox: false When lightbox: auto is not set, you can opt-in for lightbox on a specific plot by setting lightbox: true or by setting lightbox with some options."
+    "text": "Using lightbox with computation cells\nOptions for lightbox can be passed using chunk option lightbox like the following:\n#| fig-cap: Simple demo R plot \n#| lightbox:\n#|   group: r-graph\n#|   description: This is 1 to 10 plot\nplot(1:10, rnorm(10))\nIt is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.\n#| fig-cap: \n#|   - Caption for first plot\n#|   - Caption for second plot\n#| lightbox: \n#|   group: cars\n#|   description: \n#|     - This is the decription for first graph\n#|     - This is the decription for second graph\nplot(mtcars)\nplot(cars)\nWhen lightbox: auto is in main YAML config, you can opt-out lightbox on a plot by setting lightbox: false When lightbox: auto is not set, you can opt-in for lightbox on a specific plot by setting lightbox: true or by setting lightbox with some options."
   },
   {
-    "objectID": "Lightbox_Example.html#example",
-    "href": "Lightbox_Example.html#example",
+    "objectID": "posts/Lightbox_Example.html#example",
+    "href": "posts/Lightbox_Example.html#example",
     "title": "Complete Lightbox Example",
     "section": "Example",
     "text": "Example\nHere is the source code for a minimal example: example.qmd\nThis is the output of example.qmd."
   },
   {
-    "objectID": "Lightbox_Example.html#chilmark",
-    "href": "Lightbox_Example.html#chilmark",
+    "objectID": "posts/Lightbox_Example.html#chilmark",
+    "href": "posts/Lightbox_Example.html#chilmark",
     "title": "Complete Lightbox Example",
     "section": "Chilmark",
     "text": "Chilmark\nHere is a simple image with a description. This also overrides the description position and places it to the left of the image.\n\n\n\nBeach in Chilmark"
   },
   {
-    "objectID": "posts/Git.html#trouble-shooting.",
-    "href": "posts/Git.html#trouble-shooting.",
-    "title": "GIT Management",
-    "section": "Trouble shooting.",
-    "text": "Trouble shooting.\n\nBranch is ahead error\n\n\nterminal\n\ngit add .\ngit commit -m \"python install\"\n\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\n\n\n\n\n\nImportant\n\n\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push\n\n\nDelete .DS_Store recursively from all directories and sub-directories.\nOn a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.\nSolution:\n\nAdd the .DS_Store to the .gitignore file > save > commit.\n\nCheck if file still recurs.\n\n\ngit status\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n        modified:   .DS_Store\nSometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.\nTo remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:\nfind . -name \".DS_Store\" -delete\nSteps: 1. Uncommit/Discard/Unstage the .DS_Store file from git panel\ngit restore .DS_Store \n# If it is the only file on stage\ngit restore .  \n\nls -a  #find if still present\n\nfind . -name \".DS_Store\" -delete  #This will find all \".DS_Store\" files in all folders\n\ngit status\n\ngit add . \n\ngit commit -m \"delete all DS_Store files\"\n\ngit push\n\ngit pull"
+    "objectID": "posts/Lightbox_Example.html#elsewhere",
+    "href": "posts/Lightbox_Example.html#elsewhere",
+    "title": "Complete Lightbox Example",
+    "section": "Elsewhere",
+    "text": "Elsewhere\nThe below demonstrates placing more than one image in a gallery. Note the usage of the layout-ncol which arranges the images on the page side by date. Adding the group attribute to the markdown images places the images in a gallery grouped together based upon the group name provided.\n\n\n\n\n\nAquinnah\n\n\n\n\n\nOak Bluffs\n\n\n\n\n\n\n\nVineyard lighthouse"
+  },
+  {
+    "objectID": "posts/Lightbox_Example.html#with-computation-code-chunks",
+    "href": "posts/Lightbox_Example.html#with-computation-code-chunks",
+    "title": "Complete Lightbox Example",
+    "section": "With computation code chunks",
+    "text": "With computation code chunks\nOptions for lightbox can be passed using chunk options.\n\n\nCode\nplot(1:10, rnorm(10))\n\n\n\n\n\nSimple demo R plot\n\n\n\n\n\n\nCode\nplot(cars)\n\n\n\n\n\nPlot about cars data\n\n\n\n\nIt is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.\n\n\nCode\nplot(mtcars)\n\n\n\n\n\nCaption for first plot\n\n\n\n\nCode\nplot(cars)\n\n\n\n\n\nCaption for second plot\n\n\n\n\nWhen lightbox: auto in main YAML config, you can opt-out lightbox on a plot by setting lightbox: false\n\n\nCode\nplot(mtcars)\n\n\n\n\n\nmtcars"
+  },
+  {
+    "objectID": "posts/Lightbox_Example.html#credits",
+    "href": "posts/Lightbox_Example.html#credits",
+    "title": "Complete Lightbox Example",
+    "section": "Credits",
+    "text": "Credits\nThe images in this example were used under the Unsplash license, view originals below:\n\nChilmark Beach\nAquinnah\nGingerbread House\nEdgartown Light\nEdgartown Sailboat"
+  },
+  {
+    "objectID": "posts/Lightbox_Example.html#lightbox",
+    "href": "posts/Lightbox_Example.html#lightbox",
+    "title": "Complete Lightbox Example",
+    "section": "Lightbox",
+    "text": "Lightbox\nAn extension that uses the GLightbox javascript library to add lightbox styling and behavior to images in your HTML documents.\nSee quarto-ext/lightbox or the web example at Example lightbox Document at the bottom of this page."
   }
 ]

@@ -17,18 +17,18 @@ website:
     collapse-below: lg
     
     left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: "About"
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
       - text: "Software"
         menu: 
-          - href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.
-            text: "RStudio"
-          - href: files/Software/ImageJ/index.qmd
-            text: "ImageJ"
-          - href: files/Software/Analyze12/index.qmd
-            text: "Analyze12"
+          - text: "RStudio"
+            href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.
+          - text: "ImageJ"
+            href: files/Software/ImageJ/index.qmd
+          - text: "Analyze12"
+            href: files/Software/Analyze12/index.qmd
       - text: "Blog"
         href: blog.qmd
       - text: "NavSubmenu"
@@ -53,10 +53,11 @@ website:
     - id: RStudio 
       title: "Get Started with the RStudio"
       style: "floating"
-      collapse-level: 2
+      collapse-level: 3
       align: left
       contents:  
-        - files/Software/RStudio/index.qmd  
+        - text: R Studio
+          href: files/Software/RStudio/index.qmd  
         - text: "Install"
           href: files/Software/RStudio/R_install.qmd  
         - text: "R Packages"

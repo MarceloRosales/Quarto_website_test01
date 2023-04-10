@@ -231,7 +231,6 @@ git pull
 
 ```
 
-
-```{.bash }
-```
+1. Render > commit > push > pull.  
+ `.DS_Store` file will be automatically created by Mac in the folder, but it won't appear on the stageing steps anymore.   
 
