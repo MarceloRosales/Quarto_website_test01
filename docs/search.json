@@ -460,5 +460,26 @@
     "title": "Complete Lightbox Example",
     "section": "Lightbox",
     "text": "Lightbox\nAn extension that uses the GLightbox javascript library to add lightbox styling and behavior to images in your HTML documents.\nSee quarto-ext/lightbox or the web example at Example lightbox Document at the bottom of this page."
+  },
+  {
+    "objectID": "files/Notes_2do/index.html#to-do",
+    "href": "files/Notes_2do/index.html#to-do",
+    "title": "Notes&2do",
+    "section": "To do:",
+    "text": "To do:\n\nCode Notation\n---\nformat: \n  html: \n    code-fold: true\n    code-copy: true\n    code-overflow: wrap\n\n---\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\nlightbox: auto\n---\n\n![A Lovely Image](mv-1.jpg)\n![A Lovely Image](mv-1.jpg){group=\"my-gallery\"}\n\n![Another Lovely Image](mv-2.jpg){group=\"my-gallery\"}\n\n![The Last Lovely Image](mv-3.jpg){group=\"my-gallery\"}\n```` markdown\n::: {.cell lightbox='{\"group\":\"cars\",\"description\":[\"This is the decription for first graph\",\"This is the decription for second graph\"]}'}\n\n```{.r .cell-code}\nplot(mtcars)\n\n\n\n\nCaption for first plot\n\n\n\nplot(cars)\n\n\n\n\nCaption for second plot\n\n\n\n::: `\n\n\nSymlinks in Git\n~/.dotfiles in 100 Seconds\n\n\nGit Bare Repository - A Better Way To Manage Dotfiles\n\nGit-Bash Windows and Symlinks [OLD]"
+  },
+  {
+    "objectID": "files/Notes_2do/index.html#code-notation",
+    "href": "files/Notes_2do/index.html#code-notation",
+    "title": "Notes&2do",
+    "section": "Code Notation",
+    "text": "Code Notation\n---\nformat: \n  html: \n    code-fold: true\n    code-copy: true\n    code-overflow: wrap\n\n---\n---\ntitle: Simple Lightbox Example\nfilters:\n   - lightbox\nlightbox: auto\n---\n\n![A Lovely Image](mv-1.jpg)\n![A Lovely Image](mv-1.jpg){group=\"my-gallery\"}\n\n![Another Lovely Image](mv-2.jpg){group=\"my-gallery\"}\n\n![The Last Lovely Image](mv-3.jpg){group=\"my-gallery\"}\n::: {.cell lightbox='{\"group\":\"cars\",\"description\":[\"This is the decription for first graph\",\"This is the decription for second graph\"]}'}\n\n```{.r .cell-code}\nplot(mtcars)\n```\n\n::: {.cell-output-display}\n![Caption for first plot](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n```{.r .cell-code}\nplot(cars)\n```\n\n::: {.cell-output-display}\n![Caption for second plot](index_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n:::"
+  },
+  {
+    "objectID": "files/Notes_2do/index.html#temp",
+    "href": "files/Notes_2do/index.html#temp",
+    "title": "Notes&2do",
+    "section": "Temp:",
+    "text": "Temp:"
   }
 ]

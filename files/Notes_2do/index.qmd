@@ -1,0 +1,73 @@
+---
+title: "Notes&2do"
+author: "Marcelo Rosales"
+---
+
+## Notes:
+
+## To do:
+
+### Code Notation
+
+``` yaml
+---
+format: 
+  html: 
+    code-fold: true
+    code-copy: true
+    code-overflow: wrap
+
+---
+```
+
+``` markdown
+---
+title: Simple Lightbox Example
+filters:
+   - lightbox
+lightbox: auto
+---
+
+![A Lovely Image](mv-1.jpg)
+```
+
+``` markdown
+![A Lovely Image](mv-1.jpg){group="my-gallery"}
+
+![Another Lovely Image](mv-2.jpg){group="my-gallery"}
+
+![The Last Lovely Image](mv-3.jpg){group="my-gallery"}
+```
+
+```
+```` markdown
+```{r}
+#| fig-cap: 
+#|   - Caption for first plot
+#|   - Caption for second plot
+#| lightbox: 
+#|   group: cars
+#|   description: 
+#|     - This is the decription for first graph
+#|     - This is the decription for second graph
+plot(mtcars)
+plot(cars)
+```
+````
+```
+
+### Symlinks in Git 
+
+**~/.dotfiles in 100 Seconds**  
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r_MpUP6aKiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
+
+**Git Bare Repository - A Better Way To Manage Dotfiles**  
+<iframe width="1137" height="537" src="https://www.youtube.com/embed/tBoLDpTWVOM" title="Git Bare Repository - A Better Way To Manage Dotfiles" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+**Git-Bash Windows and Symlinks  [OLD]**
+<iframe width="1137" height="537" src="https://www.youtube.com/embed/_8HyqxxN4dA" title="Git-Bash Windows and Symlinks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+## Temp:
