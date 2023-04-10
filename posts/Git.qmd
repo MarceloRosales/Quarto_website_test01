@@ -17,11 +17,34 @@ format:
 
 ## Install git
 
-```{.bash}
+``` bash
 brew install git   
 ```
 
-## Git Commands
+In windows, git provides the Git BASH app, a BASH emulation used to run Git form the command line.
+
+## Git Config
+
+``` bash
+git config --global user.name "{your name}" # Quotes if there is a space between the names
+git config --global user.email your_email@service.com
+
+# Specify default editor
+git config --global core.editor "code --wait"  # VScode as default editor
+git config --global -e  # Opens defautl editor # Opens default editor to edit all the global settings. 
+
+# How to handle end of lines. In windows: \r, \n; on mac: \n. May provoke conflicts, cofig property "core.autocrlf" (11:41)
+# Windows:
+git config --global core.autocrlf true
+# Mac:
+git config --global core.autocrlf input
+```
+
+To have a colorfull terminal window like in the video install\
+On Mac: Zsh with git plugin\
+[video1](https://youtu.be/DcoNNVM_GlQ){target="_blank"}\
+[video2](https://youtu.be/235G6X5EAvM){target="_blank"}\
+[ref](https://walterteng.com/using-zsh-on-windows){target="_blank"}
 
 [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf){target="_blank"}\
 [Git cheat sheet2](https://about.gitlab.com/images/press/git-cheat-sheet.pdf){target="_blank"}\
@@ -32,6 +55,8 @@ brew install git
 ``` {.bash filename="Terminal"}
 # Start control version
 git init
+ls -a # To see hidden files
+open .git
 git clone [url]
 
 # Stage & Snapshot
@@ -46,29 +71,30 @@ git pull
 
 ## Video Tutorials
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8JJ101D3knE" title="Git Tutorial for Beginners: Learn Git in 1 Hour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8JJ101D3knE" title="Git Tutorial for Beginners: Learn Git in 1 Hour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HkdAHXoRtos" title="Git It? How to use Git and Github" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HkdAHXoRtos" title="Git It? How to use Git and Github" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
 
 ## Branch is ahead error
 
-``` {.bash}
+``` bash
 git add .
 git commit -m "python install"
 ```
 
-```{.bash filename="error message"}
+``` {.bash filename="error message"}
 remote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \[remote rejected\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**
 ```
 
 Solution:
 
-
-:::{.callout-important}
-ALL SOLUTIONS **_REVERT TO LAST COMMIT AND DELETE ALL CONTENT_** EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.
+::: callout-important
+ALL SOLUTIONS ***REVERT TO LAST COMMIT AND DELETE ALL CONTENT*** EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.
 :::
-
 
 [git - Your branch is ahead of 'origin/master' by 1 commit](https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit){target="_blank"}
 
@@ -85,7 +111,7 @@ git reset --hard origin/{branch name}
 git branch
 ```
 
-``` .bash
+``` bash
 git pull     
 git merge 
 git pull origin
