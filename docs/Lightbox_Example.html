@@ -406,16 +406,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="using-lightbox-with-computation-cells" class="level2">
 <h2 class="anchored" data-anchor-id="using-lightbox-with-computation-cells">Using lightbox with computation cells</h2>
 <p>Options for lightbox can be passed using chunk option <code>lightbox</code> like the following:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>::: {.cell lightbox='{"group":"r-graph","description":"This is 1 to 10 plot"}'}</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="dv">10</span>))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>::: {.cell-output-display}</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="al">![Simple demo R plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png)</span>{width=672}</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Simple demo R plot </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| lightbox:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|   group: r-graph</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|   description: This is 1 to 10 plot</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: {.cell lightbox='{"group":"cars","description":<span class="co">[</span><span class="ot">"This is the decription for first graph","This is the decription for second graph"</span><span class="co">]</span>}'}</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -424,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>::: {.cell-output-display}</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="al">![Caption for first plot](Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png)</span>{width=672}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="al">![Caption for first plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-1.png)</span>{width=672}</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
@@ -432,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>::: {.cell-output-display}</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="al">![Caption for second plot](Lightbox_Example_files/figure-html/unnamed-chunk-2-2.png)</span>{width=672}</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="al">![Caption for second plot](Lightbox_Example_files/figure-html/unnamed-chunk-1-2.png)</span>{width=672}</span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When <code>lightbox: auto</code> is in main YAML config, you can opt-out lightbox on a plot by setting <code>lightbox: false</code> When <code>lightbox: auto</code> is not set, you can opt-in for lightbox on a specific plot by setting <code>lightbox: true</code> or by setting <code>lightbox</code> with some options.</p>
@@ -447,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here is a simple image with a description. This also overrides the description position and places it to the left of the image.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/mv-0.jpg" class="lightbox" data-description="Chilmark
+<p><a href="images/mv-0.jpg" class="lightbox" title="Beach in Chilmark" data-gallery="quarto-lightbox-gallery-1" data-description="Chilmark
 
 has
 
@@ -533,7 +528,7 @@ places.
 
 <em>credit:</em>
 
-<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" data-gallery="quarto-lightbox-gallery-1" title="Beach in Chilmark"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
+<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Beach in Chilmark</figcaption><p></p>
 </figure>
 </div>
@@ -545,7 +540,7 @@ places.
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-1.jpg" class="lightbox" data-description="The
+<p><a href="images/mv-1.jpg" class="lightbox" title="Aquinnah" data-gallery="elsewhere" data-description="The
 
 waves
 
@@ -569,13 +564,13 @@ beautiful
 
 summer
 
-day." data-gallery="elsewhere" title="Aquinnah"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
+day."><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Aquinnah</figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-3.jpg" class="lightbox" data-description="Oak
+<p><a href="images/mv-3.jpg" class="lightbox" title="Oak Bluffs" data-gallery="elsewhere" data-description="Oak
 
 Bluffs
 
@@ -603,7 +598,7 @@ party
 
 like
 
-atmosphere." data-gallery="elsewhere" title="Oak Bluffs"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
+atmosphere."><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Oak Bluffs</figcaption><p></p>
 </figure>
 </div>
@@ -611,7 +606,7 @@ atmosphere." data-gallery="elsewhere" title="Oak Bluffs"><img src="images/mv-3.j
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-figure quarto-figure-center" style="flex-basis: 100.0%;justify-content: center;">
 <figure class="figure">
-<p><a href="images/mv-2.jpg" class="lightbox" data-description="The
+<p><a href="images/mv-2.jpg" class="lightbox" title="Vineyard lighthouse" data-gallery="elsewhere" data-description="The
 
 Edgartown
 
@@ -647,7 +642,7 @@ to
 
 Edgartown
 
-Harbor." data-gallery="elsewhere" title="Vineyard lighthouse"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
+Harbor."><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Vineyard lighthouse</figcaption><p></p>
 </figure>
 </div>
@@ -658,11 +653,14 @@ Harbor." data-gallery="elsewhere" title="Vineyard lighthouse"><img src="images/m
 <h2 class="anchored" data-anchor-id="with-computation-code-chunks">With computation code chunks</h2>
 <p>Options for lightbox can be passed using chunk options.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">rnorm</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" title="Simple demo R plot" data-gallery="r-graph" data-description="This
 
 is
 
@@ -672,18 +670,21 @@ to
 
 10
 
-plot" data-gallery="r-graph" title="Simple demo R plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Simple demo R plot</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-description="We
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" title="Plot about cars data" data-gallery="r-graph" data-description="We
 
 see
 
@@ -693,7 +694,7 @@ cars
 
 data
 
-above" data-gallery="r-graph" title="Plot about cars data"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+above"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Plot about cars data</figcaption><p></p>
 </figure>
 </div>
@@ -701,11 +702,14 @@ above" data-gallery="r-graph" title="Plot about cars data"><img src="Lightbox_Ex
 </div>
 <p>It is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" title="Caption for first plot" data-gallery="cars" data-description="This
 
 is
 
@@ -717,16 +721,19 @@ for
 
 first
 
-graph" data-gallery="cars" title="Caption for first plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for first plot</figcaption><p></p>
 </figure>
 </div>
 </div>
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-5-2.png" class="lightbox" data-description="This
+<p><a href="Lightbox_Example_files/figure-html/unnamed-chunk-4-2.png" class="lightbox" title="Caption for second plot" data-gallery="cars" data-description="This
 
 is
 
@@ -738,7 +745,7 @@ for
 
 second
 
-graph" data-gallery="cars" title="Caption for second plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></a></p>
+graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for second plot</figcaption><p></p>
 </figure>
 </div>
@@ -746,11 +753,14 @@ graph" data-gallery="cars" title="Caption for second plot"><img src="Lightbox_Ex
 </div>
 <p>When <code>lightbox: auto</code> in main YAML config, you can opt-out lightbox on a plot by setting <code>lightbox: false</code></p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Lightbox_Example_files/figure-html/unnamed-chunk-6-1.png" class="nolightbox img-fluid figure-img" width="672"></p>
+<p><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-1.png" class="nolightbox img-fluid figure-img" width="672"></p>
 <p></p><figcaption class="figure-caption">mtcars</figcaption><p></p>
 </figure>
 </div>
@@ -1021,7 +1031,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","openEffect":"fade","selector":".lightbox","loop":true,"descPosition":"right"});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"fade","closeEffect":"fade","selector":".lightbox","loop":true,"descPosition":"right"});</script>
 
 
 

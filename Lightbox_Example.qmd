@@ -8,6 +8,12 @@ lightbox:
   desc-position: right
   loop: true
 #  css-class: "my-css-class" #only if custom css file exists. 
+format: 
+  html: 
+    code-fold: true
+    code-copy: true
+    code-overflow: wrap
+
 ---
 
 ## Lightbox
@@ -129,15 +135,13 @@ The following options may be specified as attributes on individual images to con
 
 Options for lightbox can be passed using chunk option `lightbox` like the following:
 
-````markdown
-```{r}
+```{.r}
 #| fig-cap: Simple demo R plot 
 #| lightbox:
 #|   group: r-graph
 #|   description: This is 1 to 10 plot
 plot(1:10, rnorm(10))
 ```
-````
 
 It is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.
 
