@@ -378,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  effect: fade</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">  desc-position: right</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">  loop: false</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">  css-class: "my-css-class"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">  css-class: "my-css-class" #only if custom css file exists.</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="per-image-attributes" class="level2">
@@ -533,7 +533,7 @@ places.
 
 <em>credit:</em>
 
-<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" title="Beach in Chilmark" data-gallery="quarto-lightbox-gallery-1"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
+<a href=&quot;https://unsplash.com/photos/VBDJGOMCwps&quot;>Chilmark Beach</a>" data-gallery="quarto-lightbox-gallery-1" title="Beach in Chilmark"><img src="images/mv-0.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Beach in Chilmark</figcaption><p></p>
 </figure>
 </div>
@@ -569,7 +569,7 @@ beautiful
 
 summer
 
-day." title="Aquinnah" data-gallery="elsewhere"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
+day." data-gallery="elsewhere" title="Aquinnah"><img src="images/mv-1.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Aquinnah</figcaption><p></p>
 </figure>
 </div>
@@ -603,7 +603,7 @@ party
 
 like
 
-atmosphere." title="Oak Bluffs" data-gallery="elsewhere"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
+atmosphere." data-gallery="elsewhere" title="Oak Bluffs"><img src="images/mv-3.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Oak Bluffs</figcaption><p></p>
 </figure>
 </div>
@@ -647,7 +647,7 @@ to
 
 Edgartown
 
-Harbor." title="Vineyard lighthouse" data-gallery="elsewhere"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
+Harbor." data-gallery="elsewhere" title="Vineyard lighthouse"><img src="images/mv-2.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">Vineyard lighthouse</figcaption><p></p>
 </figure>
 </div>
@@ -672,7 +672,7 @@ to
 
 10
 
-plot" title="Simple demo R plot" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+plot" data-gallery="r-graph" title="Simple demo R plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Simple demo R plot</figcaption><p></p>
 </figure>
 </div>
@@ -693,7 +693,7 @@ cars
 
 data
 
-above" title="Plot about cars data" data-gallery="r-graph"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+above" data-gallery="r-graph" title="Plot about cars data"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Plot about cars data</figcaption><p></p>
 </figure>
 </div>
@@ -717,7 +717,7 @@ for
 
 first
 
-graph" title="Caption for first plot" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+graph" data-gallery="cars" title="Caption for first plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for first plot</figcaption><p></p>
 </figure>
 </div>
@@ -738,7 +738,7 @@ for
 
 second
 
-graph" title="Caption for second plot" data-gallery="cars"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></a></p>
+graph" data-gallery="cars" title="Caption for second plot"><img src="Lightbox_Example_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></a></p>
 <p></p><figcaption class="figure-caption">Caption for second plot</figcaption><p></p>
 </figure>
 </div>
@@ -1021,7 +1021,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"fade","selector":".lightbox","closeEffect":"fade","loop":true,"descPosition":"right"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","openEffect":"fade","selector":".lightbox","loop":true,"descPosition":"right"});</script>
 
 
 

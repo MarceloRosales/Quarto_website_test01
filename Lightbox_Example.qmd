@@ -112,7 +112,7 @@ lightbox:
   effect: fade
   desc-position: right
   loop: false
-  css-class: "my-css-class"
+  css-class: "my-css-class" #only if custom css file exists.
 ---
 ```
 
