@@ -81,7 +81,7 @@
     "href": "posts/Git.html",
     "title": "GIT Management",
     "section": "",
-    "text": "brew install git"
+    "text": "brew install git   \nIn windows, git provides the Git BASH app, a BASH emulation used to run Git form the command line."
   },
   {
     "objectID": "posts/2adPost.html",
@@ -270,7 +270,7 @@
     "href": "posts/Git.html#branch-is-ahead-error",
     "title": "GIT Management",
     "section": "Branch is ahead error",
-    "text": "Branch is ahead error\ngit add .\ngit commit -m \"python install\"\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\n\n\n\n\n\nImportant\n\n\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push"
+    "text": "Branch is ahead error\n\n\nterminal\n\ngit add .\ngit commit -m \"python install\"\n\n\n\nerror message\n\nremote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \\[remote rejected\\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**\n\nSolution:\n\n\n\n\n\n\nImportant\n\n\n\nALL SOLUTIONS REVERT TO LAST COMMIT AND DELETE ALL CONTENT EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.\n\n\ngit - Your branch is ahead of ‘origin/master’ by 1 commit\ngit reset HEAD^ --soft (Save your changes, back to last commit)\ngit reset HEAD^ --hard (Discard changes, back to last commit)\nThis one worked!!\n\n\nterminal\n\ngit pull origin {branch name}\ngit reset --hard origin/{branch name}\ngit branch\n\ngit pull     \ngit merge \ngit pull origin\ngit reset --hard origin/master\n# HEAD is now at 4fd3039 R, RStudio and packages upgrade\ngit pull\ngit push\ngit add .\ngit commit -m \"message\"\ngit push"
   },
   {
     "objectID": "posts/Git.html#git-commands",
@@ -326,6 +326,13 @@
     "href": "posts/Git.html#video-tutorials",
     "title": "GIT Management",
     "section": "Video Tutorials",
-    "text": "Video Tutorials"
+    "text": "Video Tutorials\n\n\n\n\n\n\n\n\nterminal\n\nbrew install git\ngit --version\ngit init\ngit init --bare # Repository for only push and pull, not changes possible  \ngit status\ngit add {filename}\ngit add .   \ngit commit -m \"{message}\" # If forgot -m (1:06:40), press i, --INSERT-- type message\ngit commit -am \"{message}\" # If modify file already added to git you can use a flag, for new files use the \"add\" flag. \ngit diff # to see the differences and modifications on the files.\ngit diff --color-words # color code for added and deleted portions of each file.\ngit log\ngit log --pertty=oneline #Log as one line, not showing all the changes.\ngit diff {commit log#} {commit log#}\n# 1:24:00\ngit branch\ngit branch --all\ngit branch {branch name1} # To create a new branch\ngit branch checkout {branch name1} #To change/jump branches\ngit status\ngit commit -am \"Changes in the new branch\"\ngit log #Check HEAD -> {branch name1}\ngit log --pretty=oneline #To see all commits log\ngit checkout -b {branch name2} #Jump to branch2 and if it doesn't exist create it. \ngit diff {branch name1}...{branch name2} #To see differences between branches.  \n\n## Mergin braches to master.  Go to master first.\ngit checkout master\ngit branch\ngit merge {branch name}\n\n## To push a branch from local to github\ngit push --set-upstream origin {branch name}\n\n## To delete a branch. Caution!! Can not delete if you are in branch\ngit branch -d {branch name}"
+  },
+  {
+    "objectID": "posts/Git.html#git-config",
+    "href": "posts/Git.html#git-config",
+    "title": "GIT Management",
+    "section": "Git Config",
+    "text": "Git Config\ngit config --global user.name \"{your name}\" # Quotes if there is a space between the names\ngit config --global user.email your_email@service.com\n\n# Specify default editor\ngit config --global core.editor \"code --wait\"  # VScode as default editor\ngit config --global -e  # Opens defautl editor # Opens default editor to edit all the global settings. \n\n# How to handle end of lines. In windows: \\r, \\n; on mac: \\n. May provoke conflicts, cofig property \"core.autocrlf\" (11:41)\n# Windows:\ngit config --global core.autocrlf true\n# Mac:\ngit config --global core.autocrlf input\nTo have a colorfull terminal window like in the video install\nOn Mac: Zsh with git plugin\nWindows: posh-git\nvideo1\nvideo2\nUsing zsh on Windows\nGit cheat sheet\nGit cheat sheet2\nGit cheat sheet3\nGit cheat sheet4\nGit cheat sheet3\n\n\nTerminal\n\n# Start control version\ngit init\nls -a # To see hidden files\nopen .git\ngit clone [url]\n\n# Stage & Snapshot\ngit pull\ngit status\ngit add .\ngit checkout\ngit commit -m \"[message]\"\ngit push\ngit pull\n\nrm [file_name]  # removes/delete file\nmv [old_filename] [new_filename]"
   }
 ]
