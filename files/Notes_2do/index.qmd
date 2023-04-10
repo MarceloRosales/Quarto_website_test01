@@ -9,6 +9,8 @@ author: "Marcelo Rosales"
 
 ### Code Notation
 
+Different ways for code notation in code block. describe how to correctly use it in qmd and vscode 
+
 ``` yaml
 ---
 format: 
@@ -57,6 +59,8 @@ plot(cars)
 ```
 
 ### Symlinks in Git 
+
+Want to make simlinks to the blog files so I do not repeat files (copy/paste, etc)
 
 **~/.dotfiles in 100 Seconds**  
 
