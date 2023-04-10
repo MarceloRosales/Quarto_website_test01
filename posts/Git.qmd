@@ -42,9 +42,11 @@ git config --global core.autocrlf input
 
 To have a colorfull terminal window like in the video install\
 On Mac: Zsh with git plugin\
+Windows: posh-git
+
 [video1](https://youtu.be/DcoNNVM_GlQ){target="_blank"}\
 [video2](https://youtu.be/235G6X5EAvM){target="_blank"}\
-[ref](https://walterteng.com/using-zsh-on-windows){target="_blank"}
+[Using zsh on Windows](https://walterteng.com/using-zsh-on-windows){target="_blank"}
 
 [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf){target="_blank"}\
 [Git cheat sheet2](https://about.gitlab.com/images/press/git-cheat-sheet.pdf){target="_blank"}\
@@ -67,6 +69,9 @@ git checkout
 git commit -m "[message]"
 git push
 git pull
+
+rm [file_name]  # removes/delete file
+mv [old_filename] [new_filename]
 ```
 
 ## Video Tutorials
@@ -79,9 +84,63 @@ git pull
 
 </iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0z448j3juw0" title="Mastering Git and Github: A Beginner&#39;s Guide (2023 Edition)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+```{.bash filename=terminal}
+brew install git
+git --version
+git init
+git init --bare # Repository for only push and pull, not changes possible  
+git status
+git add {filename}
+git add .   
+git commit -m "{message}" # If forgot -m (1:06:40), press i, --INSERT-- type message
+git commit -am "{message}" # If modify file already added to git you can use a flag, for new files use the "add" flag. 
+git diff # to see the differences and modifications on the files.
+git diff --color-words # color code for added and deleted portions of each file.
+git log
+git log --pertty=oneline #Log as one line, not showing all the changes.
+git diff {commit log#} {commit log#}
+# 1:24:00
+git branch
+git branch --all
+git branch {branch name1} # To create a new branch
+git branch checkout {branch name1} #To change/jump branches
+git status
+git commit -am "Changes in the new branch"
+git log #Check HEAD -> {branch name1}
+git log --pretty=oneline #To see all commits log
+git checkout -b {branch name2} #Jump to branch2 and if it doesn't exist create it. 
+git diff {branch name1}...{branch name2} #To see differences between branches.  
+
+## Mergin braches to master.  Go to master first.
+git checkout master
+git branch
+git merge {branch name}
+
+## To push a branch from local to github
+git push --set-upstream origin {branch name}
+
+## To delete a branch. Caution!! Can not delete if you are in branch
+git branch -d {branch name}
+
+
+
+
+
+
+
+
+```
+
+
+
+
 ## Branch is ahead error
 
-``` bash
+``` {.bash filename=terminal}
 git add .
 git commit -m "python install"
 ```
