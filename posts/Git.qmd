@@ -97,7 +97,7 @@ git status
 git add {filename}
 git add .   
 git commit -m "{message}" # If forgot -m (1:06:40), press i, --INSERT-- type message
-git commit -am "{message}" # If modify file already added to git you can use a flag, for new files use the "add" flag. 
+git commit -am "{message}" # If modify file already added to git you can use "-a" flag, for new files use the "add" flag. 
 git diff # to see the differences and modifications on the files.
 git diff --color-words # color code for added and deleted portions of each file.
 git log
@@ -134,7 +134,9 @@ git branch -d {branch name}
 
 ```
 
-## Branch is ahead error
+## Trouble shooting.
+
+### Branch is ahead error
 
 ``` {.bash filename="terminal"}
 git add .
@@ -178,3 +180,58 @@ git add .
 git commit -m "message"
 git push
 ```
+
+### Delete .DS_Store recursively from all directories and sub-directories.  
+
+On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.   
+
+**Solution:** 
+
+1. Add the `.DS_Store` to the `.gitignore` file > save > commit.   
+1. Check if file still recurs.   
+```{.bash}
+git status
+```
+
+```
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .DS_Store
+```
+
+Sometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.   
+To remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:    
+
+```{.bash }
+find . -name ".DS_Store" -delete
+```
+
+Steps:
+1. Uncommit/Discard/Unstage the .DS_Store file from git panel
+
+```{.bash}
+git restore .DS_Store 
+# If it is the only file on stage
+git restore .  
+
+ls -a  #find if still present
+
+find . -name ".DS_Store" -delete  #This will find all ".DS_Store" files in all folders
+
+git status
+
+git add . 
+
+git commit -m "delete all DS_Store files"
+
+git push
+
+git pull 
+
+```
+
+
+```{.bash }
+```
+

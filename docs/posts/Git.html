@@ -236,7 +236,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#install-git" id="toc-install-git" class="nav-link active" data-scroll-target="#install-git">Install git</a></li>
   <li><a href="#git-config" id="toc-git-config" class="nav-link" data-scroll-target="#git-config">Git Config</a></li>
   <li><a href="#video-tutorials" id="toc-video-tutorials" class="nav-link" data-scroll-target="#video-tutorials">Video Tutorials</a></li>
+  <li><a href="#trouble-shooting." id="toc-trouble-shooting." class="nav-link" data-scroll-target="#trouble-shooting.">Trouble shooting.</a>
+  <ul class="collapse">
   <li><a href="#branch-is-ahead-error" id="toc-branch-is-ahead-error" class="nav-link" data-scroll-target="#branch-is-ahead-error">Branch is ahead error</a></li>
+  <li><a href="#delete-.ds_store-recursively-from-all-directories-and-sub-directories." id="toc-delete-.ds_store-recursively-from-all-directories-and-sub-directories." class="nav-link" data-scroll-target="#delete-.ds_store-recursively-from-all-directories-and-sub-directories.">Delete .DS_Store recursively from all directories and sub-directories.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -356,7 +360,7 @@ Windows: posh-git</p>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add {filename}</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .   </span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"{message}"</span> <span class="co"># If forgot -m (1:06:40), press i, --INSERT-- type message</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"{message}"</span> <span class="co"># If modify file already added to git you can use a flag, for new files use the "add" flag. </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"{message}"</span> <span class="co"># If modify file already added to git you can use "-a" flag, for new files use the "add" flag. </span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="co"># to see the differences and modifications on the files.</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--color-words</span> <span class="co"># color code for added and deleted portions of each file.</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
@@ -392,8 +396,10 @@ Windows: posh-git</p>
 <span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="branch-is-ahead-error" class="level2">
-<h2 class="anchored" data-anchor-id="branch-is-ahead-error">Branch is ahead error</h2>
+<section id="trouble-shooting." class="level2">
+<h2 class="anchored" data-anchor-id="trouble-shooting.">Trouble shooting.</h2>
+<section id="branch-is-ahead-error" class="level3">
+<h3 class="anchored" data-anchor-id="branch-is-ahead-error">Branch is ahead error</h3>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>terminal</strong></pre>
@@ -443,8 +449,47 @@ Important
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="delete-.ds_store-recursively-from-all-directories-and-sub-directories." class="level3">
+<h3 class="anchored" data-anchor-id="delete-.ds_store-recursively-from-all-directories-and-sub-directories.">Delete .DS_Store recursively from all directories and sub-directories.</h3>
+<p>On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.</p>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li>Add the <code>.DS_Store</code> to the <code>.gitignore</code> file &gt; save &gt; commit.<br>
+</li>
+<li>Check if file still recurs.<br>
+</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   .DS_Store</code></pre>
+<p>Sometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.<br>
+To remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">".DS_Store"</span> <span class="at">-delete</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Steps: 1. Uncommit/Discard/Unstage the .DS_Store file from git panel</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .DS_Store </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># If it is the only file on stage</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .  </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span>  <span class="co">#find if still present</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">".DS_Store"</span> <span class="at">-delete</span>  <span class="co">#This will find all ".DS_Store" files in all folders</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add . </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"delete all DS_Store files"</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
