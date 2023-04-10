@@ -88,7 +88,7 @@ mv [old_filename] [new_filename]
 
 </iframe>
 
-```{.bash filename=terminal}
+``` {.bash filename="terminal"}
 brew install git
 git --version
 git init
@@ -132,15 +132,11 @@ git branch -d {branch name}
 
 
 
-
 ```
-
-
-
 
 ## Branch is ahead error
 
-``` {.bash filename=terminal}
+``` {.bash filename="terminal"}
 git add .
 git commit -m "python install"
 ```
