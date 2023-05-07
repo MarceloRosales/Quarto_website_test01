@@ -126,11 +126,11 @@ git push --set-upstream origin {branch name}
 ## To delete a branch. Caution!! Can not delete if you are in branch
 git branch -d {branch name}
 
-## Discard/Unstage ex .DS_Store file from git panel
-find . -name ".DS_Store" -delete  #Find all ".DS_Store" files in all folders and delete
+## Discard/Unstage ex .DS_Store file from git panel. Find all ".DS_Store" files in all folders and delete.  
+find . -name ".DS_Store" -delete    
+find . -name '.DS_Store' -type f -delete
 git restore .DS_Store 
 git restore .
-
 
 ```
 
@@ -181,36 +181,40 @@ git commit -m "message"
 git push
 ```
 
-### Delete .DS_Store recursively from all directories and sub-directories.  
+### Delete .DS_Store recursively from all directories and sub-directories.
 
-On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.   
+[How to Recursively Remove .DS_Store](https://jonbellah.com/articles/recursively-remove-ds-store){targe="_blank"}
 
-**Solution:** 
+[How to Recursively Remove .DS_Store](https://jonbellah.com/articles/recursively-remove-ds-store){targe="_blank"}
 
-1. Add the `.DS_Store` to the `.gitignore` file > save > commit.   
-1. Check if file still recurs.   
-```{.bash}
+On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.
+
+**Solution:**
+
+1.  Add the `.DS_Store` to the `.gitignore` file \> save \> commit.\
+2.  Check if file still recurs.\
+
+``` bash
 git status
 ```
 
-```
+```         
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
         modified:   .DS_Store
 ```
 
-Sometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.   
-To remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:    
+Sometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.\
+To remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:
 
-```{.bash }
+``` bash
 find . -name ".DS_Store" -delete
 ```
 
-Steps:
-1. Uncommit/Discard/Unstage the .DS_Store file from git panel
+Steps: 1. Uncommit/Discard/Unstage the .DS_Store file from git panel
 
-```{.bash}
+``` bash
 git restore .DS_Store  # If it is the only file on stage
 git restore .  
 ls -a  #find if still present
@@ -221,9 +225,7 @@ git add .
 git commit -m "delete all DS_Store files"
 git push
 git pull 
-
 ```
 
-1. Render > commit > push > pull.  
- `.DS_Store` file will be automatically created by Mac in the folder, but it won't appear on the stageing steps anymore.   
-
+1.  Render \> commit \> push \> pull.\
+    `.DS_Store` file will be automatically created by Mac in the folder, but it won't appear on the stageing steps anymore.
