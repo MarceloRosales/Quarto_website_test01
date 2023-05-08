@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -427,11 +427,11 @@ Windows: posh-git</p>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">## To delete a branch. Caution!! Can not delete if you are in branch</span></span>
 <span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> {branch name}</span>
 <span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">## Discard/Unstage ex .DS_Store file from git panel</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">".DS_Store"</span> <span class="at">-delete</span>  <span class="co">#Find all ".DS_Store" files in all folders and delete</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .DS_Store </span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">## Discard/Unstage ex .DS_Store file from git panel. Find all ".DS_Store" files in all folders and delete.  </span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">".DS_Store"</span> <span class="at">-delete</span>    </span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">'.DS_Store'</span> <span class="at">-type</span> f <span class="at">-delete</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .DS_Store </span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="trouble-shooting." class="level2">
@@ -490,6 +490,8 @@ Important
 </section>
 <section id="delete-.ds_store-recursively-from-all-directories-and-sub-directories." class="level3">
 <h3 class="anchored" data-anchor-id="delete-.ds_store-recursively-from-all-directories-and-sub-directories.">Delete .DS_Store recursively from all directories and sub-directories.</h3>
+<p><a href="https://jonbellah.com/articles/recursively-remove-ds-store" data-targe="_blank">How to Recursively Remove .DS_Store</a></p>
+<p><a href="https://jonbellah.com/articles/recursively-remove-ds-store" data-targe="_blank">How to Recursively Remove .DS_Store</a></p>
 <p>On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.</p>
 <p><strong>Solution:</strong></p>
 <ol type="1">

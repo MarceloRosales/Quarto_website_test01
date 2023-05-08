@@ -15,8 +15,72 @@ Added at 20230315-1316
 
 Photos:
 
-![](images/favicon.png){fig-alt="Favicon"} ![](images/nav_img.png)
+![](images/favicon.png){fig-alt="Favicon"} ![](images/nav_img.png) ![](images/img01.png)
 
-update
+## Intent
 
-![](images/img01.png)
+**docx file**:
+
+/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx
+
+Problem 1: Notebook keeping. Word: Pros: - Best way to manage "tables" - Inter-compatibility with word, excel, ppt. - Easy to send and collaborate with others. Cons: - File size gets too big very fast. - images and links slows down computer. - Files are scatter all around different folders, hard to manage. Most convenient if all notes in only one document. (hint use symlinks?)
+
+Problem 2: Software and code management. Software: - brew to install all research software.
+
+**key Shortcuts**: Files: Excel best tricks.xlsx; Markdown02.docx
+
+Solutions:
+
+### Notekeeping:
+
+**1. Save all notes in one place.**
+
+/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes
+
+**2. Files and folders:**
+
+/Users/marcelorosales/Box Sync/Github
+
+-   DotFiles: What are dotfiles? To create executable file to install all programs ex. [brew.sh](/Users/marcelorosales/Box%20Sync/Github/DotFiles/CMSs%20dotfiles/CMdotfiles-master/brew.sh) and settings at once with one executable command.
+    -   conda shells
+    -   iTerm: Fonts
+-   GitBooks: What are Gitbooks?
+-   mkdocs
+-   NiigataU-Carving: html
+-   Quarto (VS and R)
+-   Rstudio: Shared files among devices
+-   Visual Studio Code
+
+/Users/marcelorosales/Box Sync/Documents/R Course01-R Programming A-Z Course02- R Programing - Advanced Analitics R Bookdown R Example scripts R exmple df R external sources R package files R Preferences and packages Rmarkdown Tests forlder Working Directory R Graph Notes.docx R Notes.docx Store-Restore-Rpackages.R Update R and Rstudio.R
+
+1.  Write all in word as markdown??. (better to copy paste form word to rstudio but saves as Rmd, which is a problem for Mkdocs).
+2.  Convert to a GitHub page to be accessible from anywhere. To do this I tried\* Hugosites Rbookdown (with good results) use with Rstudio and R. Mkdocs (Very versatile and best look. Trouble. Works only with .md files and not with Rmd, so flow is word -\> Rmd -\> md -\> Mkdocs (loss of function) Quarto (Similar to Mkdocs. In process of learning. )
+
+MBP20 files: /Users/marcelorosales/Documents/GitHub: Bioinformatics_RNA-seq (Gitbook) ***Carving (HTML web page made entirely manually)*** DotFiles (Empty) x Example (Hugo Site trial01, empty) x Img (RNA analysis image samples) x Mkdocs_books (Trial site with 1 symlink file \[from /Box Sync/Github/mkdocs/bs4_LabNotes/\_book/08-Preparation.md) *mkdocs_Tests (Trial of submenus in mkdocs) x MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md)* Quarto: quarto-tip-a-day quarto-trials: - quarto_blog - quarto_book - quarto_project - quarto_website (Quarto page test01, https://marcelorosales.github.io/Quarto_website_test01/) \*\*\* quarto-trials.Rproj quarto-web (Downloaded entire quarto web site) Research_Experiments: PhotoConvertibleCells (Example only, no content) Research_Notebook: (Experiment Notebooks, All reseach Notes, https://marcelorosales.github.io/Research_Notebook/ ) Retrolog (Hugo lithium) x Temptests (RNA Seq for STAT3 example of RNA sequencing)\*\* VS Code (VS code cheat sheets) \* ZdocTest1 (Zdoc-blogdown test) x zipfiles Hugotree.docx Research_Notebook.Rmd (Research Notes, Research Notebook)\*\*
+
+Mkdocs_books mkdocs_Tests MkDocsTest1 Quarto Research_Experiments Research_Notebook retrolog Temptests VS Code ZdocTest1 zipfiles Hugotree.docx Research_Notebook.Rmd
+
+Github pages:
+
+MarceloRosales/MkDocsTest1 MarceloRosales/Research_Notebook MarceloRosales/mkd_LabNotes MarceloRosales/Bioinformatics_RNA-seq MarceloRosales/NiigataU-SV MarceloRosales/Carving MarceloRosales/MarceloRosales ¿??? MarceloRosales/PCC-Experiment MarceloRosales/RBD02 MarceloRosales/NiigataU-Carving MarceloRosales/RBlogdowntest01 MarceloRosales/WebDev-01 MarceloRosales/BootstrapCarrousel MarceloRosales/staticrypt
+
+MkDocsTest1 https://marcelorosales.github.io/MkDocsTest1/MkDocs/\
+Research_Notebook https://marcelorosales.github.io/Research_Notebook/\
+mkd_LabNotes https://marcelorosales.github.io/mkd_LabNotes/\
+Bioinformatics_RNA-seq https://marcelorosales.github.io/Bioinformatics_RNA-seq/\
+NiigataU-SV https://marcelorosales.github.io/NiigataU-SV/\
+Carving https://marcelorosales.github.io/Carving/\
+MarceloRosales ¿?? PCC-Experiment https://marcelorosales.github.io/PCC-Experiment/\
+RBD02 https://marcelorosales.github.io/RBD02/ A minimal book ex.\
+NiigataU-Carving https://marcelorosales.github.io/NiigataU-Carving/\
+RBlogdowntest01 (not live) WebDev-01 https://marcelorosales.github.io/WebDev-01/\
+BootstrapCarrousel https://marcelorosales.github.io/BootstrapCarrousel/\
+Staticrypt (exec only)
+
+Pages: /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/docs/All.md (Mkdoc, use terminal to serve in local host. All new info on Bio-Informatics)
+
+To see page, in terminal: cd /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/ mkdocs serve
+
+All notes also in /Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx
+
+Since the appearance of quarto, perhaps it would be more effective to write all in .qmd files cos of its advantages, images can be added easely and automatically img captions code writing and compatible with Zotero bibliography (for word, Rstudio and quarto) Almost same code/outcome flexibility as Mkdocs code package. Qmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code. Visual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format).

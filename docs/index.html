@@ -188,6 +188,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-navsubmenu">    
         <li>
+    <a class="dropdown-item" href="./files/Notes_2do/index.html">
+ <span class="dropdown-text">Notes &amp; 2do</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://github.com/quarto-dev/quarto-cli/issues"><i class="bi bi-bug" role="img">
 </i> 
  <span class="dropdown-text">Report a Bug</span></a>
@@ -226,7 +230,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intent" id="toc-intent" class="nav-link active" data-scroll-target="#intent">Intent</a>
+  <ul class="collapse">
+  <li><a href="#notekeeping" id="toc-notekeeping" class="nav-link" data-scroll-target="#notekeeping">Notekeeping:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -259,11 +272,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Added at 20230315-1228<br>
 Added at 20230315-1316</p>
 <p>Photos:</p>
-<p><img src="images/favicon.png" class="img-fluid" alt="Favicon"> <img src="images/nav_img.png" class="img-fluid"></p>
-<p>update</p>
-<p><img src="images/img01.png" class="img-fluid"></p>
+<p><img src="images/favicon.png" class="img-fluid" alt="Favicon"> <img src="images/nav_img.png" class="img-fluid"> <img src="images/img01.png" class="img-fluid"></p>
+<section id="intent" class="level2">
+<h2 class="anchored" data-anchor-id="intent">Intent</h2>
+<p><strong>docx file</strong>:</p>
+<p>/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx</p>
+<p>Problem 1: Notebook keeping. Word: Pros: - Best way to manage “tables” - Inter-compatibility with word, excel, ppt. - Easy to send and collaborate with others. Cons: - File size gets too big very fast. - images and links slows down computer. - Files are scatter all around different folders, hard to manage. Most convenient if all notes in only one document. (hint use symlinks?)</p>
+<p>Problem 2: Software and code management. Software: - brew to install all research software.</p>
+<p><strong>key Shortcuts</strong>: Files: Excel best tricks.xlsx; Markdown02.docx</p>
+<p>Solutions:</p>
+<section id="notekeeping" class="level3">
+<h3 class="anchored" data-anchor-id="notekeeping">Notekeeping:</h3>
+<p><strong>1. Save all notes in one place.</strong></p>
+<p>/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes</p>
+<p><strong>2. Files and folders:</strong></p>
+<p>/Users/marcelorosales/Box Sync/Github</p>
+<ul>
+<li>DotFiles: What are dotfiles? To create executable file to install all programs ex. <a href="./Users/marcelorosales/Box Sync/Github/DotFiles/CMSs dotfiles/CMdotfiles-master/brew.sh">brew.sh</a> and settings at once with one executable command.
+<ul>
+<li>conda shells</li>
+<li>iTerm: Fonts</li>
+</ul></li>
+<li>GitBooks: What are Gitbooks?</li>
+<li>mkdocs</li>
+<li>NiigataU-Carving: html</li>
+<li>Quarto (VS and R)</li>
+<li>Rstudio: Shared files among devices</li>
+<li>Visual Studio Code</li>
+</ul>
+<p>/Users/marcelorosales/Box Sync/Documents/R Course01-R Programming A-Z Course02- R Programing - Advanced Analitics R Bookdown R Example scripts R exmple df R external sources R package files R Preferences and packages Rmarkdown Tests forlder Working Directory R Graph Notes.docx R Notes.docx Store-Restore-Rpackages.R Update R and Rstudio.R</p>
+<ol type="1">
+<li>Write all in word as markdown??. (better to copy paste form word to rstudio but saves as Rmd, which is a problem for Mkdocs).</li>
+<li>Convert to a GitHub page to be accessible from anywhere. To do this I tried* Hugosites Rbookdown (with good results) use with Rstudio and R. Mkdocs (Very versatile and best look. Trouble. Works only with .md files and not with Rmd, so flow is word -&gt; Rmd -&gt; md -&gt; Mkdocs (loss of function) Quarto (Similar to Mkdocs. In process of learning. )</li>
+</ol>
+<p>MBP20 files: /Users/marcelorosales/Documents/GitHub: Bioinformatics_RNA-seq (Gitbook) <strong><em>Carving (HTML web page made entirely manually)</em></strong> DotFiles (Empty) x Example (Hugo Site trial01, empty) x Img (RNA analysis image samples) x Mkdocs_books (Trial site with 1 symlink file [from /Box Sync/Github/mkdocs/bs4_LabNotes/_book/08-Preparation.md) <em>mkdocs_Tests (Trial of submenus in mkdocs) x MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md)</em> Quarto: quarto-tip-a-day quarto-trials: - quarto_blog - quarto_book - quarto_project - quarto_website (Quarto page test01, https://marcelorosales.github.io/Quarto_website_test01/) *** quarto-trials.Rproj quarto-web (Downloaded entire quarto web site) Research_Experiments: PhotoConvertibleCells (Example only, no content) Research_Notebook: (Experiment Notebooks, All reseach Notes, https://marcelorosales.github.io/Research_Notebook/ ) Retrolog (Hugo lithium) x Temptests (RNA Seq for STAT3 example of RNA sequencing)** VS Code (VS code cheat sheets) * ZdocTest1 (Zdoc-blogdown test) x zipfiles Hugotree.docx Research_Notebook.Rmd (Research Notes, Research Notebook)**</p>
+<p>Mkdocs_books mkdocs_Tests MkDocsTest1 Quarto Research_Experiments Research_Notebook retrolog Temptests VS Code ZdocTest1 zipfiles Hugotree.docx Research_Notebook.Rmd</p>
+<p>Github pages:</p>
+<p>MarceloRosales/MkDocsTest1 MarceloRosales/Research_Notebook MarceloRosales/mkd_LabNotes MarceloRosales/Bioinformatics_RNA-seq MarceloRosales/NiigataU-SV MarceloRosales/Carving MarceloRosales/MarceloRosales ¿??? MarceloRosales/PCC-Experiment MarceloRosales/RBD02 MarceloRosales/NiigataU-Carving MarceloRosales/RBlogdowntest01 MarceloRosales/WebDev-01 MarceloRosales/BootstrapCarrousel MarceloRosales/staticrypt</p>
+<p>MkDocsTest1 https://marcelorosales.github.io/MkDocsTest1/MkDocs/<br>
+Research_Notebook https://marcelorosales.github.io/Research_Notebook/<br>
+mkd_LabNotes https://marcelorosales.github.io/mkd_LabNotes/<br>
+Bioinformatics_RNA-seq https://marcelorosales.github.io/Bioinformatics_RNA-seq/<br>
+NiigataU-SV https://marcelorosales.github.io/NiigataU-SV/<br>
+Carving https://marcelorosales.github.io/Carving/<br>
+MarceloRosales ¿?? PCC-Experiment https://marcelorosales.github.io/PCC-Experiment/<br>
+RBD02 https://marcelorosales.github.io/RBD02/ A minimal book ex.<br>
+NiigataU-Carving https://marcelorosales.github.io/NiigataU-Carving/<br>
+RBlogdowntest01 (not live) WebDev-01 https://marcelorosales.github.io/WebDev-01/<br>
+BootstrapCarrousel https://marcelorosales.github.io/BootstrapCarrousel/<br>
+Staticrypt (exec only)</p>
+<p>Pages: /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/docs/All.md (Mkdoc, use terminal to serve in local host. All new info on Bio-Informatics)</p>
+<p>To see page, in terminal: cd /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/ mkdocs serve</p>
+<p>All notes also in /Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx</p>
+<p>Since the appearance of quarto, perhaps it would be more effective to write all in .qmd files cos of its advantages, images can be added easely and automatically img captions code writing and compatible with Zotero bibliography (for word, Rstudio and quarto) Almost same code/outcome flexibility as Mkdocs code package. Qmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code. Visual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format).</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
