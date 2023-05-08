@@ -131,7 +131,6 @@ find . -name ".DS_Store" -delete
 find . -name '.DS_Store' -type f -delete
 git restore .DS_Store 
 git restore .
-
 ```
 
 ## Trouble shooting.
@@ -181,11 +180,26 @@ git commit -m "message"
 git push
 ```
 
+### Git Stash Changes | Learn Git Stash Apply, Pop, Clear, Show, Drop  
+
+Another alternative for the Branch ahead error, you can use:
+
+```{.bash filename="Terminal"}
+git stash
+git pull
+git stash show
+git stash list
+git stash clear 
+git status
+```
+
+[how to git stash changes](https://www.junosnotes.com/git/how-to-git-stash-changes/#Git_stash_clear){target="_blank"}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fXGug4itlTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Delete .DS_Store recursively from all directories and sub-directories.
 
-[How to Recursively Remove .DS_Store](https://jonbellah.com/articles/recursively-remove-ds-store){targe="_blank"}
-
-[How to Recursively Remove .DS_Store](https://jonbellah.com/articles/recursively-remove-ds-store){targe="_blank"}
+[How to Recursively Remove .DS_Store](https://jonbellah.com/articles/recursively-remove-ds-store){target="_blank"}
 
 On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.
 
@@ -229,3 +243,4 @@ git pull
 
 1.  Render \> commit \> push \> pull.\
     `.DS_Store` file will be automatically created by Mac in the folder, but it won't appear on the stageing steps anymore.
+
