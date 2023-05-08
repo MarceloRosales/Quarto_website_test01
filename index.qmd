@@ -10,7 +10,8 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 1 + 1
 ```
 
-Added at 20230315-1228\
+Added at 20230315-1228
+
 Added at 20230315-1316
 
 Photos:
@@ -56,31 +57,86 @@ Solutions:
 1.  Write all in word as markdown??. (better to copy paste form word to rstudio but saves as Rmd, which is a problem for Mkdocs).
 2.  Convert to a GitHub page to be accessible from anywhere. To do this I tried\* Hugosites Rbookdown (with good results) use with Rstudio and R. Mkdocs (Very versatile and best look. Trouble. Works only with .md files and not with Rmd, so flow is word -\> Rmd -\> md -\> Mkdocs (loss of function) Quarto (Similar to Mkdocs. In process of learning. )
 
-MBP20 files: /Users/marcelorosales/Documents/GitHub: Bioinformatics_RNA-seq (Gitbook) ***Carving (HTML web page made entirely manually)*** DotFiles (Empty) x Example (Hugo Site trial01, empty) x Img (RNA analysis image samples) x Mkdocs_books (Trial site with 1 symlink file \[from /Box Sync/Github/mkdocs/bs4_LabNotes/\_book/08-Preparation.md) *mkdocs_Tests (Trial of submenus in mkdocs) x MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md)* Quarto: quarto-tip-a-day quarto-trials: - quarto_blog - quarto_book - quarto_project - quarto_website (Quarto page test01, https://marcelorosales.github.io/Quarto_website_test01/) \*\*\* quarto-trials.Rproj quarto-web (Downloaded entire quarto web site) Research_Experiments: PhotoConvertibleCells (Example only, no content) Research_Notebook: (Experiment Notebooks, All reseach Notes, https://marcelorosales.github.io/Research_Notebook/ ) Retrolog (Hugo lithium) x Temptests (RNA Seq for STAT3 example of RNA sequencing)\*\* VS Code (VS code cheat sheets) \* ZdocTest1 (Zdoc-blogdown test) x zipfiles Hugotree.docx Research_Notebook.Rmd (Research Notes, Research Notebook)\*\*
+MBP20 files:
 
-Mkdocs_books mkdocs_Tests MkDocsTest1 Quarto Research_Experiments Research_Notebook retrolog Temptests VS Code ZdocTest1 zipfiles Hugotree.docx Research_Notebook.Rmd
+/Users/marcelorosales/Documents/GitHub:
 
-Github pages:
+  **Bioinformatics_RNA-seq** (Gitbook)\*\*\*
 
-MarceloRosales/MkDocsTest1 MarceloRosales/Research_Notebook MarceloRosales/mkd_LabNotes MarceloRosales/Bioinformatics_RNA-seq MarceloRosales/NiigataU-SV MarceloRosales/Carving MarceloRosales/MarceloRosales ¿??? MarceloRosales/PCC-Experiment MarceloRosales/RBD02 MarceloRosales/NiigataU-Carving MarceloRosales/RBlogdowntest01 MarceloRosales/WebDev-01 MarceloRosales/BootstrapCarrousel MarceloRosales/staticrypt
+  **Carving** (HTML web page made entirely manually)\*\*\*
 
-MkDocsTest1 https://marcelorosales.github.io/MkDocsTest1/MkDocs/\
-Research_Notebook https://marcelorosales.github.io/Research_Notebook/\
-mkd_LabNotes https://marcelorosales.github.io/mkd_LabNotes/\
-Bioinformatics_RNA-seq https://marcelorosales.github.io/Bioinformatics_RNA-seq/\
-NiigataU-SV https://marcelorosales.github.io/NiigataU-SV/\
-Carving https://marcelorosales.github.io/Carving/\
-MarceloRosales ¿?? PCC-Experiment https://marcelorosales.github.io/PCC-Experiment/\
-RBD02 https://marcelorosales.github.io/RBD02/ A minimal book ex.\
-NiigataU-Carving https://marcelorosales.github.io/NiigataU-Carving/\
-RBlogdowntest01 (not live) WebDev-01 https://marcelorosales.github.io/WebDev-01/\
-BootstrapCarrousel https://marcelorosales.github.io/BootstrapCarrousel/\
-Staticrypt (exec only)
+  DotFiles (Empty) x
 
-Pages: /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/docs/All.md (Mkdoc, use terminal to serve in local host. All new info on Bio-Informatics)
+  Example (Hugo Site trial01, empty) x
 
-To see page, in terminal: cd /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/ mkdocs serve
+  Img (RNA analysis image samples) x
 
-All notes also in /Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx
+  Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/\_book/08-Preparation.md)\*
 
-Since the appearance of quarto, perhaps it would be more effective to write all in .qmd files cos of its advantages, images can be added easely and automatically img captions code writing and compatible with Zotero bibliography (for word, Rstudio and quarto) Almost same code/outcome flexibility as Mkdocs code package. Qmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code. Visual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format).
+  mkdocs_Tests (Trial of submenus in mkdocs) x
+
+  MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md)\*
+
+  Quarto:
+
+**quarto-tip-a-day**
+
+**quarto-trials:**
+
+    - quarto_blog
+
+    - quarto_book
+
+    - quarto_project
+
+    - **quarto_website** (Quarto page test01, <https://marcelorosales.github.io/Quarto_website_test01/>) \*\*\*
+
+    quarto-trials.Rproj
+
+**quarto-web** (Downloaded entire quarto web site)
+
+  Research_Experiments:
+
+   PhotoConvertibleCells (Example only, no content)
+
+  Research_Notebook: (Experiment Notebooks, All reseach Notes, <https://marcelorosales.github.io/Research_Notebook/> )
+
+  Retrolog (Hugo lithium) x
+
+  Temptests (RNA Seq for STAT3 example of RNA sequencing)\*\*
+
+  VS Code (VS code cheat sheets) \*
+
+  ZdocTest1 (Zdoc-blogdown test) x
+
+  zipfiles
+
+  Hugotree.docx
+
+  Research_Notebook.Rmd (Research Notes, Research Notebook)\*\*
+
+  Mkdocs_books
+
+  mkdocs_Tests
+
+  MkDocsTest1
+
+  Quarto
+
+  Research_Experiments
+
+  Research_Notebook
+
+  retrolog
+
+  Temptests
+
+  VS Code
+
+  ZdocTest1
+
+  zipfiles
+
+  Hugotree.docx
+
+  Research_Notebook.Rmd

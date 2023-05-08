@@ -180,11 +180,11 @@ git commit -m "message"
 git push
 ```
 
-### Git Stash Changes | Learn Git Stash Apply, Pop, Clear, Show, Drop  
+### Git Stash Changes \| Learn Git Stash Apply, Pop, Clear, Show, Drop
 
 Another alternative for the Branch ahead error, you can use:
 
-```{.bash filename="Terminal"}
+``` {.bash filename="Terminal"}
 git stash
 git pull
 git stash show
@@ -195,7 +195,9 @@ git status
 
 [how to git stash changes](https://www.junosnotes.com/git/how-to-git-stash-changes/#Git_stash_clear){target="_blank"}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fXGug4itlTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fXGug4itlTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
 
 ### Delete .DS_Store recursively from all directories and sub-directories.
 
@@ -243,4 +245,3 @@ git pull
 
 1.  Render \> commit \> push \> pull.\
     `.DS_Store` file will be automatically created by Mac in the folder, but it won't appear on the stageing steps anymore.
-
