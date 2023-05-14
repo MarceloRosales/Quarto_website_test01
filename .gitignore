@@ -2,3 +2,5 @@
 .Rproj.user
 .DS_Store
 node_modules/
+
+/.luarc.json

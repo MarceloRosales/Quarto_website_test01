@@ -82,6 +82,7 @@ website:
 format:
   html:
     toc: true
+    toc-depth: 6
     theme:
       light: [cosmo, theme.scss]
       dark: [cosmo, theme-dark.scss] # change theme (cosmo) colors and formats in the scss files
@@ -89,6 +90,7 @@ format:
     code-overflow: wrap
     css: styles.css
     include-after-body: js.html
+    self-contained: false # If true, it will not create the site files but one html file. 
     grid:
       sidebar-width: 250px
       body-width: 900px
@@ -96,4 +98,6 @@ format:
 
 
 editor: visual
-
+editor_options:
+  markdown:
+    canonical: true

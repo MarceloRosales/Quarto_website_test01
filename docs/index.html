@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MySite - quarto_website</title>
+<title>MySite - R&amp;D Notation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="MySite - quarto_website">
+<meta property="og:title" content="MySite - R&amp;D Notation">
 <meta property="og:description" content="This is a Quarto website.">
 <meta property="og:site-name" content="MySite">
 </head>
@@ -234,9 +234,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#intent" id="toc-intent" class="nav-link active" data-scroll-target="#intent">Intent</a>
-  <ul class="collapse">
-  <li><a href="#notekeeping" id="toc-notekeeping" class="nav-link" data-scroll-target="#notekeeping">Notekeeping:</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a>
+  <ul>
+  <li><a href="#intent" id="toc-intent" class="nav-link" data-scroll-target="#intent">Intent</a></li>
+  </ul></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions:</a>
+  <ul>
+  <li><a href="#notekeeping" id="toc-notekeeping" class="nav-link" data-scroll-target="#notekeeping">Notekeeping:</a>
+  <ul>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use:</a></li>
+  <li><a href="#open-word-file" id="toc-open-word-file" class="nav-link" data-scroll-target="#open-word-file">Open Word file</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -246,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">quarto_website</h1>
+<h1 class="title">R&amp;D Notation</h1>
 </div>
 
 
@@ -261,30 +269,104 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
 <p>This is a Quarto website.</p>
 <p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<p>Added at 20230315-1228</p>
-<p>Added at 20230315-1316</p>
-<p>Photos:</p>
-<p><img src="images/favicon.png" class="img-fluid" alt="Favicon"> <img src="images/nav_img.png" class="img-fluid"> <img src="images/img01.png" class="img-fluid"></p>
-<section id="intent" class="level2">
-<h2 class="anchored" data-anchor-id="intent">Intent</h2>
-<p><strong>docx file</strong>:</p>
-<p>/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx</p>
-<p>Problem 1: Notebook keeping. Word: Pros: - Best way to manage “tables” - Inter-compatibility with word, excel, ppt. - Easy to send and collaborate with others. Cons: - File size gets too big very fast. - images and links slows down computer. - Files are scatter all around different folders, hard to manage. Most convenient if all notes in only one document. (hint use symlinks?)</p>
-<p>Problem 2: Software and code management. Software: - brew to install all research software.</p>
+<p>The choice between using Quarto and simple R Markdown depends on the specific needs and requirements of your project. Here are a few reasons why you might consider using Quarto:</p>
+<ol type="1">
+<li><p>Enhanced functionality: Quarto offers additional features and functionality compared to simple R Markdown. It provides support for literate programming, version control, customizable templates, and more. If you require advanced capabilities for your project, such as generating reports with complex formatting, incorporating interactive elements, or integrating code and documentation seamlessly, Quarto can be a powerful tool.</p></li>
+<li><p>Document generation and collaboration: Quarto is designed for collaborative document generation, making it easier for teams to work together on projects. It provides features like automated rendering, document caching, and document diffing, which can facilitate collaboration and streamline the document development process.</p></li>
+<li><p>Extensibility: Quarto allows for extensibility through custom engines, allowing you to integrate additional programming languages or document formats into your project. This flexibility can be beneficial if you need to incorporate non-R code or work with specific document formats beyond what simple R Markdown offers.</p></li>
+<li><p>Community and support: Quarto has an active community of users and developers who contribute to its development and provide support. If you encounter any issues or have questions, you can rely on community resources to find assistance and guidance.</p></li>
+</ol>
+<p>However, it’s important to note that simple R Markdown is still a powerful and widely used tool for generating documents with R. If your project requirements are straightforward and don’t require the additional features provided by Quarto, using simple R Markdown may be sufficient and more straightforward. Ultimately, the choice between Quarto and simple R Markdown should be based on your specific project needs, preferences, and the complexity of the document you aim to generate.</p>
+<section id="intent" class="level3">
+<h3 class="anchored" data-anchor-id="intent">Intent</h3>
+<p><strong>Problem 1: Notebook keeping.</strong></p>
+<p>Experimental notes are distributed in many different folders and files; sometimes even in different drives and it is difficult to <strong>keep track</strong> of all information. A centralized direct access to information at any time is required.</p>
+<p>The standard way to do it is by using Microsoft Office programs</p>
+<p>Word:<br>
+Pros:</p>
+<ul>
+<li>Best way to manage “tables” within text editor.<br>
+</li>
+<li>Inter-compatibility with word, excel, ppt and other programs.<br>
+</li>
+<li>Easy to send and collaborate with others.<br>
+</li>
+<li>The Standard for all purposes.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>File size gets too big very fast.<br>
+</li>
+<li>images and links slows down computer.<br>
+</li>
+<li>Files are scatter all around different folders, hard to manage.<br>
+</li>
+<li>No easy way to compile information across projects and experiments.</li>
+</ul>
+<p><strong>Problem 2: Software and code management.</strong></p>
+<ul>
+<li>Code management is a serious problem, word cannot manage it at all.</li>
+<li></li>
+</ul>
+<p>Software:</p>
+<ul>
+<li>brew to install all research software.<br>
+</li>
+<li>MS Office<br>
+</li>
+<li>R and RStudio<br>
+</li>
+<li>VS Code<br>
+</li>
+<li>Quarto<br>
+</li>
+<li>Zotero<br>
+</li>
+<li>Anaconda<br>
+</li>
+<li>Git<br>
+</li>
+<li>GitHub<br>
+</li>
+<li>Git Kraken<br>
+</li>
+<li>ImageJ<br>
+</li>
+<li>Calibre<br>
+</li>
+<li>DigiKam<br>
+</li>
+<li>Docker?<br>
+</li>
+<li>Syncthing<br>
+</li>
+<li>FreeCad<br>
+</li>
+<li>Blender</li>
+</ul>
+<blockquote class="blockquote">
+<p>Small digression: Think on the possibility of a centrilized Folder for all notes, word, r, qmd, pyton, bash, and using symlinks to move and compile projects (like a puzzle) to create new content.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Why I am changeing to quarto?</p>
+</blockquote>
+</section>
+</section>
+<section id="solutions" class="level2">
+<h2 class="anchored" data-anchor-id="solutions">Solutions:</h2>
 <p><strong>key Shortcuts</strong>: Files: Excel best tricks.xlsx; Markdown02.docx</p>
-<p>Solutions:</p>
 <section id="notekeeping" class="level3">
 <h3 class="anchored" data-anchor-id="notekeeping">Notekeeping:</h3>
 <p><strong>1. Save all notes in one place.</strong></p>
-<p>/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes</p>
+<p>/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes, then symlik to other projects.</p>
+<ul>
+<li>Does symlinks work with github, syncthing, synology, host (hostinger), etc?</li>
+<li>Which type of symlik is best? soft or hard?</li>
+</ul>
 <p><strong>2. Files and folders:</strong></p>
 <p>/Users/marcelorosales/Box Sync/Github</p>
 <ul>
@@ -300,55 +382,264 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Rstudio: Shared files among devices</li>
 <li>Visual Studio Code</li>
 </ul>
-<p>/Users/marcelorosales/Box Sync/Documents/R Course01-R Programming A-Z Course02- R Programing - Advanced Analitics R Bookdown R Example scripts R exmple df R external sources R package files R Preferences and packages Rmarkdown Tests forlder Working Directory R Graph Notes.docx R Notes.docx Store-Restore-Rpackages.R Update R and Rstudio.R</p>
+<p>/Users/marcelorosales/Box Sync/Documents/R</p>
+<ul>
+<li>Course01-R Programming A-Z<br>
+</li>
+<li>Course02- R Programing - Advanced Analitics<br>
+</li>
+<li>R Bookdown<br>
+</li>
+<li>R Example scripts<br>
+</li>
+<li>R exmple df<br>
+</li>
+<li>R external sources<br>
+</li>
+<li>R package files<br>
+</li>
+<li>R Preferences and packages<br>
+</li>
+<li>Rmarkdown<br>
+</li>
+<li>Tests forlder<br>
+</li>
+<li>Working Directory</li>
+</ul>
+<p>MBP20 files: /Users/marcelorosales/Documents/GitHub:</p>
+<ul>
+<li><strong>Bioinformatics_RNA-seq</strong> (Gitbook)**<br>
+</li>
+<li><strong>Carving</strong> (HTML web page made entirely manually)<br>
+</li>
+<li>DotFiles (Empty) x<br>
+</li>
+<li>Example (Hugo Site trial01, empty) x<br>
+</li>
+<li>Img (RNA analysis image samples)<br>
+</li>
+<li>Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/ _book/08-Preparation.md) *<br>
+</li>
+<li>mkdocs_Tests (Trial of submenus in mkdocs) x<br>
+</li>
+<li>MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md) *<br>
+</li>
+<li>Quarto:<br>
+</li>
+<li><strong>quarto-tip-a-day</strong> (webpage downloaded from quarto site)<br>
+</li>
+<li><strong>quarto-trials:</strong>
+<ul>
+<li>quarto_blog<br>
+</li>
+<li>quarto_book<br>
+</li>
+<li>quarto_project<br>
+</li>
+<li><strong>quarto_website</strong> (Quarto page test01, <a href="https://marcelorosales.github.io/Quarto_website_test01/" class="uri">https://marcelorosales.github.io/Quarto_website_test01/</a>) +++<br>
+</li>
+</ul></li>
+<li><strong>quarto-web</strong> (Downloaded entire quarto web site)<br>
+</li>
+<li>Research_Experiments:
+<ul>
+<li>PhotoConvertibleCells (Example only, no content)<br>
+</li>
+</ul></li>
+<li>Research_Notebook: (Experiment Notebooks, All reseach Notes, <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a> )<br>
+</li>
+<li>Retrolog (Hugo lithium) x<br>
+</li>
+<li>Temptests (RNA Seq for STAT3 example of RNA sequencing) **<br>
+</li>
+<li>VS Code (VS code cheat sheets) *<br>
+</li>
+<li>ZdocTest1 (Zdoc-blogdown test) x<br>
+</li>
+<li>zipfiles<br>
+</li>
+<li>Hugotree.docx<br>
+</li>
+<li>Research_Notebook.Rmd (Research Notes, Research Notebook) **</li>
+</ul>
+<p>MBP15 files:</p>
+<p>Synology files:</p>
+<p>Github pages:</p>
+<p>MarceloRosales/MkDocsTest1<br>
+MarceloRosales/Research_Notebook<br>
+MarceloRosales/mkd_LabNotes<br>
+MarceloRosales/Bioinformatics_RNA-seq<br>
+MarceloRosales/NiigataU-SV<br>
+MarceloRosales/Carving<br>
+MarceloRosales/MarceloRosales ¿???<br>
+MarceloRosales/PCC-Experiment<br>
+MarceloRosales/RBD02<br>
+MarceloRosales/NiigataU-Carving<br>
+MarceloRosales/RBlogdowntest01<br>
+MarceloRosales/WebDev-01<br>
+MarceloRosales/BootstrapCarrousel<br>
+MarceloRosales/staticrypt</p>
+<p>MkDocsTest1 <a href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/" class="uri">https://marcelorosales.github.io/MkDocsTest1/MkDocs/</a><br>
+Research_Notebook <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a><br>
+mkd_LabNotes <a href="https://marcelorosales.github.io/mkd_LabNotes/" class="uri">https://marcelorosales.github.io/mkd_LabNotes/</a><br>
+Bioinformatics_RNA-seq <a href="https://marcelorosales.github.io/Bioinformatics_RNA-seq/" class="uri">https://marcelorosales.github.io/Bioinformatics_RNA-seq/</a><br>
+NiigataU-SV <a href="https://marcelorosales.github.io/NiigataU-SV/" class="uri">https://marcelorosales.github.io/NiigataU-SV/</a><br>
+Carving <a href="https://marcelorosales.github.io/Carving/" class="uri">https://marcelorosales.github.io/Carving/</a><br>
+MarceloRosales ¿?? PCC-Experiment <a href="https://marcelorosales.github.io/PCC-Experiment/" class="uri">https://marcelorosales.github.io/PCC-Experiment/</a><br>
+RBD02 <a href="https://marcelorosales.github.io/RBD02/" class="uri">https://marcelorosales.github.io/RBD02/</a> A minimal book ex.<br>
+NiigataU-Carving <a href="https://marcelorosales.github.io/NiigataU-Carving/" class="uri">https://marcelorosales.github.io/NiigataU-Carving/</a><br>
+RBlogdowntest01 (not live) WebDev-01 <a href="https://marcelorosales.github.io/WebDev-01/" class="uri">https://marcelorosales.github.io/WebDev-01/</a><br>
+BootstrapCarrousel <a href="https://marcelorosales.github.io/BootstrapCarrousel/" class="uri">https://marcelorosales.github.io/BootstrapCarrousel/</a><br>
+Staticrypt (exec only)</p>
+<p>MarceloRosales/MkDocsTest1 &gt; MkDocsTest1 &lt;https://marcelorosales.github.io/MkDocsTest1/MkDocs/ &gt;<br>
+MarceloRosales/Research_Notebook &gt; Research_Notebook <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a><br>
+MarceloRosales/mkd_LabNotes &gt; mkd_LabNotes <a href="https://marcelorosales.github.io/mkd_LabNotes/" class="uri">https://marcelorosales.github.io/mkd_LabNotes/</a><br>
+MarceloRosales/Bioinformatics_RNA-seq &gt; Bioinformatics_RNA-seq <a href="https://marcelorosales.github.io/Bioinformatics_RNA-seq/" class="uri">https://marcelorosales.github.io/Bioinformatics_RNA-seq/</a><br>
+MarceloRosales/NiigataU-SV &gt; NiigataU-SV <a href="https://marcelorosales.github.io/NiigataU-SV/" class="uri">https://marcelorosales.github.io/NiigataU-SV/</a><br>
+MarceloRosales/Carving &gt; Carving <a href="https://marcelorosales.github.io/Carving/" class="uri">https://marcelorosales.github.io/Carving/</a><br>
+MarceloRosales/MarceloRosales ¿??? &gt; MarceloRosales ¿?? MarceloRosales/PCC-Experiment &gt; PCC-Experiment <a href="https://marcelorosales.github.io/PCC-Experiment/" class="uri">https://marcelorosales.github.io/PCC-Experiment/</a><br>
+MarceloRosales/RBD02 &gt; RBD02 <a href="https://marcelorosales.github.io/RBD02/" class="uri">https://marcelorosales.github.io/RBD02/</a> A minimal book ex.<br>
+MarceloRosales/NiigataU-Carving &gt; NiigataU-Carving <a href="https://marcelorosales.github.io/NiigataU-Carving/" class="uri">https://marcelorosales.github.io/NiigataU-Carving/</a><br>
+MarceloRosales/RBlogdowntest01 &gt; RBlogdowntest01 (not live) MarceloRosales/WebDev-01 &gt; WebDev-01 <a href="https://marcelorosales.github.io/WebDev-01/" class="uri">https://marcelorosales.github.io/WebDev-01/</a><br>
+MarceloRosales/BootstrapCarrousel &gt; BootstrapCarrousel <a href="https://marcelorosales.github.io/BootstrapCarrousel/" class="uri">https://marcelorosales.github.io/BootstrapCarrousel/</a><br>
+MarceloRosales/staticrypt &gt; Staticrypt (exec only)</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>MarceloRosales/MkDocsTest1</td>
+<td>&gt;</td>
+<td>MkDocsTest1 <a href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/" class="uri">https://marcelorosales.github.io/MkDocsTest1/MkDocs/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/Research_Notebook</td>
+<td>&gt;</td>
+<td>Research_Notebook <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/mkd_LabNotes</td>
+<td>&gt;</td>
+<td>mkd_LabNotes <a href="https://marcelorosales.github.io/mkd_LabNotes/" class="uri">https://marcelorosales.github.io/mkd_LabNotes/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/Bioinformatics_RNA-seq</td>
+<td>&gt;</td>
+<td>Bioinformatics_RNA-seq <a href="https://marcelorosales.github.io/Bioinformatics_RNA-seq/" class="uri">https://marcelorosales.github.io/Bioinformatics_RNA-seq/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/NiigataU-SV</td>
+<td>&gt;</td>
+<td>NiigataU-SV <a href="https://marcelorosales.github.io/NiigataU-SV/" class="uri">https://marcelorosales.github.io/NiigataU-SV/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/Carving</td>
+<td>&gt;</td>
+<td>Carving <a href="https://marcelorosales.github.io/Carving/" class="uri">https://marcelorosales.github.io/Carving/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/MarceloRosales ¿???</td>
+<td>&gt;</td>
+<td>&lt;MarceloRosales ¿??&gt;</td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/PCC-Experiment</td>
+<td>&gt;</td>
+<td>PCC-Experiment <a href="https://marcelorosales.github.io/PCC-Experiment/" class="uri">https://marcelorosales.github.io/PCC-Experiment/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/RBD02</td>
+<td>&gt;</td>
+<td>RBD02 &lt;https://marcelorosales.github.io/RBD02/ A minimal book ex.&gt;</td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/NiigataU-Carving</td>
+<td>&gt;</td>
+<td>NiigataU-Carving <a href="https://marcelorosales.github.io/NiigataU-Carving/" class="uri">https://marcelorosales.github.io/NiigataU-Carving/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/RBlogdowntest01</td>
+<td>&gt;</td>
+<td>&lt;RBlogdowntest01 (not live)&gt;</td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/WebDev-01</td>
+<td>&gt;</td>
+<td>WebDev-01 <a href="https://marcelorosales.github.io/WebDev-01/" class="uri">https://marcelorosales.github.io/WebDev-01/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/BootstrapCarrousel</td>
+<td>&gt;</td>
+<td>BootstrapCarrousel <a href="https://marcelorosales.github.io/BootstrapCarrousel/" class="uri">https://marcelorosales.github.io/BootstrapCarrousel/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/staticrypt</td>
+<td>&gt;</td>
+<td>&lt;Staticrypt (exec only)&gt;</td>
+</tr>
+</tbody>
+</table>
+<section id="how-to-use" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-use">How to use:</h4>
+<p>Where do I write the text first? word, Rstudio .qmd, VS code?</p>
 <ol type="1">
-<li>Write all in word as markdown??. (better to copy paste form word to rstudio but saves as Rmd, which is a problem for Mkdocs).</li>
-<li>Convert to a GitHub page to be accessible from anywhere. To do this I tried* Hugosites Rbookdown (with good results) use with Rstudio and R. Mkdocs (Very versatile and best look. Trouble. Works only with .md files and not with Rmd, so flow is word -&gt; Rmd -&gt; md -&gt; Mkdocs (loss of function) Quarto (Similar to Mkdocs. In process of learning. )</li>
+<li>I am thinking I will I will use the 3 of them (word, RStudio (RS).qmd, VS code (VSC)) at the same time.<br>
+</li>
+<li>Seems like VC code is the middle ground between word and Rstudio. 20230502 test: Use VS code as the main text/code editor, then copy paste to word.
+<ol type="1">
+<li>Create a qmd file/project in RS, git init, save project.<br>
+</li>
+<li>Open RS qmd file in VS code and use as main text editor.<br>
+</li>
+<li>Change/add content, save in VS code &gt; will auto update in RS (no need to do anything except to reload/open file).<br>
+</li>
+<li>Check if render is correct.<br>
+</li>
+<li>Copy/paste to word and save in word. Currently it is not possible to open a word file directly in VSC.<br>
+</li>
+</ol></li>
+<li>Use word and <strong>.qmd (in source mode only)</strong> at the same time and indistinctively…<br>
+</li>
+<li>DO NOT SWITCH TO VISUAL MODE. Changing to visual mode will modify text in the source code format. Space between lines is doble and there is no way to change it in the ui of rstudio, only in the render output. It makes it difficult to read and orginize.<br>
+</li>
+<li>Thus, keep all records in the word file at all times. Make de word file the default saving format.</li>
+<li>Open Untitled .qmd files to try and test code chunks or formats.</li>
+<li>Open an Image .qmd file <strong>in visual mode</strong> to store all image code and links for a fast gallery, then easy to copy/paste images to other places.<br>
+</li>
+<li>If large code needs to be quickly formated for word (coz copy/paste from rstudio to word directly does not copy code highlight formats), use VS code, copy/paste Rstudio &gt; VS Code &gt; word. Then adjust line spacing.</li>
 </ol>
-<p>MBP20 files:</p>
-<p>/Users/marcelorosales/Documents/GitHub:</p>
-<p>&nbsp; <strong>Bioinformatics_RNA-seq</strong> (Gitbook)***</p>
-<p>&nbsp; <strong>Carving</strong> (HTML web page made entirely manually)***</p>
-<p>&nbsp; DotFiles (Empty) x</p>
-<p>&nbsp; Example (Hugo Site trial01, empty) x</p>
-<p>&nbsp; Img (RNA analysis image samples) x</p>
-<p>&nbsp; Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/_book/08-Preparation.md)*</p>
-<p>&nbsp; mkdocs_Tests (Trial of submenus in mkdocs) x</p>
-<p>&nbsp; MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md)*</p>
-<p>&nbsp; Quarto:</p>
-<p><strong>quarto-tip-a-day</strong></p>
-<p><strong>quarto-trials:</strong></p>
-<p>&nbsp;&nbsp;&nbsp; - quarto_blog</p>
-<p>&nbsp;&nbsp;&nbsp; - quarto_book</p>
-<p>&nbsp;&nbsp;&nbsp; - quarto_project</p>
-<p>&nbsp;&nbsp;&nbsp; - <strong>quarto_website</strong> (Quarto page test01, <a href="https://marcelorosales.github.io/Quarto_website_test01/" class="uri">https://marcelorosales.github.io/Quarto_website_test01/</a>) ***</p>
-<p>&nbsp;&nbsp;&nbsp; quarto-trials.Rproj</p>
-<p><strong>quarto-web</strong> (Downloaded entire quarto web site)</p>
-<p>&nbsp; Research_Experiments:</p>
-<p>&nbsp;&nbsp; PhotoConvertibleCells (Example only, no content)</p>
-<p>&nbsp; Research_Notebook: (Experiment Notebooks, All reseach Notes, <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a> )</p>
-<p>&nbsp; Retrolog (Hugo lithium) x</p>
-<p>&nbsp; Temptests (RNA Seq for STAT3 example of RNA sequencing)**</p>
-<p>&nbsp; VS Code (VS code cheat sheets) *</p>
-<p>&nbsp; ZdocTest1 (Zdoc-blogdown test) x</p>
-<p>&nbsp; zipfiles</p>
-<p>&nbsp; Hugotree.docx</p>
-<p>&nbsp; Research_Notebook.Rmd (Research Notes, Research Notebook)**</p>
-<p>&nbsp;&nbsp;Mkdocs_books</p>
-<p>&nbsp; mkdocs_Tests</p>
-<p>&nbsp; MkDocsTest1</p>
-<p>&nbsp; Quarto</p>
-<p>&nbsp; Research_Experiments</p>
-<p>&nbsp; Research_Notebook</p>
-<p>&nbsp; retrolog</p>
-<p>&nbsp; Temptests</p>
-<p>&nbsp; VS Code</p>
-<p>&nbsp; ZdocTest1</p>
-<p>&nbsp; zipfiles</p>
-<p>&nbsp; Hugotree.docx</p>
-<p>&nbsp; Research_Notebook.Rmd</p>
+</section>
+<section id="open-word-file" class="level4">
+<h4 class="anchored" data-anchor-id="open-word-file">Open Word file</h4>
+<p>(See Markdown02.docx &gt; Word and Rstudio for detail info on the code)</p>
+<p>files:</p>
+<p>Mac:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Markdown02 <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx"</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Research_map <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx"</span>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Markdown01 <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Notes <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>excel <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/test.xlsx"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#open in mac OS</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(Markdown02)))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(Research_map)))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(Notes)))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(excel)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="test.xlsx">excel file test</a></p>
+<p>Windows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shell</span>(<span class="fu">paste</span>(<span class="st">"start"</span>, <span class="fu">shQuote</span>(file_path)))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"start"</span>, <span class="fu">shQuote</span>(file_path)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 </section>
 
