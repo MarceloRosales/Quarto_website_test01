@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -275,10 +275,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#git-config" id="toc-git-config" class="nav-link" data-scroll-target="#git-config">Git Config</a></li>
   <li><a href="#video-tutorials" id="toc-video-tutorials" class="nav-link" data-scroll-target="#video-tutorials">Video Tutorials</a></li>
   <li><a href="#trouble-shooting." id="toc-trouble-shooting." class="nav-link" data-scroll-target="#trouble-shooting.">Trouble shooting.</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#branch-is-ahead-error" id="toc-branch-is-ahead-error" class="nav-link" data-scroll-target="#branch-is-ahead-error">Branch is ahead error</a></li>
-  <li><a href="#git-stash-changes-learn-git-stash-apply-pop-clear-show-drop" id="toc-git-stash-changes-learn-git-stash-apply-pop-clear-show-drop" class="nav-link" data-scroll-target="#git-stash-changes-learn-git-stash-apply-pop-clear-show-drop">Git Stash Changes | Learn Git Stash Apply, Pop, Clear, Show, Drop</a></li>
-  <li><a href="#delete-.ds_store-recursively-from-all-directories-and-sub-directories." id="toc-delete-.ds_store-recursively-from-all-directories-and-sub-directories." class="nav-link" data-scroll-target="#delete-.ds_store-recursively-from-all-directories-and-sub-directories.">Delete .DS_Store recursively from all directories and sub-directories.</a></li>
+  <li><a href="#git-stash-changes" id="toc-git-stash-changes" class="nav-link" data-scroll-target="#git-stash-changes">Git Stash Changes</a></li>
+  <li><a href="#delete-.ds_store" id="toc-delete-.ds_store" class="nav-link" data-scroll-target="#delete-.ds_store">Delete .DS_Store</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -489,8 +489,9 @@ Important
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="git-stash-changes-learn-git-stash-apply-pop-clear-show-drop" class="level3">
-<h3 class="anchored" data-anchor-id="git-stash-changes-learn-git-stash-apply-pop-clear-show-drop">Git Stash Changes | Learn Git Stash Apply, Pop, Clear, Show, Drop</h3>
+<section id="git-stash-changes" class="level3">
+<h3 class="anchored" data-anchor-id="git-stash-changes">Git Stash Changes</h3>
+<p><strong>Learn Git Stash Apply, Pop, Clear, Show, Drop</strong></p>
 <p>Another alternative for the Branch ahead error, you can use:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -499,16 +500,18 @@ Important
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash show</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash list</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash clear </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To exit git stash ++Cnt+z++.  </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash list</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash clear <span class="co"># Warning!! all changes make in the stash will be lost and revert to last saved version. </span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://www.junosnotes.com/git/how-to-git-stash-changes/#Git_stash_clear" target="_blank">how to git stash changes</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fXGug4itlTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
 </iframe>
 </section>
-<section id="delete-.ds_store-recursively-from-all-directories-and-sub-directories." class="level3">
-<h3 class="anchored" data-anchor-id="delete-.ds_store-recursively-from-all-directories-and-sub-directories.">Delete .DS_Store recursively from all directories and sub-directories.</h3>
+<section id="delete-.ds_store" class="level3">
+<h3 class="anchored" data-anchor-id="delete-.ds_store">Delete .DS_Store</h3>
+<p>Delete .DS_Store recursively from all directories and sub-directories.</p>
 <p><a href="https://jonbellah.com/articles/recursively-remove-ds-store" target="_blank">How to Recursively Remove .DS_Store</a></p>
 <p>On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.</p>
 <p><strong>Solution:</strong></p>
