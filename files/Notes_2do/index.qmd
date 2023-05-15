@@ -7,7 +7,7 @@ author: "Marcelo Rosales"
 
 ## To do:
 
-### Code Notation
+### Code Notation  
 
 Different ways for code notation in code block. describe how to correctly use it in qmd and vscode 
 
