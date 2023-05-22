@@ -235,7 +235,7 @@ find . -name ".DS_Store" -delete
 
 Steps: 1. Uncommit/Discard/Unstage the .DS_Store file from git panel
 
-``` bash
+``` r
 git restore .DS_Store  # If it is the only file on stage
 git restore .  
 ls -a  #find if still present

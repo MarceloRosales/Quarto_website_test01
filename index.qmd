@@ -113,35 +113,34 @@ Software:
 -   Tests forlder\
 -   Working Directory
 
-MBP20 files:
-/Users/marcelorosales/Documents/GitHub:
+MBP20 files: /Users/marcelorosales/Documents/GitHub:
 
-- **Bioinformatics_RNA-seq** (Gitbook)**   
-- **Carving** (HTML web page made entirely manually)  
-- DotFiles (Empty) x  
-- Example (Hugo Site trial01, empty) x  
-- Img (RNA analysis image samples)  
-- Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/   _book/08-Preparation.md)   *  
-- mkdocs_Tests (Trial of submenus in mkdocs) x  
-- MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md)   *  
-- Quarto:  
-- **quarto-tip-a-day** (webpage downloaded from quarto site)  
-- **quarto-trials:**  
-  - quarto_blog    
-  - quarto_book  
-  - quarto_project  
-  - **quarto_website** (Quarto page test01, <https://marcelorosales.github.io/Quarto_website_test01/>) +++  
-- **quarto-web** (Downloaded entire quarto web site)  
-- Research_Experiments:  
-    - PhotoConvertibleCells (Example only, no content)  
-- Research_Notebook: (Experiment Notebooks, All reseach Notes, <https://marcelorosales.github.io/Research_Notebook/> )  
-- Retrolog (Hugo lithium) x  
-- Temptests (RNA Seq for STAT3 example of RNA sequencing) **  
-- VS Code (VS code cheat sheets) *  
-- ZdocTest1 (Zdoc-blogdown test) x  
-- zipfiles  
-* Hugotree.docx  
-* Research_Notebook.Rmd (Research Notes, Research Notebook)   **  
+-   **Bioinformatics_RNA-seq** (Gitbook)\*\*\
+-   **Carving** (HTML web page made entirely manually)\
+-   DotFiles (Empty) x\
+-   Example (Hugo Site trial01, empty) x\
+-   Img (RNA analysis image samples)\
+-   Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/ \_book/08-Preparation.md) \*\
+-   mkdocs_Tests (Trial of submenus in mkdocs) x\
+-   MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md) \*\
+-   Quarto:\
+-   **quarto-tip-a-day** (webpage downloaded from quarto site)\
+-   **quarto-trials:**
+    -   quarto_blog\
+    -   quarto_book\
+    -   quarto_project\
+    -   **quarto_website** (Quarto page test01, <https://marcelorosales.github.io/Quarto_website_test01/>) +++\
+-   **quarto-web** (Downloaded entire quarto web site)\
+-   Research_Experiments:
+    -   PhotoConvertibleCells (Example only, no content)\
+-   Research_Notebook: (Experiment Notebooks, All reseach Notes, <https://marcelorosales.github.io/Research_Notebook/> )\
+-   Retrolog (Hugo lithium) x\
+-   Temptests (RNA Seq for STAT3 example of RNA sequencing) \*\*\
+-   VS Code (VS code cheat sheets) \*\
+-   ZdocTest1 (Zdoc-blogdown test) x\
+-   zipfiles\
+-   Hugotree.docx\
+-   Research_Notebook.Rmd (Research Notes, Research Notebook) \*\*
 
 MBP15 files:
 
@@ -149,54 +148,50 @@ Synology files:
 
 Github pages:
 
-MarceloRosales/MkDocsTest1   
-MarceloRosales/Research_Notebook  
-MarceloRosales/mkd_LabNotes   
-MarceloRosales/Bioinformatics_RNA-seq  
-MarceloRosales/NiigataU-SV    
-MarceloRosales/Carving  
-MarceloRosales/MarceloRosales ¿???  
-MarceloRosales/PCC-Experiment   
-MarceloRosales/RBD02  
-MarceloRosales/NiigataU-Carving  
-MarceloRosales/RBlogdowntest01  
-MarceloRosales/WebDev-01  
-MarceloRosales/BootstrapCarrousel  
-MarceloRosales/staticrypt  
+MarceloRosales/MkDocsTest1\
+MarceloRosales/Research_Notebook\
+MarceloRosales/mkd_LabNotes\
+MarceloRosales/Bioinformatics_RNA-seq\
+MarceloRosales/NiigataU-SV\
+MarceloRosales/Carving\
+MarceloRosales/MarceloRosales ¿???\
+MarceloRosales/PCC-Experiment\
+MarceloRosales/RBD02\
+MarceloRosales/NiigataU-Carving\
+MarceloRosales/RBlogdowntest01\
+MarceloRosales/WebDev-01\
+MarceloRosales/BootstrapCarrousel\
+MarceloRosales/staticrypt
 
-MkDocsTest1 <https://marcelorosales.github.io/MkDocsTest1/MkDocs/>  
-Research_Notebook <https://marcelorosales.github.io/Research_Notebook/>  
-mkd_LabNotes <https://marcelorosales.github.io/mkd_LabNotes/>  
-Bioinformatics_RNA-seq <https://marcelorosales.github.io/Bioinformatics_RNA-seq/>  
-NiigataU-SV <https://marcelorosales.github.io/NiigataU-SV/>  
-Carving <https://marcelorosales.github.io/Carving/>  
-MarceloRosales ¿??
-PCC-Experiment <https://marcelorosales.github.io/PCC-Experiment/>  
-RBD02 <https://marcelorosales.github.io/RBD02/> A minimal book ex.  
-NiigataU-Carving <https://marcelorosales.github.io/NiigataU-Carving/>   
-RBlogdowntest01 (not live)
-WebDev-01  <https://marcelorosales.github.io/WebDev-01/>  
-BootstrapCarrousel <https://marcelorosales.github.io/BootstrapCarrousel/>  
+MkDocsTest1 <https://marcelorosales.github.io/MkDocsTest1/MkDocs/>\
+Research_Notebook <https://marcelorosales.github.io/Research_Notebook/>\
+mkd_LabNotes <https://marcelorosales.github.io/mkd_LabNotes/>\
+Bioinformatics_RNA-seq <https://marcelorosales.github.io/Bioinformatics_RNA-seq/>\
+NiigataU-SV <https://marcelorosales.github.io/NiigataU-SV/>\
+Carving <https://marcelorosales.github.io/Carving/>\
+MarceloRosales ¿?? PCC-Experiment <https://marcelorosales.github.io/PCC-Experiment/>\
+RBD02 <https://marcelorosales.github.io/RBD02/> A minimal book ex.\
+NiigataU-Carving <https://marcelorosales.github.io/NiigataU-Carving/>\
+RBlogdowntest01 (not live) WebDev-01 <https://marcelorosales.github.io/WebDev-01/>\
+BootstrapCarrousel <https://marcelorosales.github.io/BootstrapCarrousel/>\
 Staticrypt (exec only)
 
-
-|                                       |   |                                                                                   | 
-|---------------------------------------|---|-----------------------------------------------------------------------------------| 
-| MarceloRosales/MkDocsTest1            | > | MkDocsTest1 <https://marcelorosales.github.io/MkDocsTest1/MkDocs/>                | 
-| MarceloRosales/Research_Notebook      | > | Research_Notebook <https://marcelorosales.github.io/Research_Notebook/>           | 
-| MarceloRosales/mkd_LabNotes           | > | mkd_LabNotes <https://marcelorosales.github.io/mkd_LabNotes/>                     | 
-| MarceloRosales/Bioinformatics_RNA-seq | > | Bioinformatics_RNA-seq <https://marcelorosales.github.io/Bioinformatics_RNA-seq/> | 
-| MarceloRosales/NiigataU-SV            | > | NiigataU-SV <https://marcelorosales.github.io/NiigataU-SV/>                       | 
-| MarceloRosales/Carving                | > | Carving <https://marcelorosales.github.io/Carving/>                               | 
-| MarceloRosales/MarceloRosales ¿???    | > | <MarceloRosales ¿??>                                                              | 
-| MarceloRosales/PCC-Experiment         | > | PCC-Experiment <https://marcelorosales.github.io/PCC-Experiment/>                 | 
-| MarceloRosales/RBD02                  | > | RBD02 <https://marcelorosales.github.io/RBD02/ A minimal book ex.>                | 
-| MarceloRosales/NiigataU-Carving       | > | NiigataU-Carving <https://marcelorosales.github.io/NiigataU-Carving/>             | 
-| MarceloRosales/RBlogdowntest01        | > | <RBlogdowntest01 (not live)>                                                      | 
-| MarceloRosales/WebDev-01              | > | WebDev-01 <https://marcelorosales.github.io/WebDev-01/>                           | 
-| MarceloRosales/BootstrapCarrousel     | > | BootstrapCarrousel <https://marcelorosales.github.io/BootstrapCarrousel/>         | 
-| MarceloRosales/staticrypt             | > | <Staticrypt (exec only)>                                                          | 
-
+|                                       |     |                                                                                   |
+|---------------------------------------|-----|-----------------------------------------------------------------------------------|
+| MarceloRosales/MkDocsTest1            | \>  | MkDocsTest1 <https://marcelorosales.github.io/MkDocsTest1/MkDocs/>                |
+| MarceloRosales/Research_Notebook      | \>  | Research_Notebook <https://marcelorosales.github.io/Research_Notebook/>           |
+| MarceloRosales/mkd_LabNotes           | \>  | mkd_LabNotes <https://marcelorosales.github.io/mkd_LabNotes/>                     |
+| MarceloRosales/Bioinformatics_RNA-seq | \>  | Bioinformatics_RNA-seq <https://marcelorosales.github.io/Bioinformatics_RNA-seq/> |
+| MarceloRosales/NiigataU-SV            | \>  | NiigataU-SV <https://marcelorosales.github.io/NiigataU-SV/>                       |
+| MarceloRosales/Carving                | \>  | Carving <https://marcelorosales.github.io/Carving/>                               |
+| MarceloRosales/MarceloRosales ¿???    | \>  | \<MarceloRosales ¿??\>                                                            |
+| MarceloRosales/PCC-Experiment         | \>  | PCC-Experiment <https://marcelorosales.github.io/PCC-Experiment/>                 |
+| MarceloRosales/RBD02                  | \>  | RBD02 \<https://marcelorosales.github.io/RBD02/ A minimal book ex.\>              |
+| MarceloRosales/NiigataU-Carving       | \>  | NiigataU-Carving <https://marcelorosales.github.io/NiigataU-Carving/>             |
+| MarceloRosales/RBlogdowntest01        | \>  | \<RBlogdowntest01 (not live)\>                                                    |
+| MarceloRosales/WebDev-01              | \>  | WebDev-01 <https://marcelorosales.github.io/WebDev-01/>                           |
+| MarceloRosales/BootstrapCarrousel     | \>  | BootstrapCarrousel <https://marcelorosales.github.io/BootstrapCarrousel/>         |
+| MarceloRosales/staticrypt             | \>  | \<Staticrypt (exec only)\>                                                        |
 
 #### How to use:
 
@@ -257,4 +252,10 @@ system(paste("start", shQuote(file_path)))
 
 ```
 
+```{r filename="Rmd"}
+#| eval: false
+
+excel <- "/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/test.xlsx"
+system(paste("open", shQuote(excel)))
+```
 

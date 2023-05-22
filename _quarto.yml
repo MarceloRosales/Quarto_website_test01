@@ -22,6 +22,7 @@ website:
       - text: "About"
         href: about.qmd
       - text: "Software"
+#        href: files/Software/index.qmd # Dropdown menu can not have lading page. 
         menu: 
           - text: "RStudio"
             href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.

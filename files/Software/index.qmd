@@ -13,3 +13,8 @@ Software used:
 -   Analyze12
 
 Info and How to's.
+
+``` r
+plot(pressure)
+system(paste("open", shQuote(Markdown02)))
+```

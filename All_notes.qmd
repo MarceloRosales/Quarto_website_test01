@@ -1,0 +1,167 @@
+---
+title: "All notes"
+---
+
+## Open files
+
+Mac:
+
+``` r
+#| eval: false
+
+Markdown02 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx"  
+
+Research_map <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx"  
+
+Markdown01 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+
+Notes <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"
+
+#open in mac OS
+system(paste("open", shQuote(Markdown02)))
+system(paste("open", shQuote(Research_map)))
+system(paste("open", shQuote(Notes)))
+```
+
+Windows:
+
+``` r
+#| eval: false
+
+file_path <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+shell(paste("start", shQuote(file_path)))
+# or 
+system(paste("start", shQuote(file_path)))
+```
+
+(See Markdown02.docx \> Word and Rstudio for detail info on the code)
+
+## Files related to markdown. :
+
+Spotlight search: Markdow
+
+**Packages installed in R?**.
+
+[installed_previously.csv](/Users/marcelorosales/Desktop/temp2022027/Box%20Sync/Documents/R/Rmarkdown/installed_previously.csv)\
+installed_Rpackages20201004.csv.\
+installed_Rpackages20201004.csv.\
+installed_Rpackages20210108.csv.\
+installed_Rpackages20210108.csv.\
+oldRpks.csv.\
+oldRpks.csv.
+
+**Notes**\
+docx2md_test.docx\
+Does Decalcification speed.docx\
+GeneExpression analysis.docx\
+R Graph Notes.docx\
+R Graph Notes.docx\
+R Markdown notes.docx\
+R Markdown notes.docx\
+rmarkdown-brew.docx\
+rmarkdown-brew.docx\
+Untitled2.docx\
+Untitled03.docx\
+Untitled04.docx\
+reference-keys.txt\
+mkdocs.yml\
+deforges.pdf\
+Introductory R example chapters.pdf\
+Introductory R example chapters.pdf rmarkdown-2.0.pdf\
+rmarkdown-2.0.pdf\
+rmarkdown-cheatsheet.pdf\
+rmarkdown-cheatsheet.pdf\
+teachR.pdf\
+teachR.pdf\
+Untitled.pdf
+
+[top](#)
+
+``` r
+#| eval: false
+
+Markdown02 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx"  
+
+Research_map <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx"  
+
+Markdown01 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+
+Notes <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"
+
+#open in mac OS
+system(paste("open", shQuote(Markdown02)))
+system(paste("open", shQuote(Research_map)))
+system(paste("open", shQuote(Notes)))
+```
+
+|       | VS code |     |     | Rstudio |     |            |     |            |
+|-------|---------|-----|-----|---------|-----|------------|-----|------------|
+| code  | md      | Rmd | qmd | md      | Rmd | Rmd visual | qmd | qmd visual |
+| r     | o       | o   | o   |         |     | o          |     | o          |
+| .r    |         |     |     |         |     |            |     | o          |
+| {r}   |         |     | o   | o       | o   |            | o   |            |
+| {.r}  |         |     | o   | o       |     | o          |     | o          |
+| rev r |         |     |     |         |     | o          |     | o          |
+
+https://tableconvert.com/
+
+| **VS code** | \*\*\*\* | \*\*\*\* | **Rstudio** | \*\*\*\* | \*\*\*\* | \*\*\*\*   | \*\*\*\* |
+|-------------|----------|----------|-------------|----------|----------|------------|----------|
+| **code**    | md       | Rmd      | qmd         | md       | Rmd      | Rmd visual | qmd      |
+| **r**       | o        | o        | o           |          |          | o          |          |
+| **.r**      |          |          |             |          |          |            |          |
+| **{r}**     |          |          | o           | o        | o        |            | o        |
+| **{.r}**    |          |          | o           | o        |          | o          |          |
+| **rev r**   |          |          |             |          |          | o          |          |
+
+```         
+VS code         Rstudio             
+```
+
+code md Rmd qmd md Rmd Rmd visual qmd qmd visual r o o o o o .r o {r} o o o o\
+{.r} o o o o rev r o o
+
+```         
+VS code VS code VS code Rstudio             
+```
+
+code md Rmd qmd md Rmd Rmd visual qmd qmd visual r o o o o o .r o {r} o o o o\
+{.r} o o o o rev r o o
+
+```         
+VS code         Rstudio             
+```
+
+code md Rmd qmd md Rmd Rmd visual qmd qmd visual r o o o o o .r o {r} o o o o\
+{.r} o o o o rev r o o
+
+```{r}
+#| eval: false
+library(readxl)
+highlight_long <- read_excel("~/Box Sync/Niigata Uni Box/Books-Notes/Notes/quarto_All.xlsx", 
+    sheet = "Sheet2")
+View(quarto_All)
+
+library(tidyr)
+highlight_wide <- spread(highlight_long, Soft, file, chunk, color)
+
+```
+
+```{r}
+library(tidyverse)
+
+# Create a data frame with the long-form table
+df <- data.frame(
+  Soft = c("VS code", "VS code", "VS code", "VS code", "VS code", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio", "Rstudio"),
+  file = c("md", "md", "md", "md", "md", "md", "md", "md", "md", "md", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd", "Rmd"),
+  chunk = c("r", ".r", "{r}", "{.r}", "rev r", "r", ".r", "{r}", "{.r}", "rev r", "r", ".r", "{r}", "{.r}", "rev r", "r", ".r", "{r}", "{.r}", "rev r", "r", ".r", "{r}", "{.r}", "rev r", "r", ".r", "{r}", "{.r}", "rev r"),
+  color = c(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1)
+)
+
+# Convert the table to wide form
+df_wide <- df %>%
+  pivot_wider(names_from = chunk, values_from = color)
+
+# Print the resulting wide-form table
+print(df_wide)
+```
