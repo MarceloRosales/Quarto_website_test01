@@ -294,6 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#how-to-find-out-r-library-location-in-mac-osx" id="toc-how-to-find-out-r-library-location-in-mac-osx" class="nav-link" data-scroll-target="#how-to-find-out-r-library-location-in-mac-osx">how to find out R library location in Mac OSX?</a></li>
   </ul></li>
+  <li><a href="#shell" id="toc-shell" class="nav-link" data-scroll-target="#shell">Shell</a></li>
   </ul>
 </nav>
     </div>
@@ -437,14 +438,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Note: If you had any packages from BioConductor, you can update those too!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"http://bioconductor.org/biocLite.R"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chooseBioCmirror</span>()</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">biocLite</span>()</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"installed_old.rda"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>installedpkgs.new <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>])</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(installedpkgs, installedpkgs.new)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(missing)) <span class="fu">biocLite</span>(missing[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Update: 'biocLite' is not available for new versions of R</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"http://bioconductor.org/biocLite.R"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">chooseBioCmirror</span>()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">biocLite</span>()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"installed_old.rda"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>installedpkgs.new <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(installedpkgs, installedpkgs.new)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(missing)) <span class="fu">biocLite</span>(missing[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
@@ -771,13 +774,15 @@ To install this package, start R (version “4.2”) and enter:<br>
 <section id="reload-packages-from-bioconductor" class="level3">
 <h3 class="anchored" data-anchor-id="reload-packages-from-bioconductor">Reload packages from BioConductor</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chooseBioCmirror</span>()</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biocLite</span>()</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"installed_old.rda"</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>installedpkgs.new <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>])</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(installedpkgs, installedpkgs.new)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(missing)) <span class="fu">biocLite</span>(missing[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update2022: 'biocLite' is not available for new versions of R</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chooseBioCmirror</span>()</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">biocLite</span>()</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"installed_old.rda"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>installedpkgs.new <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>])</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(installedpkgs, installedpkgs.new)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(missing)) <span class="fu">biocLite</span>(missing[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -818,136 +823,164 @@ To install this package, start R (version “4.2”) and enter:<br>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>recap core shell outline synopsis</p>
 <p>Update 20230522</p>
 <section id="saved-installed-packages" class="level3">
 <h3 class="anchored" data-anchor-id="saved-installed-packages">Saved installed packages</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Before you upgrade, update all old packages.</span></span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run in the old version of R</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A. Update current packages.</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">checkBuilt=</span><span class="cn">TRUE</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)  <span class="co">#check spelling of arguments</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># B. Upgrade packages of Bioconductor</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages from a newer version of Bioconductor.</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.bioconductor.org/install/ </span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Before you upgrade, update all old packages.</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># A. Update current packages.</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">checkBuilt=</span><span class="cn">TRUE</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)  <span class="co">#check spelling of arguments</span></span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="at">version =</span> <span class="st">"3.16"</span>) <span class="co"># Or the newest version</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># B. Upgrade packages of Bioconductor</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages from a newer version of Bioconductor.</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.bioconductor.org/install/ </span></span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co"># C. Backup your preferences file</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>source_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>destination_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="at">version =</span> <span class="st">"3.16"</span>) <span class="co"># Or the newest version</span></span>
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(source_path, destination_path, <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co"># If: [1] TRUE, file was copied</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="co"># If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)</span></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way to do it, see Stack overflow 2 section. </span></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Before you upgrade, build a temp and save file with all of your old packages.</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Before you upgrade: 1. build and save a file with all current packages (old packages) and 2. Backup your rstudio preferences files.  </span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("~/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
 <span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="co">#--run in the old version of R</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables for generic code:</span></span>
 <span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("~/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Create a new folder for packages files</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>new_folder <span class="ot">&lt;-</span> <span class="st">"Rpkgs230522/"</span> <span class="co"># &lt;----------------change folder name here, don't forget the "/".</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>folder <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="fu">paste0</span>(folder,new_folder)) <span class="co">#use paste0(), paste() inserts a space between obj.</span></span>
 <span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables for generic code:</span></span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="do">## Create a new folder for packages files</span></span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>new_folder <span class="ot">&lt;-</span> <span class="st">"Rpkgs230522/"</span> <span class="co"># &lt;----------------change name accordingly, don't forget the "/".</span></span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>folder <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"</span></span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="fu">paste0</span>(folder,new_folder)) <span class="co">#use paste0(), paste() inserts a space between obj.</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the packages list files</span></span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">"Rpkgs_MBP20_230522"</span> <span class="co"># &lt;------------change file name here.</span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>rda <span class="ot">&lt;-</span> <span class="st">".rda"</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>csv <span class="ot">&lt;-</span> <span class="st">".csv"</span></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="st">"_df"</span></span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>xlsx <span class="ot">&lt;-</span> <span class="st">".xlsx"</span></span>
 <span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the packages list files</span></span>
-<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">"Rpkgs_MBP20_230522"</span> <span class="co"># &lt;------------change name accordingly.</span></span>
-<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>rda <span class="ot">&lt;-</span> <span class="st">".rda"</span></span>
-<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>csv <span class="ot">&lt;-</span> <span class="st">".csv"</span></span>
-<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="st">"_df"</span></span>
-<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>xlsx <span class="ot">&lt;-</span> <span class="st">".xlsx"</span></span>
-<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>file1 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name) </span>
-<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>file2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,rda)</span>
-<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>file3 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,csv)</span>
-<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>file4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,df,csv)</span>
-<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>file5 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,xlsx)</span>
-<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>file1</span>
-<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>file2</span>
-<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>file3</span>
-<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>file4</span>
-<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>file5</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>file1 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name) </span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>file2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,rda)</span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>file3 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,csv)</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>file4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,df,csv)</span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>file5 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,xlsx)</span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>file1</span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>file2</span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>file3</span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>file4</span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>file5</span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Generic code: I use this method because it is easy to change the names of the variables in one place once.</span></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a><span class="do">## No extension</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>Rpkgs <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># This is a temp file. </span></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs, <span class="at">file=</span> file1) </span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file1) <span class="co"># load as values (vector?)</span></span>
 <span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Generic code: Use this method because it is easy to change the names of the variables in one place once.</span></span>
-<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a><span class="do">## No extension</span></span>
-<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>Rpkgs <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># This is a temp file. </span></span>
-<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs, <span class="at">file=</span> file1) </span>
-<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file1) <span class="co"># load as values (vector?)</span></span>
-<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a><span class="do">## As .rda file</span></span>
-<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>() <span class="co"># save in environment as data (dataframe?)</span></span>
-<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>Rpkgs_rda<span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>]) <span class="co"># save as vector package names.</span></span>
-<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_rda, <span class="at">file=</span> file2)</span>
-<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file2)</span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a><span class="do">## As .rda file</span></span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>() <span class="co"># save in environment as data (dataframe?)</span></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>Rpkgs_rda<span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>]) <span class="co"># save as vector package names.</span></span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_rda, <span class="at">file=</span> file2)</span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file2)</span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a><span class="do">## As .csv file requires a dataframe.  </span></span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a><span class="do">### 1. Only the Package column variable (as vector?), or 2. as full csv data frame.  </span></span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>Rpkgs_csv <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] </span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>Rpkgs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()) </span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_csv, <span class="at">file=</span> file3)</span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_df, <span class="at">file=</span> file4)</span>
 <span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a><span class="do">## As .csv file requires a dataframe.  </span></span>
-<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a><span class="do">### 1. Only the Package column variable (as vector?), or 2. as full csv data frame.  </span></span>
-<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a>Rpkgs_csv <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] </span>
-<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a>Rpkgs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()) </span>
-<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_csv, <span class="at">file=</span> file3)</span>
-<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_df, <span class="at">file=</span> file4)</span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a><span class="do">## As as excel files also requires a dataframe (df)</span></span>
+<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a><span class="do">### install.packages("writexl")</span></span>
+<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"writexl"</span>)</span>
+<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a>Rpkgs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()) <span class="co"># same as in df_csv</span></span>
+<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(Rpkgs_df, file5)</span>
+<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a><span class="do">## As as excel files also requires a dataframe (df)</span></span>
-<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a><span class="do">### install.packages("writexl")</span></span>
-<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"writexl"</span>)</span>
-<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a>Rpkgs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()) <span class="co"># same as in df_csv</span></span>
-<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(Rpkgs_df, file5)</span>
-<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Specific code: I do not use this method because requires changing the name of the folder and file in each instance, and paths are also troublesome.</span></span>
+<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329 <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># save as vector values?</span></span>
+<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_MBP20_230329, <span class="at">file=</span><span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329"</span>) <span class="co"># Or Rpkgs_MBP20_230329.rda</span></span>
+<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda"</span>) <span class="co"># load as values (vector?)</span></span>
 <span id="cb29-86"><a href="#cb29-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Specific code: Do not use this method because requires changing the name of the file in each instance, and paths are also troublesome.</span></span>
-<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-90"><a href="#cb29-90" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329 <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># save as vector values?</span></span>
-<span id="cb29-91"><a href="#cb29-91" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_MBP20_230329, <span class="at">file=</span><span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329"</span>) <span class="co"># Or Rpkgs_MBP20_230329.rda</span></span>
-<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda"</span>) <span class="co"># load as values (vector?)</span></span>
-<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a> <span class="co"># As .rda file</span></span>
-<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>]) <span class="co"># save as vector package names.</span></span>
-<span id="cb29-96"><a href="#cb29-96" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_MBP20_230329, <span class="at">file=</span><span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda"</span>) <span class="co"># save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  </span></span>
-<span id="cb29-97"><a href="#cb29-97" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda"</span>) <span class="co"># In environment is back to installedpkgs.  </span></span>
-<span id="cb29-98"><a href="#cb29-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as csv requires a dataframe (df)</span></span>
-<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329 <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># save only the Package (name) variable as vector values?, still can be save as csv</span></span>
-<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_MBP20_230329, <span class="st">'/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv'</span>)</span>
-<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a><span class="do">## Or df with all the info of packages</span></span>
-<span id="cb29-104"><a href="#cb29-104" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329df1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>())</span>
-<span id="cb29-105"><a href="#cb29-105" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_MBP20_230329df1, <span class="st">'/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.csv'</span>)</span>
-<span id="cb29-106"><a href="#cb29-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a><span class="co"># As excel file also requires a dataframe (df)</span></span>
-<span id="cb29-108"><a href="#cb29-108" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("writexl")</span></span>
-<span id="cb29-109"><a href="#cb29-109" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"writexl"</span>)</span>
-<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(Rpkgs_MBP20_230329df1,<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx"</span>)</span>
+<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a><span class="do">## As .rda file</span></span>
+<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>]) <span class="co"># save as vector package names.</span></span>
+<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_MBP20_230329, <span class="at">file=</span><span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda"</span>) <span class="co"># save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  </span></span>
+<span id="cb29-90"><a href="#cb29-90" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda"</span>) <span class="co"># In environment is back to installedpkgs.  </span></span>
+<span id="cb29-91"><a href="#cb29-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a><span class="do">## Save as csv requires a dataframe (df)</span></span>
+<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329 <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># save only the Package (name) variable as vector values?, still can be save as csv</span></span>
+<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_MBP20_230329, <span class="st">'/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv'</span>)</span>
+<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-96"><a href="#cb29-96" aria-hidden="true" tabindex="-1"></a><span class="do">## Or df with all the info of packages</span></span>
+<span id="cb29-97"><a href="#cb29-97" aria-hidden="true" tabindex="-1"></a>Rpkgs_MBP20_230329df1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>())</span>
+<span id="cb29-98"><a href="#cb29-98" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_MBP20_230329df1, <span class="st">'/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.csv'</span>)</span>
+<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a><span class="co"># As excel file also requires a dataframe (df)</span></span>
+<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("writexl")</span></span>
+<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"writexl"</span>)</span>
+<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(Rpkgs_MBP20_230329df1,<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx"</span>)</span>
+<span id="cb29-104"><a href="#cb29-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-105"><a href="#cb29-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-106"><a href="#cb29-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy/Paste Rstudio global settings and preferences (~/.config/rstudio/rstudio-prefs.json)</span></span>
+<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-108"><a href="#cb29-108" aria-hidden="true" tabindex="-1"></a><span class="do">## Open folder </span></span>
+<span id="cb29-109"><a href="#cb29-109" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"~/.config/rstudio/"</span>  <span class="co"># seems like "~/path" does not work on rstudio. </span></span>
+<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/"</span></span>
 <span id="cb29-111"><a href="#cb29-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-112"><a href="#cb29-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-113"><a href="#cb29-113" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
-<span id="cb29-114"><a href="#cb29-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Install the new version of R (use homebrew). See Brew cask upgrade below.</span></span>
-<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a><span class="co"># -----</span></span>
-<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-119"><a href="#cb29-119" aria-hidden="true" tabindex="-1"></a><span class="co">#　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.</span></span>
-<span id="cb29-120"><a href="#cb29-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a><span class="co">#--run in the new version</span></span>
-<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
-<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda"</span>)</span>
-<span id="cb29-125"><a href="#cb29-125" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="fu">setdiff</span>(RSpacks230324MBP15, <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]))</span>
-<span id="cb29-126"><a href="#cb29-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-112"><a href="#cb29-112" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(folder_path)))</span>
+<span id="cb29-113"><a href="#cb29-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-114"><a href="#cb29-114" aria-hidden="true" tabindex="-1"></a><span class="do">## Copy a file (direct).</span></span>
+<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a>source_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"</span></span>
+<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a>destination_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"</span></span>
+<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(source_path, destination_path, <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb29-119"><a href="#cb29-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-120"><a href="#cb29-120" aria-hidden="true" tabindex="-1"></a><span class="do">## Copy a file (indirect). Find the file(s) first.</span></span>
+<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="st">"rstudio-prefs.json"</span></span>
+<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(folder_path) <span class="co"># list all files in folder</span></span>
+<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a>find.files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(folder_path, file) <span class="co"># select a specific file</span></span>
+<span id="cb29-125"><a href="#cb29-125" aria-hidden="true" tabindex="-1"></a>find.files</span>
+<span id="cb29-126"><a href="#cb29-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-127"><a href="#cb29-127" aria-hidden="true" tabindex="-1"></a><span class="do">## copy the files to the new folder</span></span>
+<span id="cb29-128"><a href="#cb29-128" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(find.files, destination_path, , <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb29-129"><a href="#cb29-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-130"><a href="#cb29-130" aria-hidden="true" tabindex="-1"></a><span class="co"># If: [1] TRUE, file was copied</span></span>
+<span id="cb29-131"><a href="#cb29-131" aria-hidden="true" tabindex="-1"></a><span class="co"># If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)</span></span>
+<span id="cb29-132"><a href="#cb29-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way to do it, see Stack overflow 2 section. </span></span>
+<span id="cb29-133"><a href="#cb29-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-134"><a href="#cb29-134" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the copy was successful (THis code does not work properly, is )</span></span>
+<span id="cb29-135"><a href="#cb29-135" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="fu">paste0</span>(destination_path, file)) {</span>
+<span id="cb29-136"><a href="#cb29-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"File copied successfully!"</span>)</span>
+<span id="cb29-137"><a href="#cb29-137" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb29-138"><a href="#cb29-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"File copy failed."</span>)</span>
+<span id="cb29-139"><a href="#cb29-139" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-140"><a href="#cb29-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-141"><a href="#cb29-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-142"><a href="#cb29-142" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb29-143"><a href="#cb29-143" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Install the new version of R (use homebrew). See Brew cask upgrade below.</span></span>
+<span id="cb29-144"><a href="#cb29-144" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb29-145"><a href="#cb29-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-146"><a href="#cb29-146" aria-hidden="true" tabindex="-1"></a><span class="co">#　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.</span></span>
+<span id="cb29-147"><a href="#cb29-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-148"><a href="#cb29-148" aria-hidden="true" tabindex="-1"></a><span class="co"># run in the new version</span></span>
+<span id="cb29-149"><a href="#cb29-149" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb29-150"><a href="#cb29-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-151"><a href="#cb29-151" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda"</span>)</span>
+<span id="cb29-152"><a href="#cb29-152" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="fu">setdiff</span>(RSpacks230324MBP15, <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]))</span>
+<span id="cb29-153"><a href="#cb29-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="copypaste-rstudio-global-settings-and-preferences-if-necessary." class="level3">
@@ -963,6 +996,31 @@ To install this package, start R (version “4.2”) and enter:<br>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="ex">rstudio-prefs.json</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> ~/.config/rstudio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open folder </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"~/.config/rstudio/"</span>  <span class="co"># seems like "~/path" does not work on rstudio. </span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/"</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(folder_path)))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy a file</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>source_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>destination_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(source_path, destination_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the copy was successful</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(destination_path)) {</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"File copied successfully!"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"File copy failed."</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "File copied successfully!"</code></pre>
+</div>
+</div>
 </section>
 <section id="brew-cask-upgrade-r-and-rstudio." class="level3">
 <h3 class="anchored" data-anchor-id="brew-cask-upgrade-r-and-rstudio.">Brew cask upgrade R and Rstudio.</h3>
@@ -971,17 +1029,17 @@ To install this package, start R (version “4.2”) and enter:<br>
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade R and rstudio</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> upgrade <span class="at">--cask</span> r</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># password</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#`brew cleanup` has not been run in the last 30 days, running now...</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade RStudio</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> upgrade <span class="at">--cask</span> rstudio</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. </span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="ex">rstudio-prefs.json</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade R and rstudio</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> upgrade <span class="at">--cask</span> r</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># password</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">#`brew cleanup` has not been run in the last 30 days, running now...</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade RStudio</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> upgrade <span class="at">--cask</span> rstudio</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. </span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="ex">rstudio-prefs.json</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -997,20 +1055,20 @@ To install this package, start R (version “4.2”) and enter:<br>
 <div class="code-with-filename-file">
 <pre><strong>error message</strong></pre>
 </div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-block-bg: false</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-block-border-left: "#31BAE9"</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="ex">During</span> startup <span class="at">-</span> Warning messages:</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="ex">1:</span> Setting LC_CTYPE failed, using <span class="st">"C"</span> </span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="ex">2:</span> Setting LC_COLLATE failed, using <span class="st">"C"</span> </span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="ex">3:</span> Setting LC_TIME failed, using <span class="st">"C"</span> </span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="ex">4:</span> Setting LC_MESSAGES failed, using <span class="st">"C"</span> </span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="ex">5:</span> Setting LC_MONETARY failed, using <span class="st">"C"</span> </span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="ex">[R.app</span> GUI 1.79 <span class="er">(</span><span class="ex">8198</span><span class="kw">)</span> <span class="ex">x86_64-apple-darwin17.0]</span></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="ex">WARNING:</span> You<span class="st">'re using a non-UTF8 locale, therefore only ASCII characters will work.</span></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="st">Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-block-bg: false</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-block-border-left: "#31BAE9"</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="ex">During</span> startup <span class="at">-</span> Warning messages:</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="ex">1:</span> Setting LC_CTYPE failed, using <span class="st">"C"</span> </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="ex">2:</span> Setting LC_COLLATE failed, using <span class="st">"C"</span> </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="ex">3:</span> Setting LC_TIME failed, using <span class="st">"C"</span> </span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="ex">4:</span> Setting LC_MESSAGES failed, using <span class="st">"C"</span> </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="ex">5:</span> Setting LC_MONETARY failed, using <span class="st">"C"</span> </span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="ex">[R.app</span> GUI 1.79 <span class="er">(</span><span class="ex">8198</span><span class="kw">)</span> <span class="ex">x86_64-apple-darwin17.0]</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="ex">WARNING:</span> You<span class="st">'re using a non-UTF8 locale, therefore only ASCII characters will work.</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="st">Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A solution: For english:<br>
 - <a href="https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c" target="_blank">Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using “C”</a><br>
@@ -1020,8 +1078,8 @@ To install this package, start R (version “4.2”) and enter:<br>
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">defaults</span> write org.R-project.R force.LANG en_US.UTF-8  <span class="co"># 英語表示</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">defaults</span> write org.R-project.R force.LANG ja_JP.UTF-8  <span class="co"># 日本語表示</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">defaults</span> write org.R-project.R force.LANG en_US.UTF-8  <span class="co"># 英語表示</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="ex">defaults</span> write org.R-project.R force.LANG ja_JP.UTF-8  <span class="co"># 日本語表示</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="there-is-already-an-app-legacy" class="level3">
@@ -1030,7 +1088,7 @@ To install this package, start R (version “4.2”) and enter:<br>
 <a href="https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew" data-targe="_blank">is it possible to override the legacy app when install using brew</a></p>
 <p>Some times is not possible to install, re-intall or upgrade a program via brew because first installation was made manually (downloaded zip or tar files).<br>
 This leaves a “legacy” app. To fix it use the <strong><code>--force</code></strong> attribute while installing</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> rstudio <span class="at">--force</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> rstudio <span class="at">--force</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="other-relevant-files" class="level2">
@@ -1042,13 +1100,174 @@ This leaves a “legacy” app. To fix it use the <strong><code>--force</code></
 <h3 class="anchored" data-anchor-id="how-to-find-out-r-library-location-in-mac-osx">how to find out R library location in Mac OSX?</h3>
 <p>With .Library you get your default library location With .libPaths(“your/path”) you can also get/set you library trees (see ?.libPaths) and with getwd() resp. setwd(“your/path”) you get/set your working-directory</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>.Library</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>.Library</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/">Loading packages: the difference between R’s library() and require() functions</a>{target= “_blank”}</p>
-
-
 </section>
+</section>
+<section id="shell" class="level2">
+<h2 class="anchored" data-anchor-id="shell">Shell</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run in the old version of R</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Before you upgrade, update all old packages.</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># A. Update current packages.</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="at">checkBuilt=</span><span class="cn">TRUE</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)  <span class="co">#check spelling of arguments</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># B. Upgrade packages of Bioconductor</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages from a newer version of Bioconductor https://www.bioconductor.org/install/ </span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="at">version =</span> <span class="st">"3.17"</span>) <span class="co"># Or the newest version</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Before you upgrade: 1. build and save a file with all current packages (old packages) and 2. Backup your rstudio preferences files.  </span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("~/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Generic code.</span></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Variables:</span></span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>new_folder <span class="ot">&lt;-</span> <span class="st">"Rpkgs230522/"</span> <span class="co"># &lt;----------------change folder name here, don't forget the "/".</span></span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">"Rpkgs_MBP20_230522"</span> <span class="co"># &lt;------------change file name here.</span></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>rda <span class="ot">&lt;-</span> <span class="st">".rda"</span></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>csv <span class="ot">&lt;-</span> <span class="st">".csv"</span></span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="st">"_df"</span></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>xlsx <span class="ot">&lt;-</span> <span class="st">".xlsx"</span></span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a><span class="do">## Destination folder</span></span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>folder <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"</span></span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a><span class="do">## Create a new folder for packages files</span></span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="fu">paste0</span>(folder,new_folder)) <span class="co">#use paste0(), paste() inserts a space between obj.</span></span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the packages list files</span></span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a>file1 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name) </span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a>file2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,rda)</span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a>file3 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,csv)</span>
+<span id="cb41-46"><a href="#cb41-46" aria-hidden="true" tabindex="-1"></a>file4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,df,csv)</span>
+<span id="cb41-47"><a href="#cb41-47" aria-hidden="true" tabindex="-1"></a>file5 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,xlsx)</span>
+<span id="cb41-48"><a href="#cb41-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-49"><a href="#cb41-49" aria-hidden="true" tabindex="-1"></a>file1</span>
+<span id="cb41-50"><a href="#cb41-50" aria-hidden="true" tabindex="-1"></a>file2</span>
+<span id="cb41-51"><a href="#cb41-51" aria-hidden="true" tabindex="-1"></a>file3</span>
+<span id="cb41-52"><a href="#cb41-52" aria-hidden="true" tabindex="-1"></a>file4</span>
+<span id="cb41-53"><a href="#cb41-53" aria-hidden="true" tabindex="-1"></a>file5</span>
+<span id="cb41-54"><a href="#cb41-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-55"><a href="#cb41-55" aria-hidden="true" tabindex="-1"></a><span class="do">## Create files:</span></span>
+<span id="cb41-56"><a href="#cb41-56" aria-hidden="true" tabindex="-1"></a><span class="do">## No extension</span></span>
+<span id="cb41-57"><a href="#cb41-57" aria-hidden="true" tabindex="-1"></a>Rpkgs <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] <span class="co"># This is a temp file. </span></span>
+<span id="cb41-58"><a href="#cb41-58" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs, <span class="at">file=</span> file1) </span>
+<span id="cb41-59"><a href="#cb41-59" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file1) <span class="co"># load as values (vector?)</span></span>
+<span id="cb41-60"><a href="#cb41-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-61"><a href="#cb41-61" aria-hidden="true" tabindex="-1"></a><span class="do">## As .rda file</span></span>
+<span id="cb41-62"><a href="#cb41-62" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>() <span class="co"># save in environment as data (dataframe?)</span></span>
+<span id="cb41-63"><a href="#cb41-63" aria-hidden="true" tabindex="-1"></a>Rpkgs_rda<span class="ot">&lt;-</span> <span class="fu">as.vector</span>(tmp[<span class="fu">is.na</span>(tmp[,<span class="st">"Priority"</span>]), <span class="dv">1</span>]) <span class="co"># save as vector package names.</span></span>
+<span id="cb41-64"><a href="#cb41-64" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Rpkgs_rda, <span class="at">file=</span> file2)</span>
+<span id="cb41-65"><a href="#cb41-65" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file2)</span>
+<span id="cb41-66"><a href="#cb41-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-67"><a href="#cb41-67" aria-hidden="true" tabindex="-1"></a><span class="do">## As .csv file requires a dataframe.  </span></span>
+<span id="cb41-68"><a href="#cb41-68" aria-hidden="true" tabindex="-1"></a><span class="do">### 1. Only the Package column variable (as vector?), or 2. as full csv data frame.  </span></span>
+<span id="cb41-69"><a href="#cb41-69" aria-hidden="true" tabindex="-1"></a>Rpkgs_csv <span class="ot">&lt;-</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>] </span>
+<span id="cb41-70"><a href="#cb41-70" aria-hidden="true" tabindex="-1"></a>Rpkgs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()) </span>
+<span id="cb41-71"><a href="#cb41-71" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_csv, <span class="at">file=</span> file3)</span>
+<span id="cb41-72"><a href="#cb41-72" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Rpkgs_df, <span class="at">file=</span> file4)</span>
+<span id="cb41-73"><a href="#cb41-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-74"><a href="#cb41-74" aria-hidden="true" tabindex="-1"></a><span class="do">## As as excel files also requires a dataframe (df)</span></span>
+<span id="cb41-75"><a href="#cb41-75" aria-hidden="true" tabindex="-1"></a><span class="do">### install.packages("writexl")</span></span>
+<span id="cb41-76"><a href="#cb41-76" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"writexl"</span>)</span>
+<span id="cb41-77"><a href="#cb41-77" aria-hidden="true" tabindex="-1"></a>Rpkgs_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()) <span class="co"># same as in df_csv</span></span>
+<span id="cb41-78"><a href="#cb41-78" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(Rpkgs_df, file5)</span>
+<span id="cb41-79"><a href="#cb41-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-80"><a href="#cb41-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy/Paste Rstudio global settings and preferences (~/.config/rstudio/rstudio-prefs.json)</span></span>
+<span id="cb41-81"><a href="#cb41-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-82"><a href="#cb41-82" aria-hidden="true" tabindex="-1"></a><span class="do">## Open folder </span></span>
+<span id="cb41-83"><a href="#cb41-83" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/"</span> <span class="co"># seems like "~/path" does not work on rstudio. </span></span>
+<span id="cb41-84"><a href="#cb41-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-85"><a href="#cb41-85" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(folder_path)))</span>
+<span id="cb41-86"><a href="#cb41-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-87"><a href="#cb41-87" aria-hidden="true" tabindex="-1"></a><span class="do">## Copy a file (direct).</span></span>
+<span id="cb41-88"><a href="#cb41-88" aria-hidden="true" tabindex="-1"></a>source_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"</span></span>
+<span id="cb41-89"><a href="#cb41-89" aria-hidden="true" tabindex="-1"></a>destination_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"</span></span>
+<span id="cb41-90"><a href="#cb41-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-91"><a href="#cb41-91" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(source_path, destination_path, <span class="at">overwrite =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb41-92"><a href="#cb41-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-93"><a href="#cb41-93" aria-hidden="true" tabindex="-1"></a><span class="co"># If: [1] TRUE, file was copied</span></span>
+<span id="cb41-94"><a href="#cb41-94" aria-hidden="true" tabindex="-1"></a><span class="co"># If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)</span></span>
+<span id="cb41-95"><a href="#cb41-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Another way to do it, see Stack overflow 2 section. </span></span>
+<span id="cb41-96"><a href="#cb41-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-97"><a href="#cb41-97" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-98"><a href="#cb41-98" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Install the new version of R (use homebrew). </span></span>
+<span id="cb41-99"><a href="#cb41-99" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-100"><a href="#cb41-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-101"><a href="#cb41-101" aria-hidden="true" tabindex="-1"></a><span class="co"># {bash filename="Terminal"}</span></span>
+<span id="cb41-102"><a href="#cb41-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false </span></span>
+<span id="cb41-103"><a href="#cb41-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-104"><a href="#cb41-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade R and rstudio</span></span>
+<span id="cb41-105"><a href="#cb41-105" aria-hidden="true" tabindex="-1"></a>brew update</span>
+<span id="cb41-106"><a href="#cb41-106" aria-hidden="true" tabindex="-1"></a>brew upgrade <span class="sc">--</span>cask r</span>
+<span id="cb41-107"><a href="#cb41-107" aria-hidden="true" tabindex="-1"></a><span class="co"># password</span></span>
+<span id="cb41-108"><a href="#cb41-108" aria-hidden="true" tabindex="-1"></a><span class="co">#`brew cleanup` has not been run in the last 30 days, running now...</span></span>
+<span id="cb41-109"><a href="#cb41-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-110"><a href="#cb41-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade RStudio</span></span>
+<span id="cb41-111"><a href="#cb41-111" aria-hidden="true" tabindex="-1"></a>brew upgrade <span class="sc">--</span>cask rstudio</span>
+<span id="cb41-112"><a href="#cb41-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-113"><a href="#cb41-113" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-114"><a href="#cb41-114" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Once the new version up and running, reload the saved packages and re-install them from CRAN.</span></span>
+<span id="cb41-115"><a href="#cb41-115" aria-hidden="true" tabindex="-1"></a><span class="co"># ------</span></span>
+<span id="cb41-116"><a href="#cb41-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-117"><a href="#cb41-117" aria-hidden="true" tabindex="-1"></a><span class="co"># run in the new version/device</span></span>
+<span id="cb41-118"><a href="#cb41-118" aria-hidden="true" tabindex="-1"></a><span class="co"># MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")</span></span>
+<span id="cb41-119"><a href="#cb41-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-120"><a href="#cb41-120" aria-hidden="true" tabindex="-1"></a><span class="do">## Variables:</span></span>
+<span id="cb41-121"><a href="#cb41-121" aria-hidden="true" tabindex="-1"></a>new_folder <span class="ot">&lt;-</span> <span class="st">"Rpkgs230522/"</span> <span class="co"># &lt;----------------change folder name here, don't forget the "/".</span></span>
+<span id="cb41-122"><a href="#cb41-122" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">"Rpkgs_MBP20_230522"</span> <span class="co"># &lt;------------change file name here.</span></span>
+<span id="cb41-123"><a href="#cb41-123" aria-hidden="true" tabindex="-1"></a>rda <span class="ot">&lt;-</span> <span class="st">".rda"</span></span>
+<span id="cb41-124"><a href="#cb41-124" aria-hidden="true" tabindex="-1"></a>csv <span class="ot">&lt;-</span> <span class="st">".csv"</span></span>
+<span id="cb41-125"><a href="#cb41-125" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="st">"_df"</span></span>
+<span id="cb41-126"><a href="#cb41-126" aria-hidden="true" tabindex="-1"></a>xlsx <span class="ot">&lt;-</span> <span class="st">".xlsx"</span></span>
+<span id="cb41-127"><a href="#cb41-127" aria-hidden="true" tabindex="-1"></a>folder <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"</span></span>
+<span id="cb41-128"><a href="#cb41-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-129"><a href="#cb41-129" aria-hidden="true" tabindex="-1"></a>file1 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name) </span>
+<span id="cb41-130"><a href="#cb41-130" aria-hidden="true" tabindex="-1"></a>file2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,rda)</span>
+<span id="cb41-131"><a href="#cb41-131" aria-hidden="true" tabindex="-1"></a>file3 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,csv)</span>
+<span id="cb41-132"><a href="#cb41-132" aria-hidden="true" tabindex="-1"></a>file4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,df,csv)</span>
+<span id="cb41-133"><a href="#cb41-133" aria-hidden="true" tabindex="-1"></a>file5 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(folder,new_folder,file_name,xlsx)</span>
+<span id="cb41-134"><a href="#cb41-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-135"><a href="#cb41-135" aria-hidden="true" tabindex="-1"></a><span class="do">## Load old packages list</span></span>
+<span id="cb41-136"><a href="#cb41-136" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file1)</span>
+<span id="cb41-137"><a href="#cb41-137" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file2)</span>
+<span id="cb41-138"><a href="#cb41-138" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file3)</span>
+<span id="cb41-139"><a href="#cb41-139" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file4)</span>
+<span id="cb41-140"><a href="#cb41-140" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(file5)</span>
+<span id="cb41-141"><a href="#cb41-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-142"><a href="#cb41-142" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb41-143"><a href="#cb41-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-144"><a href="#cb41-144" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages from Bioconductor (before or after Rpackages install?)</span></span>
+<span id="cb41-145"><a href="#cb41-145" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb41-146"><a href="#cb41-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb41-147"><a href="#cb41-147" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="at">version =</span> <span class="st">"3.17"</span>) <span class="co"># Or the newest version</span></span>
+<span id="cb41-148"><a href="#cb41-148" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Biobase"</span>)</span>
+<span id="cb41-149"><a href="#cb41-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-150"><a href="#cb41-150" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="fu">setdiff</span>(file2, <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>]))</span>
+<span id="cb41-151"><a href="#cb41-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(p)</span>
+<span id="cb41-152"><a href="#cb41-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-153"><a href="#cb41-153" aria-hidden="true" tabindex="-1"></a><span class="co"># Library location in Mac OSX</span></span>
+<span id="cb41-154"><a href="#cb41-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-155"><a href="#cb41-155" aria-hidden="true" tabindex="-1"></a>.Library</span>
+<span id="cb41-156"><a href="#cb41-156" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

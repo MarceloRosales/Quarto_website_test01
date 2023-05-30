@@ -123,6 +123,8 @@ Note: If you had any packages from BioConductor, you can update those too!
 ```{r}
 #| eval: false
 
+#Update: 'biocLite' is not available for new versions of R
+
 source("http://bioconductor.org/biocLite.R")
 chooseBioCmirror()
 biocLite()
@@ -512,6 +514,9 @@ update.packages()
 
 ```{r}
 #| eval: false
+
+# Update2022: 'biocLite' is not available for new versions of R
+
 chooseBioCmirror()
 biocLite()
 load("installed_old.rda")
@@ -560,6 +565,12 @@ structure(packages)
 
 ## Summary
 
+recap
+core
+shell
+outline 
+synopsis
+
 Update 20230522
 
 ### Saved installed packages
@@ -567,7 +578,11 @@ Update 20230522
 ```{r}
 #| eval: false
 
+# Run in the old version of R
+
+# ------
 # 1. Before you upgrade, update all old packages.
+# ------
 
 # A. Update current packages.
 update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
@@ -580,20 +595,9 @@ if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install(version = "3.16") # Or the newest version
 
-# C. Backup your preferences file
-source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
-destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
-
-file.copy(source_path, destination_path, overwrite = FALSE)
-
-# If: [1] TRUE, file was copied
-# If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)
-# Another way to do it, see Stack overflow 2 section. 
-
 # ------
-# 2. Before you upgrade, build a temp and save file with all of your old packages.
-
-#--run in the old version of R
+# 2. Before you upgrade: 1. build and save a file with all current packages (old packages) and 2. Backup your rstudio preferences files.  
+# ------
 
 # MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")
 # MBP20: setwd("~/Box Sync/Github/RStudio_shared/R_packages/")
@@ -603,12 +607,12 @@ getwd()
 # Variables for generic code:
 
 ## Create a new folder for packages files
-new_folder <- "Rpkgs230522/" # <----------------change name accordingly, don't forget the "/".
+new_folder <- "Rpkgs230522/" # <----------------change folder name here, don't forget the "/".
 folder <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"
 dir.create(paste0(folder,new_folder)) #use paste0(), paste() inserts a space between obj.
 
 ## Create the packages list files
-file_name <- "Rpkgs_MBP20_230522" # <------------change name accordingly.
+file_name <- "Rpkgs_MBP20_230522" # <------------change file name here.
 rda <- ".rda"
 csv <- ".csv"
 df <- "_df"
@@ -626,7 +630,7 @@ file3
 file4
 file5
 
-# Generic code: Use this method because it is easy to change the names of the variables in one place once.
+# Generic code: I use this method because it is easy to change the names of the variables in one place once.
 
 ## No extension
 Rpkgs <- installed.packages()[,"Package"] # This is a temp file. 
@@ -654,18 +658,18 @@ write_xlsx(Rpkgs_df, file5)
 
 
 
-# Specific code: Do not use this method because requires changing the name of the file in each instance, and paths are also troublesome.
+# Specific code: I do not use this method because requires changing the name of the folder and file in each instance, and paths are also troublesome.
 
 Rpkgs_MBP20_230329 <- installed.packages()[,"Package"] # save as vector values?
 save(Rpkgs_MBP20_230329, file="/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329") # Or Rpkgs_MBP20_230329.rda
 load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda") # load as values (vector?)
 
- # As .rda file
+## As .rda file
 Rpkgs_MBP20_230329 <- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # save as vector package names.
 save(Rpkgs_MBP20_230329, file="/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda") # save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  
 load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda") # In environment is back to installedpkgs.  
 
-# Save as csv requires a dataframe (df)
+## Save as csv requires a dataframe (df)
 Rpkgs_MBP20_230329 <- installed.packages()[,"Package"] # save only the Package (name) variable as vector values?, still can be save as csv
 write.csv(Rpkgs_MBP20_230329, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv')
 
@@ -679,15 +683,49 @@ library("writexl")
 write_xlsx(Rpkgs_MBP20_230329df1,"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx")
 
 
+# Copy/Paste Rstudio global settings and preferences (~/.config/rstudio/rstudio-prefs.json)
+
+## Open folder 
+folder_path <- "~/.config/rstudio/"  # seems like "~/path" does not work on rstudio. 
+folder_path <- "/Users/marcelorosales/.config/rstudio/"
+
+system(paste("open", shQuote(folder_path)))
+
+## Copy a file (direct).
+source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+
+file.copy(source_path, destination_path, overwrite = FALSE)
+
+## Copy a file (indirect). Find the file(s) first.
+file <- "rstudio-prefs.json"
+
+list.files(folder_path) # list all files in folder
+find.files <- list.files(folder_path, file) # select a specific file
+find.files
+
+## copy the files to the new folder
+file.copy(find.files, destination_path, , overwrite = FALSE)
+
+# If: [1] TRUE, file was copied
+# If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)
+# Another way to do it, see Stack overflow 2 section. 
+
+# Check if the copy was successful (THis code does not work properly, is )
+if (file.exists(paste0(destination_path, file)) {
+  print("File copied successfully!")
+} else {
+  print("File copy failed.")
+}
+
+
 # ------
-
 # 3. Install the new version of R (use homebrew). See Brew cask upgrade below.
-
-# -----
+# ------
 
 #　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.
 
-#--run in the new version
+# run in the new version
 # MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")
 
 load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda")
@@ -707,6 +745,29 @@ rstudio-prefs.json
 
 ``` bash
 open ~/.config/rstudio
+```
+
+```{r}
+# Open folder 
+folder_path <- "~/.config/rstudio/"  # seems like "~/path" does not work on rstudio. 
+folder_path <- "/Users/marcelorosales/.config/rstudio/"
+
+system(paste("open", shQuote(folder_path)))
+
+# Copy a file
+source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+
+file.copy(source_path, destination_path)
+
+
+# Check if the copy was successful
+if (file.exists(destination_path)) {
+  print("File copied successfully!")
+} else {
+  print("File copy failed.")
+}
+
 ```
 
 ### Brew cask upgrade R and Rstudio.
@@ -801,3 +862,172 @@ With .Library you get your default library location With .libPaths("your/path") 
 ```
 
 [Loading packages: the difference between R's library() and require() functions](https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/){target= "\_blank"}
+
+
+
+## Shell
+
+
+```{r}
+#| eval: false
+
+
+# Run in the old version of R
+
+# ------
+# 1. Before you upgrade, update all old packages.
+# ------
+
+# A. Update current packages.
+update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
+
+# B. Upgrade packages of Bioconductor
+# Install packages from a newer version of Bioconductor https://www.bioconductor.org/install/ 
+
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.17") # Or the newest version
+
+# ------
+# 2. Before you upgrade: 1. build and save a file with all current packages (old packages) and 2. Backup your rstudio preferences files.  
+# ------
+
+# MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")
+# MBP20: setwd("~/Box Sync/Github/RStudio_shared/R_packages/")
+
+getwd()
+
+# Generic code.
+
+## Variables:
+new_folder <- "Rpkgs230522/" # <----------------change folder name here, don't forget the "/".
+file_name <- "Rpkgs_MBP20_230522" # <------------change file name here.
+rda <- ".rda"
+csv <- ".csv"
+df <- "_df"
+xlsx <- ".xlsx"
+
+## Destination folder
+folder <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"
+
+## Create a new folder for packages files
+dir.create(paste0(folder,new_folder)) #use paste0(), paste() inserts a space between obj.
+
+## Create the packages list files
+file1 <- paste0(folder,new_folder,file_name) 
+file2 <- paste0(folder,new_folder,file_name,rda)
+file3 <- paste0(folder,new_folder,file_name,csv)
+file4 <- paste0(folder,new_folder,file_name,df,csv)
+file5 <- paste0(folder,new_folder,file_name,xlsx)
+
+file1
+file2
+file3
+file4
+file5
+
+## Create files:
+## No extension
+Rpkgs <- installed.packages()[,"Package"] # This is a temp file. 
+save(Rpkgs, file= file1) 
+load(file1) # load as values (vector?)
+
+## As .rda file
+tmp <- installed.packages() # save in environment as data (dataframe?)
+Rpkgs_rda<- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # save as vector package names.
+save(Rpkgs_rda, file= file2)
+load(file2)
+
+## As .csv file requires a dataframe.  
+### 1. Only the Package column variable (as vector?), or 2. as full csv data frame.  
+Rpkgs_csv <- installed.packages()[,"Package"] 
+Rpkgs_df <- as.data.frame(installed.packages()) 
+write.csv(Rpkgs_csv, file= file3)
+write.csv(Rpkgs_df, file= file4)
+
+## As as excel files also requires a dataframe (df)
+### install.packages("writexl")
+library("writexl")
+Rpkgs_df <- as.data.frame(installed.packages()) # same as in df_csv
+write_xlsx(Rpkgs_df, file5)
+
+# Copy/Paste Rstudio global settings and preferences (~/.config/rstudio/rstudio-prefs.json)
+
+## Open folder 
+folder_path <- "/Users/marcelorosales/.config/rstudio/" # seems like "~/path" does not work on rstudio. 
+
+system(paste("open", shQuote(folder_path)))
+
+## Copy a file (direct).
+source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+
+file.copy(source_path, destination_path, overwrite = FALSE)
+
+# If: [1] TRUE, file was copied
+# If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)
+# Another way to do it, see Stack overflow 2 section. 
+
+# ------
+# 3. Install the new version of R (use homebrew). 
+# ------
+
+# {bash filename="Terminal"}
+#| eval: false 
+
+# Upgrade R and rstudio
+brew update
+brew upgrade --cask r
+# password
+#`brew cleanup` has not been run in the last 30 days, running now...
+
+# Upgrade RStudio
+brew upgrade --cask rstudio
+
+# ------
+# 4. Once the new version up and running, reload the saved packages and re-install them from CRAN.
+# ------
+
+# run in the new version/device
+# MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")
+
+## Variables:
+new_folder <- "Rpkgs230522/" # <----------------change folder name here, don't forget the "/".
+file_name <- "Rpkgs_MBP20_230522" # <------------change file name here.
+rda <- ".rda"
+csv <- ".csv"
+df <- "_df"
+xlsx <- ".xlsx"
+folder <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"
+
+file1 <- paste0(folder,new_folder,file_name) 
+file2 <- paste0(folder,new_folder,file_name,rda)
+file3 <- paste0(folder,new_folder,file_name,csv)
+file4 <- paste0(folder,new_folder,file_name,df,csv)
+file5 <- paste0(folder,new_folder,file_name,xlsx)
+
+## Load old packages list
+load(file1)
+load(file2)
+load(file3)
+load(file4)
+load(file5)
+
+# Install packages
+
+## Packages from Bioconductor (before or after Rpackages install?)
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.17") # Or the newest version
+BiocManager::install("Biobase")
+
+for (p in setdiff(file2, installed.packages()[,"Package"]))
+  install.packages(p)
+
+# Library location in Mac OSX
+
+.Library
+.libPaths()
+
+
+```
