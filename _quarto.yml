@@ -21,6 +21,8 @@ website:
         href: index.qmd
       - text: "About"
         href: about.qmd
+      - text: "All Notes"
+        href: All_notes.qmd
       - text: "Software"
 #        href: files/Software/index.qmd # Dropdown menu can not have lading page. 
         menu: 
