@@ -165,6 +165,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="../about.html">
  <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../All_notes.html">
+ <span class="menu-text">All Notes</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-software" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Software</span>
@@ -314,7 +318,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <p>To install this extension in your current directory (or into the Quarto project that you’re currently working in), use the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-ext/lightbox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this command in terminal, will install the extension inside the project folder itself. It is required for function of lightbox.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-ext/lightbox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
@@ -370,8 +376,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The following options may be specified in the front matter for lightbox:</p>
 <table class="table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 9%">
+<col style="width: 90%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -420,8 +426,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The following options may be specified as attributes on individual images to control the lightbox behavior:</p>
 <table class="table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 11%">
+<col style="width: 88%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1057,7 +1063,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"fade","descPosition":"right","selector":".lightbox","loop":true,"closeEffect":"fade"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"right","closeEffect":"fade","openEffect":"fade","loop":true,"selector":".lightbox"});</script>
 
 
 

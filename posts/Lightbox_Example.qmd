@@ -35,6 +35,8 @@ See [quarto-ext/lightbox](https://github.com/quarto-ext/lightbox/#readme){target
 To install this extension in your current directory (or into the Quarto project that you're currently working in), use the following command:
 
 ``` bash
+# Run this command in terminal, will install the extension inside the project folder itself. It is required for function of lightbox.
+
 quarto add quarto-ext/lightbox
 ```
 
@@ -106,7 +108,7 @@ For example, the following three images will be treated as a gallery:
 The following options may be specified in the front matter for lightbox:
 
 | Option          | Description                                                                                                                                                              |
-|-------------------|-----------------------------------------------------|
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `match`         | Set this to `auto` if you'd like any image to be given lightbox treatment. If you omit this, only images with the class `lightbox` will be given the lightbox treatment. |
 | `effect`        | The effect that should be used when opening and closing the lightbox. One of `fade`, `zoom`, `none`. Defaults to `zoom`.                                                 |
 | `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom`.                                     |
@@ -134,7 +136,7 @@ lightbox:
 The following options may be specified as attributes on individual images to control the lightbox behavior:
 
 | Option          | Description                                                                                                                         |
-|-------------------|-----------------------------------------------------|
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom` |
 
 ## Using lightbox with computation cells

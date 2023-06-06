@@ -38,7 +38,14 @@ shell(paste("start", shQuote(file_path)))
 system(paste("start", shQuote(file_path)))
 ```
 
-(See Markdown02.docx \> Word and Rstudio for detail info on the code)
+```{html}
+#| eval: false
+
+/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/qt01.csv
+
+
+
+```
 
 **All Notes**\
 docx2md_test.docx\
@@ -156,6 +163,198 @@ df_wide <- df %>%
 
 # Print the resulting wide-form table
 print(df_wide)
+```
+
+### Tables
+
+[The function knitr::kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html) [Other packages for creating tables](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html)
+
+```{html}
+
+/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/xls2wb.htm
+```
+
+#### Table from csv file
+
+##### Kable()
+
+[Designing tables in R with "knitr" and "kableExtra" \| R Tutorial (2021)](https://www.youtube.com/watch?v=JqUViTDoSEo)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JqUViTDoSEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+```{r}
+data <- read.csv("/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/qt01.csv")
+
+data
+str(data)
+
+df <- knitr::kable(data, "pipe", align = "c")
+knitr::kable(data, "pipe", align = "c")
+knitr::kable(data, "simple", align = "c")
+knitr::kable(data, "html", align = "c")
+knitr::kable(data, "latex", align = "c")
+knitr::kable(data, "rst", align = "c")
+
+```
+
+##### ExtraKable()
+
+\[ \] Check also: [Making tables in the rstats package kableExtra for Oregon by the Numbers](https://www.youtube.com/watch?v=RLdQ-SP3zdQ)\
+\[ \] [Create Awesome HTML Table with knitr::kable and kableExtra](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+
+Example:
+
+Install and Load Packages if required
+
+```{r}
+
+# install.packages("kableExtra")
+# install.packages("AER")
+# install.packages("tinytex")
+library(kableExtra)
+library(magrittr)
+library(shiny)
+library(knitr)
+library(tinytex)
+library(AER)
+library(tidyverse)
+help("kableExtra")
+help("kable")
+
+```
+
+Example with mtcars frame
+
+```{r}
+# HTML table
+dt2 <- mtcars[1:5, 1:4]
+dt <- head(mtcars)
+# rm(dt)
+# rm(dt2)
+
+
+kbl(dt, caption = "Demo Table")
+
+kbl(dt, caption = "Demo Table") %>%
+  kable_styling(bootstrap_options = "striped",
+                full_width = F) %>%
+  add_header_above(c(" ", "Group 1" = 2, "Group 2[note]" = 2, "group 3" = 7)) %>%
+  footnote(c("table footnote"))
+
+# LaTeX Table
+kbl(dt2, booktabs = T, caption = "Demo Table") %>%
+  kable_styling(latex_options = c("striped", "hold_position"),
+                full_width = F) %>%
+  add_header_above(c(" ", "Group 1" = 2, "Group 2[note]" = 2)) %>%
+  footnote(c("table footnote"))
+```
+
+With Kable
+
+```{r}
+#| eval: false
+
+help("kable")
+
+## Not running 
+
+x <- knitr::kable(head(mtcars), "pipe")
+x  # works fine up to here
+
+
+# Add a row of header with 3 columns on the top of the table. The column
+# span for the 2nd and 3rd one are 5 & 6.
+add_header_above(x, c(" ", "Group1" = 5, "Group2" = 6))
+
+y <- add_header_above(x, c(" ", "Group 1" = 5, "Group 2" = 6))
+y
+
+z <- head(mtcars) 
+
+
+z <- as.data.frame(head(mtcars)) %>% 
+  kbl() %>% 
+  add_header_above(z, c(" ", "Group1" = 5, "Group2" = 6))
+
+```
+
+#### Convert wide data frame to long data frame
+
+Example:
+
+```{r}
+library(tidyverse)
+
+# Example wide data frame
+wide_df <- data.frame(
+  id = c(1, 2, 3),
+  var1 = c(10, 20, 30),
+  var2 = c(40, 50, 60),
+  var3 = c(70, 80, 90)
+)
+
+
+wide_df
+
+# Convert wide data frame to long
+long_df <- wide_df %>%
+  pivot_longer(
+    cols = starts_with("var"),  # Specify the columns to pivot
+    names_to = "variable",      # Name of the new variable column
+    values_to = "value"         # Name of the new value column
+  )
+
+# View the resulting long data frame
+print(long_df)
+
+knitr::kable(wide_df, "pipe", align = "c")
+knitr::kable(long_df, "pipe", align = "c")
+
+
+```
+
+```{r}
+#| eval: false
+
+# Error: Values are not numeric. 
+# ! Can't subset columns with `data`.
+# ✖ `data` must be numeric or character, not a <data.frame> object.
+# ! Arguments in `...` must be used.
+
+
+library(tidyverse)
+data_long <- data %>%
+  pivot_longer(
+    data,
+    2:9,
+    names_to = "Programm",
+    values_to = "values"
+  )
+
+
+
+
+```
+
+### Changing language of R and Rstudio
+
+> Requires re-start app.
+
+```{r}
+#| eval: false
+# Set r environment to english
+
+Sys.setenv(LANG = "en")
+
+```
+
+```{bash}
+#| eval: false
+
+defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
+
 ```
 
 ------------------------------------------------------------------------

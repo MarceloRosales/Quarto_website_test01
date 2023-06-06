@@ -23,8 +23,7 @@ website:
         href: about.qmd
       - text: "All Notes"
         href: All_notes.qmd
-      - text: "Software"
-#        href: files/Software/index.qmd # Dropdown menu can not have lading page. 
+      - text: "Software"   #  href: files/Software/index.qmd # Dropdown menu can not have lading page. 
         menu: 
           - text: "RStudio"
             href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.
@@ -100,7 +99,10 @@ format:
       margin-width: 300px
 
 
-editor: visual
+editor: source
 editor_options:
   markdown:
     canonical: true
+
+execute: 
+  freeze: auto  # This prevent R, Python, and Julia code is only executed locally,

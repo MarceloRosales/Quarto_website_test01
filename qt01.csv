@@ -1,0 +1,7 @@
+﻿Programm,VS_code,VS_code.1,VS_code.2,Rstudio,Rstudio.1,Rstudio.2,Rstudio.3,Rstudio.4
+type,md,Rmd,qmd,md,Rmd,Rmd visual,qmd,qmd visual
+r,o,o,o,,,o,,o
+ .r,,,,,,,,o
+ {r},,,o,o,o,,o,
+ {.r},,,o,o,,o,,o
+rev  r,,,,,,o,,o
