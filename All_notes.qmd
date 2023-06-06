@@ -123,7 +123,7 @@ Untitled.pdf
 https://tableconvert.com/
 
 | **VS code** | \*\*\*\* | \*\*\*\* | **Rstudio** | \*\*\*\* | \*\*\*\* | \*\*\*\*   | \*\*\*\* |
-|-------------|----------|----------|-------------|----------|----------|------------|----------|
+|---------|---------|---------|---------|---------|---------|---------|---------|
 | **code**    | md       | Rmd      | qmd         | md       | Rmd      | Rmd visual | qmd      |
 | **r**       | o        | o        | o           |          |          | o          |          |
 | **.r**      |          |          |             |          |          |            |          |
@@ -167,7 +167,56 @@ print(df_wide)
 
 ### Tables
 
-[The function knitr::kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html) [Other packages for creating tables](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html)
+[The function knitr::kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
+
+[Create Awesome HTML Table with knitr::kable and kableExtra](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+
+[Create Awesome LaTeX Table (PDF) with knitr::kable() and kableExtra](http://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf)
+
+[kableExtra README.md](https://rdrr.io/cran/kableExtra/f/README.md)
+
+[Other packages for creating tables](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html)
+
+::: {.callout-tip collapse="true" style="gray"}
+## markdown tables
+
+Web page based table converters from excel or other.
+:::
+
+[Table convert webpage](https://tableconvert.com/)
+
+[Table to Markdown](https://tabletomarkdown.com/) webpage
+
+VS code extension: [Excel to Markdown table](https://marketplace.visualstudio.com/items?itemName=csholmq.excel-to-markdown-table) (used inspect in chrome to take the gif address).
+
+::: panel-tabset
+## html block
+
+```{=html}
+<img src="https://user-images.githubusercontent.com/1297882/35767301-2fd0c490-08ea-11e8-89d7-933238fed3f2.gif" alt="excel-to-markdown-table">
+```
+## img block
+
+![](https://user-images.githubusercontent.com/1297882/35767301-2fd0c490-08ea-11e8-89d7-933238fed3f2.gif){fig-alt="excel-to-markdown-table" width="500"}
+:::
+
+#### Summary
+
+```{r}
+
+# knitr::Kable... simple, html, rst. ok but latex doesn't work
+knitr::kable(mtcars[1:5, 1:4], "pipe", align = "c")  
+
+# kableExtra
+library(kableExtra)
+kbl(mtcars[1:5, 1:4], caption = "Demo Table")
+
+# DT::datatable  (Onlyone that shows table correctly in )
+library(DT)
+datatable(head(mtcars[1:5, 1:4]))
+
+
+```
 
 ```{html}
 
@@ -187,9 +236,10 @@ print(df_wide)
 ```{r}
 data <- read.csv("/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/qt01.csv")
 
-data
-str(data)
+head(data) # As simple table
+# str(data)
 
+# Using kable()
 df <- knitr::kable(data, "pipe", align = "c")
 knitr::kable(data, "pipe", align = "c")
 knitr::kable(data, "simple", align = "c")
@@ -209,10 +259,13 @@ Example:
 Install and Load Packages if required
 
 ```{r}
+#| warning: false
+
 
 # install.packages("kableExtra")
 # install.packages("AER")
 # install.packages("tinytex")
+# install.packages("DT")
 library(kableExtra)
 library(magrittr)
 library(shiny)
@@ -220,6 +273,7 @@ library(knitr)
 library(tinytex)
 library(AER)
 library(tidyverse)
+library(DT)
 help("kableExtra")
 help("kable")
 
@@ -251,14 +305,33 @@ kbl(dt2, booktabs = T, caption = "Demo Table") %>%
   footnote(c("table footnote"))
 ```
 
+```{r}
+library(kableExtra)
+
+# HTML table
+kbl(mtcars[1:5, 1:4], caption = "Demo Table") %>%
+  kable_styling(bootstrap_options = "striped",
+                full_width = F) %>%
+  add_header_above(c(" ", "Group 1" = 2, "Group 2[note]" = 2)) %>%
+  footnote(c("table footnote"))
+
+# LaTeX Table
+kbl(mtcars[1:5, 1:4], booktabs = T, caption = "Demo Table") %>%
+  kable_styling(latex_options = c("striped", "hold_position"),
+                full_width = F) %>%
+  add_header_above(c(" ", "Group 1" = 2, "Group 2[note]" = 2)) %>%
+  footnote(c("table footnote"))
+
+```
+
 With Kable
 
 ```{r}
 #| eval: false
-
+library(kableExtra)
 help("kable")
 
-## Not running 
+## Not working!!! 
 
 x <- knitr::kable(head(mtcars), "pipe")
 x  # works fine up to here
@@ -278,6 +351,14 @@ z <- as.data.frame(head(mtcars)) %>%
   kbl() %>% 
   add_header_above(z, c(" ", "Group1" = 5, "Group2" = 6))
 
+```
+
+##### DT::datatable
+
+```{r}
+DT::datatable(iris)
+
+datatable(head(mtcars))
 ```
 
 #### Convert wide data frame to long data frame
