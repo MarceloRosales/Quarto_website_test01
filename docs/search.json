@@ -544,5 +544,12 @@
     "title": "MySite",
     "section": "",
     "text": "bookmark88�\u0003\u0004\u0010\u0001I\u000f�\u001b \u0013�Ap�\u0002\u0004\u0003\u0003\u0004\u0005\u0001\u0001Users\u000e\u0001\u0001marcelorosales\b\u0001\u0001Box Sync\u000f\u0001\u0001Niigata Uni Box\u000b\u0001\u0001Books-Notes\u0005\u0001\u0001Notes\u0001\u0001All_notes.qmd\u001c\u0001\u0006\u0010 8H`t�\b\u0004\u0003Td\b\u0004\u0003��\b\u0004\u0003c\u0012�\u0002\b\u0004\u0003�\u001e�\u0002\b\u0004\u0003�\u001e�\u0002\b\u0004\u0003��\u0004\b\u0004\u0003.�h\u0007\u001c\u0001\u0006����\u0001\u0010\u0001 \u0001\b\u0004A�\u0012�7q�B\u0018\u0001\u0002\u0001\u001f\u0002\u001f\u0002\u0001\u0005\u0004\u0003\u0003\u0001\b\u0004\u0003\u0005\u0004\u0003\u0003�\u0001\b\u0001 file:///\f\u0001\u0001Macintosh HD\b\u0004\u0003p���\u0001\b\u0004A��K�\\(\u0001\u0001E63B6DDF-3D23-48D4-A8D7-07669DAA51D3\u0018\u0001\u0002�\u0001�\u0013\u0001�\u0013\u0001\u0001\u0001\u0001/3\u0001\u0002dnib\u0001\u0003qmd????\u0014\u0001����\u0001\u0016\u0004\u0010�\u0005\u00100\u0001\u0010\u0010d\u0001@\u0010T\u0001T\u0010�\u0001U\u0010�\u0001V\u0010�\u0001\u0002 D\u0002\u0005 �\u0001\u0010 �\u0001\u0011 �\u0001\u0012 �\u0001\u0013 �\u0001 \\)\u00020 �\u0001\u0001��\u0001\u0011� \u0012��\u0001\u0001��\u0001\u0010�\u0004\u0017��“�P\u0002"
+  },
+  {
+    "objectID": "All_notes.html#images",
+    "href": "All_notes.html#images",
+    "title": "All_notes",
+    "section": "Images:",
+    "text": "Images:\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placerat arcu, sed feugiat ex ultrices vitae.\n![My Image](path/to/image.jpg){.float-left}\nDuis sed fringilla purus. Mauris pellentesque ullamcorper justo id ullamcorper. Vestibulum finibus, mauris ac eleifend accumsan, tortor enim finibus nulla, sit amet rutrum ipsum nisl eu nunc.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et posuere mi. Sed euismod nunc ut turpis fermentum bibendum.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placerat arcu, sed feugiat ex ultrices vitae."
   }
 ]

@@ -439,3 +439,15 @@ defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
 ```
 
 ------------------------------------------------------------------------
+
+## Images:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placerat arcu, sed feugiat ex ultrices vitae.
+
+!\[My Image\](path/to/image.jpg){.float-left}
+
+Duis sed fringilla purus. Mauris pellentesque ullamcorper justo id ullamcorper. Vestibulum finibus, mauris ac eleifend accumsan, tortor enim finibus nulla, sit amet rutrum ipsum nisl eu nunc.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et posuere mi. Sed euismod nunc ut turpis fermentum bibendum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placerat arcu, sed feugiat ex ultrices vitae.
