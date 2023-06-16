@@ -43,12 +43,24 @@ shell(paste("start", shQuote(file_path)))
 system(paste("start", shQuote(file_path)))
 ```
 
+It is possible to sync files with in sys with the rsync command (no external apps needed)
+
+```{r}
+#| eval: false
+
+source <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/All_notes_draft.qmd"
+destination <- ""
+
+system(paste("rsync -avh --progress", shQuote(source), shQuote(destination)))
+
+```
+
+sync \# 33
+
 ```{html}
 #| eval: false
 
 /Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/qt01.csv
-
-
 
 ```
 
@@ -116,6 +128,8 @@ teachR.pdf\
 teachR.pdf\
 Untitled.pdf
 
+### Tables
+
 |       | VS code |     |     | Rstudio |     |            |     |            |
 |-------|---------|-----|-----|---------|-----|------------|-----|------------|
 | code  | md      | Rmd | qmd | md      | Rmd | Rmd visual | qmd | qmd visual |
@@ -170,7 +184,7 @@ df_wide <- df %>%
 print(df_wide)
 ```
 
-### Tables
+#### Table commands and functions
 
 [The function knitr::kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html) [Other packages for creating tables](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html)
 
@@ -375,3 +389,2242 @@ Duis sed fringilla purus. Mauris pellentesque ullamcorper justo id ullamcorper. 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et posuere mi. Sed euismod nunc ut turpis fermentum bibendum.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placerat arcu, sed feugiat ex ultrices vitae.
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## Terminal, coding R&D
+
+::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
+***The Bash_profile customization is obsolete now***!!.
+:::
+
+::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: black; background-color: #eeeee; border-color: #ebccd1;"}
+::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
+warning
+:::
+
+::: {style="padding: 5px;"}
+The Bash_profile customization is obsolete now!!.
+:::
+:::
+
+Powerlevel9k/powerlevel9kPublic archive\
+Now Using the Powerlevel10k
+
+<https://youtu.be/zNg9Y1gentY>\
+<https://youtu.be/XVSZAwTXtAs>\
+<https://youtu.be/WoMiRHXzCfE>
+
+------------------------------------------------------------------------
+
+## Set up for coding and development
+
+**(macOS 2022 edition)**
+
+[top](#)\
+Original post [here](https://www.atpeaz.com/macos-set-up-for-coding-and-development/) \> **Customise zSH with Powerlevel10K**, I was inspired by this guide here but have reconfigured my set up significantly with Powerlevel10k. In the previous version of my writeup, I had used Powerlevel9k theme.
+
+[top](#)
+
+### How to install Powerlevel10k theme for \>\_ & iTerm2 **Updated version**
+
+Install for \>\_ & iTerm2 **Updated version**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/D2PSsnqgBiw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[2022 explanation video](https://youtu.be/fJOV40ixEzM)
+
+### \>\_ Powerlevel10k theme.
+
+> requires git and Xcode.
+
+1.  **Save a copy of original .zshrc!!** Each machine has a different zshrc file ∵ user path is different in each manchine, just in case\
+    MBP20: /Users/marcelorosales/Box Sync/Github/DotFiles/MBP20/Conda_shells/zshrc\
+    MBP15:
+2.  Install iTerm2\
+    brew install --cask iterm2
+3.  echo \$0 #(if \>\_ != -zsh {brew install zsh}, else {})\
+    brew install zsh
+4.  Install Oh My Zsh:\
+    sh -c "\$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"
+5.  Icons/font not displaying correctly? <https://github.com/romkatv/powerlevel10k/issues/671>
+6.  Download these four ttf files: **MesloLGS NF Regular.ttf** \> \~/Box/Github/DotFiles/iTerm2/Fonts
+7.  Double-click on each file and click "Install" (Fonts will be added to Font Book). Then...
+
+-   **Terminal fix.**:\
+    //Preferences \> Profile \> Text \> Change \> ...\[\]... \> Collection:© All fonts \> Family: © \> MesloLGF Regular
+-   **iTerm fix:**\
+    //Preferences \> Profile \> Text \> Font \> MesloLGF Regular
+-   **Visual Studio Code config Fonts**\
+    //settings (Cmd + ,) \> find (Cmd +F): {Terminal font \| Terminal integrated font family} \> { MesloLGS NF }
+    1.  Change .zshrc theme to Agnoster (iterm default)\
+        code \~/.zshrc \|\| open \~/.zshrc
+    2.  Change: ZSH_THEME="\~/.oh-my-zsh" =\> ZSH_THEME="agnoster" \> save \> exit (\>\_ and iterm2)
+    3.  Costum iterm2 color scheme: download flat-colors: <https://github.com/QuentinWatt/dark-flat-iterm-colors/blob/master/flat-colors.itermcolors> -\> \~/Box Sync/Github/DotFiles/iTerm2/flat-colors.intermcolors
+    4.  iterm \> Preferences \> Profiles \> Colors \> Color pressets \> import : lat-colors.intermcolors
+    5.  Install Powerlevel9k / Powerlevel10k: (auto to: \~/oh-my-zsh/custom/themes/powerlevel10k)\
+        git clone <https://github.com/romkatv/powerlevel10k.git> \$ZSH_CUSTOM/themes/powerlevel10k
+    6.  Change .zshrc theme to Powerlevel10k (iterm default)\
+        code \~/.zshrc \|\| open \~/.zshrc Change: ZSH_THEME="agnoster" =\> ZSH_THEME="powerlevel10k/powerlevel10k" \> save \> exit (\>\_ and iterm2)
+    7.  Start a new terminal session/re-configure prompt:
+-   p10k configure \# 1st time = auto run
+-   y \> y \> y \> Rainbow \> unicode \> 24-hour format \> Angled \> sharp \> Flat \> one line \> compact \> Many icons \> Concise \> Transient Prompt: No \> Verbose \> ! Overwrite \~/.p10k.zsh (only if powerlevel10k is already installed) \> Apply changes to \~/.zshrc? Yes (close open \~/.zshrc) \> end.
+
+```         
+New config: ~/.p10k.zsh.  
+Backup of ~/.zshrc: $TMPDIR/.zshrc.EM433MEB1C.  
+See ~/.zshrc changes:  
+  diff $TMPDIR/.zshrc.EM433MEB1C ~/.zshrc  
+```
+
+For even more customization go to the .p10k.zsh file:
+
+```{bash}
+#| eval: false
+
+code ~/.p10k.zsh.
+
+
+```
+
+Auto suggestions (for Oh my zsh)
+
+-   Just follow these steps: <https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh>
+
+1.  Syntax highlighting\
+    brew install zsh-syntax-highlighting
+2.  Activate the plugin in `~/.zshrc` file:\
+    code \~/.zshrc \> copy/paste: source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+3.  If the message "highligthers directory not found" is displayed: code \~/.zshenv \> copy/paste:\
+    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+4.  if \>\_ or/and iTerm2 console output is produced during zsh initialization (see: instant prompt error) in terminal type:\
+    compaudit \| xargs chmod g-w,o-w
+
+[2022 explanation video](https://youtu.be/fJOV40ixEzM)
+
+1.  Install iTerm2\
+    brew install --cask iterm2
+2.  Install zsh\
+    echo \$0 #(if \>\_ != -zsh {brew install zsh}, else {})
+3.  Install Oh My Zsh:\
+    sh -c "\$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"
+4.  Install Powerlevel9k / Powerlevel10k: (!! + x code tools)\
+    git clone <https://github.com/romkatv/powerlevel10k.git> \$ZSH_CUSTOM/themes/powerlevel10k
+5.  Change: ZSH_THEME\
+    code \~/.zshrc \# open \~/.zshrc
+6.  Change: ZSH_THEME="\~/.oh-my-zsh" \|"agnoster" =\> ZSH_THEME="powerlevel10k/powerlevel10k" \> save \> exit (\>\_ and iterm2)
+7.  p10k configure #auto run
+
+**Summary: from kevin-smets/iterm2-solarized.md**
+
+1.  Install iterm2
+2.  Install Oh My Zsh
+3.  Install Powerlevel9k / Powerlevel10k
+4.  Install a patched font
+5.  Further tweaking
+    -   auto suggestions
+    -   word jumping with arrow keys / natural text editing
+    -   syntax highlighting
+    -   visual studio code config
+6.  Paste Conda Initialize code at the head/End of .zshrc
+
+**1. Install iterm2**
+
+```{bash}
+#| eval: false
+brew install --cask iterm2  
+```
+
+iTerm2 has better color fidelity than the built in Terminal, so your themes will look better.\
+Get the iTerm color settings
+
+-   Solarized Dark theme (patched version to fix the bright black value)
+-   Solarized Light theme
+-   More themes \@ iterm2colorschemes\
+    Just save it somewhere and open the file(s). The color settings will be imported into iTerm2. Apply them in iTerm through iTerm → preferences → profiles → colors → load presets. You can create a different profile other than Default if you wish to do so.
+
+Apply the color scheme in iTerm2\
+iTerm → Preferences → Profiles → Colors → Color presets → ImportThen again, Color presets → you-color-scheme-name
+
+**2. Install Oh My Zsh**
+
+Install with curl
+
+``` bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"  
+```
+
+When the installation is done, edit \~/.zshrc and set ZSH_THEME="agnoster" for the default look. Or better yet, go for Powerlevel10k.
+
+**3. Install Powerlevel9k / Powerlevel10k**\
+Why Powerlevel10k? faster to render your prompt.\
+Powerlevel10k look with added info such as exit codes and timestamps:
+
+``` bash
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k  
+```
+
+Cloning into '/Users/Marcelo-Rosales/.oh-my-zsh/custom/themes/powerlevel10k'...
+
+Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel10k/powerlevel10k"`.\
+**-\> Terminal// code \~/.zshrc \> find: { ZSH_THEME} \> ZSH_THEME="powerlevel10k/powerlevel10k"**
+
+**Start a new terminal session**, Powerlevel10 configure wizard will be launched to set your prompt, beware, there are many many options! check its project page.
+
+**To re-configure prompt:**\
+To trigger the configuration wizard immediately, run`p10k configure` options are plentiful.
+
+To customize even more edit your `~/.zshrc` \> open in vs `code ~/.zshrc` \> go to bottom section: \# To customize prompt, run `p10k configure` or edit \~/.p10k.zsh. `code ~/.p10k.zsh`.
+
+**4. Install a patched FONTS**\
+The patched font is the font used by iTerm2 to display characters, and you'll need a special one for special characters like arrows and git icons.
+
+You'll get this result at the end, keep calm and follow this doc\
+Download and install the font
+
+-   Meslo (recommanded, ie the one in the screenshot). Click "view raw" to download the font (usually .ttf file double click file in finder to install).
+-   Source Code Pro has better alignment for the glyphs @14px.\
+-   Others powerline fonts\
+    **-\> Open the downloaded font and press "Install Font" on your computer.**
+
+If you did not go with Powerlevel10k or you want another font, read on:
+
+-   Source Code Pro\
+-   Source Code Pro + Font Awesome, this one is needed if you want the icons from Font Awesome as shown in the screenshot for Powerlevel10k.\
+-   Others \@ powerline fonts\
+    Open the downloaded font and press "Install Font".\
+    Set this font in iTerm2 (iTerm → Preferences → Profiles → Text → Font), in the dropdown select the desired Font. You will see it change on the fly.\
+    Restart iTerm2 for all changes to take effect.
+
+**5. Further tweaking**\
+Things like
+
+a.  auto suggestions\
+b.  word jumping with arrow keys / natural text editing\
+c.  syntax highlighting\
+d.  visual studio code config  can be found in the section below.
+
+**a. Auto suggestions (for Oh My Zsh)**
+
+Just follow these steps: <https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh>
+
+1.  Clone this repository into \$ZSH_CUSTOM/plugins (by default \~/.oh-my-zsh/custom/plugins)
+
+``` bash
+git clone <https://github.com/zsh-users/zsh-autosuggestions> ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+1.  Add the plugin to the list of plugins for Oh My Zsh to load (inside \~/.zshrc):
+
+``` bash
+plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+)
+```
+
+If the auto suggestions do not appear to show, it could be a problem with your color scheme.\
+Under "iTerm → Preferences → Profiles → Colors tab", check the value of Black Bright, that is the color your auto suggestions will have. It will be displayed on top of the Background color. If there is not enough contrast between the two, you won't see the suggestions even if they're actually there.
+
+**b. Enable word jumps and word deletion, aka natural text selection**\
+By default, word jumps (option + → or ←) and word deletions (option + backspace) do not work. To enable these, go to "iTerm → Preferences → Profiles → Keys → Key mappings → Presets... → Natural Text Editing → Boom! Head explodes"
+
+**c. Syntax highlighting**\
+Clone the repository:
+
+``` bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting  
+```
+
+Activate the plugin in `~/.zshrc`:
+
+```         
+plugins=( [plugins...] zsh-syntax-highlighting)  
+```
+
+***Or brewinstall:***
+
+``` bash
+brew install zsh-syntax-highlighting  
+```
+
+When finish installing, read message. It will tell you to "add the following to the .zshrc":
+
+`source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
+
+If the message "highligthers directory not found message", you may need to add the following to the `.zshenv` file:
+
+`export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters`
+
+Restart iTerm2 for all changes to take effect.
+
+**Terminal and VS code Terminal prompt issues**\
+**Icons and font not displaying correctly?**
+
+If icons don't display in Terminal or VS code integrated terminal after setting terminal.integrated.fontFamily see : <https://github.com/romkatv/powerlevel10k/issues/671>
+
+-   Terminal fix: //Preferences \> Profile \> Font \> Change \> ...\[\]... \> Collection:© All fonts \> Family: © \> MesloLGF Regular
+
+-   iTerm fix: //Preferences \> Profile \> Text \> Font \> MesloLGF Regular
+
+-   Visual Studio Code config Fonts Installing a patched font will mess up the integrated terminal in VS Code unless you use the proper settings. You'll need to go to settings (CMD + ,) and add or edit the following values: see 4. Install a patched font
+
+-   for Source Code Pro + Font Awesome: "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'". The single quotes are important!\
+
+-   Restart VS Code after the config change.\
+
+-   for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"\
+
+-   for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"\
+
+-   **-\> settings (Cmd + ,) \> find (Cmd +F): {Terminal font \| Terminal integrated font family} \> { MesloLGS NF }**\
+
+-   for other fonts you'll need to check the font name in Font Book. You can right click on them on select "Show in Finder" to get the exact name.\
+    You can also set the fontsize e.g.: "terminal.integrated.fontSize": 14
+
+**6. Paste Conda Initialize code at the head of .zshrc**
+
+For MBP15:
+
+```{bash}
+#| eval: false
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/Marcelo-Rosales/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/Marcelo-Rosales/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/Marcelo-Rosales/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/Marcelo-Rosales/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+```
+
+For MBP20
+
+```{bash}
+#| eval: false
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+```
+
+**Instant Prompt Message error.**
+
+Last login: Tue Jul 12 23:09:32 on ttys000
+
+When using Powerlevel10k with instant prompt, console output during zsh initialization may indicate issues.
+
+You can:
+
+-   Recommended: Change \~/.zshrc so that it does not perform console I/O after the instant prompt preamble. See the link below for details.
+
+    -   You will not see this error message again.
+    -   Zsh will start quickly and prompt will update smoothly.
+
+-   Suppress this warning either by running p10k configure or by manually defining the following parameter:
+
+    ```         
+    typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+    ```
+
+    -   You will not see this error message again.
+    -   Zsh will start quickly but prompt will jump down after initialization.
+
+-   Disable instant prompt either by running p10k configure or by manually defining the following parameter:
+
+    ```         
+    typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+    ```
+
+    -   You will not see this error message again.
+    -   Zsh will start slowly.
+
+-   Do nothing.
+
+    -   You will see this error message every time you start zsh.
+    -   Zsh will start quickly but prompt will jump down after initialization.
+
+For details, see: <https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt>
+
+-- **console output produced during zsh initialization follows** --
+
+\[oh-my-zsh\] Insecure completion-dependent directories detected: (This directories were found to be insecure.) drwxrwxr-x 3 marcelorosales admin 96 May 9 2021 /usr/local/share/zsh drwxrwxr-x 6 marcelorosales admin 192 Jun 26 16:05 /usr/local/share/zsh/site-functions
+
+\[oh-my-zsh\] For safety, we will not load completions from these directories until \[oh-my-zsh\] you fix their permissions and ownership and restart zsh. \[oh-my-zsh\] See the above list for directories with group or other writability.
+
+\[oh-my-zsh\] To fix your permissions you can do so by disabling \[oh-my-zsh\] the write permission of "group" and "others" and making sure that the \[oh-my-zsh\] owner of these directories is either root or your current user. \[oh-my-zsh\] The following command may help: \[oh-my-zsh\] compaudit \| xargs chmod g-w,o-w
+
+\[oh-my-zsh\] If the above didn't help or you want to skip the verification of \[oh-my-zsh\] insecure directories you can set the variable ZSH_DISABLE_COMPFIX to \[oh-my-zsh\] "true" before oh-my-zsh is sourced in your zshrc file.
+
+Solution: type
+
+```         
+compaudit | xargs chmod g-w,o-w
+```
+
+All messages will disappear with this.
+
+**Old version 1**: <https://youtu.be/pTW02GMeI74>
+
+[Configuration of a beautiful (efficient) terminal and prompt on OSX in 7minutes](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)\
+Sumary: 0. Install Hombrew
+
+1.  Install and configure iTerm2
+2.  Install a patched font
+3.  Install Zsh and Oh my Zsh
+4.  Add Powerlevel9k Zsh Theme
+5.  Final tweaking
+
+-   shorter prompt
+-   enable text editor navigation
+-   auto suggestions
+-   syntax highlighting
+-   new line after each prompt
+-   change color of warning git status
+-   change Iterm2 tabs color
+
+**1. Install and configure iTerm2**
+
+```         
+brew cask install iterm2
+```
+
+Choose your Iterm2 color scheme
+
+-   you can use Clovis' iTerm2 color scheme file 🎁 (the one in the screenshot)
+-   or scroll many opensource iTerm2 color schemes here
+-   ... and download your desired preset's file here
+
+**2. Install a patched font**\
+The patched font is the font used by iTerm2 to display characters, and you'll need a special one for special characters like arrows and git icons.\
+You'll get this result at the end, keep calm and follow this doc\
+Download and install the font
+
+-   Meslo (recommanded, ie the one in the screenshot). Click "view raw" to download the font.
+-   Source Code Pro has better alignment for the glyphs @14px.
+-   Others powerline fonts\
+    Open the downloaded font and press "Install Font" on your computer.\
+    Add the font in iTerm2\
+    (font size of 12pt is our personal preference)\
+    iTerm2 → Preferences → Profiles → Text → Change Font
+
+**3. Install Zsh and Oh my Zsh**\
+Zsh is a shell that provides many features, like better files and folders navigation. To install it :
+
+```         
+brew install zsh zsh-completions  
+```
+
+Oh my Zsh is a Zsh configuration framework, you can read more here: github.com/robbyrussell/oh-my-zsh.\
+To install it :
+
+```         
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"  
+```
+
+💡In the next steps you'll need to edit the \~/.zshrc configuration file which is run when the terminal starts. At any time you can compare it with Clovis .zshrc configuration file 🎁
+
+**4. Add Powerlevel9k Zsh Theme**
+
+The Powerlevel9k zsh theme adds many other features like a right promp with infos such as exit codes and timestamps. To install it run :
+
+```         
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k  
+```
+
+Then edit \~/.zshrc configuration file and set
+
+```         
+ZSH_THEME="powerlevel9k/powerlevel9k"  
+```
+
+Boom. Powerlevel9k offers a whole lot more, best is to follow the next steps or check out these user made configs.
+
+**5. Final tweaking**
+
+-   shorter prompt
+-   enable text editor navigation
+-   auto suggestions
+-   syntax highlighting
+-   new line after each prompt
+-   change color of warning git status
+-   change Iterm2 tabs color
+
+------------------------------------------------------------------------
+
+::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
+***Obsolete section***!!.
+:::
+
+[top](#)
+
+### Bash_profile Setup
+
+**Tip for this section:**\
+**The first and easiest method is using Mac Finder to show hidden files (like .bash_profile or .bashrc file):**.
+
+1.  Open the folder where you want to search hidden files.
+2.  Press the "Command + Shift + ."...
+3.  The hidden files will show up as translucent/shadow in the folder.
+4.  If you want to obscure the files again, press the same "Command + Shift + ."
+
+[top](#)\
+**Customizing Your Terminal:**
+
+-   How to: Install and use homebrew (why?: To automate program installation and programs settings. Install all programs in one go. Using dot files.
+    -   **Customize Terminal**. Taken from the [Linux/Mac Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c) collection \@ [Corey Schafer](https://www.youtube.com/c/Coreyms)
+        -   8 [Customizing Your Terminal: .bash_profile and .bashrc files](https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+        -   9 [Customizing Your Terminal: Adding Color and Information to Your Prompt](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+        -   10 [Customizing Your Terminal: How To Use and Modify Dotfiles](https://youtu.be/c5RZWDLqifA)
+        -   11 [How I Setup a New Development Machine - Using Scripts to Automate Installs and Save Time](https://youtu.be/kIdiWut8eD8?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+
+**8 [.bash_profile and .bashrc files](https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)**.
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[video](https://www.youtube.com/watch?v=vDOVEDl2z84&list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)\
+https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c
+
+**To customize our terminal**, we are going to create several .bash files (whether with R or VS). If you have other customized bash file move them to another folder (ex. DotFile) and restart terminal (al customization will disappear).
+
+-   Bash_profile: This is a login shell. Usually mac uses longing shell when opening terminal. So normally open terminal and it will echo FROM BASH_PROFILE.
+-   Bashrc: Is a file for none login shells. For linux?. In "terminal" run **bash** to create a subshell. After running this line, mac terminal will echo FROM BASHRC. Having 2 files for logging and non-login shells is cumbersome since we will have to modify both each time when customizing.\
+    A way around this problem is to a simple trick which will allow us to **modify just a single file and it will be applied to all our shells**.
+
+To do this, call your bashrc file from the bash_profile
+
+1.  Create bash files in terminal: **`touch .bash_profile`, `touch .bashrc`** (mind the containing folder). Or create the files in Editor (Visual studio).\
+    **warning:** shellscript language (.sh files) is the language for .bash files, but when saved, it saves as .sh, therefore is better to create them with terminal.
+2.  Open the files in a text editor (VS, atom, R, etc).
+3.  in the bash_profile file and type:
+
+```{bash}
+#| eval: false
+
+#To see from which file is teminal running the code, echo the file name.  
+echo "FROM BASH_PROFILE"  
+```
+
+and in the bashrc file:
+
+```{bash}
+#| eval: false
+echo "FROM BASHRC  "  
+```
+
+Next in the profile_bash file, we call the .bashrc. as the "code source" into the bash_profile. So.. if a .bashrc exist, then run the code from that file (.bashrc) instead of this file (.bash_profile).
+
+```{bash}
+#| eval: false
+#to modify just a single file for all our shells, call your bashrc file from with in the bash_profile file.  
+if [ -f ~/.bashrc]; then  
+    source ~/.bashrc  
+fi  
+#Now we can write all our code in the bashrc file and not really have to worry about modifying our bash_profile file anymore.  
+```
+
+Now we can do all our customizations on the bashrc file.
+
+```{bash}
+#| eval: false
+#Code for the bashrc file:
+#To change the promt name for example:
+PS1="custom-> ";
+```
+
+If we reopen terminal it will show **"FROM BASHRC"** in the login shell. Type and run: **`bash`** to reopen as a none login shell and it will show again "FROM BASHRC" confirming that in both shells, the code from the bashrc file is been used and the promp name will also change.\
+So.. from now on will be modifying only the bashrc file....
+
+------------------------------------------------------------------------
+
+**9 [Adding Color and Information to Your Prompt](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c).**
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/LXgXV7YmSiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Customizing Your Terminal: Adding Color and Information to Your Prompt](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+
+Now, let's customize our prompt name
+
+```{bash}
+#| eval: false
+#Code for the bashrc file:
+#To change the promt name for example to just an arrow:
+PS1="-> ";
+export PS1;
+```
+
+Save the file. To see the changes in the terminal, you can
+
+1.  Close terminal and reopen. Or
+2.  run the new code with `source .bashrc` in Terminal.
+
+Now let's add some dynamic information using special characters:\
+Ex 1. To show the user name.... "username -\>"\
+\> (In mac word the ¥ is the backslash) in Terminal it displays correctly).
+
+```{bash}
+#| eval: false
+#Code for the bashrc file:
+#To change the promt name for example + dinamic information (user) ""
+PS1="\u-> ";
+export PS1;
+```
+
+Then the prompt will show your username.
+
+List of special characters:\
+\u user name.\
+\h the hostname up to the first .\
+\s the name of the shell.\
+\t the current time in 24hr format.\
+\u the username of the current user.\
+\w the current working directory.\
+\W the basename of the current working directory.
+
+Ex 2. If we would like a prompt like:
+
+**username\@hostname directory -\>"**.
+
+```{bash}
+#| eval: false
+#Code for the bashrc file:
+#To change the promt name for example + dinamic information (user) ""
+PS1="\u@\h \W -> ";
+export PS1;
+# In terminal reload using: source .bashrc
+```
+
+To add color to the text depending on the dynamic info:
+
+> Remember: in "my word" the ¥ is backslash in VS
+
+```{bash}
+#| eval: false
+#Code for the bashrc file:  
+#To change the promt name for example + dinamic information (user)   
+PS1="\u@\h \W -> ";  
+export PS1;  
+
+#To change the promt name + dinamic information + color based on dinamic info.   
+# 1. Assing colors to tput and command substitution.  
+    # $()  # Command substitution ex.: echo "Your current directory is $(pwd)".  
+    # setaf # Sets color of background. 166 is the color orange in the 256 color chart.   
+    # Ex.: "$(tput setaf 166)This is orange".  
+
+PS1="$(tput setaf 166)\u@\h \W -> ";  
+export PS1;  # This will change the color of prompt but also all the text diplayed in Terminal.   
+
+# 2. We need to specify whe color begins and ends.   
+    # $(tput sgr0) # Resets the formating.  
+PS1="$(tput setaf 166)\u@\h \W -> $(tput sgr0)";  
+export PS1;  # Change color of prompt and reset color at the end of prompt.  
+
+# 3. To add more colors, place a tput before each dinamic info.  
+PS1="$(tput setaf 166)\u$(tput setaf 228)@\h$(tput setaf 71)\W -> $(tput sgr0)";  
+export PS1;  # Change color of for each dinamic info and reset color at the end of prompt.  
+    # This way of coding makes lines long an difficult to see. 
+    # To organize, add "PS1+=" at the beginning of each line and write the command.
+
+PS1="$(tput setaf 166)\u"; # Orange user.  
+PS1+="$(tput setaf 228)@\h"; # yellow Host.  
+PS1+="$(tput setaf 71)\W"; # green working directory.  
+PS1+="$(tput sgr0)"; # reset color.  
+export PS1;  # Save and reload. For some reason ? the promp and cursor position is miss placed. 
+
+# 4. To correct the prompt missplacement problem.  
+    # Use the special escape? characters commad in every tput command: \[ \]
+PS1="\[$(tput setaf 166)\]\u"; # Orange user.  
+PS1+="\[$(tput setaf 228)\]@\h"; # yellow Host.  
+PS1+="\[$(tput setaf 71)\]\W"; # green working directory.  
+PS1+="\[$(tput sgr0)\]"; # reset color.  
+export PS1;  # Save and reload. promp and cursor position is corrected. 
+
+# 5. To make it more easy to code, we can specify each tput command as a variable.
+orange= $(tput setaf 166);  
+yellow= $(tput setaf 228);  
+green= $(tput setaf 71);  
+white= $(tput setaf 15);   
+bold= $(tput setaf bold);   
+reset= $(tput sgr0);  
+      
+PS1="\[${bold}\]\n";  
+PS1+="\[${orange}]\u"; # Orange user.  
+PS1+="\[${white}\] at";  
+PS1+="\[${yellow}\]\h"; # yellow Host.  
+PS1+="\[${white}\] in";  
+PS1+="\[${green}\]\W"; # green working directory.  
+PS1+="\n";  # \n is a new line  
+PS1+="\[${white}\]$ \[${reset}\]"; # $ white and reset color.  
+export PS1;  
+
+# To reload in terminal: source .bashrc
+
+```
+
+**10 [How To Use and Modify Dotfiles](https://youtu.be/c5RZWDLqifA)**
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/c5RZWDLqifA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Customizing Your Terminal: How To Use and Modify Dotfiles](https://youtu.be/c5RZWDLqifA)
+
+Customizing Terminal takes a lot of time and effort. A better and reliable way to do it is by using files already done by other more capable developers that share their customization with the community. In this case we can use the [GitHub does dotfiles](https://dotfiles.github.io) page. In particular the [Mathias Bynens's dotfiles](https://github.com/mathiasbynens/dotfiles)(MBs dotfiles), I download the repository zipfile to [this folder](/Users/marcelorosales/Documents/GitHub/DotFiles/MBs%20dotfiles) unzip and open the .bashrc and the .bash_profile.
+
+Previously we use the ".bashrc" file as the main file for modifying shell profile, but in this repository, they do the opposite and use the ".bash_profile" as main file and call-in the ".bashrc" file.
+
+In the .bash_profile from MBs,\
+To understand the code commands and checks, in terminal use:
+
+```{bash}
+#| eval: false
+man test
+```
+
+Now you can check all the files. Open at
+
+We can also the [CoreyMSchafer/dotfiles](https://github.com/CoreyMSchafer/dotfiles) (CMSs dotfiles)
+
+**11 [How I Setup a New Development Machine - Using Scripts to Automate Installs and Save Time](https://youtu.be/kIdiWut8eD8?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c).**
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/kIdiWut8eD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[How I Setup a New Development Machine - Using Scripts to Automate Installs and Save Time](https://youtu.be/kIdiWut8eD8?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+
+To make a file executable in Terminal, whether is a .bash file or a .sh file. In Terminal type:
+
+```{bash}
+#| eval: false
+chmod +x scriptname.sh
+```
+
+------------------------------------------------------------------------
+
+### How to install dotfiles. Outdated
+
+Dotfiles are outdated, bash files no longer used
+
+::: {error="" style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
+All these procedures are for bash shell, obsolete for the new zsh shell. Use to customize RStudio Termina only ‼
+:::
+
+**Summary of the procedure.**
+
+0.  Find dotfile repo, check and modify code for custom prompt and brew installation files. Files:
+
+-   install.sh: Executable, where I modify installation procedures.
+-   bash_profile: Gather all custom .bash scripts and source them.
+-   bashrc.
+-   bash_server_prompt.
+-   bash_prompt: Custom prompt color.
+-   brew.sh or brewfile: May is better to use the dump command for auto brewfile.
+
+**From Github:**
+
+1.  Git clone dotfiles repo into home directory.
+2.  Run install.sh
+3.  .bashfiles symlinks will be created in home dir and auto source.
+4.  Restart †Terminal (bash shell) or RStudio terminal.
+5.  Custom prompt will be displayed.\
+    ∵ changes and modifications are made on git \> commit and pushed, will apply to all devices at once.
+
+**From Folder:**
+
+1.  Copy the dotfile directory to homedir.
+2.  Run install.sh
+3.  .bashfiles symlinks will be created in homedir and auto sourced.
+4.  Restart †Terminal (bash shell) or RStudio terminal.
+5.  Custom prompt will be displayed.\
+    ∵ changes and modifications will have to be made manually for each device every time. It is NOT an ideal way to it.
+
+**From Cloud Sync Service (Box Sync):**
+
+1.  Copy the dotfile directory to Box Sync directory.
+2.  Run install.sh
+3.  .bashfiles symlinks will be created in homedir and auto source.
+4.  Restart †Terminal (bash shell) or RStudio terminal.
+5.  Error in the installing.
+
+-   Symlinks path DO NOT point/target to Box Sync dir.
+-   Idea: Create folder in homedir. Create symlinks to Box Sync.
+-   Error: Too many levels of symbolic links.
+-   As of this posting, Box can't handle symlinks.
+-   Path with spaces are problematic as string variable.\
+    ∵ installation was unsuccessful.
+
+**\> Try on other Sync Services like Google or iCloud or OneDrive.**
+
+1.  Dotfiledir in iCloud \> install.sh with symlinks to icloud folder (mod install.sh, !.bashfile to .bashfile slink)\>
+2.  Create alias dir of Dotfiledir (slink) \> move alias dir to homedir \> install.sh (carefull if .bashfile or !.bashfile).
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Bash dotfiles install
+
+**Detail installation procedure of bash dotfiles:**\
+Requirements: (See brew and git sections for detail information).
+
+1.  Homebrew; download from <https://brew.sh/>\
+2.  Git must be installed.\
+
+-   To make sure it is type in terminal:
+    -   `git` (git manual should display, if not install) or
+    -   \`git --version' (the version number will be display).
+    -   **If not installed** install from <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>.
+
+3.  Download the "dotfile" directory from the git hub repository (if you have one. In general it is recommended).\
+4.  **This will create a folder in the home directory called 'dotfiles'** with all the files required.
+
+-   If not: **Create or copy/paste a directory 'dotfiles\` containing all the files**.
+
+5.  Go to terminal. \> Go to dotfiles folder.
+
+```{bash}
+#| eval: false
+cd path/to/dotfile/folder/
+```
+
+6.  Run the install file: through terminal. (you need to be in the same folder as the install.sh file).
+
+```{bash}
+#| eval: false
+./install.sh path/to/home/directory
+```
+
+This will create the files (symlinks) into the home directory.
+
+If the error:
+
+```{bash}
+#| eval: false
+-bash: ./file.name: Permission denied
+```
+
+Is ∵ you are trying to execute a file which you do not have permission to run.\
+To fix this issue, use the `chmod u+x` command to give yourself permissions. more info [here](https://careerkarma.com/blog/bash-permission-denied-solution/#:~:text=Conclusion,get%20access%20to%20a%20file.)
+
+```{bash}
+#| eval: false
+
+chmod u+x example.sh
+```
+
+Then, run installation again
+
+```{bash}
+#| eval: false
+./install.sh path/to/home/directory
+```
+
+It will create the symlinks and run and install the brew file programs. (may take a while).
+
+However, If executing install.sh form other directory than 'dotfiles' created by git, **the symlinks will do not directed to the right folder**.
+
+**To check symlink path:**\
+\> //Finder \> R© \> Get Info \> ...\[\]... Original: /path/to/original/file \<- if path is **incorrect**, change manually in terminal.\
+[How to change where a symlink points \[duplicate\]](https://unix.stackexchange.com/questions/151999/how-to-change-where-a-symlink-points)\
+Can you change what a symlink points to after it is created?
+
+```{bash}
+#| eval: false
+
+ln -sfn source/file/or/directory/name softlink/name  
+Eg.  
+ln -sfn path/to/original/file/.bash_profile .bash_profile (∵ we are in home directory) or  
+ln -sfn path/to/original/file/MRR-bash_prompt  .bash_prompt  (target file is not a .bash file)   
+```
+
+\*Ø source file, original file, targeted file are all synonyms in this case.
+
+```{bash}
+#| eval: false
+
+# create symlinks (will overwrite old dotfiles)
+# Careful!! bash: /Users/marcelorosales/.bash_profile: Too many levels of symbolic links!!!! As of this posting, Box can’t handle symlinks.
+for file in ${files}; do
+    echo "Creating symlink to $file in home directory."
+    # ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}  # Original Links will be created in the ${homedir}
+    ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}  # Original -> target
+done
+```
+
+### Symbolic Links
+
+**(aka Symlinks) on a Mac**
+
+[Ref](https://www.howtogeek.com/297721/how-to-create-and-use-symbolic-links-aka-symlinks-on-a-mac/)
+
+To create a symbolic link on a Mac, you'll need to use the Terminal app. Run the ln command in the following form. You can specify either a path to a directory or file:
+
+```{bash}
+#| eval: false
+ln -s /path/to/original /path/to/link
+ln -s /path/of/original/file /path/to/target/dir
+ln -s "/path/of/original/file" "/path/to/target/dir/{filename}"
+```
+
+The -s here tells the ln command to create a symbolic link. If you want to create a hard link, you'd omit the -s. Most of the time symbolic links are the better choice, so don't create a hard link unless you have a specific reason for doing so.
+
+Here's an example. Let's say you wanted to create a symbolic link in your Desktop folder that points to your Downloads folder. You'd run the following command:
+
+```{bash}
+#| eval: false
+ln -s /Users/name/Downloads /Users/name/Desktop
+```
+
+After creating the link, you'd see your Downloads folder appear on your desktop. It's actually the symbolic link you created, but it will look like the real thing. This folder will appear to contain all the same files as your Downloads folder. That's because it does---they're just different views pointing to the same underlying directory on the file system.
+
+If your file path contains spaces or other special characters, you'll need to enclose it in quotation marks. So, if you wanted to create a link on your desktop to a folder named "My Files" inside your user directory, you'd need something like the following command:
+
+```{bash}
+#| eval: false
+ln -s "/Users/name/My Files" "/Users/name/Desktop/My Link"
+```
+
+To ease typing file and directory paths into the Terminal, you can drag-and-drop a folder from the Finder window into the Terminal and the Terminal will automatically fill in the path to that folder. It will enclose the path in quotation marks if necessary, too.
+
+If you need to create a symbolic link in a system location your user account doesn't have access to, you'll need to prefix the ln command with the sudo command, like so:
+
+```{bash}
+#| eval: false
+sudo ln -s /path/to/original /path/to/link  
+```
+
+!!! note\
+Bear in mind that, on modern versions of macOS, you won't be allowed to write to certain system locations without changing a low-level firmware option due to the System Integrity Protection feature. You can disable that feature, but we recommend that you don't.
+
+RELATED: [How to Disable System Integrity Protection on a Mac (and Why You Shouldn't)](https://www.howtogeek.com/230424/how-to-disable-system-integrity-protection-on-a-mac-and-why-you-shouldnt/)
+
+#### Update a symlink
+
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/rUpQ8ja65CE " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[How to update an existing symlink](https://youtu.be/rUpQ8ja65CE)
+
+#### Aliases vs. Symbolic links
+
+Mac OS X has two types of aliases. The `traditional aliases`, and `symbolic links` (derived from UNIX).\
+**Aliases** are linked to the file or folder they point to. This means that if you move the original file to a new location, the alias follows it and is still linked to it.\
+**Symbolic links** refer to a specific pathway. Thus, a symbolic link to a file called Testing in your Documents folder will only work if the file remains in that folder location. Move it and the link is broken. On top of that, if you move the file and create a different one with the same name in the original location, the symbolic link will now point to that file (since it has the same pathway). Both methods have their advantages and disadvantages.
+
+Aliases and symbolic links are both used to create shortcuts or references to files or folders, but they function differently and have different characteristics:
+
+##### Aliases:
+
+-   Aliases are specific to the macOS operating system.
+-   They are created using the Finder interface by right-clicking on a file or folder and selecting "Make Alias."
+-   Aliases are small files that contain references to the original file or folder.
+-   Aliases can be moved, renamed, or deleted without affecting the original file or folder.
+-   Aliases retain their functionality even if the original file or folder is moved or renamed.
+-   Aliases are resolved by the operating system and can be accessed by any application.
+-   Aliases can be recognized by their distinctive arrow icon.
+
+##### Symbolic Links:
+
+-   Symbolic links (symlinks) are available on various operating systems, including macOS, Linux, and Windows (with limitations).
+-   They are created using the command-line interface or the file manager interface.
+-   Symlinks are special files that contain the path to the original file or folder.
+-   Symlinks can be moved, renamed, or deleted without affecting the original file or folder.
+-   If the original file or folder is moved or renamed, the symlink may break and become invalid.
+-   Symlinks are transparent to applications and appear as if they were the original file or folder.
+-   Symlinks can be recognized by the "shortcut arrow" icon on Windows or a "symlink" badge on macOS.
+
+In summary, aliases are specific to macOS and are created using the Finder, while symbolic links are available on multiple operating systems and are typically created using the command-line interface. Aliases are small files that retain their functionality regardless of the original file or folder's location, while symlinks are special files that may break if the original file or folder is moved or renamed.
+
+#### how to crate symlinks in Box sync
+
+Creating symbolic links (symlinks) within Box Sync is not directly supported by the Box Sync application. Box Sync is designed to synchronize files and folders between your local computer and your Box account, but it does not provide native functionality for creating symlinks.
+
+However, you can manually create symlinks outside of the Box Sync folder and then place the symlinked files or folders inside the Box Sync folder. Here's how you can do it:
+
+1.  Identify the file or folder you want to symlink.
+2.  Create the symlink using the appropriate method for your operating system:
+    -   Windows: You can create symlinks using the `mklink` command in Command Prompt or PowerShell.
+    -   macOS/Linux: You can create symlinks using the `ln` command in the terminal.
+3.  Once the symlink is created, you can move it into the Box Sync folder.
+4.  Box Sync will recognize the symlinked file or folder and synchronize it with your Box account as if it were a regular file or folder.
+
+Keep in mind that the behavior of symlinks within Box Sync may vary depending on the operating system and Box Sync version. It's recommended to test the setup and ensure that the symlinks are working as expected.
+
+Note: Creating symlinks requires appropriate permissions on your system. Make sure you have the necessary privileges to create symlinks and manage files and folders in your operating system.
+
+```{bash}
+#| eval: false
+ln -s "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/All_notes.qmd" "/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/All_notes_smlk.qmd"
+```
+
+#### Symlinks and synology
+
+On a Synology NAS, you can create symbolic links (symlinks) using the command-line interface (CLI) or through the DSM (DiskStation Manager) web interface. Here's how you can create symlinks on a Synology NAS:
+
+1.  Using the CLI:
+    -   Connect to your Synology NAS via SSH or use the built-in Terminal in the DSM web interface.
+
+    -   Navigate to the location where you want to create the symlink.
+
+    -   Use the `ln` command to create the symlink. For example, to create a symlink named "symlink_name" pointing to "target_path", use the following command:
+
+        ```         
+        ln -s target_path symlink_name
+        ```
+
+    -   The symlink will be created in the specified location.
+2.  Using the DSM web interface:
+    -   Open the File Station app in the DSM web interface.
+    -   Navigate to the folder where you want to create the symlink.
+    -   Right-click on an empty area and select "Create" \> "Symbolic Link".
+    -   Enter the path to the target folder/file in the "Link to" field.
+    -   Provide a name for the symlink in the "Link name" field.
+    -   Click "Create" to create the symlink.
+
+Please note that creating symlinks may require administrative privileges on the Synology NAS. Also, keep in mind that the behavior and support for symlinks may vary depending on the specific model and version of the Synology NAS and the DSM software you are using. It's recommended to consult the Synology documentation or support resources for more specific information related to your NAS model.
+
+#### Symlinks Results
+
+As mention in **From Cloud Sync Service (Box Sync):**
+
+-   Symlinks path DO NOT point/target to Box Sync dir.
+-   Error: Too many levels of symbolic links.
+-   As of this posting, Box can't handle symlinks.
+-   Path with spaces are problematic as string variable.
+-   Idea: Create folder in homedir. Create symlinks to Box Sync.\
+    ∵ installation was unsuccessful.
+
+### Sync files
+
+[How to Use the rsync Command \| Linux Essentials Tutorial](https://www.youtube.com/watch?v=2PnAohLS-Q4)
+
+Syntax: rsync -\[options\] source destination
+
+rsync -av source destination rsync -av --dry-run source destination #Sync simulation, not actual syncing
+
+rsync -av var/log root\@139.177.195.158:/mnt/backup \# sync data for local server to another server. (you need rsync installed in the destination server) root\@139.177.195.158's password: #will ask the password for the server.
+
+[Linux/Mac Terminal Tutorial: How To Use The rsync Command - Sync Files Locally and Remotely](https://www.youtube.com/watch?v=qE77MbDnljA)
+
+rsync Original/\* Backup/ \# does not sync sub folders rsync -r Original/ Backup/ \# sync all data including sub dir into destination. rsync -r Original Backup/ \# sync the folder including sub dir into destination. rsync -av --dry-run Original/ Backup/ \# simulation of the file and folders to be sync.
+
+If you add more files to the Original folder and re-run command, it will copy only the new/modify files/folders. If you add more files to the Backup folder and re-run command, it will copy only the new/modify data and add files in destination.
+
+rsync -av --delete --dry-run Original/ Backup/ \# Will delete added files in destination. rsync -zaP \~/path/to/source name\@192.168.56.100:\~/path/to/destination \# sync data to a server (will ask for password)
+
+#### Sync two files in mac OS
+
+On macOS, you can sync two files using various methods, depending on your specific needs and preferences. Here are a few common approaches:
+
+1.  Using the Finder:
+    -   Open a Finder window and locate the source file you want to sync.
+    -   Select the source file and press `Command+C` to copy it.
+    -   Navigate to the destination location where you want to sync the file.
+    -   Press `Command+V` to paste the file. If the file already exists at the destination, you will be prompted to replace it or merge the contents.
+2.  Using the Terminal and `rsync`:
+    -   Open Terminal (Applications -\> Utilities -\> Terminal).
+
+    -   Use the `rsync` command to sync files. For example, to sync `file1.txt` from the source folder to the destination folder, use the following command:
+
+```{bash}
+#| eval: false
+rsync -avh --progress /path/to/source/file1.txt /path/to/destination/
+```
+
+-   The `-avh` options preserve file attributes and enable verbose mode, while `--progress` displays the progress of the sync process.
+
+3.  Using third-party synchronization software:
+    -   There are various third-party applications available for file synchronization on macOS, such as Dropbox, Google Drive, or Resilio Sync. These tools provide more advanced syncing capabilities and often include features like automatic syncing, real-time collaboration, and cloud storage integration.
+
+Choose the method that suits your specific requirements, whether you prefer a manual approach through the Finder, utilizing the command-line power of `rsync`, or using dedicated syncing software.
+
+#### how to schedule rsync on mac
+
+To schedule an `rsync` command to run at specific times or intervals on macOS, you can use the built-in `cron` or `launchd` utilities. Here's a step-by-step guide on how to set up a scheduled `rsync` task:
+
+Using `cron`:
+
+1.  Open Terminal on your macOS (Applications -\> Utilities -\> Terminal).
+
+2.  Type `crontab -e` to open the cron file for editing.
+
+3.  If prompted to select an editor, choose your preferred text editor (e.g., nano, vim).
+
+4.  In the cron file, add a new line specifying the schedule and the `rsync` command. For example, to run `rsync` every day at 10:00 AM:
+
+    ```         
+    0 10 * * * rsync -avh --progress /path/to/source/ /path/to/destination/
+    ```
+
+    Adjust the `rsync` options, source path, and destination path as needed.
+
+5.  Save the file and exit the editor.
+
+6.  `cron` will now execute the `rsync` command at the scheduled time.
+
+Using `launchd`:
+
+1\. Open a text editor (e.g., TextEdit) on your macOS.
+
+2\. Create a new XML file with the following content, replacing the placeholders with your specific information:
+
+```         
+{<?xml version="1.0" encoding="UTF-8"?>}
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.rsyncsync</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>rsync</string>
+        <string>-avh</string>
+        <string>--progress</string>
+        <string>/path/to/source/</string>
+        <string>/path/to/destination/</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>10</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+</dict>
+</plist>
+```
+
+Adjust the `rsync` options, source path, destination path, and the `Hour` and `Minute` values in `<StartCalendarInterval>` as needed.
+
+1.  Save the file with a .plist extension, such as rsyncsync.plist.
+2.  Open Terminal on your macOS (Applications -\> Utilities -\> Terminal).
+3.  Type sudo mv /path/to/rsyncsync.plist /Library/LaunchDaemons/ to move the .plist file to the appropriate directory.
+4.  Type sudo chown root:wheel /Library/LaunchDaemons/rsyncsync.plist to set the correct ownership and permissions for the file.
+5.  Type sudo launchctl load /Library/LaunchDaemons/rsyncsync.plist to load the launchd job.
+6.  launchd will now execute the rsync command at the scheduled time.
+
+Note: When using `cron` or `launchd`, ensure that the paths to the `rsync` executable and the source/destination files/folders are correctly specified. Also, make sure you have the necessary permissions to access the files/folders and run the `rsync` command.
+
+Please exercise caution when scheduling tasks and ensure that the `rsync` command is tested and functioning correctly before setting it up for automatic execution.
+
+#### how to trigger sync with rsync as soon as original file is modify?
+
+To trigger a sync with `rsync` as soon as the original file is modified, you can use the `--update` option along with the `--delete` option to keep the destination in sync with the source. Here's an example command:
+
+```         
+rsync -avh --progress --update --delete /path/to/source/ /path/to/destination/
+```
+
+Explanation of options:
+
+-   `-avh`: Enables archive mode (preserves file attributes), displays verbose output, and shows the progress of the sync.
+-   `--update`: Skips files that are newer in the destination, effectively syncing only modified or new files.
+-   `--delete`: Deletes files in the destination that don't exist in the source, ensuring an exact match between the source and destination.
+
+When you run this command, `rsync` will compare the timestamps of the files in the source and destination. It will only transfer files that have been modified or are new since the last sync. The `--delete` option ensures that any files in the destination that no longer exist in the source will be removed.
+
+You can include this command in a script or a scheduled task (such as using `cron` or `launchd`) to run it periodically or at specific intervals. This way, the sync will be triggered automatically whenever there are modifications to the original file.
+
+### Schedule commands with crontabs
+
+[Linux/Mac Tutorial: Cron Jobs - How to Schedule Commands with crontab](https://www.youtube.com/watch?v=QZJ1drMQz1A)
+
+------------------------------------------------------------------------
+
+220830
+
+### How to Create Files and Directories in R
+
+[How to Create Files and Directories in R - R-Lang](https://r-lang.com/how-to-create-files-and-directories-in-r/)
+
+How to Create a **directory** in R To create a directory in R, use the dir.create() method. The dir.create() method accepts a folder generated in the current working directory or specifies a path. Before working with files, it's a better idea to know what directory you're working in. In R, you can figure out which directory you are working on the getwd() function.
+
+Syntax
+
+```{r}
+#| eval: false
+
+dir.create(path, showWarnings = TRUE, recursive = FALSE, mode = "0777")
+```
+
+Arguments path: It is a character vector containing a single path name. paths: They are character vectors containing file or directory paths. showWarnings: It is a logical argument; should the warnings on failure be shown? recursive: It is a logical argument. Should elements of the path other than the last be created? If true, like the Unix command mkdir -p. mode: It will be used on Unix-alikes: it will be coerced by as.octmode. For Sys.chmod, it is recycled along paths.
+
+Return Value The dir.create() function returns an invisibly logical vector indicating if the operation succeeded for each of the files attempted.
+
+Example Before creating a folder in R, you need to check if the same-named folder exists. To check if the folder exists, use the file.exists() method. Then if it does not exist, you can create a folder.
+
+```{r}
+#| eval: false
+
+folder <- "mortalkombat"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+If the folder does not exist, then it will create a new directory for you.
+
+Trailing path separators are discarded. On Windows, drives are allowed in the path specification, and unless the path is rooted, it will be interpreted relative to the current directory on that drive. The mode is ignored on Windows.
+
+How to Create a file in R To create a file in R programmatically, use the file.create() method. The file.create() function creates files with the given names if they do not already exist and truncates them if they do.
+
+Syntax
+
+```{r}
+#| eval: false
+
+file.create(x, showWarnings = TRUE)
+
+```
+
+Parameters ..., file1, file2: They are character vectors containing file names or paths.
+
+Example
+
+```{r}
+#| eval: false
+
+file <- "dataframe.R"
+if (file.exists(file)) {
+ cat("The file already exists")
+} else {
+ file.create(file)
+}
+```
+
+Output \[1\] TRUE
+
+```{r}
+#| eval: false
+
+install.packages("rChoiceDialogs")
+install.packages("rJava")
+
+library(rChoiceDialogs)
+tk_choose.dir()
+
+```
+
+works only on linux/mac not windows.
+
+tk_choose.dir {tcltk}
+
+function to make symlinks.
+
+```{bash}
+#| eval: false
+
+ln -s /path/to/original /path/to/link 
+
+# upadate:
+
+ln -s "/Users/name/My Files" "/Users/name/Desktop/My Link"
+```
+
+1.  Choose a file\
+2.  choose a folder\
+3.  create symlink \<In r there is a command already.\>
+
+-   paste name of original file
+
+1.  In \>\_?
+
+```{bash}
+#| eval: false
+
+pwd
+cd /Users/rosalesrocabadomarcelo/Documents/GitHub/tests
+pwd
+touch test.txt
+ls
+#rm test.txt
+#ls
+```
+
+[Select file from command-line](https://apple.stackexchange.com/questions/399510/select-file-from-command-line)
+
+```{bash}
+#| eval: false
+#| 
+theSelectedFile="$(osascript -l JavaScript -e 'a=Application.currentApplication();a.includeStandardAdditions=true;a.chooseFile({withPrompt:"Please select a file to process:"}).toString()')"
+
+echo "Selected file: $theSelectedFile"
+```
+
+1.  With in R and Rstudio.
+
+```{r}
+#| eval: false
+
+file.choose()
+```
+
+`file.choose()` is a {base} function, it works by itself, does not need a package to work.
+
+However, for choosing directories:
+
+The `choose.dir`, from the utils package Choose a Folder Interactively on MS Windows only. Not mac.
+
+For mac an Unix, use `tk_choose.dir()` form {tcltk} package.
+
+```{r}
+#| eval: false
+
+library(tcltk)
+tk_choose.dir()
+```
+
+For multiplataform usage, create a custom function in the global environment
+
+```{r}
+#| eval: false
+
+choose_directory = function(caption = 'Select data directory') {
+  if (exists('utils::choose.dir')) {
+    choose.dir(caption = caption) 
+  } else {
+    tk_choose.dir(caption = caption)
+  }
+}
+```
+
+Then use it as a function:
+
+```{r}
+#| eval: false
+
+choose_directory()
+```
+
+How to Create Files and Directories in R - R-Lang
+
+Windows
+
+```{r}
+#| eval: false
+
+getwd()
+setwd(choose.dir)
+folder <- "test"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+Mac
+
+```{r}
+#| eval: false
+
+getwd()
+setwd(tk_choose.dir())
+folder <- "test"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+Mac&Windows
+
+```{r}
+#| eval: false
+
+getwd()
+setwd(choose_directory())
+folder <- "test"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+Interactively, choose a folder.
+
+```{r}
+#| eval: false
+
+if (interactive()) tk_choose.dir(getwd(), "Choose a suitable folder")
+```
+
+1.  Create symlink
+
+```{r}
+#| eval: false
+
+file.symlink(tk_choose.files(), tk_choose.dir())
+```
+
+See files {base}\
+R Documentation File Manipulation
+
+[top](#)
+
+### Terminal Commands
+
+[**Usefull terminal commands**](https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/)
+
+| Comand »   | Action                                                 |
+|------------|--------------------------------------------------------|
+| ls »       | list of all files in a folder                          |
+| ls -al »   | list of files + all attributes (.files) + long form    |
+| touch »    | Creates new file.                                      |
+| chmod -x » | Makes a file executable eg. .bash_profile, install.sh. |
+| ./ »       | Execute a file. Eg. ./ install.sh                      |
+| mkdir »    | Make directory.                                        |
+| cd         | Change directory.                                      |
+| q »        | To quit man commands                                   |
+| cont+c »   | To stop running commands.                              |
+
+#### Html table
+
+Note: § Make Sure that content text is in the correct indentation. \$ Must be not spaces between the html code, otherwise it will break code continuity and html will be not be display correctly.
+
+::: callout-caution
+html code can be written (copy/paste) directly into the code sheet without the need of code block, this is because md file can read html natively, however, in quarto there are still many conflicts and bugs that disrupt correct display. In the following section, tabe goes over the margin constraing set in quarto and over expands in webpage. Therefore, the html code will be confined to a code block so it wont be display as table but as code only.
+:::
+
+``` html
+<table>
+  <caption>Author Details</caption>
+    <col width=50%>
+    <col width=50%>
+  <tr> <!-- table row 1 Start-->
+    <th>Col 1</th>  <!-- table head 1 -->
+    <th>Col2</th> <!-- table head 2 -->
+  </tr><!-- table row 1 End -->
+  <tr>
+    <td> <!-- Data cell element -->
+      <pre> <!-- The Preformatted Text element Start (Makes text appear exactly as written in html, eg. shape or drawing with letters)-->
+        **Shortcuts for Terminal/Unix**  
+        Tab » Auto-complete file and folder names.  
+        Ctrl + A » Go to the beginning of the line you're currently typing on.  
+        Ctrl + E » Go to the end of the line you're currently typing on.  
+        Ctrl + U » Clear the line before the cursor.  
+        Ctrl + K » Clear the line after the cursor.  
+        Ctrl + W » Delete the word before the cursor.  
+        Ctrl + T » Swap the last two characters before the cursor.  
+        Esc + T » Swap the last two words before the cursor.  
+        Ctrl + L » Clear the screen.  
+        Ctrl + C » Kill whatever you're running.  
+        Ctrl + D » Exit the current shell.  
+        Option + → » Move cursor one word forward.  
+        Option + ← » Move cursor one word backward.  
+        Ctrl + F » Move cursor one character forward.  
+        Ctrl + B » Move cursor one character backward
+        Ctrl + Y » Paste whatever was cut by the last command
+        Ctrl + Z » Puts whatever you're running into a suspended background process
+        Ctrl + _ » Undo the last command
+        Option + Shift + Cmd + C » Copy plain text
+        Shift + Cmd + V » Paste the selection
+        exit » End a shell session    
+      </pre>
+    </td>
+    <td>
+      <pre> <!-- The Preformatted Text element Start (Makes text appear exactly as written in html, eg. shape or drawing with letters)-->
+        **Basics**  
+        / (Forward Slash) »	Top level directory   
+        . (Single Period) »	Current directory   
+        .. (Double Period) »	Parent directory   
+        ~ (Tilde) »	Home directory   
+        sudo [command] »	Run command with the security privileges of the super user   
+        nano [file] »	Opens the Terminal editor
+        open [file] »	Opens a file   
+        [command] -h »	Get help about a command   
+        man [command] »	Show the help manual of the command   
+        **Change Directory**   
+        cd »	Home directory   
+        cd [folder] »	Change directory, e.g. cd Documents   
+        cd ~ »	Home directory   
+        cd/ »	Root of the drive   
+        cd - »	Previous directory or folder you last browsed   
+        pwd »	Show your working directory   
+        cd.. »	Move up to the parent directory   
+        cd../.. »	Move up two levels   
+      </pre>
+    </td>
+  </tr>
+</table>
+```
+
+> In case it can not be displayed in html
+
+**Shortcuts for Terminal/Unix**\
+Tab » Auto-complete file and folder names.\
+Ctrl + A » Go to the beginning of the line you're currently typing on.\
+Ctrl + E » Go to the end of the line you're currently typing on.\
+Ctrl + U » Clear the line before the cursor.\
+Ctrl + K » Clear the line after the cursor.\
+Ctrl + W » Delete the word before the cursor.\
+Ctrl + T » Swap the last two characters before the cursor.\
+Esc + T » Swap the last two words before the cursor.\
+Ctrl + L » Clear the screen.\
+Ctrl + C » Kill whatever you're running.\
+Ctrl + D » Exit the current shell.\
+Option + → » Move cursor one word forward.\
+Option + ← » Move cursor one word backward.\
+Ctrl + F » Move cursor one character forward.\
+Ctrl + B » Move cursor one character backward Ctrl + Y » Paste whatever was cut by the last command Ctrl + Z » Puts whatever you're running into a suspended background process Ctrl + \_ » Undo the last command Option + Shift + Cmd + C » Copy plain text Shift + Cmd + V » Paste the selection exit » End a shell session
+
+**Basics**\
+/ (Forward Slash) » Top level directory\
+. (Single Period) » Current directory\
+.. (Double Period) » Parent directory\
+\~ (Tilde) » Home directory\
+sudo \[command\] » Run command with the security privileges of the super user\
+nano \[file\] » Opens the Terminal editor open \[file\] » Opens a file\
+\[command\] -h » Get help about a command\
+man \[command\] » Show the help manual of the command
+
+**Change Directory**\
+cd » Home directory\
+cd \[folder\] » Change directory, e.g. cd Documents\
+cd \~ » Home directory\
+cd/ » Root of the drive\
+cd - » Previous directory or folder you last browsed\
+pwd » Show your working directory\
+cd.. » Move up to the parent directory\
+cd../.. » Move up two levels
+
+[top](#)
+
+#### Commands Cheat sheet
+
+[Terminal/Unix Commands Cheat Sheet.](https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/) **Plain List**
+
+**Shortcuts**\
+Tab » Auto-complete file and folder names.\
+Ctrl + A » Go to the beginning of the line you're currently typing on.\
+Ctrl + E » Go to the end of the line you're currently typing on.\
+Ctrl + U » Clear the line before the cursor.\
+Ctrl + K » Clear the line after the cursor.\
+Ctrl + W » Delete the word before the cursor.\
+Ctrl + T » Swap the last two characters before the cursor.\
+Esc + T » Swap the last two words before the cursor.\
+Ctrl + L » Clear the screen.\
+Ctrl + C » Kill whatever you're running.\
+Ctrl + D » Exit the current shell.\
+Option + → » Move cursor one word forward.\
+Option + ← » Move cursor one word backward.\
+Ctrl + F » Move cursor one character forward.\
+Ctrl + B » Move cursor one character backward Ctrl + Y » Paste whatever was cut by the last command Ctrl + Z » Puts whatever you're running into a suspended background process Ctrl + \_ » Undo the last command Option + Shift + Cmd + C » Copy plain text Shift + Cmd + V » Paste the selection exit » End a shell session **Basics**\
+/ (Forward Slash) » Top level directory . (Single Period) » Current directory .. (Double Period) » Parent directory \~ (Tilde) » Home directory sudo \[command\] » Run command with the security privileges of the super user nano \[file\] » Opens the Terminal editor open \[file\] » Opens a file \[command\] -h » Get help about a command man \[command\] » Show the help manual of the command
+
+**Change Directory**\
+cd » Home directory\
+cd \[folder\] » Change directory, e.g. cd Documents\
+cd \~ » Home directory\
+cd/ » Root of the drive\
+cd - » Previous directory or folder you last browsed\
+pwd » Show your working directory\
+cd.. » Move up to the parent directory\
+cd../.. » Move up two levels
+
+**List Directory Contents**\
+ls » Display the name of files and subdirectories in the directory\
+ls -C » Force multi-column output of the listing\
+ls -a » List all entries including those with .(period) and ..(double period)\
+ls -1 » Output the list of files in one entry per line format\
+ls -F » Display a / (slash) immediately after each path that is a directory, \* (asterisk) after executable programs or scripts, and \@ after a symbolic link\
+ls -S » Sort files or entries by size\
+ls -l » List in a long format. Includes file mode, owner and group name, date and time file was modified, pathname, and more\
+ls -l / » List of the file system from root with symbolic links\
+ls -lt » List the files sorted by time modified (most recent first)\
+ls -lh » Long listing with human readable file sizes in KB, MB, or GB\
+ls -lo » List the file names with size, owner, and flags\
+ls -la » List detailed directory contents, including hidden files
+
+**File Size and Disk Space**\
+du » List usage for each subdirectory and its contents\
+du -sh \[folder\] » Human readable output of all files in a directory\
+du -s » Display an entry for each specified file\
+du -sk\* \| sort -nr » List files and folders, totaling the size including the subfolders. Replace sk\* with sm\* to list directories in MB\
+df -h » Calculate your system's free disk space\
+df -H » Calculate free disk space in powers of 1,000 (as opposed to 1,024).
+
+**File and Directory Management**\
+mkdir <dir1> » Create new folder named <dir1>\
+mkdir -p <dir1>/<dir2> » Create nested folders\
+mkdir <dir1> <dir2> <dir3> » Create several folders at once\
+mkdir "<dir1>" » Create a folder with a space in the filename\
+rmdir <dir1> » Delete a folder (only works on empty folders)\
+rm -R <dir1> » Delete a folder and its contents\
+touch <file> » Create a new file without any extension\
+cp <file> <dir1> » Copy a file to the folder\
+cp <file> <newfile> » Copy a file to the current folder\
+cp <file>\~/<dir1>/<newfile> » Copy a file to the folder and rename the copied file\
+cp -R <dir1> \<"new dir"\> » Copy a folder to a new folder with spaces in the filename\
+cp -i <file><dir1> » Prompts you before copying a file with a warning overwrite message\
+cp <file1> <file2> <file3>/Users/<dir1> » Copy multiple files to a folder\
+ditto -V \[folder path\]\[new folder\] » Copy the contents of a folder to new folder. In here "-V" print a line of status for every file copied\
+rm <file> » Delete a file (This deletes the file permanently; use with caution.)\
+rm -i <file> » Delete a file only when you give confirmation\
+rm -f <file> » Force removal without confirmation\
+rm <file1> <file2> <file3> » Delete multiple files without any confirmation\
+mv <file> <newfilename> » Move/rename\
+mv <file> <dir1> » Move a file to the folder, possibly by overwriting an existing file\
+mv -i <file> <dir1> » Optional -i flag to warn you before overwriting the file\
+mv \*.png \~/<dir1> » Move all PNG files from current folder to a different folder
+
+**Command History**\
+Ctrl + R » Search through previously used commands\
+history n » Shows the previous commands you've typed. Add a number to limit to the last n items\
+\[value\] » Execute the last command typed that starts with a value\
+!! » Execute the last command typed
+
+**Permissions**\
+ls -ld » Display the default permission for a home directory\
+ls -ld/<dir1> » Display the read, write, and access permission of a particular folder\
+chmod 755 <file> » Change the permission of a file to 755\
+chmod -R 600 <dir1> » Change the permission of a folder (and its contents) to 600\
+chown <user>:<group> <file> » Change the ownership of a file to user and group. Add -R to include folder contents
+
+**Processes**\
+ps -ax » Output currently running processes. Here, a shows processes from all users and x shows processes that are not connected with the Terminal\
+ps -aux » Shows all the processes with %cpu, %mem, page in, PID, and command\
+top » Display live information about currently running processes\
+top -ocpu -s 5 » Display processes sorted by CPU usage, updating every 5 seconds\
+top -o rsize » Sort top by memory usage\
+kill PID » Quit process with ID <PID>. You'll see PID as a column in the Activity Monitor\
+ps -ax \| grep <appname> » Find a process by name or PID.
+
+**Network**\
+ping <host> » Ping host and display status\
+whois <domain> » Output whois info for a domain\
+curl -O <url/to/file> » Download file via HTTP, HTTPS, or FTP\
+ssh <username>\@<host> » Establish SSH connection to <host> with user <username>\
+scp <file><user>\@<host>:/remote/path » Copy <file> to a remote <host>\
+arp -a » View a list of all devices on your local network. It will show you the IP and MAC address of all the devices\
+ifconfig en0 » View your device IP and MAC address\
+traceroute \[hostname\] » Identify the path and the hops traversed by the packets from your device to the destination address
+
+**Homebrew**\
+brew doctor » Check brew for potential problems\
+brew help » List of useful homebrew formula and cask commands\
+brew install <formula>\|<cask> » Install a formula or cask\
+brew uninstall <formula>\|cask\> » Uninstall a formula or cask\
+brew list --formula » List only installed formulas\
+brew list --cask » List only installed cask\
+brew deps <formula>\|<cask> » List all the dependencies of a formula or cask\
+brew search text\|/regex/ » Search formula or cask through regex\
+brew upgrade <formula>\|<cask> » Upgrade the formula or cask\
+brew outdated <formula>\|<cask> » Search for outdated formula or cask\
+brew outdated --formula » Search for outdated formula\
+brew outdated --cask » Search for outdated cask\
+brew pin \[installed_formula\] » Pin a formula from getting upgraded\
+brew unpin \[installed_formula\] » Unpin to upgrade a package\
+brew cleanup » Remove stale lock files and outdated packages for all formula and casks.
+
+**Environment Variable or Path**
+
+printenv » Display a list of currently set environment variables. Also tells you which shell you're using\
+\$echo » Tells the terminal to print something and show it to you\
+echo \$PATH » Check the value of the PATH variable which storea a list of directories with executable files\
+echo \$PATH \>path.txt » Export the path directory to a text file\
+export PATH=\$PATH:absolute/path to/program/ » Execute a program via terminal only in your current session. If you use a program regularly, add the path to shell configuration file.
+
+**Search**\
+find <dir1> -name \<"file"\> » Find all files named <file> inside <dir1>. Use wildcards (\*) to search for parts of filenames\
+grep "<text>" <file> » Output all occurrences of <text> inside <file> (add -i for case insensitivity)\
+grep -rl "<text>" <dir1> » Search for all files containing <text> inside <dir1>
+
+**Output**\
+cat <file> » Output the content of <file>\
+less <file> » Output the contents of <file> using the less command that supports pagination and more\
+head <file> » Output the first 10 lines of <file>\
+<cmd> \> \> <file> » Appends the output of <cmd> to <file>\
+<cmd> \> <file> » Direct the output of <cmd> into <file>\
+<cmd1> \| <cmd2> » Direct the output of <cmd1> to <cmd2>
+
+**Command Line Help in the Mac OS X Terminal**.\
+man (command) » Manual page for (command). eg: man ls whatis (command) »One line brief summary of specified command. eg: whatis ls\
+(command) --help » Display command usage information including available flags and proper syntax. eg: ls --help\
+apropos (string) » Searches the whatis database for (string), helpful in finding commands. eg: apropos ssh\
+(command)+tab key » Autocomplete, or to list available commands that start with the typed prefix.\
+q » exit help.
+
+List2.\
+[Handy word keyboard shortcuts for windows and Mac](https://www.computerworld.com/article/3616471/handy-word-keyboard-shortcuts-for-windows-and-mac.html)
+
+### [Bash scripting]()
+
+[**Video1**](https://youtu.be/e7BufAVwDiM)\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/e7BufAVwDiM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/v-F3YLd6oMw " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Shell Programming Guide](http://linuxsig.org/files/bash_scripting.html)
+
+**Bash key commands:**\
+All code in terminal. cd, ls, clear or cnt+L, cat,
+
+1.  **To show all shells available in system:**
+
+```{bash}
+#| eval: false
+cat /etc/shells 
+```
+
+1.  **To Tell What Shell Your Mac is Using: (2 ways)**
+
+```{bash}
+#| eval: false
+echo $0 
+which bash
+```
+
+MBP20:\
+/bin/bash; /bin/csh; /bin/dash; /bin/ksh; /bin/sh; /bin/tcsh; **/bin/zsh**.
+
+1.  **How to switch between shells in macOS?** : Simply type the shell name on the prompt. Ex.
+
+```{bash}
+#| eval: false
+
+(username@~ % bash)  
+```
+
+The default interactive shell is now zsh. If not....
+
+1.  **To update your account to use zsh, run**
+
+```{bash}
+#| eval: false
+chsh -s /bin/zsh 
+```
+
+For more details, on how to change via [system preferences see here](https://support.apple.com/kb/HT208050).
+
+1.  **To create a file. Use the command `touch` and the name of the file. Ex.**
+
+```{bash}
+#| eval: false
+touch scriptname.sh
+touch .bash_profile
+```
+
+1.  **To make a file executable (-x**)
+
+```{bash}
+#| eval: false
+chmod +x filename.~
+```
+
+1.  **To execute file "./" file name and enter.**
+
+```{bash}
+#| eval: false
+./ filename.~  
+```
+
+**Redirect to file**.
+
+1.  To make an executable file create a new file.
+
+```{bash}
+#| eval: false
+# In the -x file (filename.~).  
+echo "Hello bash in terminal" > newfilename.~
+# echo prints the mensage
+# > creates a file (filename.~) with the message echoed. 
+```
+
+Execute filename.\~ and a new file will be created in the pwd (present/print working directory).
+
+1.  Create file from -x file and use terminal as editor.
+
+```{bash}
+#| eval: false
+cat > newfilename.~ # Use terminal as editor. * over writes old newfilename.~
+cat > newfilename.~ # Use terminal as editor. * This appends (adds to the end) into newfilename.~
+```
+
+**Comments**.
+
+1.  To add comments.
+
+```         
+# Single line comment.
+:'
+Multi
+line
+comment'
+```
+
+1.  To show comments in the output. Use the heredoc delimiter. Any text can be used as delimiter.
+
+```         
+cat << AnyTextDelimiter 
+Text to be display,
+even if it is 
+multy line.
+AnyTextDelimiter 
+```
+
+#### Complete this later...
+
+Table 1: Built-in shell variables.\
+Variable Use.
+
+```         
+$# Stores the number of command-line arguments that were passed to the shell program.  
+$? Stores the exit value of the last command that was executed.  
+$0 Stores the first word of the entered command (the name of the shell program).  
+$* Stores all the arguments that were entered on the command line ($1 $2 ...).  
+"$@" Stores all the arguments that were entered on the command line, individually quoted ("$1" "$2" ...).  
+```
+
+[top](#)
+
+#### Batch Cask Installer
+
+How to Create A Batch Cask Installer for Homebrew (Using a Simple Bash Script).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1J9NKpjJegk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+```{bash}
+#| eval: false
+# Create bash file in the Home directory.  
+pwd  
+ls  
+
+#Create the file "caskinstall.sh" or just "caskinstall".     
+touch caskinstall.sh 
+
+# Open the new file created with a text editor. vim, nano, atom, VS, etc.  
+# At the top type a "shebang": "#!/usr/bin/env bash" or "#!/bin/env bash"  
+
+#!/usr/bin/env bash  
+echo "Updating Casks..."   
+
+# Save the file.  
+# Make the file executable with chmod in Terminal (not in text editor).
+# In Terminal     
+chmod +x caskinstall.sh 
+
+# Execute/Run the file, if run correctly prompt will display "updating Cask..."  
+./ caskinstall.sh   
+
+# In Editor (file) create a variable.
+# Create a variable   "CASK=()" 
+```
+
+Basically all the code is as follows Note: the `#!/usr/bin/env bash` is called a shrap bang (or shebang?), is not a comment, it is a declaration of the language we are using.\
+To se where is the bash type in terminal:
+
+which bash\
+usually the answer is `/bin/bash`.
+
+**Full code**.
+
+``` bash
+#!/usr/bin/env bash  
+echo "Updating Casks..."   
+
+CASK=(  
+appName1  
+appName2  
+etc  
+)  
+
+brew cask install ${CASK[@]}  
+
+echo "Updating Complete!"  
+```
+
+```{bash}
+#| eval: false
+# Place the name of all the app to be install, run the file and all the programs will be automatically install or updated.  
+# In terminal.  
+brew cask list  
+
+# List will be displayed. copy/paste the list into the variable brackets in editor.  
+
+# Run the file. It will install the apps.  
+./ caskinstall.sh   
+```
+
+To make the created file (caskinstall.sh) executable.
+
+1.  Delete the extension: caskistall.sh \> caskinstall.\
+2.  make the file executable with the chmod.
+
+```{bash}
+#| eval: false
+Chmod +x caskinstall 
+```
+
+1.  To run file. 2x© caskinstall in finder or ./caskinstall in terminal.
+
+**Table 1: Built-in shell variables.**\
+[link](http://linuxsig.org/files/bash_scripting.html).
+
+Variable Use
+
+```         
+$# Stores the number of command-line arguments that were passed to the shell program.
+$? Stores the exit value of the last command that was executed.
+$0 Stores the first word of the entered command (the name of the shell program).
+$* Stores all the arguments that were entered on the command line ($1 $2 ...).  
+"$@" Stores all the arguments that were entered on the command line, individually quoted ("$1" "$2" ...).
+```
+
+[top](#)
+
+#### Resize Multiple Images (Mac \>\_ )
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HVMOBKRNEbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Easily Resize Multiple Images Using the Mac Terminal](https://youtu.be/HVMOBKRNEbc)
+
+```{bash}
+#| eval: false
+
+# Search for the folder/dir containing the images
+ls  
+cd ~/ImageDir/OrigSizeDir/  
+# The following command will erase/modify the original images, and save them in the same folder. 
+sips -Z 640 *.jpg  
+# -Z Manteins the aspect ratio, 640 pixel is the size of pics wanted, *.jpg= all jpg files,   
+
+# The following command will copy, modify and paste the resulting images in a new folder. 
+sips -Z 300 *.jpg  --out ~/path/to/new/folder
+
+# To rename the new img created.  
+# 1. Got to the dir where the images are located. 
+# 2. type the followin command. 
+find . -type f -exec bash -x 'mv "$0" "${0%\.jpg}-300.jpg"' {} \; 
+# Find all the files, .= in this folder, ${0%\.jpg}= disregard the extension of the file, -300.jpg= add 300.jpg to the file name. 
+```
+
+#### Resize multiple images (resize img batch) in \>\_:
+
+1.  Create new folder, copy/paste all img to be changed.\
+2.  In \>\_ use the sis¥ps command
+
+```{bash}
+#| eval: false
+sips -Z 600 *.jpg
+```
+
+!!! danger\
+Original files will be changed, **NO undo option** available.
+
+sips: sips command is used to query or modify raster image files (JPG/GIF/PNG) and ColorSync ICC profiles. Image processing options include flip, rotate, change image format/width/height. Its functionality can also be used through the "Image Events" AppleScript suite.\
+-Z: Maintain aspect ratio.\
+600: output width? size in pixels.\
+\*.jpg: files to modify, in this case, all .jpg files in the current directory.
+
+```{bash}
+#| eval: false
+sips -Z 600 *.jpg --out ~/new/dir/path/and/name
+```
+
+This will create a new directory, make a copy of the files, modify size and save in the new directory.
+
+Rename all the files (rename batch) in \>\_: 1. Go to the directory containing files. 2. run command:
+
+```{bash}
+#| eval: false
+find . -type f -exec bash -c `mv “$0” “${0%\.jpg}-300.jpg”` {} \;
+```
+
+find all the files in the current directory of this type of files\
+then, execute this command ? ? disregard the extension .jpg and add the suffix: -300.jpg
+
+**Small Script to auto resize**
+
+```{bash}
+#| eval: false
+
+#!/bin/bash
+# Change format, and change max size. 20181231 DM
+
+oldFormat=HEIC
+newFormat=png
+newSize=800
+
+for i in *.$oldFormat
+do
+    sips --setProperty format $newFormat --resampleHeightWidthMax $newSize "$i" --out "${i%$oldFormat}"$newFormat
+done
+exit 0
+```
+
+#### Rename batch files.
+
+**Step By Step: Using The Mac Batch Rename Tool**
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/rRIZAjylKDw" title="Step By Step: Using The Mac Batch Rename Tool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+1.  Select all files you want to rename.\
+2.  Finder// File\> Rename..Items \> ...\[\]... Rename Finder items: Find= text_to_find Replace with= Text_to_replace
+
+\*\*Rename all the files (rename batch) in \>\_: (not working, permission error)\*\*
+
+1.  Go to the directory containing files.\
+2.  run command:
+
+```{bash}
+#| eval: false
+find . -type f -exec bash -c `mv “$0” “${0%\.jpg}-300.jpg”` {} \;
+```
+
+find all the files in the current directory of this type of files\
+then, execute this command ? ? disregard the extension .jpg and add the suffix: -300.jpg
+
+!!! failure bash: ./03-Molar-1000x684.jpg: Permission denied
+
+------------------------------------------------------------------------
+
+//\[Layout\] \> ˇMargins \> Custom margins \>..\[\].. \> Grid \>
+
+[Linux/Mac Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Brew (Terminal)
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/SELYgZvAZbU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Homebrew Tutorial: Simplify Software Installation on Mac Using This Package Manager](https://youtu.be/SELYgZvAZbU)
+
+ \* 1st install command line tools. (Do this through Xcode).
+
+```{bash}
+#| eval: false
+xcode-select --install
+```
+
+If already installed an error message will be displayed.
+
+```{bash}
+#| eval: false
+xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+```
+
+-   Install home brew.
+
+```{bash}
+#| eval: false
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+-   Test if brew install correctly by displaying the help menu.
+
+```{bash}
+#| eval: false
+Brew help
+```
+
+-   To see all the packages we can install:
+
+```{bash}
+#| eval: false
+brew search  # This does no longer show all the programs, needs to add name of the program. 
+brew search | -l  # Retired/Discontinued.  
+brew search >programmname> 
+# Now use.  
+brew list  # To see all packages already intalled. (see `brew help’)   
+brew info >programname<  # Gives all the info of program.  
+```
+
+ \* To search a program in brew
+
+```{bash}
+#| eval: false
+brew search >programname< # This does no longer show all the programs, needs to add name of the program. 
+```
+
+ \* To display the pathway to a program in brew
+
+```         
+which >programname< # Path to programs folder.  
+/usr/local/bin/tree. # Answer. But it is only a symlink to the real folder   
+ls -la /usr/local/bin/tree  # Display long attributes of folder and the real location of the folder.  /usr/local/bin/tree -> ../cellar/tree/1.8.0/bin/tree   
+```
+
+brew update brew outdated brew upgrade brew cleanup brew doctor
+
+brew update --auto-update : Use this to see outdated formulas and casks installed. After running this message will appear.
+
+```         
+You have 32 outdated formulae and 12 outdated casks installed.  
+You can “upgrade them” with **brew upgrade**  
+or “list them” with **brew outdated**.  
+```
+
+> **WARNING!:** brew upgrade will reinstall all brew applications/programs, resetting all of them to factory settings. For R and RStudio, perform a package file backup BEFORE upgrade. Visual code does not require? ∵ Sync is on with github?.
+
+**Install the command "brew bundle":** With this package you can dump all the programs and applications that you installed with brew over time in a "brew file." <https://twit.tv/shows/hands-on-mac/episodes/9>.
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/-VP2NVv3LHg?start=415" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+```{bash}
+#| eval: false
+brew bundle
+```
+
+If bundle already downloaded or saved. Output will display:
+
+```         
+Running `brew update --auto-update`...
+==> Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+
+You have 32 outdated formulae and 11 outdated casks installed.
+You can upgrade them with brew upgrade
+or list them with brew outdated.
+
+Error: No Brewfile found  # This means that the Brewfile has not been yet created.  
+```
+
+or
+
+```{bash}
+#| eval: false
+brew bundle install   
+```
+
+To check all programs installed with brew.
+
+```{bash}
+#| eval: false
+brew list mas
+```
+
+Terminal will show this:
+
+```         
+(base) marcelorosales@MR-MBP20 ~ % brew list mas  
+/usr/local/Cellar/mas/1.8.6/bin/mas  
+/usr/local/Cellar/mas/1.8.6/etc/bash_completion.d/mas  
+/usr/local/Cellar/mas/1.8.6/share/fish/vendor_completions.d/mas.fish  
+```
+
+If other reply, then... check list mas if not present install mas command:
+
+```         
+brew list mas || brew install mas  
+```
+
+[top](#)
+
+#### Creating a brewfile
+
+1.  In terminal: `brew bundle dump --describe` (Brew bundle install required).\
+2.  To check the "packages installed" with brew in the brewfile created: `cat brewfile`.\
+    This file will be created in the **home directory**. (Home directory » Cmd+shift+H; Macintosh HD \> Users \> (user name)).
+
+```{bash}
+#| eval: false
+# To create brewfile
+brew update
+clear 
+brew bundle dump --describe  
+clear 
+brew list mas  
+brew list 
+clear 
+cat brewfile  
+```
+
+1.  To install the brewfile in a new mac or new installation:
+
+```{bash}
+#| eval: false
+sudo softwareupdate -ia --verbose; # Updates MacOs (mac command)
+brew bundle -v; # Install the brewfile created
+brew cleanup; # To delete unused brew libraries.
+brew doctor --verbose # To check if there are any other issues in system.
+```
+
+Make a command script or command shell if your using "fish", it's easy to make a fish function that runs these lines with just one word ex. "update", and then saving a lot of time.
+
+**Setting permisions.**\
+Fun With Mac Terminal Commands - Hands-On Mac 5. <iframe width="560" height="315" src="https://www.youtube.com/embed/ctF-S3RLcME?start=415" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>.
+
+```{bash}
+#| eval: false
+#| 
+chmod u-x >file/folder~< » u – x user cant execute file/folder.  
+chmod u+x >file/folder~< » u + x user was added access to execute file/folder. 
+chmod 777 >file/folder~< » 777 user has been granted full access (hexadecimal 1 bit 2 bits 4 bits -> 4+2+1=7 for each level). 12:40 min.  
+man >cmdname< » Manual.  
+brew install tldr »  install tldr
+tldr >cmdname< » Like manual, too long didn’t read? Summary of command functions.  
+sudo >cmdname< » sudo= super user do, gives you admin privileges (will ask for password).  
+sudo softwareupdate -i -a »  Update apple computer command.  
+rm -rf * »  delete all HDD. DANGER!!  
+sudo nvram StartupMute=%00 »  Mutes Mac’s startup chime.  
+sudo nvram StartupMute=%01 »  Turns on Mac’s startup chime.  
+```
+
+pwd cd \~ cd » home ls » list ls -l ls -a
+
+[Eg.]()
+
+[top](#)
+
+------------------------------------------------------------------------
