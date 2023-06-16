@@ -2,7 +2,7 @@
 title: "All_notes"
 ---
 
-## Open files
+## Relevant files
 
 Mac:
 
@@ -16,6 +16,8 @@ Notes <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"
 All_notes_draft.qmd <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/All_notes_draft.qmd"
 All_notes.qmd <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/All_notes.qmd"
 All.md <- "/Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/docs/All.md"
+quarto_All.xlsx <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/quarto_All.xlsx"
+Excel_best_tricks.xlsx <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Excel best tricks.xlsx"
 
 #open in mac OS
 system(paste("open", shQuote(Markdown02.docx)))
@@ -24,6 +26,9 @@ system(paste("open", shQuote(Notes)))
 system(paste("open", shQuote(All_notes_draft.qmd)))
 system(paste("open", shQuote(All_notes.qmd)))
 system(paste("open", shQuote(All.md)))
+system(paste("open", shQuote(quarto_All.xlsx)))
+system(paste("open", shQuote(Excel_best_tricks.xlsx)))
+
 
 ```
 

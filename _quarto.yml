@@ -83,12 +83,14 @@ website:
 
 format:
   html:
+    fontsize: ""
     toc: true
     toc-depth: 6
     theme:
       light: [cosmo, theme.scss]
       dark: [cosmo, theme-dark.scss] # change theme (cosmo) colors and formats in the scss files
     code-copy: true
+    code-fold: false
     code-overflow: wrap
     css: styles.css
     include-after-body: js.html
@@ -97,7 +99,12 @@ format:
       sidebar-width: 250px
       body-width: 900px
       margin-width: 300px
+#    tbl-colwidths: [40, 60]  # tables column withs 40% and 60%
 
+filters:
+  - lightbox #this section is for the managing img as galleries
+lightbox:
+  match: auto
 
 editor: source
 editor_options:
