@@ -472,6 +472,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#markdown-shortcuts" id="toc-markdown-shortcuts" class="nav-link" data-scroll-target="#markdown-shortcuts">Markdown Shortcuts</a></li>
   <li><a href="#preview-markdown-files-with-quick-look-in-finder-on-mac" id="toc-preview-markdown-files-with-quick-look-in-finder-on-mac" class="nav-link" data-scroll-target="#preview-markdown-files-with-quick-look-in-finder-on-mac">Preview Markdown files with Quick Look in Finder on Mac</a></li>
   </ul></li>
+  <li><a href="#mkdocs" id="toc-mkdocs" class="nav-link" data-scroll-target="#mkdocs">MkDocs</a>
+  <ul>
+  <li><a href="#mkdocs-install" id="toc-mkdocs-install" class="nav-link" data-scroll-target="#mkdocs-install">MkDocs Install</a>
+  <ul>
+  <li><a href="#summary-3" id="toc-summary-3" class="nav-link" data-scroll-target="#summary-3">Summary:</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1740,7 +1747,7 @@ Using the first match ...</code></pre>
 <p>Duis sed fringilla purus. Mauris pellentesque ullamcorper justo id ullamcorper. Vestibulum finibus, mauris ac eleifend accumsan, tortor enim finibus nulla, sit amet rutrum ipsum nisl eu nunc.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/img01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="my image"><img src="images/img01.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/img01.png" class="lightbox" title="my image" data-gallery="quarto-lightbox-gallery-1"><img src="images/img01.png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">my image</figcaption><p></p>
 </figure>
 </div>
@@ -5981,7 +5988,7 @@ Warning
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href=".png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="image"><img src=".png" class="img-fluid figure-img"></a></p>
+<p><a href=".png" class="lightbox" title="image" data-gallery="quarto-lightbox-gallery-2"><img src=".png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">image</figcaption><p></p>
 </figure>
 </div>
@@ -5989,7 +5996,7 @@ Warning
 <p><strong><em>Finally, Here</em></strong>: <strong>Disabling automatic periods after hitting double space bar:</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href=".png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="image"><img src=".png" class="img-fluid figure-img"></a></p>
+<p><a href=".png" class="lightbox" title="image" data-gallery="quarto-lightbox-gallery-3"><img src=".png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">image</figcaption><p></p>
 </figure>
 </div>
@@ -5999,7 +6006,7 @@ Word// Preferences &gt; Auto Correct &gt;Autoformat as you type &gt; !© Automat
 Word// Preferences &gt; Auto Correct &gt;Autoformat as you type &gt; !© Automatic number list.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href=".png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="image"><img src=".png" class="img-fluid figure-img"></a></p>
+<p><a href=".png" class="lightbox" title="image" data-gallery="quarto-lightbox-gallery-4"><img src=".png" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">image</figcaption><p></p>
 </figure>
 </div>
@@ -6564,9 +6571,9 @@ Or <strong>Auto Markdown TOC</strong> by Hunter Tran, (use: in md file, right cl
 &gt; Block quote<br>
 - Unordered list<br>
 1. ordered list<br>
-<a href="./docs/img/s300/01-Incisor-300.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Image Description"><img src="./docs/img/s300/01-Incisor-300.jpg" class="img-fluid" alt="Image Description"></a>{ width=“100”; align=righ }<br>
-<a href="linkurl">Link Text</a><br>
-&nbsp;escape (¥ = to back slash in japanese keyboards)</p>
+<code>![Image Description](/docs/img/s300/01-Incisor-300.jpg){ width="100"; align=righ }</code></p>
+<p><a href="linkurl">Link Text</a><br>
+escape (¥ = to back slash in japanese keyboards)</p>
 <iframe width="266" height="150" src="https://www.youtube.com/embed/0bxa7rkur9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
 </iframe>
 <iframe width="266" height="150" src="https://www.youtube.com/embed/WkF7nqEYF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
@@ -6842,7 +6849,7 @@ This is an example 3 <a href="Here is another comment" title="This is also a com
 </tr>
 <tr class="even">
 <td>md-shortcut.toggleImage</td>
-<td>Make an image <a href=".png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src=".png" class="img-fluid"></a></td>
+<td>Make an image <a href=".png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src=".png" class="img-fluid"></a></td>
 <td>ctrl+shift+L</td>
 </tr>
 <tr class="odd">
@@ -6876,8 +6883,160 @@ This is an example 3 <a href="Here is another comment" title="This is also a com
 <p>Uninstall cask seems changed (added on 2021-02-02)</p>
 <div class="sourceCode" id="cb261"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb261-1"><a href="#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> uninstall <span class="at">--cask</span> qlmarkdown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
+<p><a href="#">top</a></p>
+</section>
+</section>
+<section id="mkdocs" class="level2">
+<h2 class="anchored" data-anchor-id="mkdocs">MkDocs</h2>
+<p><a href="https://www.mkdocs.org/">MkDocs</a> is a <strong>fast, simple and downright gorgeous</strong> static site generator that’s geared towards building project documentation.</p>
+<p>Documentation source files are written in Markdown, and configured with a single YAML configuration file.<br>
+Start by reading the introductory tutorial, then check the User Guide for more information.</p>
+<p><a href="https://youtu.be/NuNj75iE8KA"><strong>Mkdocs Python - How to Create &amp; Publish Documentations For Your Packages</strong></a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NuNj75iE8KA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p><a href="https://youtu.be/NuNj75iE8KA">video</a></p>
+<p><br></p>
+<p><a href="https://youtu.be/0pYN6Z-t1-s"><strong>Alexys Jacob - Create beautiful and localized documentations and websites using MkDocs + Github</strong></a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0pYN6Z-t1-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p><a href="https://www.youtube.com/watch?v=ytngbbTt0Xo">Crear páginas web con Rmarkdown, MkDocs y GitHub pages: una alternativa para documentación.</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ytngbbTt0Xo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
+<p>Githubpage: https://github.com/ronnyhdez/docmaker</p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/">MkDocs Materials official github account</a>:</p>
+<p>Documentation that simply works. Write your documentation in Markdown and create a professional static site in minutes – searchable, customizable, for all devices.</p>
+<p><a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">MkDocs Themes</a></p>
+<p><a href="#">top</a></p>
+<section id="mkdocs-install" class="level3">
+<h3 class="anchored" data-anchor-id="mkdocs-install">MkDocs Install</h3>
+<p><a href="https://www.mkdocs.org/">MkDocs official site</a></p>
+<p>User Guide</p>
+<p>Building Documentation with MkDocs</p>
+<p>The MkDocs Developer Guide provides documentation for users of MkDocs. See Getting Started for an introductory tutorial. You can jump directly to a page listed below, or use the next and previous buttons in the navigation bar at the top of the page to move through the documentation in order.</p>
+<ul>
+<li><a href="https://www.mkdocs.org/user-guide/installation/">Installation</a><br>
+</li>
+<li><a href="https://www.mkdocs.org/user-guide/writing-your-docs/">Writing Your Docs</a><br>
+</li>
+<li><a href="https://www.mkdocs.org/user-guide/choosing-your-theme/">Choosing Your Theme</a><br>
+</li>
+<li><a href="https://www.mkdocs.org/user-guide/customizing-your-theme/">Customizing Your Theme</a><br>
+</li>
+<li><a href="https://www.mkdocs.org/user-guide/configuration/">Configuration</a><br>
+</li>
+<li><a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">Deploying Your Docs</a></li>
+</ul>
+<p><a href="https://suedbroecker.net/2021/01/25/how-to-install-mkdocs-on-mac-and-setup-the-integration-to-github-pages/">HOW TO INSTALL MKDOCS ON MAC AND SETUP THE INTEGRATION TO GITHUB PAGES</a> January 25, 2021</p>
+<section id="summary-3" class="level4">
+<h4 class="anchored" data-anchor-id="summary-3">Summary:</h4>
+<p><strong>LOCAL SETUP ON MAC OS</strong></p>
+<ul>
+<li><a href="https://brew.sh">brew</a> <code>brew --version</code>;</li>
+<li><a href="https://www.python.org/">Python 3</a> <code>python --version</code>; find&amp;install <code>brew list &lt;formula1&gt; || brew install &lt;formula1&gt;</code>; <code>brew install python3</code>; <strong><code>brew install python@3.10</code></strong><br>
+</li>
+<li><a href="https://pypi.org/project/pip/">Pip</a> : <code>pip --version</code>; <code>pip3 install --upgrade pip</code><br>
+</li>
+<li><a href="https://www.mkdocs.org/">MkDocs</a> : <code>pip3 install mkdocs</code> (I used this install as described in guide); option: <code>brew install mkdocs</code> (error)<br>
+</li>
+<li><a href="https://pypi.org/project/mkdocs-material-extensions/">MkDocs Material Extensions</a> : <code>pip3 install mkdocs-material</code><br>
+Other Plugins:<br>
+</li>
+<li><a href="https://github.com/ultrabug/mkdocs-static-i18n">i18n</a>: <code>pip install mkdocs-static-i18n</code>;<br>
+</li>
+<li>Theme Materials: <code>pip install mkdocs-material</code></li>
+</ul>
+<p><strong>INSTALL ON RSTUDIO:</strong></p>
+<ul>
+<li>You can install the development version of docmaker from GitHub with:</li>
+</ul>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb262-1"><a href="#cb262-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ronnyhdez/docmaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>When published on CRAN, you will be able to install the package with:</li>
+</ul>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb263-1"><a href="#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Why I don’t use this in Rstudio directly? Because the commands to render the pages do NOT seem to work with in Rstudio, I can code and preview in VS code But only the page, the R graphs are not displayed, is would be a constant changing from Rstudio &lt;=&gt; VS code &lt;=&gt; Word. Use better quarto, write all in “visual”, can paste images directly in and R will automatically create a img folder and name the file (which is a great feature, can leave without it). Internationalization is not good yet. Image galleries are very good.</p>
+</blockquote>
+<p><strong>CONFIGURATION IN THE GITHUB PROJECT</strong></p>
+<ul>
+<li><a href="https://docs.github.com/en/actions/guides/about-continuous-integration">GitHub CI</a><br>
+</li>
+<li><a href="https://pages.github.com/">GitHub Pages</a><br>
+</li>
+<li><a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository">GitHub Branch</a></li>
+</ul>
+<p><strong>MKDOCS INSTALLATION ON MAC</strong></p>
+<p><strong>STEP 1: VERIFY THE BREW INSTALLATION</strong><br>
+Check if intalled:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb264-1"><a href="#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> –version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>STEP 2: CHANGE THE FOLDER PERMISSION TO INSTALL PYTHON, IF NEEDED</strong></p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb265-1"><a href="#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown <span class="at">-R</span> <span class="va">$(</span><span class="fu">whoami</span><span class="va">)</span> /usr/local/lib/pkgconfig  </span>
+<span id="cb265-2"><a href="#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u+w /usr/local/lib/pkgconfig  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>STEP 3: INSTALL PYTHON3</strong></p>
+<p>To check if python and pip are installed use:<br>
+<code>python --version</code> (Python 3.8.2)<br>
+<code>pip --version</code> (pip 20.0.2 from /usr/local/lib/python3.8/site-packages/pip (python 3.8))<br>
+Or <code>brew list &lt;formula1&gt; || brew install &lt;formula1&gt;</code> If not installed use:<br>
+<code>brew install python3</code><br>
+20220704: Already Installed version 3.8, 3.9 I installed lates version: <code>brew install python@3.10</code></p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb266-1"><a href="#cb266-1" aria-hidden="true" tabindex="-1"></a>Python has been installed <span class="im">as</span></span>
+<span id="cb266-2"><a href="#cb266-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">/</span>usr<span class="op">/</span>local<span class="op">/</span>opt<span class="op">/</span>python<span class="op">@</span><span class="fl">3.10</span><span class="op">/</span><span class="bu">bin</span><span class="op">/</span>python3</span>
+<span id="cb266-3"><a href="#cb266-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-4"><a href="#cb266-4" aria-hidden="true" tabindex="-1"></a>Unversioned symlinks `python`, `python<span class="op">-</span>config`, `pip` etc. pointing to</span>
+<span id="cb266-5"><a href="#cb266-5" aria-hidden="true" tabindex="-1"></a>`python3`, `python3<span class="op">-</span>config`, `pip3` etc., respectively, have been installed into</span>
+<span id="cb266-6"><a href="#cb266-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">/</span>usr<span class="op">/</span>local<span class="op">/</span>opt<span class="op">/</span>python<span class="op">@</span><span class="fl">3.10</span><span class="op">/</span>libexec<span class="op">/</span><span class="bu">bin</span></span>
+<span id="cb266-7"><a href="#cb266-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-8"><a href="#cb266-8" aria-hidden="true" tabindex="-1"></a>You can install Python packages <span class="cf">with</span></span>
+<span id="cb266-9"><a href="#cb266-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">/</span>usr<span class="op">/</span>local<span class="op">/</span>opt<span class="op">/</span>python<span class="op">@</span><span class="fl">3.10</span><span class="op">/</span><span class="bu">bin</span><span class="op">/</span>pip3 install <span class="op">&lt;</span>package<span class="op">&gt;</span></span>
+<span id="cb266-10"><a href="#cb266-10" aria-hidden="true" tabindex="-1"></a>They will install into the site<span class="op">-</span>package directory</span>
+<span id="cb266-11"><a href="#cb266-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">/</span>usr<span class="op">/</span>local<span class="op">/</span>lib<span class="op">/</span>python3<span class="fl">.10</span><span class="op">/</span>site<span class="op">-</span>packages</span>
+<span id="cb266-12"><a href="#cb266-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-13"><a href="#cb266-13" aria-hidden="true" tabindex="-1"></a>tkinter <span class="kw">is</span> no longer included <span class="cf">with</span> this formula, but it <span class="kw">is</span> available separately:</span>
+<span id="cb266-14"><a href="#cb266-14" aria-hidden="true" tabindex="-1"></a>  brew install python<span class="op">-</span>tk<span class="op">@</span><span class="fl">3.10</span></span>
+<span id="cb266-15"><a href="#cb266-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-16"><a href="#cb266-16" aria-hidden="true" tabindex="-1"></a>See: https:<span class="op">//</span>docs.brew.sh<span class="op">/</span>Homebrew<span class="op">-</span><span class="kw">and</span><span class="op">-</span>Python</span>
+<span id="cb266-17"><a href="#cb266-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-18"><a href="#cb266-18" aria-hidden="true" tabindex="-1"></a>python<span class="op">@</span><span class="fl">3.10</span> <span class="kw">is</span> keg<span class="op">-</span>only, which means it was <span class="kw">not</span> symlinked into <span class="op">/</span>usr<span class="op">/</span>local,</span>
+<span id="cb266-19"><a href="#cb266-19" aria-hidden="true" tabindex="-1"></a>because this <span class="kw">is</span> an alternate version of another formula.</span>
+<span id="cb266-20"><a href="#cb266-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-21"><a href="#cb266-21" aria-hidden="true" tabindex="-1"></a>If you need to have python<span class="op">@</span><span class="fl">3.10</span> first <span class="kw">in</span> your PATH, run:</span>
+<span id="cb266-22"><a href="#cb266-22" aria-hidden="true" tabindex="-1"></a>  echo <span class="st">'export PATH="/usr/local/opt/python@3.10/bin:$PATH"'</span> <span class="op">&gt;&gt;</span> <span class="op">~/</span>.zshrc</span>
+<span id="cb266-23"><a href="#cb266-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-24"><a href="#cb266-24" aria-hidden="true" tabindex="-1"></a>For compilers to find python<span class="op">@</span><span class="fl">3.10</span> you may need to <span class="bu">set</span>:</span>
+<span id="cb266-25"><a href="#cb266-25" aria-hidden="true" tabindex="-1"></a>  export LDFLAGS<span class="op">=</span><span class="st">"-L/usr/local/opt/python@3.10/lib"</span></span>
+<span id="cb266-26"><a href="#cb266-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-27"><a href="#cb266-27" aria-hidden="true" tabindex="-1"></a>For pkg<span class="op">-</span>config to find python<span class="op">@</span><span class="fl">3.10</span> you may need to <span class="bu">set</span>:</span>
+<span id="cb266-28"><a href="#cb266-28" aria-hidden="true" tabindex="-1"></a>  export PKG_CONFIG_PATH<span class="op">=</span><span class="st">"/usr/local/opt/python@3.10/lib/pkgconfig"</span></span>
+<span id="cb266-29"><a href="#cb266-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-30"><a href="#cb266-30" aria-hidden="true" tabindex="-1"></a><span class="op">==&gt;</span> Summary</span>
+<span id="cb266-31"><a href="#cb266-31" aria-hidden="true" tabindex="-1"></a>🍺  <span class="op">/</span>usr<span class="op">/</span>local<span class="op">/</span>Cellar<span class="op">/</span>python<span class="op">@</span><span class="fl">3.10</span><span class="op">/</span><span class="fl">3.10.5</span>: <span class="dv">3</span>,<span class="dv">137</span> files, <span class="fl">56.8</span><span class="er">MB</span></span>
+<span id="cb266-32"><a href="#cb266-32" aria-hidden="true" tabindex="-1"></a><span class="op">==&gt;</span> Running `brew cleanup python<span class="op">@</span><span class="fl">3.10</span>`...</span>
+<span id="cb266-33"><a href="#cb266-33" aria-hidden="true" tabindex="-1"></a>Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.</span>
+<span id="cb266-34"><a href="#cb266-34" aria-hidden="true" tabindex="-1"></a>Hide these hints <span class="cf">with</span> HOMEBREW_NO_ENV_HINTS (see `man brew`).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>STEP 4: Install UPGRADE PIP</strong></p>
+<p><code>pip –version</code><br>
+<code>pip3 install --upgrade pip</code></p>
+<p><strong>STEP 5: INSTALL MKDOCS</strong></p>
+<p><code>pip3 install mkdocs</code> (I used this install as described in guide).</p>
+<p><code>brew install mkdocs</code> :</p>
+<pre><code>Error: The `brew link` step did not complete successfully
+The formula built, but is not symlinked into /usr/local
+Could not symlink bin/mkdocs
+Target /usr/local/bin/mkdocs
+already exists. You may want to remove it:
+  rm '/usr/local/bin/mkdocs'</code></pre>
+<p><strong>STEP 6: INSTALL MKDOCS-MATERIAL</strong></p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb268-1"><a href="#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install mkdocs-material  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>STEP 7: INSTALL MKDOCS-MATERIAL-EXTENSIONS</strong></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb269-1"><a href="#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install mkdocs-material-extensions  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>VERIFY AND BUILD YOUR DOCUMENTATION</strong></p>
+<p>STEP 1: ENSURE YOU HAVE THE MKDOCS.YML FILE IN PLACE<br>
+Here is an example configuration for the mkdocs.yml file and here you find an example project, which is based on that configuration.<br>
+<a href="https://www.mkdocs.org/user-guide/configuration/">configuration</a> <a href="https://github.com/thomassuedbroecker/How-to-install-MkDocs-on-Mac-and-setup-integration-with-GitHub/">example project</a></p>
+<hr>
 
 
+</section>
 </section>
 </section>
 
@@ -7131,7 +7290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"descPosition":"bottom","openEffect":"zoom"});</script>
 
 
 
