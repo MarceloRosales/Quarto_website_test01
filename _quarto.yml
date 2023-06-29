@@ -92,6 +92,9 @@ format:
     code-copy: true
     code-fold: false
     code-overflow: wrap
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+#    code-line-numbers: true
     css: styles.css
     include-after-body: js.html
     self-contained: false # If true, it will not create the site files but one html file. 

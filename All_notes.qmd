@@ -2,6 +2,8 @@
 title: "All_notes"
 ---
 
+This file [github](https://marcelorosales.github.io/Quarto_website_test01/All_notes.html)
+
 ## Relevant files
 
 Mac:
@@ -55,7 +57,7 @@ system(paste("rsync -avh --progress", shQuote(source), shQuote(destination)))
 
 ```
 
-sync \# 33
+sync try \# 33
 
 ```{html}
 #| eval: false
@@ -89,7 +91,9 @@ teachR.pdf\
 teachR.pdf\
 Untitled.pdf
 
-[top](#) \## Files related to markdown. :
+[top](#)
+
+## Files related to markdown. :
 
 Spotlight search: Markdow
 
@@ -382,9 +386,11 @@ defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placerat arcu, sed feugiat ex ultrices vitae.
 
-!\[My Image\](path/to/image.jpg){.float-left}
+`!\[My Image\](path/to/image.jpg){.float-left}`
 
 Duis sed fringilla purus. Mauris pellentesque ullamcorper justo id ullamcorper. Vestibulum finibus, mauris ac eleifend accumsan, tortor enim finibus nulla, sit amet rutrum ipsum nisl eu nunc.
+
+![my image](images/img01.png){.float-right}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et posuere mi. Sed euismod nunc ut turpis fermentum bibendum.
 
@@ -396,12 +402,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur placer
 
 ## Terminal, coding R&D
 
-::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
-***The Bash_profile customization is obsolete now***!!.
-:::
+(code not shown??) html code: warning call out.
 
-::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: black; background-color: #eeeee; border-color: #ebccd1;"}
-::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
+note: do not insert spaces between the div's, it will break continuity and block will not be display or displayed incorrectly. MOVE THIS SECTION TO QUARTO CALL OUTS...
+
+```         
+<div style= "border: 1px solid transparent; 
+  border-color: transparent; 
+  margin-bottom: 10px; 
+  border-radius: 4px; 
+  color: #000000; 
+  background-color: #eeeee; 
+  border-color: #ebccd1;">
+  <div style = "padding: 5px; 
+    border: 1px solid transparent; 
+    border-color: transparent; 
+    border-radius: 4px; 
+    color: #a94442; 
+    background-color: #f2dede; 
+    border-color: #ebccd1;">
+  warning
+  </div>
+  <div style="padding: 5px;">
+  The Bash_profile customization is obsolete now!!.
+  </div>
+</div>
+```
+
+All the html div tags (above) is automatically converted to quarto blocks by render command and/or by changing from source to visual, as seen below.
+
+::: {style="border: 1px solid transparent;    border-color: transparent;    margin-bottom: 10px;    border-radius: 4px;    color: #000000;    background-color: #eeeee;    border-color: #ebccd1;"}
+::: {style="padding: 5px;      border: 1px solid transparent;      border-color: transparent;      border-radius: 4px;      color: #a94442;      background-color: #f2dede;      border-color: #ebccd1;"}
 warning
 :::
 
@@ -423,12 +454,12 @@ Now Using the Powerlevel10k
 
 **(macOS 2022 edition)**
 
-[top](#)\
-Original post [here](https://www.atpeaz.com/macos-set-up-for-coding-and-development/) \> **Customise zSH with Powerlevel10K**, I was inspired by this guide here but have reconfigured my set up significantly with Powerlevel10k. In the previous version of my writeup, I had used Powerlevel9k theme.
-
 [top](#)
 
-### How to install Powerlevel10k theme for \>\_ & iTerm2 **Updated version**
+Original post [here](https://www.atpeaz.com/macos-set-up-for-coding-and-development/) \> **Customise .zsh with Powerlevel10K**.\
+I was inspired by this guide, but I reconfigured my setup significantly with Powerlevel10k. In the previous version I used Powerlevel9k theme.
+
+### Powerlevel10k theme
 
 Install for \>\_ & iTerm2 **Updated version**
 
@@ -438,105 +469,133 @@ Install for \>\_ & iTerm2 **Updated version**
 
 [2022 explanation video](https://youtu.be/fJOV40ixEzM)
 
-### \>\_ Powerlevel10k theme.
-
 > requires git and Xcode.
 
 1.  **Save a copy of original .zshrc!!** Each machine has a different zshrc file ∵ user path is different in each manchine, just in case\
-    MBP20: /Users/marcelorosales/Box Sync/Github/DotFiles/MBP20/Conda_shells/zshrc\
-    MBP15:
+    `MBP20: /Users/marcelorosales/Box Sync/Github/DotFiles/MBP20/Conda_shells/zshrc` `MBP15:`
+
 2.  Install iTerm2\
-    brew install --cask iterm2
+    `brew install --cask iterm2`
+
 3.  echo \$0 #(if \>\_ != -zsh {brew install zsh}, else {})\
-    brew install zsh
-4.  Install Oh My Zsh:\
-    sh -c "\$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"
-5.  Icons/font not displaying correctly? <https://github.com/romkatv/powerlevel10k/issues/671>
-6.  Download these four ttf files: **MesloLGS NF Regular.ttf** \> \~/Box/Github/DotFiles/iTerm2/Fonts
-7.  Double-click on each file and click "Install" (Fonts will be added to Font Book). Then...
+    `brew install zsh`
 
--   **Terminal fix.**:\
-    //Preferences \> Profile \> Text \> Change \> ...\[\]... \> Collection:© All fonts \> Family: © \> MesloLGF Regular
--   **iTerm fix:**\
-    //Preferences \> Profile \> Text \> Font \> MesloLGF Regular
--   **Visual Studio Code config Fonts**\
-    //settings (Cmd + ,) \> find (Cmd +F): {Terminal font \| Terminal integrated font family} \> { MesloLGS NF }
-    1.  Change .zshrc theme to Agnoster (iterm default)\
-        code \~/.zshrc \|\| open \~/.zshrc
-    2.  Change: ZSH_THEME="\~/.oh-my-zsh" =\> ZSH_THEME="agnoster" \> save \> exit (\>\_ and iterm2)
-    3.  Costum iterm2 color scheme: download flat-colors: <https://github.com/QuentinWatt/dark-flat-iterm-colors/blob/master/flat-colors.itermcolors> -\> \~/Box Sync/Github/DotFiles/iTerm2/flat-colors.intermcolors
-    4.  iterm \> Preferences \> Profiles \> Colors \> Color pressets \> import : lat-colors.intermcolors
-    5.  Install Powerlevel9k / Powerlevel10k: (auto to: \~/oh-my-zsh/custom/themes/powerlevel10k)\
-        git clone <https://github.com/romkatv/powerlevel10k.git> \$ZSH_CUSTOM/themes/powerlevel10k
-    6.  Change .zshrc theme to Powerlevel10k (iterm default)\
-        code \~/.zshrc \|\| open \~/.zshrc Change: ZSH_THEME="agnoster" =\> ZSH_THEME="powerlevel10k/powerlevel10k" \> save \> exit (\>\_ and iterm2)
-    7.  Start a new terminal session/re-configure prompt:
--   p10k configure \# 1st time = auto run
--   y \> y \> y \> Rainbow \> unicode \> 24-hour format \> Angled \> sharp \> Flat \> one line \> compact \> Many icons \> Concise \> Transient Prompt: No \> Verbose \> ! Overwrite \~/.p10k.zsh (only if powerlevel10k is already installed) \> Apply changes to \~/.zshrc? Yes (close open \~/.zshrc) \> end.
+4.  Install [Oh My Zsh](https://ohmyz.sh/):\
+    `sh -c "$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"`
 
-```         
-New config: ~/.p10k.zsh.  
-Backup of ~/.zshrc: $TMPDIR/.zshrc.EM433MEB1C.  
-See ~/.zshrc changes:  
-  diff $TMPDIR/.zshrc.EM433MEB1C ~/.zshrc  
-```
+    or\
+    `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
-For even more customization go to the .p10k.zsh file:
+    or\
+    `sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"`
+
+    1.  Icons/font not displaying correctly? <https://github.com/romkatv/powerlevel10k/issues/671>
+
+        1.  Download these four ttf files: **MesloLGS NF Regular.ttf** \> \~/Box/Github/DotFiles/iTerm2/Fonts
+        2.  Double-click on each file and click "Install" (Fonts will be added to Font Book).\
+            Then...
+
+        -   **Terminal fix.**:\
+            //Preferences \> Profile \> Text \> Change \> ...\[\]... \> Collection:© All fonts \> Family: © \> MesloLGF Regular
+        -   **iTerm fix:**\
+            //Preferences \> Profile \> Text \> Font \> MesloLGF Regular
+        -   **Visual Studio Code config Fonts**\
+            //settings (Cmd + ,) \> find (Cmd +F): {Terminal font \| Terminal integrated font family} \> { MesloLGS NF }
+
+        1.  Change .zshrc theme to Agnoster (iterm default)\
+            `code ~/.zshrc || open ~/.zshrc`
+            1.  Change: ZSH_THEME="\~/.oh-my-zsh" =\> ZSH_THEME="agnoster" \> save \> exit (\>\_ and iterm2)
+        2.  Costum iterm2 color scheme: download flat-colors: <https://github.com/QuentinWatt/dark-flat-iterm-colors/blob/master/flat-colors.itermcolors> -\> \~/Box Sync/Github/DotFiles/iTerm2/flat-colors.intermcolors
+        3.  iterm \> Preferences \> Profiles \> Colors \> Color pressets \> import : lat-colors.intermcolors
+
+5.  Install Powerlevel9k / Powerlevel10k: (auto to: \~/oh-my-zsh/custom/themes/powerlevel10k)\
+    `git clone <https://github.com/romkatv/powerlevel10k.git> $ZSH_CUSTOM/themes/powerlevel10k`
+
+6.  Change .zshrc theme to Powerlevel10k (iterm default)\
+    `code ~/.zshrc || open ~/.zshrc` Change: **ZSH_THEME="agnoster"** =\> **ZSH_THEME="powerlevel10k/powerlevel10k"** \> save \> exit (\>\_ and iterm2)
+
+7.  Re-start terminal or Start a new terminal session/re-configure prompt:
+
+    -   p10k configure \# 1st time = auto run
+    -   y \> y \> y \> Rainbow \> unicode \> 24-hour format \> Angled \> sharp \> Flat \> one line \> compact \> Many icons \> Concise \> Transient Prompt: No \> Verbose \> ! Overwrite \~/.p10k.zsh (only if powerlevel10k is already installed) \> Apply changes to \~/.zshrc? Yes (close open \~/.zshrc) \> end.
 
 ```{bash}
 #| eval: false
 
-code ~/.p10k.zsh.
-
-
+# New config: 
+~/.p10k.zsh.  
+# Backup of ~/.zshrc: 
+$TMPDIR/.zshrc.EM433MEB1C.  
+# See ~/.zshrc changes:  
+  diff $TMPDIR/.zshrc.EM433MEB1C ~/.zshrc  
 ```
 
-Auto suggestions (for Oh my zsh)
+-   For even more customization: `code ~/.p10k.zsh`.
+
+#### Other addons
+
+1.  Auto suggestions (for Oh my zsh)
 
 -   Just follow these steps: <https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh>
 
 1.  Syntax highlighting\
-    brew install zsh-syntax-highlighting
-2.  Activate the plugin in `~/.zshrc` file:\
-    code \~/.zshrc \> copy/paste: source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-3.  If the message "highligthers directory not found" is displayed: code \~/.zshenv \> copy/paste:\
-    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-4.  if \>\_ or/and iTerm2 console output is produced during zsh initialization (see: instant prompt error) in terminal type:\
-    compaudit \| xargs chmod g-w,o-w
+    `brew install zsh-syntax-highlighting`
+    1.  Activate the plugin in `~/.zshrc` file:
+
+        `code ~/.zshrc` \> copy/paste: `source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
+
+    2.  If the message "highligthers directory not found" is displayed: `code ~/.zshenv` \> copy/paste:
+
+    3.  \
+        `export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters`
+2.  if \>\_ or/and iTerm2 console output is produced during zsh initialization (see: instant prompt error) in terminal type:\
+    `compaudit | xargs chmod g-w,o-w`
 
 [2022 explanation video](https://youtu.be/fJOV40ixEzM)
 
 1.  Install iTerm2\
-    brew install --cask iterm2
+    `brew install --cask iterm2`
+
 2.  Install zsh\
-    echo \$0 #(if \>\_ != -zsh {brew install zsh}, else {})
-3.  Install Oh My Zsh:\
-    sh -c "\$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"
-4.  Install Powerlevel9k / Powerlevel10k: (!! + x code tools)\
-    git clone <https://github.com/romkatv/powerlevel10k.git> \$ZSH_CUSTOM/themes/powerlevel10k
-5.  Change: ZSH_THEME\
-    code \~/.zshrc \# open \~/.zshrc
-6.  Change: ZSH_THEME="\~/.oh-my-zsh" \|"agnoster" =\> ZSH_THEME="powerlevel10k/powerlevel10k" \> save \> exit (\>\_ and iterm2)
+    `echo $0 #(if >_ != -zsh  {brew install zsh}, else {})`
+
+3.  Install Oh My Zsh:
+
+    `sh -c "$(curl -fsSL <https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh>)"`
+
+4.  Install Powerlevel9k / Powerlevel10k: (!! + x code tools)
+
+    `git clone <https://github.com/romkatv/powerlevel10k.git> $ZSH_CUSTOM/themes/powerlevel10k`
+
+5.  Change: ZSH_THEME
+
+    `code ~/.zshrc # open ~/.zshrc`
+
+6.  Change: **ZSH_THEME="\~/.oh-my-zsh" \|"agnoster"** =\> **ZSH_THEME="powerlevel10k/powerlevel10k"** \> save \> exit (\>\_ and iterm2)
+
 7.  p10k configure #auto run
+
+------------------------------------------------------------------------
+
+### Summary
 
 **Summary: from kevin-smets/iterm2-solarized.md**
 
 1.  Install iterm2
 2.  Install Oh My Zsh
 3.  Install Powerlevel9k / Powerlevel10k
-4.  Install a patched font
+4.  Install patched fonts
 5.  Further tweaking
-    -   auto suggestions
-    -   word jumping with arrow keys / natural text editing
-    -   syntax highlighting
-    -   visual studio code config
+    a.  auto suggestions
+    b.  word jumping with arrow keys / natural text editing
+    c.  syntax highlighting
+    d.  visual studio code config
 6.  Paste Conda Initialize code at the head/End of .zshrc
 
 **1. Install iterm2**
 
-```{bash}
-#| eval: false
-brew install --cask iterm2  
+``` bash
+brew install --cask iterm2`  
 ```
 
 iTerm2 has better color fidelity than the built in Terminal, so your themes will look better.\
@@ -544,10 +603,11 @@ Get the iTerm color settings
 
 -   Solarized Dark theme (patched version to fix the bright black value)
 -   Solarized Light theme
--   More themes \@ iterm2colorschemes\
-    Just save it somewhere and open the file(s). The color settings will be imported into iTerm2. Apply them in iTerm through iTerm → preferences → profiles → colors → load presets. You can create a different profile other than Default if you wish to do so.
+-   More themes \@ iterm2colorschemes
 
-Apply the color scheme in iTerm2\
+Just save it somewhere and open the file(s). The color settings will be imported into iTerm2. Apply them in iTerm through iTerm → preferences → profiles → colors → load presets. You can create a different profile other than Default if you wish to do so.
+
+**Apply the color scheme in iTerm2**\
 iTerm → Preferences → Profiles → Colors → Color presets → ImportThen again, Color presets → you-color-scheme-name
 
 **2. Install Oh My Zsh**
@@ -560,7 +620,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 When the installation is done, edit \~/.zshrc and set ZSH_THEME="agnoster" for the default look. Or better yet, go for Powerlevel10k.
 
-**3. Install Powerlevel9k / Powerlevel10k**\
+**3. Install Powerlevel9k / Powerlevel10k**
+
 Why Powerlevel10k? faster to render your prompt.\
 Powerlevel10k look with added info such as exit codes and timestamps:
 
@@ -603,10 +664,12 @@ If you did not go with Powerlevel10k or you want another font, read on:
 **5. Further tweaking**\
 Things like
 
-a.  auto suggestions\
-b.  word jumping with arrow keys / natural text editing\
-c.  syntax highlighting\
-d.  visual studio code config  can be found in the section below.
+a.  auto suggestions
+b.  word jumping with arrow keys / natural text editing
+c.  syntax highlighting
+d.  visual studio code config
+
+can be found in the section below.
 
 **a. Auto suggestions (for Oh My Zsh)**
 
@@ -642,7 +705,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 Activate the plugin in `~/.zshrc`:
 
-```         
+``` bash
 plugins=( [plugins...] zsh-syntax-highlighting)  
 ```
 
@@ -654,37 +717,44 @@ brew install zsh-syntax-highlighting
 
 When finish installing, read message. It will tell you to "add the following to the .zshrc":
 
-`source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
+``` bash
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
+```
 
 If the message "highligthers directory not found message", you may need to add the following to the `.zshenv` file:
 
-`export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters`
+``` bash
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters  
+```
 
 Restart iTerm2 for all changes to take effect.
+
+#### Troubleshooting
 
 **Terminal and VS code Terminal prompt issues**\
 **Icons and font not displaying correctly?**
 
 If icons don't display in Terminal or VS code integrated terminal after setting terminal.integrated.fontFamily see : <https://github.com/romkatv/powerlevel10k/issues/671>
 
--   Terminal fix: //Preferences \> Profile \> Font \> Change \> ...\[\]... \> Collection:© All fonts \> Family: © \> MesloLGF Regular
+-   Terminal fix:
 
--   iTerm fix: //Preferences \> Profile \> Text \> Font \> MesloLGF Regular
+//Preferences » Profile » Font » Change \> ...\[\]... \> Collection:© All fonts \> Family: © \> MesloLGF Regular
 
--   Visual Studio Code config Fonts Installing a patched font will mess up the integrated terminal in VS Code unless you use the proper settings. You'll need to go to settings (CMD + ,) and add or edit the following values: see 4. Install a patched font
+-   iTerm fix:
 
--   for Source Code Pro + Font Awesome: "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'". The single quotes are important!\
+//Preferences \> Profile \> Text \> Font \> MesloLGF Regular
 
--   Restart VS Code after the config change.\
+-   Visual Studio Code config Fonts
 
--   for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"\
+    Installing a patched font will mess up the integrated terminal in VS Code unless you use the proper settings. You'll need to go to settings (CMD + ,) and add or edit the following values: see 4. Install a patched font
 
--   for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"\
-
--   **-\> settings (Cmd + ,) \> find (Cmd +F): {Terminal font \| Terminal integrated font family} \> { MesloLGS NF }**\
-
--   for other fonts you'll need to check the font name in Font Book. You can right click on them on select "Show in Finder" to get the exact name.\
-    You can also set the fontsize e.g.: "terminal.integrated.fontSize": 14
+    -   for Source Code Pro + Font Awesome: "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'". The single quotes are important!\
+    -   Restart VS Code after the config change.\
+    -   for Source Code Pro: "terminal.integrated.fontFamily": "Source Code Pro for Powerline"\
+    -   for Meslo: "terminal.integrated.fontFamily": "Meslo LG M for Powerline"\
+    -   **-\> settings (Cmd + ,) \> find (Cmd +F): {Terminal font \| Terminal integrated font family} \> { MesloLGS NF }**\
+    -   for other fonts you'll need to check the font name in Font Book. You can right click on them on select "Show in Finder" to get the exact name.\
+        You can also set the fontsize e.g.: "terminal.integrated.fontSize": 14
 
 **6. Paste Conda Initialize code at the head of .zshrc**
 
@@ -756,7 +826,7 @@ You can:
 
 -   Suppress this warning either by running p10k configure or by manually defining the following parameter:
 
-    ```         
+    ``` bash
     typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
     ```
 
@@ -765,7 +835,7 @@ You can:
 
 -   Disable instant prompt either by running p10k configure or by manually defining the following parameter:
 
-    ```         
+    ``` bash
     typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
     ```
 
@@ -779,29 +849,41 @@ You can:
 
 For details, see: <https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt>
 
--- **console output produced during zsh initialization follows** --
+-- console output produced during zsh initialization follows --
 
 \[oh-my-zsh\] Insecure completion-dependent directories detected: (This directories were found to be insecure.) drwxrwxr-x 3 marcelorosales admin 96 May 9 2021 /usr/local/share/zsh drwxrwxr-x 6 marcelorosales admin 192 Jun 26 16:05 /usr/local/share/zsh/site-functions
 
-\[oh-my-zsh\] For safety, we will not load completions from these directories until \[oh-my-zsh\] you fix their permissions and ownership and restart zsh. \[oh-my-zsh\] See the above list for directories with group or other writability.
+\[oh-my-zsh\] For safety, we will not load completions from these directories until you fix their permissions and ownership and restart zsh.
 
-\[oh-my-zsh\] To fix your permissions you can do so by disabling \[oh-my-zsh\] the write permission of "group" and "others" and making sure that the \[oh-my-zsh\] owner of these directories is either root or your current user. \[oh-my-zsh\] The following command may help: \[oh-my-zsh\] compaudit \| xargs chmod g-w,o-w
+\[oh-my-zsh\] See the above list for directories with group or other writability.
 
-\[oh-my-zsh\] If the above didn't help or you want to skip the verification of \[oh-my-zsh\] insecure directories you can set the variable ZSH_DISABLE_COMPFIX to \[oh-my-zsh\] "true" before oh-my-zsh is sourced in your zshrc file.
+\[oh-my-zsh\] To fix your permissions you can do so by disabling the write permission of "group" and "others" and making sure that the owner of these directories is either root or your current user.
+
+\[oh-my-zsh\] The following command may help:
+
+``` bash
+compaudit | xargs chmod g-w,o-w
+```
+
+\[oh-my-zsh\] If the above didn't help or you want to skip the verification of insecure directories you can set the variable ZSH_DISABLE_COMPFIX to "true" before oh-my-zsh is sourced in your zshrc file.
 
 Solution: type
 
-```         
+``` bash
 compaudit | xargs chmod g-w,o-w
 ```
 
 All messages will disappear with this.
 
+------------------------------------------------------------------------
+
 **Old version 1**: <https://youtu.be/pTW02GMeI74>
 
-[Configuration of a beautiful (efficient) terminal and prompt on OSX in 7minutes](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)\
-Sumary: 0. Install Hombrew
+[Configuration of a beautiful (efficient) terminal and prompt on OSX in 7minutes](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
 
+Summary:
+
+0.  Install Hombrew
 1.  Install and configure iTerm2
 2.  Install a patched font
 3.  Install Zsh and Oh my Zsh
@@ -818,56 +900,63 @@ Sumary: 0. Install Hombrew
 
 **1. Install and configure iTerm2**
 
-```         
+``` bash
 brew cask install iterm2
 ```
 
-Choose your Iterm2 color scheme
+**Choose your Iterm2 color scheme**
 
--   you can use Clovis' iTerm2 color scheme file 🎁 (the one in the screenshot)
--   or scroll many opensource iTerm2 color schemes here
--   ... and download your desired preset's file here
+-   you can use [Clovis' iTerm2 color scheme file](https://raw.githubusercontent.com/Clovis-team/clovis-open-code-extracts/master/utils/Clovis-iTerm2-Color-Scheme.itermcolors) 🎁 (the one in the screenshot)\
+-   or [scroll many opensource iTerm2 color schemes](http://iterm2colorschemes.com/) here\
+-   ... and [download your desired preset's file](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/schemes) here
 
-**2. Install a patched font**\
-The patched font is the font used by iTerm2 to display characters, and you'll need a special one for special characters like arrows and git icons.\
+**2. Install a patched font**
+
+The patched font is the font used by iTerm2 to display characters, and you'll need a special one for special characters like arrows and git icons.
+
 You'll get this result at the end, keep calm and follow this doc\
 Download and install the font
 
--   Meslo (recommanded, ie the one in the screenshot). Click "view raw" to download the font.
--   Source Code Pro has better alignment for the glyphs @14px.
--   Others powerline fonts\
-    Open the downloaded font and press "Install Font" on your computer.\
-    Add the font in iTerm2\
-    (font size of 12pt is our personal preference)\
-    iTerm2 → Preferences → Profiles → Text → Change Font
+-   [Meslo](https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf) (recommanded, ie the one in the screenshot). Click "view raw" to download the font.\
+-   [Source Code Pro](https://github.com/powerline/fonts/blob/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf) has better alignment for the glyphs @14px.\
+-   [Others powerline fonts](https://github.com/powerline/fonts)
+
+Open the downloaded font and press "Install Font" on your computer.
+
+Add the font in iTerm2
+
+(font size of 12pt is our personal preference)\
+iTerm2 → Preferences → Profiles → Text → Change Font
+
+\[img\]
 
 **3. Install Zsh and Oh my Zsh**\
 Zsh is a shell that provides many features, like better files and folders navigation. To install it :
 
-```         
+``` bash
 brew install zsh zsh-completions  
 ```
 
 Oh my Zsh is a Zsh configuration framework, you can read more here: github.com/robbyrussell/oh-my-zsh.\
 To install it :
 
-```         
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"  
+``` bash
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
 ```
 
-💡In the next steps you'll need to edit the \~/.zshrc configuration file which is run when the terminal starts. At any time you can compare it with Clovis .zshrc configuration file 🎁
+💡In the next steps you'll need to edit the \~/.zshrc configuration file which is run when the terminal starts. At any time you can compare it with [Clovis .zshrc configuration file](https://github.com/Clovis-team/clovis-open-code-extracts/blob/master/utils/clovis-zshrc) 🎁
 
 **4. Add Powerlevel9k Zsh Theme**
 
 The Powerlevel9k zsh theme adds many other features like a right promp with infos such as exit codes and timestamps. To install it run :
 
-```         
+``` bash
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k  
 ```
 
 Then edit \~/.zshrc configuration file and set
 
-```         
+``` bash
 ZSH_THEME="powerlevel9k/powerlevel9k"  
 ```
 
@@ -875,12 +964,12 @@ Boom. Powerlevel9k offers a whole lot more, best is to follow the next steps or 
 
 **5. Final tweaking**
 
--   shorter prompt
--   enable text editor navigation
--   auto suggestions
--   syntax highlighting
--   new line after each prompt
--   change color of warning git status
+-   shorter prompt\
+-   enable text editor navigation\
+-   auto suggestions\
+-   syntax highlighting\
+-   new line after each prompt\
+-   change color of warning git status\
 -   change Iterm2 tabs color
 
 ------------------------------------------------------------------------
@@ -896,9 +985,9 @@ Boom. Powerlevel9k offers a whole lot more, best is to follow the next steps or 
 **Tip for this section:**\
 **The first and easiest method is using Mac Finder to show hidden files (like .bash_profile or .bashrc file):**.
 
-1.  Open the folder where you want to search hidden files.
-2.  Press the "Command + Shift + ."...
-3.  The hidden files will show up as translucent/shadow in the folder.
+1.  Open the folder where you want to search hidden files.\
+2.  Press the "Command + Shift + ."...\
+3.  The hidden files will show up as translucent/shadow in the folder.\
 4.  If you want to obscure the files again, press the same "Command + Shift + ."
 
 [top](#)\
@@ -906,51 +995,47 @@ Boom. Powerlevel9k offers a whole lot more, best is to follow the next steps or 
 
 -   How to: Install and use homebrew (why?: To automate program installation and programs settings. Install all programs in one go. Using dot files.
     -   **Customize Terminal**. Taken from the [Linux/Mac Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c) collection \@ [Corey Schafer](https://www.youtube.com/c/Coreyms)
-        -   8 [Customizing Your Terminal: .bash_profile and .bashrc files](https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
-        -   9 [Customizing Your Terminal: Adding Color and Information to Your Prompt](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
-        -   10 [Customizing Your Terminal: How To Use and Modify Dotfiles](https://youtu.be/c5RZWDLqifA)
-        -   11 [How I Setup a New Development Machine - Using Scripts to Automate Installs and Save Time](https://youtu.be/kIdiWut8eD8?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+        -   [Customizing Your Terminal: .bash_profile and .bashrc files](https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)\
+        -   [Customizing Your Terminal: Adding Color and Information to Your Prompt](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)\
+        -   [Customizing Your Terminal: How To Use and Modify Dotfiles](https://youtu.be/c5RZWDLqifA)\
+        -   [How I Setup a New Development Machine - Using Scripts to Automate Installs and Save Time](https://youtu.be/kIdiWut8eD8?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
 
-**8 [.bash_profile and .bashrc files](https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)**.
+[**Customizing Your Terminal: .bash_profile and .bashrc files**](https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c).
 
 <iframe width="426" height="240" src="https://www.youtube.com/embed/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
 </iframe>
 
-[video](https://www.youtube.com/watch?v=vDOVEDl2z84&list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)\
+[video](https://www.youtube.com/watch?v=vDOVEDl2z84&list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+
 https://youtu.be/vDOVEDl2z84?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c
 
 **To customize our terminal**, we are going to create several .bash files (whether with R or VS). If you have other customized bash file move them to another folder (ex. DotFile) and restart terminal (al customization will disappear).
 
 -   Bash_profile: This is a login shell. Usually mac uses longing shell when opening terminal. So normally open terminal and it will echo FROM BASH_PROFILE.
 -   Bashrc: Is a file for none login shells. For linux?. In "terminal" run **bash** to create a subshell. After running this line, mac terminal will echo FROM BASHRC. Having 2 files for logging and non-login shells is cumbersome since we will have to modify both each time when customizing.\
-    A way around this problem is to a simple trick which will allow us to **modify just a single file and it will be applied to all our shells**.
-
-To do this, call your bashrc file from the bash_profile
+    A way around this problem is to a simple trick which will allow us to **modify just a single file and it will be applied to all our shells**.\
+    To do this, call your bashrc file from the bash_profile file.
 
 1.  Create bash files in terminal: **`touch .bash_profile`, `touch .bashrc`** (mind the containing folder). Or create the files in Editor (Visual studio).\
-    **warning:** shellscript language (.sh files) is the language for .bash files, but when saved, it saves as .sh, therefore is better to create them with terminal.
-2.  Open the files in a text editor (VS, atom, R, etc).
+    **warning:** shellscript language (.sh files) is the language for .bash files, but when saved, it saves as .sh, therefore is better to create them with terminal.\
+2.  Open the files in a text editor (VS, atom, R, etc).\
 3.  in the bash_profile file and type:
 
-```{bash}
-#| eval: false
-
+``` bash
 #To see from which file is teminal running the code, echo the file name.  
 echo "FROM BASH_PROFILE"  
 ```
 
 and in the bashrc file:
 
-```{bash}
-#| eval: false
+``` bash
 echo "FROM BASHRC  "  
 ```
 
 Next in the profile_bash file, we call the .bashrc. as the "code source" into the bash_profile. So.. if a .bashrc exist, then run the code from that file (.bashrc) instead of this file (.bash_profile).
 
-```{bash}
-#| eval: false
+``` bash
 #to modify just a single file for all our shells, call your bashrc file from with in the bash_profile file.  
 if [ -f ~/.bashrc]; then  
     source ~/.bashrc  
@@ -960,8 +1045,7 @@ fi
 
 Now we can do all our customizations on the bashrc file.
 
-```{bash}
-#| eval: false
+``` bash
 #Code for the bashrc file:
 #To change the promt name for example:
 PS1="custom-> ";
@@ -970,9 +1054,7 @@ PS1="custom-> ";
 If we reopen terminal it will show **"FROM BASHRC"** in the login shell. Type and run: **`bash`** to reopen as a none login shell and it will show again "FROM BASHRC" confirming that in both shells, the code from the bashrc file is been used and the promp name will also change.\
 So.. from now on will be modifying only the bashrc file....
 
-------------------------------------------------------------------------
-
-**9 [Adding Color and Information to Your Prompt](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c).**
+[**Adding Color and Information to Your Prompt**](https://youtu.be/LXgXV7YmSiU?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)**.**
 
 <iframe width="426" height="240" src="https://www.youtube.com/embed/LXgXV7YmSiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
@@ -982,8 +1064,7 @@ So.. from now on will be modifying only the bashrc file....
 
 Now, let's customize our prompt name
 
-```{bash}
-#| eval: false
+``` bash
 #Code for the bashrc file:
 #To change the promt name for example to just an arrow:
 PS1="-> ";
@@ -992,15 +1073,15 @@ export PS1;
 
 Save the file. To see the changes in the terminal, you can
 
-1.  Close terminal and reopen. Or
+1.  Close terminal and reopen. Or\
 2.  run the new code with `source .bashrc` in Terminal.
 
 Now let's add some dynamic information using special characters:\
-Ex 1. To show the user name.... "username -\>"\
-\> (In mac word the ¥ is the backslash) in Terminal it displays correctly).
+Ex 1. To show the user name.... "username -\>"
 
-```{bash}
-#| eval: false
+> (In mac word the ¥ is the backslash) in Terminal it displays correctly).
+
+``` bash
 #Code for the bashrc file:
 #To change the promt name for example + dinamic information (user) ""
 PS1="\u-> ";
@@ -1010,23 +1091,22 @@ export PS1;
 Then the prompt will show your username.
 
 List of special characters:\
-\u user name.\
-\h the hostname up to the first .\
-\s the name of the shell.\
-\t the current time in 24hr format.\
-\u the username of the current user.\
-\w the current working directory.\
-\W the basename of the current working directory.
+u user name.\
+h the hostname up to the first .\
+s the name of the shell.\
+t the current time in 24hr format.\
+u the username of the current user.\
+w the current working directory.\
+W the basename of the current working directory.
 
 Ex 2. If we would like a prompt like:
 
 **username\@hostname directory -\>"**.
 
-```{bash}
-#| eval: false
+``` bash
 #Code for the bashrc file:
 #To change the promt name for example + dinamic information (user) ""
-PS1="\u@\h \W -> ";
+PS1="  u@  h   W -> ";
 export PS1;
 # In terminal reload using: source .bashrc
 ```
@@ -1035,11 +1115,10 @@ To add color to the text depending on the dynamic info:
 
 > Remember: in "my word" the ¥ is backslash in VS
 
-```{bash}
-#| eval: false
+``` bash
 #Code for the bashrc file:  
 #To change the promt name for example + dinamic information (user)   
-PS1="\u@\h \W -> ";  
+PS1="  u@  h   W -> ";  
 export PS1;  
 
 #To change the promt name + dinamic information + color based on dinamic info.   
@@ -1048,32 +1127,32 @@ export PS1;
     # setaf # Sets color of background. 166 is the color orange in the 256 color chart.   
     # Ex.: "$(tput setaf 166)This is orange".  
 
-PS1="$(tput setaf 166)\u@\h \W -> ";  
+PS1="$(tput setaf 166) u@ h  W -> ";  
 export PS1;  # This will change the color of prompt but also all the text diplayed in Terminal.   
 
 # 2. We need to specify whe color begins and ends.   
     # $(tput sgr0) # Resets the formating.  
-PS1="$(tput setaf 166)\u@\h \W -> $(tput sgr0)";  
+PS1="$(tput setaf 166)  u@  h   W -> $(tput sgr0)";  
 export PS1;  # Change color of prompt and reset color at the end of prompt.  
 
 # 3. To add more colors, place a tput before each dinamic info.  
-PS1="$(tput setaf 166)\u$(tput setaf 228)@\h$(tput setaf 71)\W -> $(tput sgr0)";  
+PS1="$(tput setaf 166)  u$(tput setaf 228)@  h$(tput setaf 71)  W -> $(tput sgr0)";  
 export PS1;  # Change color of for each dinamic info and reset color at the end of prompt.  
     # This way of coding makes lines long an difficult to see. 
     # To organize, add "PS1+=" at the beginning of each line and write the command.
 
-PS1="$(tput setaf 166)\u"; # Orange user.  
-PS1+="$(tput setaf 228)@\h"; # yellow Host.  
-PS1+="$(tput setaf 71)\W"; # green working directory.  
+PS1="$(tput setaf 166)  u"; # Orange user.  
+PS1+="$(tput setaf 228)@  h"; # yellow Host.  
+PS1+="$(tput setaf 71)  W"; # green working directory.  
 PS1+="$(tput sgr0)"; # reset color.  
 export PS1;  # Save and reload. For some reason ? the promp and cursor position is miss placed. 
 
 # 4. To correct the prompt missplacement problem.  
-    # Use the special escape? characters commad in every tput command: \[ \]
-PS1="\[$(tput setaf 166)\]\u"; # Orange user.  
-PS1+="\[$(tput setaf 228)\]@\h"; # yellow Host.  
-PS1+="\[$(tput setaf 71)\]\W"; # green working directory.  
-PS1+="\[$(tput sgr0)\]"; # reset color.  
+    # Use the special escape? characters commad in every tput command:   [   ]
+PS1="  [$(tput setaf 166)  ]  u"; # Orange user.  
+PS1+="  [$(tput setaf 228)  ]@  h"; # yellow Host.  
+PS1+="  [$(tput setaf 71)  ]  W"; # green working directory.  
+PS1+="  [$(tput sgr0)  ]"; # reset color.  
 export PS1;  # Save and reload. promp and cursor position is corrected. 
 
 # 5. To make it more easy to code, we can specify each tput command as a variable.
@@ -1084,18 +1163,17 @@ white= $(tput setaf 15);
 bold= $(tput setaf bold);   
 reset= $(tput sgr0);  
       
-PS1="\[${bold}\]\n";  
-PS1+="\[${orange}]\u"; # Orange user.  
-PS1+="\[${white}\] at";  
-PS1+="\[${yellow}\]\h"; # yellow Host.  
-PS1+="\[${white}\] in";  
-PS1+="\[${green}\]\W"; # green working directory.  
-PS1+="\n";  # \n is a new line  
-PS1+="\[${white}\]$ \[${reset}\]"; # $ white and reset color.  
+PS1="  [${bold}  ]  n";  
+PS1+="  [${orange}]  u"; # Orange user.  
+PS1+="  [${white}  ] at";  
+PS1+="  [${yellow}  ]  h"; # yellow Host.  
+PS1+="  [${white}  ] in";  
+PS1+="  [${green}  ]  W"; # green working directory.  
+PS1+="  n";  #   n is a new line  
+PS1+="  [${white}  ]$   [${reset}  ]"; # $ white and reset color.  
 export PS1;  
 
 # To reload in terminal: source .bashrc
-
 ```
 
 **10 [How To Use and Modify Dotfiles](https://youtu.be/c5RZWDLqifA)**
@@ -1113,8 +1191,7 @@ Previously we use the ".bashrc" file as the main file for modifying shell profil
 In the .bash_profile from MBs,\
 To understand the code commands and checks, in terminal use:
 
-```{bash}
-#| eval: false
+``` bash
 man test
 ```
 
@@ -1132,8 +1209,7 @@ We can also the [CoreyMSchafer/dotfiles](https://github.com/CoreyMSchafer/dotfil
 
 To make a file executable in Terminal, whether is a .bash file or a .sh file. In Terminal type:
 
-```{bash}
-#| eval: false
+``` bash
 chmod +x scriptname.sh
 ```
 
@@ -1151,42 +1227,42 @@ All these procedures are for bash shell, obsolete for the new zsh shell. Use to 
 
 0.  Find dotfile repo, check and modify code for custom prompt and brew installation files. Files:
 
--   install.sh: Executable, where I modify installation procedures.
--   bash_profile: Gather all custom .bash scripts and source them.
--   bashrc.
--   bash_server_prompt.
--   bash_prompt: Custom prompt color.
+-   install.sh: Executable, where I modify installation procedures.\
+-   bash_profile: Gather all custom .bash scripts and source them.\
+-   bashrc.\
+-   bash_server_prompt.\
+-   bash_prompt: Custom prompt color.\
 -   brew.sh or brewfile: May is better to use the dump command for auto brewfile.
 
 **From Github:**
 
-1.  Git clone dotfiles repo into home directory.
-2.  Run install.sh
-3.  .bashfiles symlinks will be created in home dir and auto source.
-4.  Restart †Terminal (bash shell) or RStudio terminal.
+1.  Git clone dotfiles repo into home directory.\
+2.  Run install.sh\
+3.  For .bashfiles symlinks will be created in home dir and auto source.\
+4.  Restart †Terminal (bash shell) or RStudio terminal.\
 5.  Custom prompt will be displayed.\
     ∵ changes and modifications are made on git \> commit and pushed, will apply to all devices at once.
 
 **From Folder:**
 
-1.  Copy the dotfile directory to homedir.
-2.  Run install.sh
-3.  .bashfiles symlinks will be created in homedir and auto sourced.
-4.  Restart †Terminal (bash shell) or RStudio terminal.
+1.  Copy the dotfile directory to homedir.\
+2.  Run install.sh\
+3.  .bashfiles symlinks will be created in homedir and auto sourced.\
+4.  Restart †Terminal (bash shell) or RStudio terminal.\
 5.  Custom prompt will be displayed.\
     ∵ changes and modifications will have to be made manually for each device every time. It is NOT an ideal way to it.
 
 **From Cloud Sync Service (Box Sync):**
 
-1.  Copy the dotfile directory to Box Sync directory.
-2.  Run install.sh
-3.  .bashfiles symlinks will be created in homedir and auto source.
-4.  Restart †Terminal (bash shell) or RStudio terminal.
+1.  Copy the dotfile directory to Box Sync directory.\
+2.  Run install.sh\
+3.  .bashfiles symlinks will be created in homedir and auto source.\
+4.  Restart †Terminal (bash shell) or RStudio terminal.\
 5.  Error in the installing.
 
 -   Symlinks path DO NOT point/target to Box Sync dir.
--   Idea: Create folder in homedir. Create symlinks to Box Sync.
--   Error: Too many levels of symbolic links.
+-   Idea: Create folder in homedir. Create symlinks to Box Sync.\
+-   Error: Too many levels of symbolic links.\
 -   As of this posting, Box can't handle symlinks.
 -   Path with spaces are problematic as string variable.\
     ∵ installation was unsuccessful.
@@ -1214,21 +1290,20 @@ Requirements: (See brew and git sections for detail information).
     -   **If not installed** install from <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>.
 
 3.  Download the "dotfile" directory from the git hub repository (if you have one. In general it is recommended).\
+
 4.  **This will create a folder in the home directory called 'dotfiles'** with all the files required.
 
--   If not: **Create or copy/paste a directory 'dotfiles\` containing all the files**.
+    -   If not: **Create or copy/paste a directory 'dotfiles\` containing all the files**.
 
 5.  Go to terminal. \> Go to dotfiles folder.
 
-```{bash}
-#| eval: false
+``` bash
 cd path/to/dotfile/folder/
 ```
 
 6.  Run the install file: through terminal. (you need to be in the same folder as the install.sh file).
 
-```{bash}
-#| eval: false
+``` bash
 ./install.sh path/to/home/directory
 ```
 
@@ -1236,15 +1311,14 @@ This will create the files (symlinks) into the home directory.
 
 If the error:
 
-```{bash}
-#| eval: false
+``` bash
 -bash: ./file.name: Permission denied
 ```
 
 Is ∵ you are trying to execute a file which you do not have permission to run.\
 To fix this issue, use the `chmod u+x` command to give yourself permissions. more info [here](https://careerkarma.com/blog/bash-permission-denied-solution/#:~:text=Conclusion,get%20access%20to%20a%20file.)
 
-```{bash}
+``` bash
 #| eval: false
 
 chmod u+x example.sh
@@ -1252,8 +1326,7 @@ chmod u+x example.sh
 
 Then, run installation again
 
-```{bash}
-#| eval: false
+``` bash
 ./install.sh path/to/home/directory
 ```
 
@@ -1263,12 +1336,11 @@ However, If executing install.sh form other directory than 'dotfiles' created by
 
 **To check symlink path:**\
 \> //Finder \> R© \> Get Info \> ...\[\]... Original: /path/to/original/file \<- if path is **incorrect**, change manually in terminal.\
-[How to change where a symlink points \[duplicate\]](https://unix.stackexchange.com/questions/151999/how-to-change-where-a-symlink-points)\
+[How to change where a symlink points \[duplicate\]](https://unix.stackexchange.com/questions/151999/how-to-change-where-a-symlink-points)
+
 Can you change what a symlink points to after it is created?
 
-```{bash}
-#| eval: false
-
+``` bash
 ln -sfn source/file/or/directory/name softlink/name  
 Eg.  
 ln -sfn path/to/original/file/.bash_profile .bash_profile (∵ we are in home directory) or  
@@ -1277,9 +1349,7 @@ ln -sfn path/to/original/file/MRR-bash_prompt  .bash_prompt  (target file is not
 
 \*Ø source file, original file, targeted file are all synonyms in this case.
 
-```{bash}
-#| eval: false
-
+``` bash
 # create symlinks (will overwrite old dotfiles)
 # Careful!! bash: /Users/marcelorosales/.bash_profile: Too many levels of symbolic links!!!! As of this posting, Box can’t handle symlinks.
 for file in ${files}; do
@@ -1289,6 +1359,8 @@ for file in ${files}; do
 done
 ```
 
+------------------------------------------------------------------------
+
 ### Symbolic Links
 
 **(aka Symlinks) on a Mac**
@@ -1297,7 +1369,7 @@ done
 
 To create a symbolic link on a Mac, you'll need to use the Terminal app. Run the ln command in the following form. You can specify either a path to a directory or file:
 
-```{bash}
+``` bash
 #| eval: false
 ln -s /path/to/original /path/to/link
 ln -s /path/of/original/file /path/to/target/dir
@@ -1308,7 +1380,7 @@ The -s here tells the ln command to create a symbolic link. If you want to creat
 
 Here's an example. Let's say you wanted to create a symbolic link in your Desktop folder that points to your Downloads folder. You'd run the following command:
 
-```{bash}
+``` bash
 #| eval: false
 ln -s /Users/name/Downloads /Users/name/Desktop
 ```
@@ -1317,7 +1389,7 @@ After creating the link, you'd see your Downloads folder appear on your desktop.
 
 If your file path contains spaces or other special characters, you'll need to enclose it in quotation marks. So, if you wanted to create a link on your desktop to a folder named "My Files" inside your user directory, you'd need something like the following command:
 
-```{bash}
+``` bash
 #| eval: false
 ln -s "/Users/name/My Files" "/Users/name/Desktop/My Link"
 ```
@@ -1326,7 +1398,7 @@ To ease typing file and directory paths into the Terminal, you can drag-and-drop
 
 If you need to create a symbolic link in a system location your user account doesn't have access to, you'll need to prefix the ln command with the sudo command, like so:
 
-```{bash}
+``` bash
 #| eval: false
 sudo ln -s /path/to/original /path/to/link  
 ```
@@ -1391,7 +1463,7 @@ Keep in mind that the behavior of symlinks within Box Sync may vary depending on
 
 Note: Creating symlinks requires appropriate permissions on your system. Make sure you have the necessary privileges to create symlinks and manage files and folders in your operating system.
 
-```{bash}
+``` bash
 #| eval: false
 ln -s "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/All_notes.qmd" "/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/All_notes_smlk.qmd"
 ```
@@ -1402,17 +1474,16 @@ On a Synology NAS, you can create symbolic links (symlinks) using the command-li
 
 1.  Using the CLI:
     -   Connect to your Synology NAS via SSH or use the built-in Terminal in the DSM web interface.
-
     -   Navigate to the location where you want to create the symlink.
-
     -   Use the `ln` command to create the symlink. For example, to create a symlink named "symlink_name" pointing to "target_path", use the following command:
 
-        ```         
-        ln -s target_path symlink_name
-        ```
+``` bash
+ln -s target_path symlink_name
+```
 
-    -   The symlink will be created in the specified location.
-2.  Using the DSM web interface:
+-   The symlink will be created in the specified location.
+
+1.  Using the DSM web interface:
     -   Open the File Station app in the DSM web interface.
     -   Navigate to the folder where you want to create the symlink.
     -   Right-click on an empty area and select "Create" \> "Symbolic Link".
@@ -1427,9 +1498,9 @@ Please note that creating symlinks may require administrative privileges on the 
 As mention in **From Cloud Sync Service (Box Sync):**
 
 -   Symlinks path DO NOT point/target to Box Sync dir.
--   Error: Too many levels of symbolic links.
+-   Error: Too many levels of symbolic links.\
 -   As of this posting, Box can't handle symlinks.
--   Path with spaces are problematic as string variable.
+-   Path with spaces are problematic as string variable.\
 -   Idea: Create folder in homedir. Create symlinks to Box Sync.\
     ∵ installation was unsuccessful.
 
@@ -1465,50 +1536,32 @@ On macOS, you can sync two files using various methods, depending on your specif
 
     -   Use the `rsync` command to sync files. For example, to sync `file1.txt` from the source folder to the destination folder, use the following command:
 
-```{bash}
-#| eval: false
-rsync -avh --progress /path/to/source/file1.txt /path/to/destination/
-```
+        ```         
+        rsync -avh --progress /path/to/source/file1.txt /path/to/destination/
+        ```
 
--   The `-avh` options preserve file attributes and enable verbose mode, while `--progress` displays the progress of the sync process.
-
+    -   The `-avh` options preserve file attributes and enable verbose mode, while `--progress` displays the progress of the sync process.
 3.  Using third-party synchronization software:
     -   There are various third-party applications available for file synchronization on macOS, such as Dropbox, Google Drive, or Resilio Sync. These tools provide more advanced syncing capabilities and often include features like automatic syncing, real-time collaboration, and cloud storage integration.
 
 Choose the method that suits your specific requirements, whether you prefer a manual approach through the Finder, utilizing the command-line power of `rsync`, or using dedicated syncing software.
 
-#### how to schedule rsync on mac
+#### Schedule rsync on mac
 
 To schedule an `rsync` command to run at specific times or intervals on macOS, you can use the built-in `cron` or `launchd` utilities. Here's a step-by-step guide on how to set up a scheduled `rsync` task:
 
-Using `cron`:
+Using `cron`: 1. Open Terminal on your macOS (Applications -\> Utilities -\> Terminal). 2. Type `crontab -e` to open the cron file for editing. 3. If prompted to select an editor, choose your preferred text editor (e.g., nano, vim). 4. In the cron file, add a new line specifying the schedule and the `rsync` command. For example, to run `rsync` every day at 10:00 AM:
 
-1.  Open Terminal on your macOS (Applications -\> Utilities -\> Terminal).
+``` bash
+0 10 * * * rsync -avh --progress /path/to/source/ /path/to/destination/
+```
 
-2.  Type `crontab -e` to open the cron file for editing.
+Adjust the `rsync` options, source path, and destination path as needed. 5. Save the file and exit the editor. 6. `cron` will now execute the `rsync` command at the scheduled time.
 
-3.  If prompted to select an editor, choose your preferred text editor (e.g., nano, vim).
+Using `launchd`: 1. Open a text editor (e.g., TextEdit) on your macOS. 2. Create a new XML file with the following content, replacing the placeholders with your specific information:
 
-4.  In the cron file, add a new line specifying the schedule and the `rsync` command. For example, to run `rsync` every day at 10:00 AM:
-
-    ```         
-    0 10 * * * rsync -avh --progress /path/to/source/ /path/to/destination/
-    ```
-
-    Adjust the `rsync` options, source path, and destination path as needed.
-
-5.  Save the file and exit the editor.
-
-6.  `cron` will now execute the `rsync` command at the scheduled time.
-
-Using `launchd`:
-
-1\. Open a text editor (e.g., TextEdit) on your macOS.
-
-2\. Create a new XML file with the following content, replacing the placeholders with your specific information:
-
-```         
-{<?xml version="1.0" encoding="UTF-8"?>}
+``` html
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -1535,14 +1588,7 @@ Using `launchd`:
 </plist>
 ```
 
-Adjust the `rsync` options, source path, destination path, and the `Hour` and `Minute` values in `<StartCalendarInterval>` as needed.
-
-1.  Save the file with a .plist extension, such as rsyncsync.plist.
-2.  Open Terminal on your macOS (Applications -\> Utilities -\> Terminal).
-3.  Type sudo mv /path/to/rsyncsync.plist /Library/LaunchDaemons/ to move the .plist file to the appropriate directory.
-4.  Type sudo chown root:wheel /Library/LaunchDaemons/rsyncsync.plist to set the correct ownership and permissions for the file.
-5.  Type sudo launchctl load /Library/LaunchDaemons/rsyncsync.plist to load the launchd job.
-6.  launchd will now execute the rsync command at the scheduled time.
+Adjust the `rsync` options, source path, destination path, and the `Hour` and `Minute` values in `<StartCalendarInterval>` as needed. 1. Save the file with a `.plist` extension, such as `rsyncsync.plist`. 2. Open Terminal on your macOS (Applications -\> Utilities -\> Terminal). 3. Type `sudo mv /path/to/rsyncsync.plist /Library/LaunchDaemons/` to move the `.plist` file to the appropriate directory. 4. Type `sudo chown root:wheel /Library/LaunchDaemons/rsyncsync.plist` to set the correct ownership and permissions for the file. 5. Type `sudo launchctl load /Library/LaunchDaemons/rsyncsync.plist` to load the `launchd` job. 6. `launchd` will now execute the `rsync` command at the scheduled time.
 
 Note: When using `cron` or `launchd`, ensure that the paths to the `rsync` executable and the source/destination files/folders are correctly specified. Also, make sure you have the necessary permissions to access the files/folders and run the `rsync` command.
 
@@ -1552,107 +1598,23 @@ Please exercise caution when scheduling tasks and ensure that the `rsync` comman
 
 To trigger a sync with `rsync` as soon as the original file is modified, you can use the `--update` option along with the `--delete` option to keep the destination in sync with the source. Here's an example command:
 
-```         
+``` bash
 rsync -avh --progress --update --delete /path/to/source/ /path/to/destination/
 ```
 
-Explanation of options:
-
--   `-avh`: Enables archive mode (preserves file attributes), displays verbose output, and shows the progress of the sync.
--   `--update`: Skips files that are newer in the destination, effectively syncing only modified or new files.
--   `--delete`: Deletes files in the destination that don't exist in the source, ensuring an exact match between the source and destination.
+Explanation of options: - `-avh`: Enables archive mode (preserves file attributes), displays verbose output, and shows the progress of the sync. - `--update`: Skips files that are newer in the destination, effectively syncing only modified or new files. - `--delete`: Deletes files in the destination that don't exist in the source, ensuring an exact match between the source and destination.
 
 When you run this command, `rsync` will compare the timestamps of the files in the source and destination. It will only transfer files that have been modified or are new since the last sync. The `--delete` option ensures that any files in the destination that no longer exist in the source will be removed.
 
 You can include this command in a script or a scheduled task (such as using `cron` or `launchd`) to run it periodically or at specific intervals. This way, the sync will be triggered automatically whenever there are modifications to the original file.
 
-### Schedule commands with crontabs
+#### Schedule commands with crontabs
 
 [Linux/Mac Tutorial: Cron Jobs - How to Schedule Commands with crontab](https://www.youtube.com/watch?v=QZJ1drMQz1A)
 
-------------------------------------------------------------------------
+#### Function to make symlinks.
 
-220830
-
-### How to Create Files and Directories in R
-
-[How to Create Files and Directories in R - R-Lang](https://r-lang.com/how-to-create-files-and-directories-in-r/)
-
-How to Create a **directory** in R To create a directory in R, use the dir.create() method. The dir.create() method accepts a folder generated in the current working directory or specifies a path. Before working with files, it's a better idea to know what directory you're working in. In R, you can figure out which directory you are working on the getwd() function.
-
-Syntax
-
-```{r}
-#| eval: false
-
-dir.create(path, showWarnings = TRUE, recursive = FALSE, mode = "0777")
-```
-
-Arguments path: It is a character vector containing a single path name. paths: They are character vectors containing file or directory paths. showWarnings: It is a logical argument; should the warnings on failure be shown? recursive: It is a logical argument. Should elements of the path other than the last be created? If true, like the Unix command mkdir -p. mode: It will be used on Unix-alikes: it will be coerced by as.octmode. For Sys.chmod, it is recycled along paths.
-
-Return Value The dir.create() function returns an invisibly logical vector indicating if the operation succeeded for each of the files attempted.
-
-Example Before creating a folder in R, you need to check if the same-named folder exists. To check if the folder exists, use the file.exists() method. Then if it does not exist, you can create a folder.
-
-```{r}
-#| eval: false
-
-folder <- "mortalkombat"
-if (file.exists(folder)) {
- cat("The folder already exists")
-} else {
- dir.create(folder)
-}
-```
-
-If the folder does not exist, then it will create a new directory for you.
-
-Trailing path separators are discarded. On Windows, drives are allowed in the path specification, and unless the path is rooted, it will be interpreted relative to the current directory on that drive. The mode is ignored on Windows.
-
-How to Create a file in R To create a file in R programmatically, use the file.create() method. The file.create() function creates files with the given names if they do not already exist and truncates them if they do.
-
-Syntax
-
-```{r}
-#| eval: false
-
-file.create(x, showWarnings = TRUE)
-
-```
-
-Parameters ..., file1, file2: They are character vectors containing file names or paths.
-
-Example
-
-```{r}
-#| eval: false
-
-file <- "dataframe.R"
-if (file.exists(file)) {
- cat("The file already exists")
-} else {
- file.create(file)
-}
-```
-
-Output \[1\] TRUE
-
-```{r}
-#| eval: false
-
-install.packages("rChoiceDialogs")
-install.packages("rJava")
-
-library(rChoiceDialogs)
-tk_choose.dir()
-
-```
-
-works only on linux/mac not windows.
-
-tk_choose.dir {tcltk}
-
-function to make symlinks.
+See R ans Rstudio section.
 
 ```{bash}
 #| eval: false
@@ -1670,7 +1632,7 @@ ln -s "/Users/name/My Files" "/Users/name/Desktop/My Link"
 
 -   paste name of original file
 
-1.  In \>\_?
+**In Terminal**
 
 ```{bash}
 #| eval: false
@@ -1694,116 +1656,7 @@ theSelectedFile="$(osascript -l JavaScript -e 'a=Application.currentApplication(
 echo "Selected file: $theSelectedFile"
 ```
 
-1.  With in R and Rstudio.
-
-```{r}
-#| eval: false
-
-file.choose()
-```
-
-`file.choose()` is a {base} function, it works by itself, does not need a package to work.
-
-However, for choosing directories:
-
-The `choose.dir`, from the utils package Choose a Folder Interactively on MS Windows only. Not mac.
-
-For mac an Unix, use `tk_choose.dir()` form {tcltk} package.
-
-```{r}
-#| eval: false
-
-library(tcltk)
-tk_choose.dir()
-```
-
-For multiplataform usage, create a custom function in the global environment
-
-```{r}
-#| eval: false
-
-choose_directory = function(caption = 'Select data directory') {
-  if (exists('utils::choose.dir')) {
-    choose.dir(caption = caption) 
-  } else {
-    tk_choose.dir(caption = caption)
-  }
-}
-```
-
-Then use it as a function:
-
-```{r}
-#| eval: false
-
-choose_directory()
-```
-
-How to Create Files and Directories in R - R-Lang
-
-Windows
-
-```{r}
-#| eval: false
-
-getwd()
-setwd(choose.dir)
-folder <- "test"
-if (file.exists(folder)) {
- cat("The folder already exists")
-} else {
- dir.create(folder)
-}
-```
-
-Mac
-
-```{r}
-#| eval: false
-
-getwd()
-setwd(tk_choose.dir())
-folder <- "test"
-if (file.exists(folder)) {
- cat("The folder already exists")
-} else {
- dir.create(folder)
-}
-```
-
-Mac&Windows
-
-```{r}
-#| eval: false
-
-getwd()
-setwd(choose_directory())
-folder <- "test"
-if (file.exists(folder)) {
- cat("The folder already exists")
-} else {
- dir.create(folder)
-}
-```
-
-Interactively, choose a folder.
-
-```{r}
-#| eval: false
-
-if (interactive()) tk_choose.dir(getwd(), "Choose a suitable folder")
-```
-
-1.  Create symlink
-
-```{r}
-#| eval: false
-
-file.symlink(tk_choose.files(), tk_choose.dir())
-```
-
-See files {base}\
-R Documentation File Manipulation
+------------------------------------------------------------------------
 
 [top](#)
 
@@ -2093,7 +1946,11 @@ q » exit help.
 List2.\
 [Handy word keyboard shortcuts for windows and Mac](https://www.computerworld.com/article/3616471/handy-word-keyboard-shortcuts-for-windows-and-mac.html)
 
-### [Bash scripting]()
+------------------------------------------------------------------------
+
+[top](#)
+
+### Bash scripting.
 
 [**Video1**](https://youtu.be/e7BufAVwDiM)\
 <iframe width="560" height="315" src=" https://www.youtube.com/embed/e7BufAVwDiM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -2109,15 +1966,13 @@ All code in terminal. cd, ls, clear or cnt+L, cat,
 
 1.  **To show all shells available in system:**
 
-```{bash}
-#| eval: false
+``` bash
 cat /etc/shells 
 ```
 
 1.  **To Tell What Shell Your Mac is Using: (2 ways)**
 
-```{bash}
-#| eval: false
+``` bash
 echo $0 
 which bash
 ```
@@ -2127,7 +1982,7 @@ MBP20:\
 
 1.  **How to switch between shells in macOS?** : Simply type the shell name on the prompt. Ex.
 
-```{bash}
+``` bash
 #| eval: false
 
 (username@~ % bash)  
@@ -2137,8 +1992,7 @@ The default interactive shell is now zsh. If not....
 
 1.  **To update your account to use zsh, run**
 
-```{bash}
-#| eval: false
+``` bash
 chsh -s /bin/zsh 
 ```
 
@@ -2146,23 +2000,20 @@ For more details, on how to change via [system preferences see here](https://sup
 
 1.  **To create a file. Use the command `touch` and the name of the file. Ex.**
 
-```{bash}
-#| eval: false
+``` bash
 touch scriptname.sh
 touch .bash_profile
 ```
 
 1.  **To make a file executable (-x**)
 
-```{bash}
-#| eval: false
+``` bash
 chmod +x filename.~
 ```
 
 1.  **To execute file "./" file name and enter.**
 
-```{bash}
-#| eval: false
+``` bash
 ./ filename.~  
 ```
 
@@ -2170,8 +2021,7 @@ chmod +x filename.~
 
 1.  To make an executable file create a new file.
 
-```{bash}
-#| eval: false
+``` bash
 # In the -x file (filename.~).  
 echo "Hello bash in terminal" > newfilename.~
 # echo prints the mensage
@@ -2182,8 +2032,7 @@ Execute filename.\~ and a new file will be created in the pwd (present/print wor
 
 1.  Create file from -x file and use terminal as editor.
 
-```{bash}
-#| eval: false
+``` bash
 cat > newfilename.~ # Use terminal as editor. * over writes old newfilename.~
 cat > newfilename.~ # Use terminal as editor. * This appends (adds to the end) into newfilename.~
 ```
@@ -2192,7 +2041,7 @@ cat > newfilename.~ # Use terminal as editor. * This appends (adds to the end) i
 
 1.  To add comments.
 
-```         
+``` bash
 # Single line comment.
 :'
 Multi
@@ -2202,7 +2051,7 @@ comment'
 
 1.  To show comments in the output. Use the heredoc delimiter. Any text can be used as delimiter.
 
-```         
+``` bash
 cat << AnyTextDelimiter 
 Text to be display,
 even if it is 
@@ -2212,16 +2061,21 @@ AnyTextDelimiter
 
 #### Complete this later...
 
-Table 1: Built-in shell variables.\
+Table 1: Built-in shell variables.
+
 Variable Use.
 
-```         
+``` bash
+#| eval: flase
+
 $# Stores the number of command-line arguments that were passed to the shell program.  
 $? Stores the exit value of the last command that was executed.  
 $0 Stores the first word of the entered command (the name of the shell program).  
 $* Stores all the arguments that were entered on the command line ($1 $2 ...).  
 "$@" Stores all the arguments that were entered on the command line, individually quoted ("$1" "$2" ...).  
 ```
+
+------------------------------------------------------------------------
 
 [top](#)
 
@@ -2233,8 +2087,7 @@ How to Create A Batch Cask Installer for Homebrew (Using a Simple Bash Script).
 
 </iframe>
 
-```{bash}
-#| eval: false
+``` bash
 # Create bash file in the Home directory.  
 pwd  
 ls  
@@ -2260,10 +2113,14 @@ chmod +x caskinstall.sh
 # Create a variable   "CASK=()" 
 ```
 
-Basically all the code is as follows Note: the `#!/usr/bin/env bash` is called a shrap bang (or shebang?), is not a comment, it is a declaration of the language we are using.\
+Basically all the code is as follows Note: the `#!/usr/bin/env bash` is called a shrap bang (or shebang?), is not a comment, it is a declaration of the language we are using.
+
 To se where is the bash type in terminal:
 
-which bash\
+``` bash
+which bash
+```
+
 usually the answer is `/bin/bash`.
 
 **Full code**.
@@ -2283,8 +2140,7 @@ brew cask install ${CASK[@]}
 echo "Updating Complete!"  
 ```
 
-```{bash}
-#| eval: false
+``` bash
 # Place the name of all the app to be install, run the file and all the programs will be automatically install or updated.  
 # In terminal.  
 brew cask list  
@@ -2300,14 +2156,14 @@ To make the created file (caskinstall.sh) executable.
 1.  Delete the extension: caskistall.sh \> caskinstall.\
 2.  make the file executable with the chmod.
 
-```{bash}
-#| eval: false
+``` bash
 Chmod +x caskinstall 
 ```
 
 1.  To run file. 2x© caskinstall in finder or ./caskinstall in terminal.
 
-**Table 1: Built-in shell variables.**\
+**Table 1: Built-in shell variables.**
+
 [link](http://linuxsig.org/files/bash_scripting.html).
 
 Variable Use
@@ -2319,6 +2175,8 @@ $0 Stores the first word of the entered command (the name of the shell program).
 $* Stores all the arguments that were entered on the command line ($1 $2 ...).  
 "$@" Stores all the arguments that were entered on the command line, individually quoted ("$1" "$2" ...).
 ```
+
+------------------------------------------------------------------------
 
 [top](#)
 
@@ -2346,8 +2204,8 @@ sips -Z 300 *.jpg  --out ~/path/to/new/folder
 # To rename the new img created.  
 # 1. Got to the dir where the images are located. 
 # 2. type the followin command. 
-find . -type f -exec bash -x 'mv "$0" "${0%\.jpg}-300.jpg"' {} \; 
-# Find all the files, .= in this folder, ${0%\.jpg}= disregard the extension of the file, -300.jpg= add 300.jpg to the file name. 
+find . -type f -exec bash -x 'mv "$0" "${0%  .jpg}-300.jpg"' {}   ; 
+# Find all the files, .= in this folder, ${0%  .jpg}= disregard the extension of the file, -300.jpg= add 300.jpg to the file name. 
 ```
 
 #### Resize multiple images (resize img batch) in \>\_:
@@ -2355,8 +2213,7 @@ find . -type f -exec bash -x 'mv "$0" "${0%\.jpg}-300.jpg"' {} \;
 1.  Create new folder, copy/paste all img to be changed.\
 2.  In \>\_ use the sis¥ps command
 
-```{bash}
-#| eval: false
+``` bash
 sips -Z 600 *.jpg
 ```
 
@@ -2368,8 +2225,7 @@ sips: sips command is used to query or modify raster image files (JPG/GIF/PNG) a
 600: output width? size in pixels.\
 \*.jpg: files to modify, in this case, all .jpg files in the current directory.
 
-```{bash}
-#| eval: false
+``` bash
 sips -Z 600 *.jpg --out ~/new/dir/path/and/name
 ```
 
@@ -2377,9 +2233,8 @@ This will create a new directory, make a copy of the files, modify size and save
 
 Rename all the files (rename batch) in \>\_: 1. Go to the directory containing files. 2. run command:
 
-```{bash}
-#| eval: false
-find . -type f -exec bash -c `mv “$0” “${0%\.jpg}-300.jpg”` {} \;
+``` bash
+find . -type f -exec bash -c `mv “$0” “${0%  .jpg}-300.jpg”` {}   ;
 ```
 
 find all the files in the current directory of this type of files\
@@ -2387,7 +2242,7 @@ then, execute this command ? ? disregard the extension .jpg and add the suffix: 
 
 **Small Script to auto resize**
 
-```{bash}
+``` bash
 #| eval: false
 
 #!/bin/bash
@@ -2420,17 +2275,20 @@ exit 0
 1.  Go to the directory containing files.\
 2.  run command:
 
-```{bash}
-#| eval: false
-find . -type f -exec bash -c `mv “$0” “${0%\.jpg}-300.jpg”` {} \;
+``` bash
+find . -type f -exec bash -c `mv “$0” “${0%  .jpg}-300.jpg”` {}   ;
 ```
 
-find all the files in the current directory of this type of files\
-then, execute this command ? ? disregard the extension .jpg and add the suffix: -300.jpg
+**find** all the files\
+**.** in the current directory\
+**-type** of this type of files\
+**-exec bash** then, execute this command in bash?\
+**-c** ?\
+**mv** ?\
+**"**$0” “${0% .jpg} disregard the extension .jpg\
+-300.jpg"\` {} ; and add the suffix: -300.jpg
 
 !!! failure bash: ./03-Molar-1000x684.jpg: Permission denied
-
-------------------------------------------------------------------------
 
 //\[Layout\] \> ˇMargins \> Custom margins \>..\[\].. \> Grid \>
 
@@ -2448,38 +2306,31 @@ then, execute this command ? ? disregard the extension .jpg and add the suffix: 
 
 [Homebrew Tutorial: Simplify Software Installation on Mac Using This Package Manager](https://youtu.be/SELYgZvAZbU)
 
- \* 1st install command line tools. (Do this through Xcode).
+-   1st install command line tools. (Do this through Xcode).
 
-```{bash}
-#| eval: false
+``` bash
 xcode-select --install
 ```
 
 If already installed an error message will be displayed.
 
-```{bash}
-#| eval: false
-xcode-select: error: command line tools are already installed, use "Software Update" to install updates
-```
+`bash xcode-select: error: command line tools are already installed, use "Software Update" to install updates`
 
 -   Install home brew.
 
-```{bash}
-#| eval: false
+``` bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 -   Test if brew install correctly by displaying the help menu.
 
-```{bash}
-#| eval: false
+``` bash
 Brew help
 ```
 
 -   To see all the packages we can install:
 
-```{bash}
-#| eval: false
+``` bash
 brew search  # This does no longer show all the programs, needs to add name of the program. 
 brew search | -l  # Retired/Discontinued.  
 brew search >programmname> 
@@ -2488,26 +2339,31 @@ brew list  # To see all packages already intalled. (see `brew help’)
 brew info >programname<  # Gives all the info of program.  
 ```
 
- \* To search a program in brew
+-   To search a program in brew
 
-```{bash}
-#| eval: false
+``` bash
 brew search >programname< # This does no longer show all the programs, needs to add name of the program. 
 ```
 
- \* To display the pathway to a program in brew
+-   To display the pathway to a program in brew
 
-```         
+``` bash
 which >programname< # Path to programs folder.  
 /usr/local/bin/tree. # Answer. But it is only a symlink to the real folder   
 ls -la /usr/local/bin/tree  # Display long attributes of folder and the real location of the folder.  /usr/local/bin/tree -> ../cellar/tree/1.8.0/bin/tree   
 ```
 
-brew update brew outdated brew upgrade brew cleanup brew doctor
+Other Brew commands.
+
+-   brew update
+-   brew outdated
+-   brew upgrade
+-   brew cleanup
+-   brew doctor
 
 brew update --auto-update : Use this to see outdated formulas and casks installed. After running this message will appear.
 
-```         
+``` bash
 You have 32 outdated formulae and 12 outdated casks installed.  
 You can “upgrade them” with **brew upgrade**  
 or “list them” with **brew outdated**.  
@@ -2521,8 +2377,7 @@ or “list them” with **brew outdated**.
 
 </iframe>
 
-```{bash}
-#| eval: false
+``` bash
 brew bundle
 ```
 
@@ -2542,15 +2397,13 @@ Error: No Brewfile found  # This means that the Brewfile has not been yet create
 
 or
 
-```{bash}
-#| eval: false
+``` bash
 brew bundle install   
 ```
 
 To check all programs installed with brew.
 
-```{bash}
-#| eval: false
+``` bash
 brew list mas
 ```
 
@@ -2565,7 +2418,7 @@ Terminal will show this:
 
 If other reply, then... check list mas if not present install mas command:
 
-```         
+``` bash
 brew list mas || brew install mas  
 ```
 
@@ -2573,12 +2426,23 @@ brew list mas || brew install mas
 
 #### Creating a brewfile
 
-1.  In terminal: `brew bundle dump --describe` (Brew bundle install required).\
-2.  To check the "packages installed" with brew in the brewfile created: `cat brewfile`.\
-    This file will be created in the **home directory**. (Home directory » Cmd+shift+H; Macintosh HD \> Users \> (user name)).
+1.  In terminal:
 
-```{bash}
-#| eval: false
+(Brew bundle install required).
+
+``` bash
+brew bundle dump --describe
+```
+
+1.  To check the "packages installed" with brew in the brewfile created:
+
+``` bash
+cat brewfile 
+```
+
+This file will be created in the **home directory**. (Home directory » Cmd+shift+H; Macintosh HD \> Users \> (user name)).
+
+``` bash
 # To create brewfile
 brew update
 clear 
@@ -2592,8 +2456,7 @@ cat brewfile
 
 1.  To install the brewfile in a new mac or new installation:
 
-```{bash}
-#| eval: false
+``` bash
 sudo softwareupdate -ia --verbose; # Updates MacOs (mac command)
 brew bundle -v; # Install the brewfile created
 brew cleanup; # To delete unused brew libraries.
@@ -2605,26 +2468,3111 @@ Make a command script or command shell if your using "fish", it's easy to make a
 **Setting permisions.**\
 Fun With Mac Terminal Commands - Hands-On Mac 5. <iframe width="560" height="315" src="https://www.youtube.com/embed/ctF-S3RLcME?start=415" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>.
 
+[Fun With Mac Terminal Commands - Hands-On Mac 5](https://youtu.be/ctF-S3RLcME)
+
+``` bash
+chmod u-x <file/folder~> 
+# u – x user cant execute file/folder.  
+
+chmod u+x >file/folder~< 
+# u + x user was added access to execute file/folder. 
+
+chmod 777 >file/folder~< 
+# 777 user has been granted full access (hexadecimal 1 bit 2 bits 4 bits -> 4+2+1=7 for each level). 12:40 min.  
+
+man >cmdname< 
+# Manual.  
+
+brew install tldr 
+# install tldr
+
+tldr >cmdname< 
+# Like manual, too long didn’t read? Summary of command functions.  
+
+sudo >cmdname< 
+# sudo= super user do, gives you admin privileges (will ask for password).  
+
+sudo softwareupdate -i -a 
+# Update apple computer command.  
+
+rm -rf * 
+#  delete all HDD. DANGER!!  
+
+sudo nvram StartupMute=%00 #  Mutes Mac’s startup chime.  
+sudo nvram StartupMute=%01 #  Turns on Mac’s startup chime.  
+```
+
+Other useful terminal commands
+
+-   pwd
+-   cd \~
+-   cd » home
+-   ls » list
+-   ls -l
+-   ls -a
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## R and RStudio
+
+```{r}
+#| eval: false
+
+Rpackages
+Rpackages_MBP15_20221220
+Rpackages_MBP20_20221220
+Rpackages_MBP20_20221220_2159
+Rpackages20220812
+Rpackages20220812-2
+RpackagesMBP20_220812
+RpackagesMBP20_221219
+
+Rpackages_20210108
+Rpackages_20220812
+Rpackages_20220812-2
+Rpackages_MBP15_20221220
+Rpackages_MBP20_20220812
+Rpackages_MBP20_20221219
+Rpackages_MBP20_20221220
+Rpackages_MBP20_20221220_2159
+
+Rpackages_20210108
+Rpackages_20220812
+Rpackages_20220812-2
+Rpackages_MBP15_20221220
+Rpackages_MBP20_20220812
+Rpackages_MBP20_20221219
+Rpackages_MBP20_20221220
+Rpackages_MBP20_20221220_2159
+Rpackages_MBP20_20221221_900
+Rpackages_MBP20_20221221_1000
+
+Rpackages_MBP20_20221221_900
+Rpackages_MBP20_20221221_1000
+Rpackages_MBP20_20221221_1100
+
+load("Rpackages_20210108") # packages, 1:291
+load("Rpackages_20220812") # packages2, 1:553 
+load("Rpackages_20220812-2") # packages2, 1:553
+load("Rpackages_MBP15_20221220") # packages, 1:557
+load("Rpackages_MBP20_20220812") # packagesMBP20_220812, 1:352
+load("Rpackages_MBP20_20221219") # packages, 1:383
+load("Rpackages_MBP20_20221220") # packages, 1:384
+load("Rpackages_MBP20_20221220_2159") # packages, 1:386
+load("Rpackages_MBP20_20221221_900") # Rpackages_MBP20_20221221_900, 1:32
+load("Rpackages_MBP20_20221221_1000") # Rpackages_MBP20_20221221_1000, 1:512, **table 
+```
+
+### R packages
+
+```{r}
+#| eval: false
+
+install.packages("memoiR")
+install.packages("distill")
+install.packages("rmdformats")
+install.packages("rmarkdown")
+install.packages("markdown")
+install.packages("markdownInput")
+install.packages("rmdformats")
+install.packages("htmlwidgets")
+install.packages("officedown")
+
+library(memoiR)
+library(distill)
+library(rmdformats)
+library(rmarkdown)
+```
+
+``` bash
+brew install --cask xquartz
+```
+
+##### Terminal command to open RStudio
+
+``` bash
+open -na Rstudio
+open myproject.Rproj
+```
+
+Rstudio commands.
+
+press SHIFT + CMD + C (macOS), SHIFT + CTRL + C (Windows).
+
+Table: ++Opt+cmd+T++ \<Opt+cmd+T \>\
+Code Chunk: ++Opt+cmd+I++ \<Opt+cmd+I \>\
+Citation: ++shift+cmd+F7++ \<shift+cmd+F7\>\
+Footnote: ++shift+cmd+F8++ \<shift+cmd+F8\>\
+Comment block: ++Shift+cmd+C++ \<Shift+cmd+C \>\
+Increase Indentation: Select block + ++Tab++\
+Decrease Indentation: Select block + ++Shift+Tab++
+
+To make a file executable in Terminal, whether is a .bash file or a .sh file.
+
+In Terminal type:
+
+``` bash
+chmod +x scriptname.sh
+```
+
+[top](#)
+
+### Installing/Upgarading R and RStudio
+
+References Pages to visit first:
+
+-   [Painless way to install a new version of R?](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r){target="_blank"}
+-   [How to migrate Rstudio files and installed packages ( by version to a new computer )](https://stackoverflow.com/questions/67660414/how-to-migrate-rstudio-files-and-installed-packages-by-version-to-a-new-comput){target="_blank"}
+-   [An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way){target="_blank"}
+-   [Loading packages: the difference between R's library() and require() functions](https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/){target="_blank"}
+-   [Bioconductor](https://www.bioconductor.org/install/){target="_blank"}
+-   [Install/Update R and R packages](https://yiweiniu.github.io/blog/2019/07/Install-Update-R-and-R-packages/){target="_blank"}
+-   [restore all R packages after installing a new version of R?](https://stackoverflow.com/questions/65817504/restore-all-r-packages-after-installing-a-new-version-of-r){target="_blank"}
+-   [How to Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2015/06/how-to-upgrade-r-without-losing-your-packages/){target="_blank"}
+-   [Upgrade R Without Losing Your Packages](https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/){target="_blank"}
+-   [Update and migrate R](https://gist.github.com/arcaravaggi/20acc42e3e245cc268a95269de024b2d){target="_blank"}
+-   [Profiles package](https://github.com/jmgirard/profiles){target="_blank"}
+-   [Rprofile.site file example for Startup customization](https://www.statmethods.net/interface/customizing.html){target="_blank"}
+-   [Managing R with .Rprofile, .Renviron, Rprofile.site, Renviron.site, rsession.conf, and repos.conf](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf){target="_blank"}
+-   [How to Create Directory and File If It doesn't Exist in R](https://r-lang.com/how-to-create-files-and-directories-in-r/){target="_blank"}
+
+Trick for doing the upgrade, from installing the software to copying all the settings/packages over?First you install the new version, then run this in the old version:
+
+### Stack Overflow
+
+#### Run in the old version of R
+
+```{r}
+#| eval: false  
+setwd("C:/Temp/")
+packages <- installed.packages()[,"Package"]
+save(packages, file="Rpackages")
+```
+
+Followed by this in the new version:
+
+#### Run in the new version
+
+```{r}
+#| eval: false  
+setwd("C:/Temp/")
+load("Rpackages")
+for (p in setdiff(packages, installed.packages()[,"Package"]))
+install.packages(p)
+```
+
+#### For windows
+
+Using Installr
+
+```{r}
+#| eval: false  
+
+#From https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r
+
+# Run in the old version of R (or via RStudio)
+setwd("C:/Temp/") 
+packages <- installed.packages()[,"Package"] 
+save(packages, file="Rpackages") 
+
+# INSTALL NEW R VERSION
+if(!require(installr)) { install.packages("installr"); require(installr)} #load / install+load installr
+# See here for more on installr: https://www.r-statistics.com/2013/03/updating-r-from-r-on-windows-using-the-installr-package/  
+
+# step by step functions:
+check.for.updates.R() # tells you if there is a new version of R or not.
+install.R() # download and run the latest R installer... This install.R seems to be a windows only command. 
+
+# Install library - run in the new version of R. This calls package names and installs them from repos, thus all packages should be correct to the most recent version
+setwd("C:/Temp/") 
+load("Rpackages") 
+for (p in setdiff(packages, installed.packages()[,"Package"])) 
+install.packages(p) 
+
+# Installr includes a package migration tool but this simply copies packages, it does not update them
+copy.packages.between.libraries() # copy your packages to the newest R installation from the one version before it (if ask=T, it will ask you between which two versions to perform the copying)
+```
+
+### R-bloglers
+
+#### How to Upgrade R Without Losing Your Packages
+
+1.  Before you upgrade, build a temp file with all of your old packages. **Files saved as .rda files.**\
+
+```{r}
+#| eval: false
+tmp <- installed.packages()
+installedpkgs <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+save(installedpkgs, file="installed_old.rda")
+```
+
+2.  Install the new version of R and let it do it's thing.
+
+3.  Once you've got the new version up and running, reload the saved packages and re-install them from CRAN.
+
+```{r}
+#| eval: false
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+install.packages(missing)
+update.packages()
+```
+
+Note: If you had any packages from BioConductor, you can update those too!
+
+```{r}
+#| eval: false
+
+#Update: 'biocLite' is not available for new versions of R
+
+
+source("http://bioconductor.org/biocLite.R")
+chooseBioCmirror()
+biocLite()
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+for (i in 1:length(missing)) biocLite(missing[i])
+
+```
+
+::: {.callout-caution collapse="false"}
+#### About `bioLite` package
+
+Update: 'biocLite' is not available for new versions of R
+
+```{r, eval=false}
+#| eval: false
+install.packages("biocLite") # Warning in install.packages : package ‘biocLite’ is not available for this version of R
+```
+
+BiocLite is not a thing anymore, it was used in the old versions of Bioconductor to install packages, now you can directly use BiocManager::install().
+
+For example:
+
+```{r}
+#| eval: false
+BiocManager::install("limma")
+```
+:::
+
+#### Save files as csv or excel .xlsx
+
+##### csv files
+
+```{r}
+#| eval: false
+
+write.csv(data_frame, 'path/to/forder/and/file_name.csv') # or set wd and just type file_name.csv
+
+```
+
+##### excel files
+
+Convert first to a data frame.
+
+```{r}
+#| eval: false
+
+install.packages("writexl")
+library("writexl")
+the_dataframe_name <- as.data.frame(data)
+write_xlsx(the_dataframe_name,"path/to/folder/and/file_name.xlsx")
+
+```
+
+### Upgrading R on Windows and Mac
+
+https://www.r-statistics.com/tag/installr/
+
+#### Windows
+
+If you are using **Windows** you can easily upgrade to the latest version of R using the installr package. Simply run the following code in Rgui:
+
+```{r}
+#| eval: false  
+
+install.packages("installr") # install 
+setInternet2(TRUE) # only for R versions older than 3.3.0
+installr::updateR() # updating R.
+# If you wish it to go faster, run: installr::updateR(T)
+```
+
+Running "updateR()" will detect if there is a new R version available, and if so it will download+install it (etc.). There is also a step by step tutorial (with screenshots) on how to upgrade R on Windows, using the installr package. If you only see the option to upgrade to an older version of R, then change your mirror or try again in a few hours (it usually take around 24 hours for all CRAN mirrors to get the latest version of R).
+
+Also chekck the video:\
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZKBeV4BNeuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+#### Mac
+
+If you are using **Mac** you can easily upgrade to the latest version of R using Andrea Cirillo's updateR package. The package is not on CRAN, so you'll need to run the following code in Rgui:
+
+[UpdateR package: update R version with a function (on MAC OSX)](http://www.andreacirillo.com/2018/03/10/updater-package-update-r-version-with-a-function-on-mac-osx/)
+
+```{r}
+#| eval: false  
+
+install.packages("devtools")
+devtools::install_github("AndreaCirilloAC/updateR")
+updateR(admin_password = "PASSWORD") # Where "PASSWORD" stands for your system password
+```
+
+MBP15 The downloaded source packages are in **"/private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages"** MBP20 The downloaded binary packages are in ~~/var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmp8AkWwy/downloaded_packages~~ **/private/var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T/RtmpP5nIXV/downloaded_packages**
+
+Option 1
+
+[Painless way to install a new version of R?](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r)
+
+Files are `.rda`
+
+```{r}
+#| eval: false  
+#--run in the old version of R
+setwd("C:/Temp/")
+packages <- installed.packages()[,"Package"]
+save(packages, file="Rpackages")
+
+#--run in the new version
+setwd("C:/Temp/")
+load("Rpackages")
+for (p in setdiff(packages, installed.packages()[,"Package"]))
+install.packages(p)
+
+#-----
+
+# Just for completeness, you can save your packages in another directory on your computer.
+install.packages("thepackage",lib="/path/to/directory/with/libraries")
+#You can change the default .Library value using the function .libPaths too
+.libPaths("/path/to/directory/with/libraries")
+
+# -----
+
+#Finally, You can also include a small code in my Rprofile.site allowing  to reinstall all packages when installing a new R version. You just have to list them up before you update to the new R version by using an .RData file containing an updated list with all packages.
+
+library(utils)
+
+## Check necessary packages
+load("G:\Setinfo\R\packagelist.RData") # includes a vector "pkgs"
+installed <- pkgs %in% installed.packages()[, 'Package']
+if (length(pkgs[!installed]) >=1){
+  install.packages(pkgs[!installed])
+}
+# I make the packagelist.RData by specifying .Last() in my Rprofile.site. This updates the package list if I installed some :
+
+.Last <- function(){
+  pkgs <- installed.packages()[,1]
+  if (length(pkgs) > length(installed)){
+    save(pkgs,file="G:\Setinfo\R\packagelist.RData")
+  }
+}
+
+```
+
+Option 2:\
+[How to migrate Rstudio files and installed packages ( by version to a new computer )](https://stackoverflow.com/questions/67660414/how-to-migrate-rstudio-files-and-installed-packages-by-version-to-a-new-comput)\
+
+Save as `.csv files`.\
+Or `.xlsx files`.\
+
+```{r}
+#| eval: false  
+
+getwd()
+setwd()
+# /Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/file_name.csv  
+
+installed <- as.data.frame(installed.packages())
+write.csv(installed, 'installed_previously.csv') # Path/to/folder/installed_previously.csv 
+installedPreviously <- read.csv('installed_previously.csv') # Path/to/folder/installed_previously.csv 
+baseR <- as.data.frame(installed.packages())
+toInstall <- setdiff(installedPreviously, baseR)
+
+# the first thing to do would be to make sure that the set of currently installed packages is up-to-date. 
+
+update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
+  new_pacs <- paste( setdiff( installedPreviously$Package, baseR$Package), 
+                       collapse=",")
+  install.packages( new_pacs, dependencies=TRUE)
+
+# For excel files, requires: 
+install.packages("writexl")
+library("writexl")
+write_xlsx(the_dataframe_name,"path/to/folder/file_name.xlsx")
+  
+```
+
+------------------------------------------------------------------------
+
+### An efficient way to istall and load R packages
+
+[An efficient way to install and load R packages](https://statsandr.com/blog/an-efficient-way-to-install-and-load-r-packages/#most-efficient-way)\
+
+#### Inefficient way to install and load R packages:
+
+```{r}
+#| eval: false
+# Installation of required packages
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("readxl")
+install.packages("dplyr")
+
+# Load packages
+library("tidyverse")
+library("ggplot2")
+library("readxl")
+library("dplyr")
+```
+
+#### More efficient way
+
+```{r}
+#| eval: false
+
+# Package names
+packages <- c("ggplot2", "readxl", "dplyr", "tidyr", ...)
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+#### Most efficient way
+
+`{pacman} package`\
+After this article was published, a reader informed me about the {pacman} package. After having read the documentation and try it out myself, I learned that the function p_load() from {pacman} checks to see if a package is installed, if not it attempts to install the package and then loads it. It can also be applied to several packages at once, all this in a very condensed way:
+
+```{r}
+#| eval: false
+install.packages("pacman")
+
+pacman::p_load(ggplot2, tidyr, dplyr)
+
+## Make sure your current packages are up to date
+update.packages()
+## devtools is required
+library(devtools)
+install_github("trinker/pacman")
+
+```
+
+Find more about this package on [CRAN](https://github.com/trinker/pacman). [Introduction to the pacman Package in R (3 Examples)](https://statisticsglobe.com/pacman-r-package)\
+
+`{librarian} package`\
+Like `{pacman}`, the `shelf()` function from the `{librarian}` package automatically installs, updates, and loads R packages that are not yet installed in a single function. The function accepts packages from CRAN, GitHub, and Bioconductor (only if Bioconductor's Biobase package is installed). The function also accepts multiple package entries, provided as a comma-separated list of unquoted names (so no "" around package names).\
+
+**Biobase: Base functions for Bioconductor** [DOI: 10.18129/B9.bioc.Biobase](https://bioconductor.org/packages/release/bioc/html/Biobase.html){target="_blank"}\
+Installation:\
+To install this package, start R (version "4.2") and enter:\
+
+```{r}
+#| eval: false
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("Biobase")
+```
+
+Last but not least, the `{librarian}` package allows to load packages automatically at the start of every R session (thanks to the `lib_startup()` function) and search for new packages on CRAN by keywords or regular expressions (thanks to the `browse_cran()` function).\
+
+Here is an example of how to install missing packages and load them with the `shelf()` function:
+
+```{r}
+#| eval: false
+
+# From CRAN:
+install.packages("librarian")
+
+librarian::shelf(ggplot2, DesiQuintans / desiderata, pander)
+```
+
+For CRAN packages, provide the package name as normal without "" and for GitHub packages, provide the username and package name separated by / (i.e., UserName/RepoName as shown for the desiderata package).
+
+Find more about this package on CRAN.
+
+### Stack Overflow 2
+
+[Every time I upgrade R using homebrew I need to install most packages again](https://stackoverflow.com/questions/27866834/everytime-i-upgrade-r-using-homebrew-i-need-to-install-most-packages-again)
+
+#### Before install:
+
+##### 1. Update all R packages
+
+Ref: <https://www.neonscience.org/resources/learning-hub/tutorials/packages-r>
+
+```{r}
+#| eval: false
+
+# list all packages where an update is available
+old.packages()
+
+# update all available packages
+update.packages()
+
+# update, without prompts for permission/clarification
+update.packages(ask = FALSE)
+
+# update only a specific package use install.packages()
+install.packages("plotly")
+
+```
+
+##### 2. Backup current package list.
+
+```{r}
+#| eval: false
+
+tmp <- installed.packages()
+installedpkgs <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+save(installedpkgs, file="installed_old.rda")
+```
+
+##### 3. Backup your preferences file
+
+```{r}
+#| eval: false
+
+# Copy a file
+source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+
+file.copy(source_path, destination_path, overwrite = FALSE)
+
+# If: [1] TRUE, file was copied
+# If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)
+
+# Check if the copy was successful. This does not really work. 
+if (file.exists(destination_path)) {
+  print("File copied successfully!")
+} else {
+  print("File copy failed.")
+}
+```
+
+##### Another way to do it:
+
+```{r}
+#| eval: false
+
+# identify the folders
+source_path <- "/Users/marcelorosales/.config/rstudio/"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+file <- "rstudio-prefs.json"
+
+# find the files that you want
+
+list.files(source_path)
+
+list.of.files <- list.files(source_path, file)
+list.of.files
+
+# copy the files to the new folder
+file.copy(list.of.files, destination_path)
+
+```
+
+Ref:\
+- <https://fs.r-lib.org/reference/copy.html>\
+- <https://www.r-bloggers.com/2014/11/copying-files-with-r/>\
+- <https://r-lang.com/how-to-copy-a-file-in-r/>\*\*\*\
+- <https://stat.ethz.ch/R-manual/R-devel/library/base/html/files.html>
+
+#### Install new version of R
+
+``` bash
+#| eval: false
+
+brew upgrade r
+brew upgrade rstudio
+```
+
+#### Reload packages from CRAN
+
+```{r}
+#| eval: false
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+install.packages(missing)
+update.packages()
+```
+
+#### Reload packages from BioConductor
+
+```{r}
+#| eval: false
+
+# Update2022: 'biocLite' is not available for new versions of R
+
+
+chooseBioCmirror()
+biocLite()
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+for (i in 1:length(missing)) biocLite(missing[i])
+
+```
+
+### Location of the R packages
+
+``` {.bash filename="terminal"}
+#| eval: false
+
+# MBP15: The downloaded source packages are in:
+open /private/var/folders/xc/rxn5vywj3lvd_qt78ss92cc80000gn/T/Rtmp8TJvA5/downloaded_packages 
+
+# MBP20: The downloaded binary packages are in:
+# old: open /private/var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T/Rtmp8AkWwy/downloaded_packages 
+open /private/var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T/RtmpP5nIXV/downloaded_packages
+```
+
+### Comparing files
+
+To compare and find whether two files differ and where, there are a few packages.
+
+```{r}
+#| eval: false
+
+library(tools)
+md5sum("path/to/file1") == md5sum("path/to/file2")
+
+library(diffobj)
+diffFile("path/to/file1", "path/to/file2")   # or `diffChr` if you data is in R already
+
+library(diffr)
+diffr("path/to/file1", "path/to/file2")
+
+ses(readLines("path/to/file1"), readLines("path/to/file1"))
+
+packages <- installed.packages()
+structure(packages)
+
+```
+
+#### Summary
+
+recap\
+core\
+shell\
+outline\
+synopsis
+
+Update 20230522
+
+#### Saved installed packages
+
+```{r}
+#| eval: false
+
+# Run in the old version of R
+
+# ------
+# 1. Before you upgrade, update all old packages.
+# ------
+
+# A. Update current packages.
+update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
+
+# B. Upgrade packages of Bioconductor
+# Install packages from a newer version of Bioconductor.
+# https://www.bioconductor.org/install/ 
+
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.16") # Or the newest version
+
+# ------
+# 2. Before you upgrade: 1. build and save a file with all current packages (old packages) and 2. Backup your rstudio preferences files.  
+# ------
+
+# MBP15: setwd("/Users/Marcelo-Rosales/Box Sync/Github/RStudio_shared/R_packages/")
+# MBP20: setwd("~/Box Sync/Github/RStudio_shared/R_packages/")
+
+getwd()
+
+# Variables for generic code:
+
+## Create a new folder for packages files
+new_folder <- "Rpkgs230522/" # <----------------change folder name here, don't forget the "/".
+folder <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/"
+dir.create(paste0(folder,new_folder)) #use paste0(), paste() inserts a space between obj.
+
+## Create the packages list files
+file_name <- "Rpkgs_MBP20_230522" # <------------change file name here.
+rda <- ".rda"
+csv <- ".csv"
+df <- "_df"
+xlsx <- ".xlsx"
+
+file1 <- paste0(folder,new_folder,file_name) 
+file2 <- paste0(folder,new_folder,file_name,rda)
+file3 <- paste0(folder,new_folder,file_name,csv)
+file4 <- paste0(folder,new_folder,file_name,df,csv)
+file5 <- paste0(folder,new_folder,file_name,xlsx)
+
+file1
+file2
+file3
+file4
+file5
+
+# Generic code: I use this method because it is easy to change the names of the variables in one place once.
+
+## No extension
+Rpkgs <- installed.packages()[,"Package"] # This is a temp file. 
+save(Rpkgs, file= file1) 
+load(file1) # load as values (vector?)
+
+## As .rda file
+tmp <- installed.packages() # save in environment as data (dataframe?)
+Rpkgs_rda<- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # save as vector package names.
+save(Rpkgs_rda, file= file2)
+load(file2)
+
+## As .csv file requires a dataframe.  
+### 1. Only the Package column variable (as vector?), or 2. as full csv data frame.  
+Rpkgs_csv <- installed.packages()[,"Package"] 
+Rpkgs_df <- as.data.frame(installed.packages()) 
+write.csv(Rpkgs_csv, file= file3)
+write.csv(Rpkgs_df, file= file4)
+
+## As as excel files also requires a dataframe (df)
+### install.packages("writexl")
+library("writexl")
+Rpkgs_df <- as.data.frame(installed.packages()) # same as in df_csv
+write_xlsx(Rpkgs_df, file5)
+
+
+# Specific code: I do not use this method because requires changing the name of the folder and file in each instance, and paths are also troublesome.
+
+Rpkgs_MBP20_230329 <- installed.packages()[,"Package"] # save as vector values?
+save(Rpkgs_MBP20_230329, file="/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329") # Or Rpkgs_MBP20_230329.rda
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda") # load as values (vector?)
+
+## As .rda file
+Rpkgs_MBP20_230329 <- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # save as vector package names.
+save(Rpkgs_MBP20_230329, file="/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda") # save as vector .rda; names... environment: installedpkgs, file: installed_old.rda, but when loaded in environment is back to installedpkgs.  
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/installed_old.rda") # In environment is back to installedpkgs.  
+
+## Save as csv requires a dataframe (df)
+Rpkgs_MBP20_230329 <- installed.packages()[,"Package"] # save only the Package (name) variable as vector values?, still can be save as csv
+write.csv(Rpkgs_MBP20_230329, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.csv')
+
+## Or df with all the info of packages
+Rpkgs_MBP20_230329df1 <- as.data.frame(installed.packages())
+write.csv(Rpkgs_MBP20_230329df1, '/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.csv')
+
+# As excel file also requires a dataframe (df)
+# install.packages("writexl")
+library("writexl")
+write_xlsx(Rpkgs_MBP20_230329df1,"/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329df1.xlsx")
+
+# Copy/Paste Rstudio global settings and preferences (~/.config/rstudio/rstudio-prefs.json)
+
+## Open folder 
+folder_path <- "~/.config/rstudio/"  # seems like "~/path" does not work on rstudio. 
+folder_path <- "/Users/marcelorosales/.config/rstudio/"
+
+system(paste("open", shQuote(folder_path)))
+
+## Copy a file (direct).
+source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+
+file.copy(source_path, destination_path, overwrite = FALSE)
+
+## Copy a file (indirect). Find the file(s) first.
+file <- "rstudio-prefs.json"
+
+list.files(folder_path) # list all files in folder
+find.files <- list.files(folder_path, file) # select a specific file
+find.files
+
+## copy the files to the new folder
+file.copy(find.files, destination_path, overwrite = FALSE)
+
+# If: [1] TRUE, file was copied
+# If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)
+# Another way to do it, see Stack overflow 2 section. 
+
+# Check if the copy was successful (THis code does not work properly, is )
+if (file.exists(paste0(destination_path, file))) {
+  print("File copied successfully!")
+} else {
+  print("File copy failed.")
+}
+
+# ------
+# 3. Install the new version of R (use homebrew). See Brew cask upgrade below.
+# ------
+
+#　4. Once the new version up and running, reload the saved packages and re-install them from CRAN.
+
+# run in the new version
+# MBP20: setwd("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/")
+
+load("/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230329/Rpkgs_MBP20_230329.rda")
+for (p in setdiff(RSpacks230324MBP15, installed.packages()[,"Package"]))
+  install.packages(p)
+```
+
+### Copy/Paste Rstudio global settings and preferences if necessary.
+
+``` {.bash filename="Terminal"}
+#| eval:false
+
+# Copy/Paste Rstudio global settings and preferences.. 
+open ~/.config/rstudio
+
+# Search and Copy file to same place as packages files. 
+rstudio-prefs.json
+```
+
+``` bash
+#| eval: false
+
+open ~/.config/rstudio
+```
+
+```{r}
+#| eval: false
+
+# Open folder 
+folder_path <- "~/.config/rstudio/"  # seems like "~/path" does not work on rstudio. 
+folder_path <- "/Users/marcelorosales/.config/rstudio/"
+
+system(paste("open", shQuote(folder_path)))
+
+# Copy a file
+source_path <- "/Users/marcelorosales/.config/rstudio/rstudio-prefs.json"
+destination_path <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/RS_preferences/"
+
+file.copy(source_path, destination_path)
+
+# Check if the copy was successful
+if (file.exists(destination_path)) {
+  print("File copied successfully!")
+} else {
+  print("File copy failed.")
+}
+
+```
+
+#### Brew cask upgrade R and Rstudio.
+
+```{bash filename="Terminal"}
+#| eval: false 
+
+# Upgrade R and rstudio
+brew update
+brew upgrade --cask r
+# password
+#`brew cleanup` has not been run in the last 30 days, running now...
+
+# Upgrade RStudio
+brew upgrade --cask rstudio
+
+# Copy paste the `rstudio-prefs.json` if needed, usually it still remains after upgrade. 
+rstudio-prefs.json
+```
+
+### Errors and trouble shooting.
+
+#### non-UTF8 locale error in R
+
+**WARNING: You're using a non-UTF8 locale**\
+
+When opening R new version... an error message is displayed.
+
+```{bash filename="error message"}
+#| code-block-bg: false
+#| code-block-border-left: "#31BAE9"
+#| eval: false
+
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+[R.app GUI 1.79 (8198) x86_64-apple-darwin17.0]
+
+WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.
+Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
+```
+
+A solution: For english:\
+- [Installing R on Mac - Warning messages: Setting LC_CTYPE failed, using "C"](https://stackoverflow.com/questions/9689104/installing-r-on-mac-warning-messages-setting-lc-ctype-failed-using-c){target="_blank"}\
+- [For Japanese:](https://maku77.github.io/r/basic/locale.html){target="_blank"}.\
+
+```{bash filename="Terminal"}
+#| eval: false
+defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
+defaults write org.R-project.R force.LANG ja_JP.UTF-8  # 日本語表示
+```
+
+#### How to change language settings in R.
+
+[How to change language settings in R](https://stackoverflow.com/questions/13575180/how-to-change-language-settings-in-r)
+
+You can set this using the Sys.setenv() function. My R session defaults to English, so I'll set it to French and then back again:
+
+```{bash}
+#| eval: false
+
+> Sys.setenv(LANG = "fr")
+> 2 + x
+# Erreur : objet 'x' introuvable
+
+> Sys.setenv(LANG = "en")
+> 2 + x
+# Error: object 'x' not found
+```
+
+#### There is already an App... (legacy)
+
+**Error: It seems there is already an App at '/Applications/Rstudio'**\
+[is it possible to override the legacy app when install using brew](https://apple.stackexchange.com/questions/435745/is-it-possible-to-override-the-legacy-app-when-install-using-brew){targe="_blank"}
+
+Some times is not possible to install, re-intall or upgrade a program via brew because first installation was made manually (downloaded zip or tar files).\
+This leaves a "legacy" app. To fix it use the **`--force`** attribute while installing
+
+``` bash
+#| eval: false
+
+brew install --cask rstudio --force
+```
+
+### Other relevant files
+
+```{r}
+#| echo: false
+#| eval: false
+
+file1 <- "/Users/marcelorosales/Documents/R_Projects/VS_Note_Draft"
+file2 <- "~/Box Sync/Documents/R/Rmarkdown/Update R and RStudio.qmd"
+
+# Downloaded packages. When installing packages R will display location. 
+folder1 <- "/Users/marcelorosales/Documents/R_Projects/R_packages/MBP20-230323/downloaded_packages"
+folder2 <- "/private/var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T/RtmpP5nIXV/downloaded_packages"
+
+```
+
+### How to's:
+
+#### Find out R library location in Mac OSX?
+
+With .Library you get your default library location With .libPaths("your/path") you can also get/set you library trees (see ?.libPaths) and with getwd() resp. setwd("your/path") you get/set your working-directory.
+
+```{r}
+#| eval: false
+
+.Library
+.libPaths()
+
+```
+
+[Loading packages: the difference between R's library() and require() functions](https://timfarewell.co.uk/loading-packages-the-difference-between-rs-library-and-require-functions/){target= "\_blank"}
+
+#### Create Directory and File If It doesn't Exist in R
+
+[How to Create Directory and File If It doesn't Exist in R](https://r-lang.com/how-to-create-files-and-directories-in-r/)
+
+```{r}
+#| eval: false
+
+# Syntax
+# dir.create(path, showWarnings = TRUE, recursive = FALSE, mode = "0777")
+# file.create(…, file1, file2)
+
+# Ex. New folder
+folder <- "mortalkombat"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+
+# Ex. New file
+file <- "dataframe.R"
+if (file.exists(file)) {
+ cat("The file already exists")
+} else {
+ file.create(file)
+}
+
+# Output
+[1] TRUE  # file created
+[1] FALSE # file not created
+
+```
+
+#### Concatenate Strings in R programming language
+
+[Concatenate Strings in R](https://www.tutorialkart.com/r-tutorial/concatenate-two-or-more-strings-in-r)
+
+```{r}
+#| eval: false
+
+# Syntax:
+# paste(…, sep="", collapse=NULL)
+
+# Sep = a character that would be appended between two adjacent strings and acts as a separator
+# collapse = is an optional character to separate the results
+
+# Concatenate two strings
+str1 = 'Hello'
+str2 = 'World!'
+
+result = paste(str1,str2)
+print (result)
+
+# concatenate with No Separator
+result = paste(str1,str2,sep="")
+result = paste0(str1,str2)
+print (result)
+
+# concatenate with "some separator" 
+result = paste(str1,str2,str3,str4,sep="-")
+print (result)
+
+
+```
+
+#### R code to open a file or folder with OS system / finder
+
+To open a file in Finder using R, you can use the `shell.exec()` function in Windows or the `system()` function in macOS. Here's an example of how you can achieve this:
+
+```{r}
+#| eval: false
+
+# Windows
+file_path <- "C:/path/to/file.txt"
+shell.exec(file_path)
+
+# macOS
+file_path <- "/path/to/file.txt"
+system(paste("open", shQuote(file_path)))
+```
+
+In the code snippet above, replace `"C:/path/to/file.txt"` or `"/path/to/file.txt"` with the actual path to the file you want to open in Finder.
+
+On Windows, `shell.exec()` launches the default program associated with the file type, which will typically open the file in the default application for that file type.
+
+On macOS, `system()` is used with the `open` command to open the file in Finder. The `shQuote()` function is used to properly handle file paths that contain spaces or special characters.
+
+Make sure to adjust the file path accordingly to match the location of the file you want to open.
+
+#### Tables in Rstudio
+
+[top](#)
+
+-   [A new RStudio addin to facilitate inserting tables in Rmarkdown documents](https://lbusett.netlify.app/post/a-new-rstudio-addin-to-facilitate-inserting-tables-in-rmarkdown-documents/#:~:text=To%20use%20it%2C%20open%20a,Addins%20%E2%80%93%3E%20Insert%20Table%E2%80%9D)\
+-   [Copy Table in Excel and Paste as a Markdown Table](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)\
+-   [Tables Generator](https://www.tablesgenerator.com/markdown_tables)\
+-   [The function knitr::kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)\
+-   [Other packages for creating tables](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html)
+
+``` html
+/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/xls2wb.htm
+```
+
+Example:
+
+```{r}
+data <- read.csv("/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/qt01.csv")
+
+data
+
+knitr::kable(data, "pipe", align = "c")
+knitr::kable(data, "simple", align = "c")
+knitr::kable(data, "html", align = "c")
+knitr::kable(data, "latex", align = "c")
+knitr::kable(data, "rst", align = "c")
+
+str(data)
+```
+
+```{r}
+#| eval: false
+
+# Error: Values are not numeric. 
+# ! Can't subset columns with `data`.
+# ✖ `data` must be numeric or character, not a <data.frame> object.
+# ! Arguments in `...` must be used.
+
+
+library(tidyverse)
+data_long <- data %>%
+  pivot_longer(
+    data,
+    2:9,
+    names_to = "Programm",
+    values_to = "values"
+  )
+
+```
+
+#### Convert wide data frame to long data frame
+
+```{r}
+library(tidyverse)
+
+# Example wide data frame
+wide_df <- data.frame(
+  id = c(1, 2, 3),
+  var1 = c(10, 20, 30),
+  var2 = c(40, 50, 60),
+  var3 = c(70, 80, 90)
+)
+
+
+wide_df
+
+# Convert wide data frame to long
+long_df <- wide_df %>%
+  pivot_longer(
+    cols = starts_with("var"),  # Specify the columns to pivot
+    names_to = "variable",      # Name of the new variable column
+    values_to = "value"         # Name of the new value column
+  )
+
+# View the resulting long data frame
+print(long_df)
+
+knitr::kable(wide_df, "pipe", align = "c")
+knitr::kable(long_df, "pipe", align = "c")
+
+
+```
+
+#### Change language of R and Rstudio
+
+> Requires re-start app.
+
+```{r}
+#| eval: false
+# Set r environment to english
+
+Sys.setenv(LANG = "en")
+
+```
+
+```{bash}
+#| eval: false
+
+defaults write org.R-project.R force.LANG en_US.UTF-8  # 英語表示
+
+```
+
+------------------------------------------------------------------------
+
+### Shell_Core
+
+```{r}
+#| eval: false
+
+# Run in the old version of 
+
+# ===== Before upgrade =====
+
+# ------1. Update all old packages ----------
+
+# Check R version or session info.
+R.Version()
+sessionInfo()
+
+# A. Update current packages.
+update.packages(checkBuilt=TRUE, ask=FALSE)  #check spelling of arguments
+## 20230608: The downloaded binary packages are in:  /var/folders/1v/nbx_5tgn553dq8s639lyln5c0000gn/T//Rtmpt7WwKz/downloaded_packages
+
+# B. Upgrade packages of Bioconductor
+# Install packages from a newer version of Bioconductor https://www.bioconductor.org/install/ 
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+# BiocManager::install(version = "3.17") # Or the newest version
+BiocManager::install("Biobase")
+BiocManager::install("BiocGenerics")
+
+# if error,  re-install: 'Biobase'Old packages: 'learnr'
+install.packages("learnr")
+
+# ------ 2. Save backup of old packages and preferences ----
+# 2. Before you upgrade: 1. build and save a file with all current packages (old packages) and 2. Backup your rstudio preferences files.  
+
+# ---- 2.1 Variables / info ----
+# Run paths and pc`s info
+# ~/path/to/folder "~" doesn't work?
+
+pdir <- "/Box Sync/Github/RStudio_shared/R_packages/" # Path to directory
+pth15 <- "/Users/Marcelo-Rosales" # MBP15
+pth20 <- "/Users/marcelorosales"  # MBP20
+pc15 <- "MBP15"
+pc20 <- "MBP20"
+
+p15 <- paste0(pth15,pdir)  # MBP15 destination folder
+p20 <- paste0(pth20,pdir)  # MBP20 destination folder
+
+rpref <- "/.config/rstudio/rstudio-prefs.json" # ~ Location of preferences.json
+# rprefd <- "/Box Sync/Github/RStudio_shared/RS_preferences/" # destination folder
+pref15 <- paste0(pth15,rpref)
+pref20 <- paste0(pth20,rpref)
+
+# Run paths and pc`s info
+#--- 2.2 Variables manual imput ----
+library(stringr)
+Sys.Date()
+Sys.time()
+gsub("-","",Sys.Date())
+str_sub(gsub("-","",Sys.Date()), 3, -1) # https://youtu.be/343VCX3ynOA
+
+date <- "230608"   # <--------------------- change date (file name) here (manual).
+date <- str_sub(gsub("-","",Sys.Date()), 3, -1)   # date auto.
+folder <- p20      # <--------------------- change destination folder (path) here.
+pc <- pc20         # <--------------------- change PC (device name) here.
+rs_pref <- pref20  # <--------------------- change r prefs location here.
+
+new_folder <- paste0("Rpkgs",date,"/")   
+file_name <- paste0("Rpkgs_",pc,"_",date)   
+rda <- ".rda"
+csv <- ".csv"
+df <- "_df"
+xlsx <- ".xlsx"
+
+rpref.json <- paste0("rstudio-prefs_", pc,"_", date, ".json") # .json file name
+source_path <- paste0(rs_pref)
+destination_path <- paste0(folder,new_folder,rpref.json)  # Place after the creation of the folder var.
+
+
+system(paste("open", shQuote(folder)))
+
+
+## Check Destination folder
+date
+folder
+new_folder
+file_name
+pc
+rs_pref
+
+## Create a new folder for packages files... use paste0(), paste() inserts a space between obj.
+dir.create(paste0(folder,new_folder)) 
+
+## Create file names (only), extensions and path to folder. 
+file1 <- paste0(folder,new_folder,file_name) 
+file.rda <- paste0(folder,new_folder,file_name,rda)
+file.csv <- paste0(folder,new_folder,file_name,csv)
+file.csv2 <- paste0(folder,new_folder,file_name,df,csv)
+file.xlsx <- paste0(folder,new_folder,file_name,xlsx)
+
+file1
+file.rda
+file.csv
+file.csv2
+file.xlsx
+
+#--------- 2.3 Create files ----------
+
+# Ways to create and save Packages (old Rpkgs)
+tmp <- installed.packages()                         # <--- Matrix
+temp2 <- installed.packages()[,"Package"]           # <--- Vector
+temp3 <- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # <--- Vector
+temp4 <- as.data.frame(installed.packages())        # <--- Dataframe
+temp5 <- as.data.frame(installed.packages()[,"Package"])
+
+# Which script to use?...
+# 1.  
+as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # Is currently the most common script.
+# a) is.na(tmp[,"Priority"]) checks for missing or NA (Not Available) values in the "Priority" column. Returns a logical "vector" where TRUE = NA values and FALSE = non-NA values.
+# b) It will return only NA rows. 
+# b) Non-NA rows are the default installed packages at clean/new start of program. 
+# c) Is NOT very good for comparing files good.
+
+# 2. 
+as.data.frame(installed.packages()[,"Package"]) # Vector of only the packages column
+# a) It will return a df of only the packages column, but will include all packages
+# b) DF can be saved as csv files, very easy to compare with VS code "File: Compare..."
+
+
+#=====2.3.1 PASTE FILE NAME!!! to each file type.====
+print(file_name)
+# [1] "Rpkgs_MBP15_230612" <-----------------------------Copy/Paste from console.
+
+## No extension
+Rpkgs_MBP20_230612 <- installed.packages()[,"Package"] # This is a temp file. 
+save(Rpkgs_MBP20_230612, file= file1) 
+
+## As .rda file
+tmp <- installed.packages() # save in environment as data (dataframe?)
+Rpkgs_MBP20_230612_rda<- as.vector(tmp[is.na(tmp[,"Priority"]), 1]) # save as vector package names.
+save(Rpkgs_MBP20_230612_rda, file= file.rda)
+
+tmp2 <- as.vector(installed.packages()[,"Package"])
+tmp3 <- as.data.frame(installed.packages()[,"Package"])
+
+
+## As .csv file requires a dataframe.  
+### 1. Only the Package column variable (as vector?), or 2. as full csv data frame.  
+Rpkgs_MBP20_230612_csv <- installed.packages()[,"Package"] 
+Rpkgs_MBP20_230612_df <- as.data.frame(installed.packages()) 
+write.csv(Rpkgs_MBP20_230612_csv, file= file.csv)
+write.csv(Rpkgs_MBP20_230612_df, file= file.csv2)
+
+## As as excel files also requires a dataframe (df)
+### install.packages("writexl")
+library("writexl")
+Rpkgs_MBP20_230612_df <- as.data.frame(installed.packages()) # same as in df_csv
+write_xlsx(Rpkgs_MBP20_230612_df, file.xlsx)
+
+# Copy/Paste Rstudio global settings and preferences (~/.config/rstudio/rstudio-prefs.json)
+
+## Open folder 
+folder
+new_folder
+system(paste("open", shQuote(folder))) # seems like "~/path" does not work on rstudio. 
+system(paste("open", shQuote(paste0(folder, new_folder))))
+
+## Copy a file (direct).
+
+file.copy(source_path, destination_path, overwrite = FALSE) # overwrites old file.
+
+# If: [1] TRUE, file was copied
+# If: [1] FALSE, file was not copied, error might be that the file already exists (change overwrite = TRUE, or paths not correct.)
+# Another way to do it, see Stack overflow 2 section. 
+
+# ------ 3. Install the new version of R (use homebrew).------
+
+# Close R and Rstudio!! RUN in terminal better.
+
+# {bash filename="Terminal"}
+#| eval: false 
+
+# Upgrade R and rstudio
+brew update
+brew upgrade --cask r
+brew reinstall --cask r  
+
+system("brew update")
+system("brew update", intern = TRUE) # Setting intern = TRUE captures the output of the command and returns it as a character vector in R. 
+# password
+#`brew cleanup` has not been run in the last 30 days, running now...
+
+# Upgrade RStudio
+brew upgrade --cask rstudio
+
+# ------ After upgrade -----
+
+# 4. Once the new version up and running, reload the saved packages and re-install them from CRAN
+
+# run in the new version/device
+
+#--- 4. Reload Variables and files ------
+
+pdir <- "/Box Sync/Github/RStudio_shared/R_packages/" # Path to directory
+pth15 <- "/Users/Marcelo-Rosales" # MBP15
+pth20 <- "/Users/marcelorosales"  # MBP20
+pc15 <- "MBP15"
+pc20 <- "MBP20"
+
+p15 <- paste0(pth15,pdir)  # MBP15 destination folder
+p20 <- paste0(pth20,pdir)  # MBP20 destination folder
+
+rpref <- "/.config/rstudio/rstudio-prefs.json" # ~ Location of preferences.json
+# rprefd <- "/Box Sync/Github/RStudio_shared/RS_preferences/" # destination folder
+pref15 <- paste0(pth15,rpref)
+pref20 <- paste0(pth20,rpref)
+
+# Run paths and pc`s info
+## Variables:
+date <- "230609"   # <--------------------- change date (file name) here.
+date <- str_sub(gsub("-","",Sys.Date()), 3, -1)   # date auto.
+folder <- p20      # <--------------------- change destination folder (path) here.
+pc <- pc20         # <--------------------- change PC (device name) here.
+rs_pref <- pref20  # <--------------------- change r prefs location here.
+
+new_folder <- paste0("Rpkgs",date,"/")   
+file_name <- paste0("Rpkgs_",pc,"_",date)   
+rda <- ".rda"
+csv <- ".csv"
+df <- "_df"
+xlsx <- ".xlsx"
+
+rpref.json <- paste0("rstudio-prefs_", pc,"_", date, ".json") # .json file name
+source_path <- paste0(rs_pref)
+destination_path <- paste0(folder,new_folder,rpref.json)  # Place after the creation of the folder var.
+
+# file1 <- paste0(folder,new_folder,file_name) 
+file.rda <- paste0(folder,new_folder,file_name,rda)
+# file.csv <- paste0(folder,new_folder,file_name,csv)
+# file.csv2 <- paste0(folder,new_folder,file_name,df,csv)
+# file.xlsx <- paste0(folder,new_folder,file_name,xlsx)
+
+# file1
+file.rda
+# file.csv
+# file.csv2
+# file.xlsx
+
+#---- 5. Load old packages list ------
+
+system(paste("open", shQuote(folder)))
+
+#---- 5.1 "new" (base) vs "old" (backup) pkgs differences installation----
+
+#load(installedpkgs_old)
+
+file.rda
+file_name_rda <- paste0(file_name,"_rda")
+file_name_rda
+
+load(file.rda) # will load as Rpkgs_MBP20_230612_rda
+
+installedpkgs_old <- Rpkgs_MBP20_230612_rda # .rda
+
+tmp <- installed.packages()
+installedpkgs_new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs_old, installedpkgs_new)
+missing
+install.packages(missing)
+update.packages()
+
+
+#------ 5.2 "pc1" vs "pc2" pkgs differences install ----
+
+file.rda　# pc1.
+load(file.rda) # will load as Rpkgs_MBP20_230612_rda
+
+pc2 <- "/Users/marcelorosales/Box Sync/Github/RStudio_shared/R_packages/Rpkgs230612/Rpkgs_MBP15_230612.rda"
+load(pc2) # will load as Rpkgs_MBP15_230612_rda
+
+missing2 <- setdiff(Rpkgs_MBP20_230612_rda, Rpkgs_MBP15_230612_rda)
+missing2
+# [1] "Biobase"      "BiocGenerics"
+
+rm(Rpkgs_MBP15_230612_rda)
+rm(Rpkgs_MBP20_230612_rda)
+
+
+#----- 5.3 Install "Bioconductor" packages -----
+
+## Packages from Bioconductor (before or after Rpackages install?)
+## Install packages from a newer version of Bioconductor https://www.bioconductor.org/install/
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+# BiocManager::install(version = "3.17") # Or the newest version
+BiocManager::install("Biobase")
+BiocManager::install("BiocGenerics")
+
+# if error,  re-install: 'Biobase'Old packages: 'learnr'
+install.packages("learnr")
+
+
+#----- 5.4 Install packages short code
+
+# for (p in setdiff(installedpkgs_old, installed.packages()[,"Package"]))
+#   install.packages(p)
+
+
+
+
+#-----6. Compare csv files -----
+
+# 6.1 Open csv files in VS code
+path_csv <- paste0(p20, new_folder)
+system(paste("open", shQuote(path_csv)))
+
+# Select csv for pc1 and pc2 > drag to VS code icon > ....[]... will open in VS code
+# In VS code: Select pc1 > cmd + p ...[]... > File: Compare Active File With...
+
+
+# ------ 7. copy paste preferences. -------
+
+
+
+```
+
+------------------------------------------------------------------------
+
+220830
+
+### Create Files&Dirs in R
+
+[How to Create Files and Directories in R - R-Lang](https://r-lang.com/how-to-create-files-and-directories-in-r/)
+
+How to Create a **directory** in R To create a directory in R, use the dir.create() method. The dir.create() method accepts a folder generated in the current working directory or specifies a path. Before working with files, it's a better idea to know what directory you're working in. In R, you can figure out which directory you are working on the getwd() function.
+
+Syntax
+
+```{r}
+#| eval: false
+
+dir.create(path, showWarnings = TRUE, recursive = FALSE, mode = "0777")
+```
+
+Arguments
+
+path: It is a character vector containing a single path name.\
+paths: They are character vectors containing file or directory paths.\
+showWarnings: It is a logical argument; should the warnings on failure be shown?\
+recursive: It is a logical argument. Should elements of the path other than the last be created? If true, like the Unix command mkdir -p.\
+mode: It will be used on Unix-alikes: it will be coerced by as.octmode. For Sys.chmod, it is recycled along paths.
+
+Return Value\
+The dir.create() function returns an invisibly logical vector indicating if the operation succeeded for each of the files attempted.
+
+Example Before creating a folder in R, you need to check if the same-named folder exists. To check if the folder exists, use the file.exists() method. Then if it does not exist, you can create a folder.
+
+```{r}
+#| eval: false
+
+folder <- "mortalkombat"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+If the folder does not exist, then it will create a new directory for you.
+
+Trailing path separators are discarded. On Windows, drives are allowed in the path specification, and unless the path is rooted, it will be interpreted relative to the current directory on that drive. The mode is ignored on Windows.
+
+#### Create a file in R
+
+To create a file in R programmatically, use the file.create() method. The file.create() function creates files with the given names if they do not already exist and truncates them if they do.
+
+Syntax
+
+```{r}
+#| eval: false
+
+file.create(x, showWarnings = TRUE)
+
+```
+
+Parameters ..., file1, file2: They are character vectors containing file names or paths.
+
+Example
+
+```{r}
+#| eval: false
+
+file <- "dataframe.R"
+if (file.exists(file)) {
+ cat("The file already exists")
+} else {
+ file.create(file)
+}
+```
+
+Output \[1\] TRUE
+
+```{r}
+#| eval: false
+
+install.packages("rChoiceDialogs")
+install.packages("rJava")
+
+library(rChoiceDialogs)
+tk_choose.dir()
+
+```
+
+works only on linux/mac not windows.
+
+tk_choose.dir {tcltk}
+
+#### Function to make symlinks.
+
+```{bash}
+#| eval: false
+
+ln -s /path/to/original /path/to/link 
+
+# upadate:
+
+ln -s "/Users/name/My Files" "/Users/name/Desktop/My Link"
+```
+
+1.  Choose a file\
+2.  choose a folder\
+3.  create symlink \<In r there is a command already.\>
+
+-   paste name of original file
+
+1.  In \>\_?
+
+```{bash}
+#| eval: false
+
+pwd
+cd /Users/rosalesrocabadomarcelo/Documents/GitHub/tests
+pwd
+touch test.txt
+ls
+#rm test.txt
+#ls
+```
+
+[Select file from command-line](https://apple.stackexchange.com/questions/399510/select-file-from-command-line)
+
 ```{bash}
 #| eval: false
 #| 
-chmod u-x >file/folder~< » u – x user cant execute file/folder.  
-chmod u+x >file/folder~< » u + x user was added access to execute file/folder. 
-chmod 777 >file/folder~< » 777 user has been granted full access (hexadecimal 1 bit 2 bits 4 bits -> 4+2+1=7 for each level). 12:40 min.  
-man >cmdname< » Manual.  
-brew install tldr »  install tldr
-tldr >cmdname< » Like manual, too long didn’t read? Summary of command functions.  
-sudo >cmdname< » sudo= super user do, gives you admin privileges (will ask for password).  
-sudo softwareupdate -i -a »  Update apple computer command.  
-rm -rf * »  delete all HDD. DANGER!!  
-sudo nvram StartupMute=%00 »  Mutes Mac’s startup chime.  
-sudo nvram StartupMute=%01 »  Turns on Mac’s startup chime.  
+theSelectedFile="$(osascript -l JavaScript -e 'a=Application.currentApplication();a.includeStandardAdditions=true;a.chooseFile({withPrompt:"Please select a file to process:"}).toString()')"
+
+echo "Selected file: $theSelectedFile"
 ```
 
-pwd cd \~ cd » home ls » list ls -l ls -a
+1.  With in R and Rstudio.
 
-[Eg.]()
+```{r}
+#| eval: false
+
+file.choose()
+```
+
+`file.choose()` is a {base} function, it works by itself, does not need a package to work.
+
+However, for choosing directories:
+
+The `choose.dir`, from the utils package Choose a Folder Interactively on MS Windows only. Not mac.
+
+For mac an Unix, use `tk_choose.dir()` form {tcltk} package.
+
+```{r}
+#| eval: false
+
+library(tcltk)
+tk_choose.dir()
+```
+
+For multiplataform usage, create a custom function in the global environment
+
+```{r}
+#| eval: false
+
+choose_directory = function(caption = 'Select data directory') {
+  if (exists('utils::choose.dir')) {
+    choose.dir(caption = caption) 
+  } else {
+    tk_choose.dir(caption = caption)
+  }
+}
+```
+
+Then use it as a function:
+
+```{r}
+#| eval: false
+
+choose_directory()
+```
+
+How to Create Files and Directories in R - R-Lang
+
+Windows
+
+```{r}
+#| eval: false
+
+getwd()
+setwd(choose.dir)
+folder <- "test"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+Mac
+
+```{r}
+#| eval: false
+
+getwd()
+setwd(tk_choose.dir())
+folder <- "test"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+Mac&Windows
+
+```{r}
+#| eval: false
+
+getwd()
+setwd(choose_directory())
+folder <- "test"
+if (file.exists(folder)) {
+ cat("The folder already exists")
+} else {
+ dir.create(folder)
+}
+```
+
+Interactively, choose a folder.
+
+```{r}
+#| eval: false
+
+if (interactive()) tk_choose.dir(getwd(), "Choose a suitable folder")
+```
+
+1.  Create symlink
+
+```{r}
+#| eval: false
+
+file.symlink(tk_choose.files(), tk_choose.dir())
+```
+
+See files {base}\
+R Documentation File Manipulation
+
+------------------------------------------------------------------------
 
 [top](#)
+
+## Install python
+
+### Install python with brew
+
+``` bash
+#| eval: false
+
+brew install python@3.8 
+brew install python3
+brew install pyenv
+brew install jupyter
+
+# Check ojs
+which ojs   
+
+# To run python in r install packages require, ex. 
+pip install numpy
+pip install matplotlib
+```
+
+Andrea Cirillo's updateR package. T
+
+```{r}
+#| eval: false  
+
+install.packages("devtools")
+devtools::install_github("AndreaCirilloAC/updateR")
+updateR(admin_password = "PASSWORD") # Where "PASSWORD" stands for your system password
+```
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## VS code
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ifTF3ags0XI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[25 VS Code Productivity Tips and Speed Hacks](https://www.youtube.com/watch?v=ifTF3ags0XI)
+
+**VS Code key shortcuts**\
+Shft+Cmd+P » show all commands, search key shortcuts.\
+Cmd+P » Go to file (open).\
+Cmd+W » close file.\
+Cont+Tab » Switch between Tabs/Pages.\
+Shift+Cmd+F » Find in File.\
+F5 » Start debugging.\
+Cont+\` » Toggle Terminal.\
+shift+Cmd+X » Extensions.
+
+**VS Indentation**\
+I had a problem with intending. The default `Command+]` is set to 4 and I wanted it to be 2. Installed "Indent 4-to-2" but it changed the entire file and not the selected text. I changed the tab spacing in settings and it was simple.
+
+`Go to Settings` -\> `Text Editor` -\> `Tab Size`
+
+[Don't Use the Sidebar in VS Code!! vid](https://youtu.be/s3H6PmB4SZ4)
+
+Extensions Recomended:
+
+-   Advanced-new-file by patbenatar.\
+-   File Utils by Steffen Leistner.
+
+**Setting Sync** on: Account -\> Github.
+
+### Extensions installed
+
+How to install extension: -\> Open VS code \> Extensions (shift+Cmd+X) \> search: extension name \> ©Install button.\
+Top 40+ VSCode Extensions for Developers in 2022 [Link](https://www.tabnine.com/blog/top-vscode-extensions/)\
+[Top 10 VSCode extensions to use in 2022](https://www.educative.io/blog/top-vscode-extensions)
+
+-   **Markdown-preview-enhanced** by Yiyi Wang.\
+-   **Live Preview** by Microsoft [vid](https://youtu.be/hDh1rGG0pTQ)\
+-   **Markdown All in One** by Yu Zhang, [link](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)\
+    +**Markdown AutoTOC** by Jim Paton [link](https://marketplace.visualstudio.com/items?itemName=wibblemonkey.markdown-auto-toc) Not working.\
+    +**Auto Markdown TOC** by Hunter Tran [link](https://marketplace.visualstudio.com/items?itemName=huntertran.auto-markdown-toc) \[ü\] √\
+-   **R** by REditorSupport\
+-   **GitLens --- Git supercharged** by GitKraken\
+-   **YAML** by Red hat.\
+-   **Auto Rename Tag** by TabNine.\
+-   **Peacock** by John Papa.\
+-   **Colorize** by kamikillerto.\
+-   **Code Runner** by Jun Han. To run only a small snippet of code.\
+-   **Auto rename tag** by Jun Han.\
+-   **Excel Viewer** by GrapeCity
+-   ~~**Vim** by vscodevim (need this emulator? Probably not, it just gives you some special shortcuts **do not install**).~~
+
+> Warning. This extension will Override Rich Text Copy/Paste of VS. **Copy and Paste code into Word, Ignores Syntax Highlighting** (When copy code and paste in Word, code colors will no longer be applied).
+
+> 1.  Make sure that // Code \> Preferences\> Settings \> Text Editor \> √ **Editor: Copy With Syntax Highlighting** **(is checked)**. Controls whether syntax highlighting should be copied into the clipboard.
+
+> 1.  To solve: shift+Cmd+P \> type: copy \> in: Vim: !© Override Copy **(uncheck vim override copy)**. Override VS Code's copy command with our own copy command, which works better with VSCodeVim. Turn this off if copying is not working.
+
+[top](#)
+
+### VS Setting tips
+
+-   **Indentation settings and the indentation status bar entry**\
+    Footer: right // Tab Sizeˇ (Spaces:\~) \> Indent using tabs \> © 2. (or Cmd+Shift+p \> indent using spaces) Convert indentation to tab/spaces:\
+    Footer: right // Tab Sizeˇ \> Convert indentation to Spaces \|\| Convert indentation to Tabs.\
+    or
+
+VS code panel \> R© \> Format document \>
+
+-   [HTML preview in VS Code](https://youtu.be/kIH1Pyk-bwQ)
+
+    -   Live Server by Ritwick Dey (Opens in Web browser only).\
+    -   HTML Preview by Thomas Haakon Townsend (Deprecated).\
+    -   [Markdown preview enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/). Check out shd101wyy/markdown-preview-enhanced (Public).
+
+-   **Unsplit an editor**, go back from 2 code views to 1, same with terminal. [Link](https://stackoverflow.com/questions/50355987/how-do-you-unsplit-an-editor-go-back-from-2-code-views-to-1-same-with-terminal)\
+    To "unsplit" [editor groups](https://code.visualstudio.com/docs/getstarted/userinterface#_editor-groups) **without closing any open files**, use the menu-bars:\
+    View \> Editor Layout \> Single (or, while in the editor, press and release ALT and then type vls).\
+    Editor groups are also closed by default when they become empty.
+
+-   **Wrap code**\
+    Settings » Cmd+, //Code \> Preferences \> Settings \> Editor: Word Wrap Controls how lines should wrap.
+
+-   **Enable minimap**
+
+To enable VS Code's Minimap, set **"editor.minimap.enabled"**: true to turn on the rendering of a Minimap for the current file.
+
+You can also tune the appearance with the Size (editor.minimap.size), Scale (editor.minimap.scale), and Slider (editor.minimap.showSlider) settings. If the minimap is hidden, you can still display the context menu by right-clicking the side gutter.
+
+**Command Center**
+
+++cmd+","++
+
+The Command Center has been polished and is now ready to be tried. Enable it via `window.commandCenter` setting.
+
+**Terminal Shell integration**\
+Shell integration for PowerShell, bash, and zsh that has been in preview since the January release is now out of preview! We're planning on enabling it by default in the 1.70 release.
+
+To enable the shell integration feature, check Terminal \> Integrated \> Shell Integration : Enabled in the Settings editor or set the value in your settings.json:
+
+```         
+terminal.integrated.shellIntegration.enabled: true
+```
+
+**Updates:**
+
+June 2022 (version 1.69)\
+Welcome to the June 2022 release of Visual Studio Code. There are many updates in this version that we hope you'll like, some of the key highlights include:
+
+-   [3-way merge editor](https://code.visualstudio.com/raw/#3-way-merge-editor) - Resolve merge conflicts within VS Code.
+-   [Command Center](https://code.visualstudio.com/raw/#command-center) - New UI to search files, run commands, and navigate cursor history.
+-   [Do Not Disturb mode](https://code.visualstudio.com/raw/#do-not-disturb-mode) - Silence non-critical notification popups.
+-   [Toggle Light/Dark themes](https://code.visualstudio.com/raw/#toggle-between-light-and-dark-themes) - Quickly switch between preferred light and dark themes.
+-   [Terminal shell integration](https://code.visualstudio.com/raw/#shell-integration) - Display command status, run recent commands, and more.†
+-   [Task output decorations](https://code.visualstudio.com/raw/#decorations) - Highlights task success or failure exit codes.
+-   [Git Commit action button](https://code.visualstudio.com/raw/#commit-action-button-for-git-repositories) - Configure your default Git Commit action.
+-   [Debug Step Into Target support](https://code.visualstudio.com/raw/#improved-step-into-target-ui) - Allows you to step directly into functions when paused.
+-   [JavaScript sourcemap toggling](https://code.visualstudio.com/raw/#javascript-debugging) - Switch to debugging compiled rather than source code.
+-   [Color theme tester](https://code.visualstudio.com/raw/#theme-tester-supports-built-in-themes) - Use vscode.dev to preview color themes.
+-   [VS Code Server preview](https://code.visualstudio.com/raw/#vs-code-server-private-preview) - Run the same server used for Remote Development.
+
+**Types of comments:**
+
+```         
+1.  Single-line comment.\
+    Syntax
+```
+
+```{r}
+
+# This is a single line comment
+
+```
+
+1.  Multi-line comment?.
+
+Syntax:
+
+``` bash
+#| eval: false
+
+: '
+This is a
+Multi-line comments'
+Example:
+echo "multiline comments"
+: '
+Print some word'
+```
+
+**Types of codes?**
+
+------------------------------------------------------------------------
+
+### Markdown and Visual Studio Code
+
+[Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/)\
+[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+#### VS md Extensions & Syntax
+
+[Markdown and Visual Studio Code](https://code.visualstudio.com/docs/languages/markdown)
+
+-   markdownlint : Checks md code errors {== uninstalled==}{\>\> too many corrections clutter \<\<}\
+-   Markdown Shortcuts: Usefull key shortcuts {==available with right click==}\
+-   Markdown Theme Kit: {== uninstalled==}
+-   Print: {== Not installed ==}
+
+!!! info inline {++ addition ++}\
+{\>\> visible comment \<\<}\
+{-- deletion --}\
+{== highlight==}{\>\> comment \<\<}\
+{\~\~ substitution \~\> by \~\~}
+
+Code Without the {\>\> \<\<} at the beginning and end
+
+```         
+{>>{++ addition ++}<<}  
+{>>{>> visible comment <<}<<}  
+{>>{-- deletion --}<<}  
+{>>{== highlight==}{>> visible comment <<}<<}  
+{>>{~~ substitution ~> by ~~}<<}  
+```
+
+------------------------------------------------------------------------
+
+!!! info inline ++ addition ++
+
+```         
+-- deletion --  
+== highlight ==   
+~~ substitution ~> by ~~ 
+```
+
+Code does not work without the `{}`
+
+```         
+
+++ addition ++  
+>> visible comment <<  
+-- deletion --  
+== highlight ==  
+~~ substitution ~> by ~~  
+```
+
+------------------------------------------------------------------------
+
+!!! note inline ++addition++
+
+```         
+--deletion--  
+==highlight==   
+~~substitution~~ 
+```
+
+Spaces also place a roll in results
+
+```         
+
+++addition++  
+>>visible comment<<  
+--deletion--  
+==highlight==  
+~~substitution~~  
+```
+
+------------------------------------------------------------------------
+
+#### Comments
+
+[Markdown-comments](https://stackoverflow.com/questions/4823468/comments-in-markdown#)
+
+1.  {% comment %}\
+    These commments will not include inside the source. {% endcomment %}
+
+2.  <empty line> \[comment\]:: comment
+
+3.  <empty line> [whatever](text):: [whatever](text): comment is this true?\
+    [whatever](text): : comment\
+    [whatever](text): whatever comment
+
+4.  
+
+But this mesage will appear!
+
+5.  
+
+```{r echo=FALSE, eval=FALSE}
+All the comments!
+```
+
+6.  {::comment} This text is completely ignored by kramdown - a comment in the text. {:/comment}
+
+7.  Do you see {::comment}this text{:/comment}? {::comment}some other comment{:/}
+
+8.  
+
+9.  <!-- this is a comment -->
+
+10. 
+
+    ```{=html}
+    <!-- this is a comment 
+    with a second,
+    a third,
+    and a 4th line of comment-->
+    ```
+    !!! check "This works best"
+
+```         
+<!-- this is a comment 
+with a second,
+a third,
+and a 4th line of comment-->
+```
+
+11. `here's a comment`{=comment}
+
+#### Add images and links in Markdown by dragging a dropping
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jpeh1WorrWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+https://www.youtube.com/watch?v=jpeh1WorrWM
+
+1.  find image file with the VSC explorer.\
+2.  Drag image and take it over the current editor file or section\
+3.  Hold down shift (while dragging) and drop to the editor
+
+Same procedure to add links to specific files.
+
+#### To reload a single file:
+
+1.  ⇧⌘P.\
+2.  type "Refresh"\
+3.  click on "CSV: Refresh"\
+    You can also add a key shortcut.
+
+### VS Outline view (Headings toc)
+
+The Outline view is a separate **==section in the bottom of the File Explorer==**. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
+
+**VS Code tips --- Rename markdown headers and updating all links to them**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rpqABfuZAlU" title="VS Code tips — Rename markdown headers and updating all links to them" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[**Collapse/Expand All items in Outline (Sidebar panel)**](https://github.com/microsoft/vscode/issues/146375)
+
+> Hold ++alt++ while pressing the expand/collapse arrow and it does that.
+
+### Trouble shooting
+
+#### Enter and Backspace do not work or are very slow to respond
+
+Look for reasons why this could happen:, I found this comment in vs code markdown:
+
+[Enter and Backspace do not work or are very slow to respond #855](https://github.com/yzhang-gh/vscode-markdown/issues/855)
+
+Hi there, I might be able to add a bit of context. I'm seeing the same performance issues (on backspace and enter) that \*\*get resolved when I turn off Markdown: All in One's onBackspace and onEnter functional
+
+**Solution** https://github.com/yzhang-gh/vscode-markdown/issues/423
+
+Code \> Settings \> keyboard Shortcuts \> Type: markdown \> delete: onEnterKey, onBackspaceKey.
+
+If you do not need the "list continuation" feature, you can delete some key bindings (e.g. onEnterKey, onBackspaceKey). See instructions at #88 (comment).
+
+If you want to investigate more, you can check1 these extensions first, which are reported (probably) conflicting with Markdown-All-in-One:
+
+-   Spell Right
+-   Bracket Pair Colorizer 2
+
+1.  disable it and see whether the issue is gone
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## Mac Word
+
+### How to\`s
+
+[Generate Random Text](https://www.groovypost.com/howto/word-for-mac-2016-random-text/#:~:text=Unfortunately%2C%20Word%20for%20Mac%20doesn,and%20you%20need%20dummy%20content.)
+
+Type `=rand()` and press enter.
+
+[top](#)
+
+### Custom keyboard shortcut
+
+[**Custom keyboard shortcut for Word for Mac.**](https://support.microsoft.com/en-au/office/create-a-custom-keyboard-shortcut-for-word-for-mac-3e865725-831c-4b45-9187-eeaf896fa110)\
+You can create custom keyboard shortcuts in Word for Mac within the application itself.
+
+#### Create a keyboard shortcut
+
+Creation of my shortcut for FontColorPicker » Cmd+Opt+Shft+F.
+
+1.  On the **Tools \> Customize Keyboard \> ...\[\]...**.\
+2.  In the **Categories** list, select a tab name.\
+3.  Alternatively, Type the command you are looking for in the **commands** search field. Then search by categories or in **All commands** to show that command from all categories.\
+4.  In the **Commands** list, select the command that you want to assign a keyboard shortcut to.
+
+-   Any keyboard shortcuts that are currently assigned to the selected command will appear in the Current keys box.\
+-   **Tip:** If you prefer to use a different keyboard shortcut, add another shortcut to the list, and then use it instead.
+
+1.  In the **Press new keyboard shortcut** box, type a key combination that includes at least one modifier key (CMD , CONTROL , OPTION , SHIFT ) and an additional key, such as CMD+ F11 .
+
+-   If you type a keyboard shortcut that is already assigned, the action assigned to that key combination appears next to Currently assigned to.
+
+1.  Select **Add**.
+
+-   Note: Keyboard shortcut descriptions refer to the U.S. keyboard layout. Keys on other keyboard layouts might not correspond to the keys on a U.S. keyboard. Keyboard shortcuts for laptop computers might also differ.
+
+#### Delete a custom keyboard shortcut
+
+1.  **// Tools \> Customize Keyboard**.\
+2.  In the **Categories** list, select a tab name.\
+3.  In the **Commands** list, select the command that you want to delete a keyboard shortcut from.\
+4.  In the **Current keys** box, select the keyboard shortcut that you want to delete, and then select **Remove**.
+
+-   **Note:** If the Remove button appears grayed out, then the selected keyboard shortcut is a default keyboard shortcut, thus it cannot be deleted.
+
+**Reset all keyboard shortcuts**
+
+1.  **// Tools \> Customize Keyboard**.\
+2.  To restore keyboard shortcuts to their original state, select **Reset All**.
+
+**Replace as you type**\
+!© Bold (*bold*) and italic (*italic*) \[or *italic*?\] with real formatting.\
+!© Hyphens (--) with a dash ( ).\
+!© set left-and first-indent with tabs and backspaces
+
+#### Math symbols.
+
+//Preferences \> Autocorect \> Math AutoCorrect.\
+© Use math autocorrect rules outside of math regions.
+
+**\>** \because  ∵ to **coz  ∵**
+
+##### Math Symbols List:
+
+Ref: [Math notation](https://www.math.utah.edu/~schwede/MichiganClasses/math185/NotationAndTerminology.pdf)
+
+Symbol Key Meaning/original ∵ coz \because ∴ \therefore ∃ \exists \exists ∀ \forall For all, for everyl ∆ \inc Delta, change, triangle λ \lambda Eigenvalues, Wavelength, percent variance, μ \mu micro ∇ \nabla Vector? ∋ \ni under the condition that, contain ‖ \norm Parallel, norm value or length of vector ∌ ν ν ∉ ν \notelement, ν ν ν ν ω Ω \omega last ⊖ \ominus symmetric difference ∂ \partial \\partial ⟡ \phantom Diamond? ϕ \phi \\phi π \pi \pi ⒨ \pmatrix \\pmatrix ∑ \sum \\sum × \times \\times ⊤ \top \\top
+
+| Symbol | Key        | Meaning/original                           |
+|--------|------------|--------------------------------------------|
+| ∵      | coz        | \because                                   |
+| ∴      | \therefore |                                            |
+| ∃      | \exists    | \exists                                    |
+| ∀      | \forall    | For all, for everyl                        |
+| ∆      | \inc       | Delta, change, triangle                    |
+| λ      | \lambda    | Eigenvalues, Wavelength, percent variance, |
+| μ      | \mu        | micro                                      |
+| ∇      | \nabla     | Vector?                                    |
+| ∋      | \ni        | under the condition that, contain          |
+| ‖      | \norm      | Parallel, norm value or length of vector   |
+| ∌      | ν          | ν                                          |
+| ∉      | ν          | \notelement, ν                             |
+| ν      | ν          | ν                                          |
+| ω Ω    | \omega     | last                                       |
+| ⊖      | \ominus    | symmetric difference                       |
+| ∂      | \partial   | \partial                                   |
+| ⟡      | \phantom   | Diamond?                                   |
+| ϕ      | \phi       | \phi                                       |
+| π      | \pi        | \pi                                        |
+| ⒨      | \pmatrix   | \pmatrix                                   |
+| ∑      | \sum       | \sum                                       |
+| ×      | \times     | \times                                     |
+| ⊤      | \top       | \top                                       |
+
+##### 2 Spaces After Period
+
+//Preferences \> Spelling and Grammar \> Writing style \> Settings \> Space between Sentences ˇ \> two spaces.
+
+::: callout-warning
+!!! warning Be careful to place the cursor on line with the correct doc language as the window option will be different according to the language.
+:::
+
+![image]()
+
+Does not change auto correct, only check as spelling. Reverted to don't check.
+
+***Finally, Here***: **Disabling automatic periods after hitting double space bar:**
+
+![image]()
+
+Mac//System Preferences \> Keyboard \>Text \> !© Add period with double-space.
+
+***Disabling automatic bullet list and number:***\
+Word// Preferences \> Auto Correct \>Autoformat as you type \> !© Automatic bulleted list.\
+Word// Preferences \> Auto Correct \>Autoformat as you type \> !© Automatic number list.
+
+![image]()
+
+#### **Assigning key shortcuts to Symbols:**.
+
+Word//Insert \> Advances Symbols \> Search for symbol: Eg. Fonts \> Windings \> Check \> Keyboard Shortcut \> Press new keyboard shortcut \> Assign \>OK ü ++cont+shift+v++
+
+[99 Word Shortcuts for PC and Mac](https://www.goskills.com/Microsoft-Office/Shortcuts/Word/Selection).
+
+#### Custom Keyboard shortcuts (KS) list:
+
+**FontColor:** the KS will change the color font to red (only).\
+**FontColorPicker:** the KS will change the color font to the one selected in the pallet.
+
+| Categories:  | Commands:       | New Keyboard shortcut: KS |
+|--------------|-----------------|---------------------------|
+| All Commands | FontColorPicker | Cmd+Opt+Sht+F             |
+
+[top](#)
+
+#### Key Shortcuts List
+
+For Word and Command line.
+
+[232 Shortcuts for Microsoft Word](https://shortcutworld.com/Word/mac/Microsoft-Word_Shortcuts).
+
+| Command             | Key Shortcut                                |
+|---------------------|---------------------------------------------|
+| Font                | Cmd+Shift+F                                 |
+| Formatfont          | Cmd+D                                       |
+| GrowFont            | Cmd+Shift+\>                                |
+| GrowFontOnePoint    | Cmd+\]                                      |
+| ShrinkFont          | Cmd+Shift+\<                                |
+| ShringkFontOnePoint | Cmd+ \[                                     |
+| .                   | .                                           |
+| ApplyHeading1       | Cmd+Opt+1                                   |
+| ApplyHeading2       | Cmd+Opt+2                                   |
+| ApplyHeading3       | Cmd+Opt+3                                   |
+| ApplyListBullet     | Cmd+Shift+L                                 |
+| .                   | .                                           |
+| Bold                | Cmd+b ; Cmd+Shift+b ; Cont+B ; Cont+Shift+B |
+| BrowseNext          | Cmd+PgDwn                                   |
+| BrowsePrev          | Cmd+PggUp                                   |
+|                     | .                                           |
+| Cancel              | Cmd+. ; Esc                                 |
+| CenterPara          | Cmd+E                                       |
+| ChangeCase          | Shift+F3 ; Cmd+Opt+C                        |
+| CharLeft            | Left Arrow                                  |
+| CharLeftExtend      | Shift+LeftArrow                             |
+| CharRight           | Right Arrow                                 |
+| CharRightExtend     | Shift+Right Arrow                           |
+| ClosePane           | Cont+Shift+C                                |
+| ColumnSelect        | Cmd+Shift+F8                                |
+| CopyFormat          | Cmd+Shift+C                                 |
+| CopyText            | Shift+F2                                    |
+| CreateAutoText      | Opt+F3                                      |
+|                     |                                             |
+| DeleteBackWord      | Cmd+Del ; Opt+Del                           |
+
+**Key Shortcuts** cwh8gsb19.
+
+keys » Command.\
+Opt+Cmd+Spc » New Find ...\[\]....\
+Opt+Cmd+M » Paragraph settings (For VS code).\
+Shift+Opt+Cmd+V » Paste and match the formatting. (Not VS code) Cont+H » Find and replace, Thumb, Nav-Map, Rev.\
+Cmd+\[ or \] » Font size by one point.\
+Cmd+Opt+1 « Heading 1.\
+Cnt+Shft+Arws » Move Up/Down Line or Paragraph.\
+Cnt+Tab » Code block in .md (word).\
+Custom keys Cmd+Opt+Sht+F » FontColorPicker (Custom).\
+Cont+Shift+V » Check mark  ü in Markdown Opt+¥sqrt » √ (Math AutoC)\
+coz ∵ Because (Math AutoC)
+
+Input Sources. 1. ABC Extended\
+2. Japanese: ©Kana, ©Half Kana\
+3. Handwriting » Cnt+Shift+Spc\
+Rotate Keyboards » Cnt+Opt+Spc\
+Character Viewer » Cnt+Cmd+Spc or fn+E
+
+vid ratio: 16:9 -\> 560 x 315 fx(16/9\*315=560) \> 426x240 \> 355x200 \> 266x150
+
+**Finder**.\
+Cmd+Shift+H » Home directory. (home icon in Finder favorites).\
+Opt+Cmd+W » Close all Finder windows.
+
+**Terminal Keyboard shortcuts (vid):**\
+Cnt+a » Jump to the beginning of the line.\
+Cnt+e » Jump to the end of the line.\
+Opt+Arrows LR » To Jump one word at the time.\
+Opt+Mouse © » To place cursor in any place in the line.†cursor.\
+Cnt+u » Delete everything before cursor.\
+Cnt+k » Delete everything after the cursor.\
+Tab » Autocomplete.\
+Drag and drop folder » To autofill path of the folder. Ex. Cd (drag and drop folder).\
+Up and Down errors » Cycle through previously runed commands.\
+!+starting word of the command » To find previously runed commands.\
+History » Type history in terminal will show all runed commands in a number list.\
+!+history# » To find and paste that specific command.\
+Cnt+r » Resarch reverse. Auto filled type of find.\
+Cnt+L » Clear screen but not history scroll.\
+Cmd+K Clear screen and history scroll.\
+Command + Shift + . » Show/Hide hidden files.
+
+**System keys** Opt+Cmd+P+R » Reset Parameter Ram To reset Non-volatile storage, storage that persist form boot to boot called NVRAM or P-RAM.
+
+1.  Turn off mac, turn on and immediately press Opt+Cmd+P+R until you hear a sound. Cmd+R on reboot » Recovery mode. (to download macOS form net or Use time machine)\
+    H on reboot » Safe mode in top right corner.\
+    D on reboot » Apple Diagnostics; Opt+D on reboot » Apple Diagnostics over internet.\
+    T on reboot » Target Disk Mode, makes mac in to a HDD. To copy data off a mac malfunctioning.\
+    Opt/Alt on reboot » Start Up Manager, to choose bootcamp (Windows system) or form USB.
+
+------------------------------------------------------------------------
+
+### line space after c/p
+
+To reduce the line space after c/p:
+
+-   **Set doc to "No grid", and then, each c/p section must be set to "Single \[Paragraph\]".** See 1 and 2 below.
+
+#### Grid/snap
+
+[Snap charts, pictures, and objects to a grid to align them in Word.](https://support.microsoft.com/en-au/office/snap-charts-pictures-and-objects-to-a-grid-to-align-them-in-word-d9c687fc-926e-4eca-8cef-952eed714012#:~:text=and%20vertical%20spacing.-,Select%20a%20chart%2C%20picture%2C%20or%20object%20in%20the%20document.,right%20side%20of%20the%20box.)
+
+1.  //\[layout\] \> \[page setup \> Margins\] \> Custom margins \> ...\[\]... \> \[Document Grid\] \> ©No grid.\
+2.  **++opt+cmd+m++ -\> Paragraph \> Single \> OK**\
+3.  //\[layout\] \> {page setup \> Margins} \> Custom margins \> ...\[\]... \> \[Document Grid\] \> ©No grid \> ... © Drawing Grid \> ...\[\]... \>\
+4.  //\[layout\] \> {page setup \> Margins} \> Custom margins \> ...\[\]... \> \[Document Grid\] \> ©No grid \> ... Set Font.\
+5.  //\[layout\] \> {Arrange \> ˇAlign} \> **Grid Settings** \> ...\[\]... \> Horizontal Spacing = 0.5 cm ; Vertical Spacing = 0.5 cm \> ©OK  changes automatically to Horizontal Spacing = 1.78 ch; Vertical Spacing = 1.18 line.
+
+> **Tip:** Grid spacing will define the movement length of an object, ex. If you create an square, and move it with the mouse, the movement is not smooth (linear pixel by pixel) but it will jump(snap) to the next grid line, so if the grid spacing is 0.5 cm, the square will move 0.5 cm each time, whether the grid is displayed or not. **Set H and V spacing at 0.1 cm**.
+
+Snap to grid when document grid is defined -\> KS possible?.
+
+#### Set Grid Spacing
+
+1.  //\[layout\] \> {page setup \> **Margins**} \> Custom margins \> ...\[Grid options\]... \> \[Document Grid\] \> ©No grid; \> Drawing Grid \> ..\[Grid options\].. \> Horizontal spacing = 0.1 cm; Vertical Spacing= 0.1 cm \> Ok =\> ..\[\]\> Grid options \> grid settings: auto changed to, Horizontal spacing= 0.36 ch, Vertical spacing= 0.24 line \> OK =\> ..{document grid\] \> OK.
+
+-   Lines are 1mm x 1mm, in whole page cannot be seen, zoom in until lines appear.\
+-   If not seen, // View \> © grid lines.
+
+Another option, **Shorter Path**:
+
+1.  //\[layout\] \> {Arrange \> **ˇAlign**} \> **Grid Settings** \> ...\[Grid options\]... \> **Grid Settings**: Horizontal Spacing = 0.5 cm ; Vertical Spacing = 0.5 cm \> ©OK  changes automatically to Horizontal Spacing = 1.78 ch; Vertical Spacing = 1.18 line.\
+    -\>
+
+> Make default in all MRR1template.
+
+**Insert and Customize Gridlines in Word \| Microsoft Word Tutorials.**\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MjsPuioLZNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Word: grid units change.
+
+Windows: My default units are set to millimeters, under File-\>Options-\>Advanced-\>Display-\>Show measurements in units of: Millimeters.\
+Mac: // Word \> Preferences \> Authoring and proofing Tools \> General \> Show measurements in units of: Millimeters.\
+\> ?\* Preferences \> Authoring and proofing Tools \> General \> **!© Use character units.** What does this does? Is not available in other versions of word....\
+When go back to the Grid and Guides dialog, and see that my spacing is no longer 1mm, it is .ch and .line.
+
+### Set Tab spacing
+
+// Format \> Tab \> ...\[\]... \> Default stops: 1.5 ch. (in cm?)
+
+### Autoformat as you type:
+
+++cmd+","++ \> AutoCorrect \>
+
+### Edit templates and Format Styles
+
+Word for Microsoft 365 Word 2021 Word 2019 Word 2016 Word 2013 Whether you're starting from a built-in template or updating one of your own, Word's built-in tools help you update templates to suit your needs. To update your template, open the file, make the changes you want, and then save the template.
+
+Click File \> Open. Double-click This PC. (In Word 2013, double-click Computer). Browse to the Custom Office Templates folder that's under My Documents. Click your template, and click Open. Make the changes you want, then save and close the template. PC word file.dotx
+
+Default Word styles file:s\
+**Normal.dotm**: /Users/marcelorosales/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized/Normal.dotm
+
+#### Created personal templates:
+
+Folders: MBP15: /Users/Marcelo-Rosales/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized/MRdraft-01.dotx\
+MBP20: /Users/marcelorosales/Library/Group Containers/UBF8T346G9.Office/User Content.localized/Templates.localized/ **TemplateMR21.dotx**\
+**MR22** Same folder.
+
+To change styles use: - Style pane (change style on the open document only) or\
+- // Format \> style... \> ...\[\]... \> organizer \> (here you can copy styles form the Normal.dotm to other document template with the \[\<- Copy\] button)\
+- Tip: For formats, use the Home\>Styles Pane \> ..\[\].. \> List all styles \> Select Heading... \> Modify Styles.. \> ...\[\]... \> style based on: choose the Heading style immediately before.\
+---
+
+### Word Add-ins
+
+//Insert \> Add-ins \> Get Add-ins
+
+#### Easy Code Formatter
+
+To fast and easy highlight code.
+
+Preferences \> Line Numbering\> Render line numbers: Off\
+Preferences \> Font: Calibry; size: 10
+
+```{r}
+#| eval: false
+
+file_path <- "path/to/your/file.docx"  
+system(sprintf("open %s", file_path))  
+```
+
+Example:
+
+```{r}
+#| eval: false
+
+file_path <- "path/to/your/file.docx"  
+system(sprintf("open %s", file_path))  
+ 
+```
+
+Highlight
+
+```{r}
+#| eval: false
+
+file_path <- "path/to/your/file.docx"  
+system(sprintf("open %s", file_path))  
+```
+
+### Word and Rstudio
+
+#### rstudio code to open a word file in word
+
+**(windows)** To open a Word file in Microsoft Word from RStudio, you can use the `shell()` function in R to execute a command that opens the file with the default application associated with `.docx` files on your system.
+
+Here's an example of how you can open a Word file in Microsoft Word using RStudio:
+
+```{r}
+#| eval: false
+
+file_path <- "path/to/your/file.docx"
+shell(paste("start", shQuote(file_path)))
+```
+
+Replace `"path/to/your/file.docx"` with the actual file path of your Word document.
+
+The `shell()` function executes a system command, and the `start` command in Windows opens a file with the default associated application, which in this case is Microsoft Word for `.docx` files. The `shQuote()` function is used to properly quote the file path in case it contains spaces or special characters.
+
+When you run this code in RStudio, it will open the specified Word file in Microsoft Word or the default application associated with `.docx` files on your system.
+
+Please note that this approach relies on the default behavior of the operating system and the file associations. If the default application for `.docx` files is set to a different program or if you're using a non-Windows operating system, the command may need to be adjusted accordingly.
+
+**in which package is the shell() function ?** The `shell()` function is not part of any package in R. It is a base R function that allows you to execute system commands.
+
+#### rstudio code to open a word file in word update:
+
+**(mac)**
+
+To open a Word file using RStudio, you can use the `system()` function instead. Here's an updated example:
+
+```{r}
+#| eval: false
+
+file_path <- "path/to/your/file.docx"
+system(paste("open", shQuote(file_path)))
+```
+
+Replace `"path/to/your/file.docx"` with the actual file path of your Word document.
+
+In this example, the `system()` function is used to execute the system command `open` (on macOS) or `start` (on Windows) with the specified file path. The `shQuote()` function is used to properly quote the file path.
+
+When you run this code in RStudio, it should open the Word file in the default application associated with `.docx` files on your system.
+
+Please note that the specific command to open files may vary depending on your operating system. The `open` command is used on macOS, while the `start` command is used on Windows. You may need to adjust the command accordingly if you're using a different operating system.
+
+------------------------------------------------------------------------
+
+#### Open word file w/i Rstudio
+
+To open a Word file in RStudio, you can use the `read_docx()` function from the `officer` package. Here's an example of how you can open a Word file in RStudio:
+
+1.  Install the `officer` package by running the following command in RStudio:
+
+```{r}
+#| eval: false
+
+install.packages("officer")
+```
+
+2.  Load the `officer` package:
+
+```{r}
+#| eval: false
+
+library(officer)
+```
+
+3.  Use the `read_docx()` function to read the Word file:
+
+```{r}
+#| eval: false
+
+doc <- read_docx("path/to/your/file.docx")
+```
+
+Replace `"path/to/your/file.docx"` with the actual file path of your Word document.
+
+After running this code, the Word file will be loaded into RStudio and stored in the `doc` object, which you can then manipulate or extract information from using functions provided by the `officer` package.
+
+Please note that the `officer` package provides functionality for manipulating Word documents in R, but it is not a full-featured word processing application. If you need to perform complex editing or formatting tasks on Word files, it is recommended to use Microsoft Word or other dedicated word processing software.
+
+#### Summary
+
+(See Markdown02.docx \> Word and Rstudio for detail info on the code)
+
+files:
+
+Mac:
+
+```{r}
+#| eval: false
+
+Markdown02 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx"  
+
+Research_map <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx"  
+
+Markdown01 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+
+Notes <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"
+
+excel <- "/Users/marcelorosales/Documents/GitHub/Quarto/quarto-trials/quarto_website/test.xlsx"
+
+#open in mac OS
+system(paste("open", shQuote(Markdown02)))
+system(paste("open", shQuote(Research_map)))
+system(paste("open", shQuote(Notes)))
+system(paste("open", shQuote(excel)))
+```
+
+[excel file test](test.xlsx)
+
+Windows:
+
+```{r}
+#| eval: false
+
+file_path <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+shell(paste("start", shQuote(file_path)))
+# or 
+system(paste("start", shQuote(file_path)))
+
+```
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## Markdown
+
+### Intro and Tutorials
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hpAJMSS8pvs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Academic Writing in Markdown](https://youtu.be/hpAJMSS8pvs)
+
+See complete video collection [Markdown: Academic writing in plain text](https://www.youtube.com/playlist?list=PLXt-tu7G1H3tLeZgbbUmYjE0_kvbjA4YU)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HUBNt18RFbo" title="Markdown Crash Course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[Markdown Crash Course](https://youtu.be/HUBNt18RFbo)
+
+### Two column layout with markdown html
+
+**2 Column layout code:**
+
++-----------------------+---------------+
+| Column 1              | Column 2      |
++=======================+===============+
+| ```                   | Column 2 Text |
+|                       |               |
+|         {             |               |
+|         Column 1 text |               |
+|         }             |               |
+| ```                   |               |
++-----------------------+---------------+
+
+: Table Caption
+
+Not working in .Rmd,
+
+[How to Create Multicolumn Layouts in RMarkdown](https://rfortherestofus.com/2021/11/multicolumn/)
+
+[top](#)
+
+### Markdown TOC: table of contents?
+
+[link to page](https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents)
+
+How to link to part of the same document in Markdown?
+
+**Code example 1**
+
+```         
+# Table of Contents
+1. [Example](#example)
+2. [Example2](#example2)
+3. [Third Example](#third-example)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+
+
+## Example
+## Example2
+## Third Example
+## [Fourth Example](http://www.fourthexample.com)
+```
+
+**Code example 2**
+
+```         
+# Table of contents
+1. [Introduction](#introduction)
+2. [Some paragraph](#paragraph1)
+    1. [Sub paragraph](#subparagraph1)
+3. [Another paragraph](#paragraph2)
+
+## This is the introduction <a name="introduction"></a>
+Some introduction text, formatted in heading 2 style
+
+## Some paragraph <a name="paragraph1"></a>
+The first paragraph text
+
+### Sub paragraph <a name="subparagraph1"></a>
+This is a sub paragraph, formatted in heading 3 style
+
+## Another paragraph <a name="paragraph2"></a>
+The second paragraph text
+```
+
+There might also be the one or the other library, who can generate TOCs: see [Python Markdown TOC Extension](https://python-markdown.github.io/extensions/toc/).
+
+[top](#)
+
+#### Toc Word \<=\> VS
+
+**How to create a table of content in markdown and vs code.**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6V5yaVhK_hE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[How to create a table of content in markdown and vs code](https://youtu.be/6V5yaVhK_hE)
+
+Require: Installation of Add on: Markdown All in One by Yu Zhang required, see Table of contents.\
+Or **Auto Markdown TOC** by Hunter Tran, (use: in md file, right click \> Auto Markdown TOC: Insert/Update (++cont+m+t++).\
+:
+
+1.  In Word, Create the toc \[\]// References \> Table of contents \> Custom Table of contents \> !© show page numbers \| Show levels =5 \> OK.\
+2.  Copy/paste table from word into vs and create mkd toc.\
+3.  In VS press Shift+Cmd+P to bring Command Palette.\
+4.  Run command **Create Table of Contents**.\
+5.  TOC is **automatically created/updated** on file save by default.\
+6.  The **indentation type (tab or spaces)** of TOC can be configured per file.\
+7.  Find the setting in the right bottom corner of VS Code's status bar.
+
+**Note:** Be sure to also check the list.indentationSize option. To make TOC compatible with GitHub or GitLab, set option slugifyMode accordingly Three ways to control which headings are present in the TOC: Easily add/update/remove **section numbering**.
+
+-   Shft+Cmp+P ..\[\].. type section... search... \> Markdown All in One Add/Update section numbers.\
+-   Cnt+Shit+\] or "\[\]" » to increase / decrease Indentation level. (Make sure cursor is in pasted toc and not in the VS created toc).
+
+> !!! tip "toc tip" Each md file can have only one \# (title). If other section is mark as main title (#\~), table of content.
+
+**Table of Contents Generator for Markdown \| Productivity \| Tech Primers**\
+\<iframe width="560" height="315" src="https://www.youtube.com/embed/xdNIia7Z2RE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen\></iframe>
+
+[Table of Contents Generator for Markdown \| Productivity \| Tech Primers](https://youtu.be/xdNIia7Z2RE)
+
+**Making your R Markdown Pretty**\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v048ru5v0BE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Making your R Markdown Pretty](https://youtu.be/v048ru5v0BE)
+
+[Rmarkdown into Word - change a title in toc](https://community.rstudio.com/t/rmarkdown-into-word-change-a-title-in-toc/48137)
+
+In the yaml set:
+
+```{yaml}
+#| eval: false
+# yaml code:
+
+title: "Mixture distributions"
+output: 
+    word_document:
+        toc: yes
+toc-title: Article Outline
+```
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Markdown symbols
+
+Tip: Generate Images path with "issues" (in github).
+
+**code:**
+
+```         
+# heading 1  
+###### heading 6  
+*Italics*  
+**bold**  
+***bold and italics***  
+> Block quote  
+- Unordered list  
+1 ordered list  
+![Image Description](/path/to/image){size, position}
+[Link Text](link url)  
+\ escape  (¥ = to back slash in japanese keyboards) 
+```
+
+**outcome:**
+
+`# heading 1`\
+\###### heading 6\
+*Italics*\
+**bold**\
+***bold and italics***\
+\> Block quote\
+- Unordered list\
+1. ordered list\
+![Image Description](/docs/img/s300/01-Incisor-300.jpg){ width="100"; align=righ }\
+[Link Text](linkurl)\
+ escape (¥ = to back slash in japanese keyboards)
+
+<iframe width="266" height="150" src="https://www.youtube.com/embed/0bxa7rkur9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+<iframe width="266" height="150" src="https://www.youtube.com/embed/WkF7nqEYF1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+(See 32:39 cross talk document? Section?).
+
+[top](#) **How to draw checkbox or tick mark in GitHub Markdown table?**.
+
+-   [ ] (for unchecked checkbox)
+-   [x] (for checked checkbox)
+
+\[\] , \[x\] , ✗ , ✓ , ☐ , ☑ , <input type="checkbox" disabled checked /> , <input type="checkbox" disabled /> .
+
+| \#  | Unchecked                                        | Checked                                           |
+|-----|--------------------------------------------------|---------------------------------------------------|
+| 1   | \[\]                                             | \[x\]                                             |
+| 2   | ✗                                                | ✓                                                 |
+| 3   | ☐                                                | ☑                                                 |
+| 4   | <input type="checkbox" disabled checked /> works | <input type="checkbox" disabled /> works here too |
+| 5   | Cont+Sht+V                                       |  in Word, ü in .md                               |
+| 6   | \sqrt                                            | √                                                 |
+
+[top](#)
+
+#### Go to top
+
+Can I add a "go to top" button to an HTML document rendered in R Markdown? **In word**
+
+1.  Create a bookmark: //insert/bookmark.../...\[\].../{top}/©Add\
+2.  Create a hyperlink to the bookmark: {top} or any {name} \> select {top} \> R© \> Hyperlink (or ++cont+k++) \> This Document \> Bookmarks \> ©top (bookmark name) \> OK\
+3.  c/p created link and place where back to top button/link is required: every heading better H2 and H3.
+
+**In word markdown**\
+This code will make it quick and simple.
+
+``` bash
+[top](#)  
+```
+
+In md preview it will automatically provide a link to top.\
+Just add the bookmark anchor and it will work for both, word and word-markdown but not with vs-markdown\
+[top](#)
+
+**In vs-markdown**
+
+1.  Create an anchor at the top of page:
+
+```         
+###### top
+```
+
+1.  Create or c/p link wherever you need
+
+```         
+[top](#top)  
+```
+
+!!! check "better option" 1. In vs code raw md data and preview the `[top](#)` will not work, it is better to work with the vs outline panel.\
+2. Place the TOC at the end and use the foot anchor in outline panel to jump to toc.
+
+**In mkdocs**
+
+The code for word markdown will work in mkdocs.
+
+```         
+[top](#)  
+```
+
+**html code** will work for word-md extension.
+
+``` markdown
+<a href="#top">Back to top</a>  
+[top](#) 
+```
+
+<a href="#top">Back to top</a>\
+[top](#) // any text here would work unless you want to point to a particular id in the html
+
+------------------------------------------------------------------------
+
+#### Link anchor
+
+How to link to part of the same document in Markdown? Github automatically parses anchor tags out of your headers. So you can do the following:
+
+```         
+[Custom foo description](#foo)  
+© in the link above and you will jump to the ankor (# Foo) below.    
+# Foo. 
+```
+
+[Handbook Markdown Guide](https://about.gitlab.com/handbook/markdown-guide/).
+
+#### **Warnings boxes**
+
+**Code:**
+
+``` html
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;">
+I am a success message
+</div>
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;">
+I am an error message
+</div>
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">
+I am a info message
+</div>
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;">
+I am a warning message
+</div>
+
+
+<div class="alert alert-success"><i class="icon-ok"></i> **SUCCESS:** Markdown formatting _is_ supported here.
+ </div>
+ 
+  <div class="alert alert-info"><i class="icon-lightbulb"></i><strong>INFO:</strong> Markdown formatting _is_ supported here.
+ </div>
+
+ <div class="alert alert-warning"><i class="icon-right-hand"></i> **WARNING:** Markdown formatting _is_ supported here.
+ </div>
+
+ <div class="alert alert-danger"></i><i class="icon-attention-alt"></i>**DANGER:** Markdown formatting _is_ supported here.
+ </div>  
+
+<div style= "border: 1px solid transparent; 
+  border-color: transparent; 
+  margin-bottom: 10px; 
+  border-radius: 4px; 
+  color: #000000; 
+  background-color: #eeeee; 
+  border-color: #ebccd1;">
+
+  <div style = "padding: 5px; 
+    border: 1px solid transparent; 
+    border-color: transparent; 
+    border-radius: 4px; 
+    color: #a94442; 
+    background-color: #f2dede; 
+    border-color: #ebccd1;">
+  warning
+  </div>
+
+  <div style="padding: 5px;">
+  Message!!.
+  </div>
+</div>
+```
+
+**Output:**
+
+::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;"}
+I am a success message
+:::
+
+::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1;"}
+I am an error message
+:::
+
+::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #31708f; background-color: #d9edf7; border-color: #bce8f1;"}
+I am a info message
+:::
+
+::: {style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #8a6d3b;; background-color: #fcf8e3; border-color: #faebcc;"}
+I am a warning message
+:::
+
+::: {.alert .alert-success}
+<i class="icon-ok"></i> **SUCCESS:** Markdown formatting *is* supported here.
+:::
+
+::: {.alert .alert-info}
+<i class="icon-lightbulb"></i><strong>INFO:</strong> Markdown formatting *is* supported here.
+:::
+
+::: {.alert .alert-warning}
+<i class="icon-right-hand"></i> **WARNING:** Markdown formatting *is* supported here.
+:::
+
+::: {.alert .alert-danger}
+</i><i class="icon-attention-alt"></i>**DANGER:** Markdown formatting *is* supported here.
+:::
+
+> <i class="icon-quote-left"></i> The secret to creativity is knowing how to hide your sources. -- <cite>\[Albert Einstein\]\[1\]</cite>
+
+::: {style="border: 1px solid transparent;    border-color: transparent;    margin-bottom: 10px;    border-radius: 4px;    color: #000000;    background-color: #eeeee;    border-color: #ebccd1;"}
+::: {style="padding: 5px;      border: 1px solid transparent;      border-color: transparent;      border-radius: 4px;      color: #a94442;      background-color: #f2dede;      border-color: #ebccd1;"}
+warning
+:::
+
+::: {style="padding: 5px;"}
+Message!!.
+:::
+:::
+
+------------------------------------------------------------------------
+
+#### Comments in Markdown
+
+[Comments in Markdown](https://stackoverflow.com/questions/4823468/comments-in-markdown)
+
+If you want a comment that is strictly for yourself (readers of the converted document should not be able to see it, even with "view source") you could (ab)use the link labels (for use with reference style links) that are available in the core Markdown specification:
+
+<http://daringfireball.net/projects/markdown/syntax#link>
+
+That is:
+
+```         
+[comment]: <> (This is a comment, it will not be included)
+[comment]: <> (in  the output file unless you use it in)
+[comment]: <> (a reference style link.)
+```
+
+(works in: VS) Ex: (A line space is needed between text and comment).
+
+Or you could go further:
+
+```         
+[//]: <> (This is also a comment.)
+```
+
+Ex. (A line space is needed between text and comment).
+
+[//](Here%20is%20another%20comment "This is also a comment.")
+
+To improve platform compatibility (and to save one keystroke) it is also possible to use \# (which is a legitimate hyperlink target) instead of \<\>:
+
+```         
+[//]: # (This may be the most platform independent comment)
+```
+
+Ex. (A line space is needed between text and comment).
+
+For maximum portability it is important to insert a blank line before and after this type of comments, because some Markdown parsers do not work correctly when definitions brush up against regular text. The most recent research with Babelmark shows that blank lines before and after are both important. Some parsers will output the comment if there is no blank line before, and some parsers will exclude the following line if there is no blank line after.\
+In general, this approach should work with most Markdown parsers, since it's part of the core specification. (even if the behavior when multiple links are defined, or when a link is defined but never used, is not strictly specified).
+
+Placing a comment between `<>` will make it a comment and invisible in a markdown document. Ex. <this is a comment>
+
+**Other type of comments:**\
+This is an example 1
+
+This is an example 2 [//](Here%20is%20another%20comment "This is also a comment."): \<comment here only text no numbers nor punctuation other than. Hover over comment dash lines and text will appear. unfortunatelly is not from this comment but from previous one. \> (This is also a comment.)\
+This is an example 3 [//](Here%20is%20another%20comment "This is also a comment."): \# (This may be the most platform independent comment)
+
+Comments Examples: (3):\
+[comment](here%20is%20the%20comment%20only%20text%20no%20numbers%20or%20punctuation "This is a comment, it will not be included, only text no numbers or punctuation"): <here is the comment> (This is a comment, it will not be included)
+
+[//](Here%20is%20another%20comment "This is also a comment."): #This is the comment (This may be the most platform independent comment) **this type of comment does not seems to be working)**
+
+::: {.alert .alert-danger}
+</i><i class="icon-attention-alt"></i>**Warning:** Try to avoid using the above comment code since it requires for each one to be labeled different, and error messages may be displayed.\
+:::
+
+### Markdown Shortcuts
+
+Handy {++shortcuts++} for ==editing== Markdown (.md, .markdown) files by ==right clicking==. You can also use markdown formats in any other file (see configuration settings).
+
+-   Quickly toggle bullet points
+-   Easily generate URLs
+-   Convert tabular data to tables
+-   Context and title menu integration
+-   You can show and hide icons in the title bar with the markdownShortcuts.icons.\* config settings.
+
+[Markdown Shortcuts in VS](https://marketplace.visualstudio.com/items?itemName=mdickin.markdown-shortcuts)
+
+| Name                            | Description                 | Default key binding |
+|---------------------------------|-----------------------------|---------------------|
+| md-shortcut.showCommandPalette  | Display all commands        | ctrl+M ctrl+M       |
+| md-shortcut.toggleBold          | Make **bold**               | ctrl+B              |
+| md-shortcut.toggleItalic        | Make *italic* or *italic*   | ctrl+I              |
+| md-shortcut.toggleStrikethrough | Make ~~strikethrough~~      |                     |
+| md-shortcut.toggleLink          | Make [a hyperlink](Tab3.md) | ctrl+L              |
+| md-shortcut.toggleImage         | Make an image ![]()         | ctrl+shift+L        |
+| md-shortcut.toggleCodeBlock     | Make `a code block`         | ctrl+M ctrl+C       |
+| md-shortcut.toggleInlineCode    | Make `inline code`          | ctrl+M ctrl+I       |
+| md-shortcut.toggleBullets       | Make \* bullet point        | ctrl+M ctrl+B       |
+| md-shortcut.toggleNumbers       | Make 1. numbered list       | ctrl+M ctrl+1       |
+
+------------------------------------------------------------------------
+
+### Preview Markdown files with Quick Look in Finder on Mac
+
+Command to install with Homebrew Cask in \~/Library/QuickLookIt will be installed when you run Install cask has changed (added on 2021-02-02) to
+
+``` bash
+brew install --cask qlmarkdown
+```
+
+Uninstall cask seems changed (added on 2021-02-02)
+
+``` bash
+brew uninstall --cask qlmarkdown
+```
 
 ------------------------------------------------------------------------
