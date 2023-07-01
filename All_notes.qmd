@@ -5774,3 +5774,3110 @@ Here is an example configuration for the mkdocs.yml file and here you find an ex
 [configuration](https://www.mkdocs.org/user-guide/configuration/) [example project](https://github.com/thomassuedbroecker/How-to-install-MkDocs-on-Mac-and-setup-integration-with-GitHub/)
 
 ------------------------------------------------------------------------
+
+[top](#)
+
+### Documentation
+
+For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+
+### Commands
+
+-   `mkdocs new [dir-name]` - Create a new project.
+-   `mkdocs serve` - Start the live-reloading docs server.
+-   `Cnt+C` - to stop server.
+-   `mkdocs build` - Build the documentation site.
+-   `mkdocs -h` - Print help message and exit.
+-   `mkdocs gh-deploy` - deploy to github.
+
+**Project layout**
+
+mkdocs.yml \# The configuration file. docs/
+
+index.md \# The documentation homepage. ... \# Other markdown pages, images and other files.
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### To create a site
+
+``` bash
+#| eval: false
+
+cd /Users/marcelorosales/Documents/GitHub/MkDocs/MkDocsTut220704
+mkdocs new Hello-siteTest  
+```
+
+INFO - Creating project directory: Hello-siteTest\
+INFO - Writing config file: Hello-siteTest/mkdocs.yml\
+INFO - Writing initial docs: Hello-siteTest/docs/index.md
+
+``` bash
+#| eval: false
+
+ls  
+```
+
+Hello-siteTest
+
+``` bash
+#| eval: false
+
+cd Hello-siteTest  
+```
+
+``` bash
+#| eval: false
+
+tree  
+```
+
+.\
+├── docs\
+│ └── **index.md**\
+└── **mkdocs.yml**
+
+``` bash
+#| eval: false
+
+code .  
+```
+
+In editor softw Modify mkdocs.yml, the site_name, site_url, Nav, etc.
+
+``` yaml
+site_name: Hello-siteTest
+site_url: https://example.com_or_my.github
+nav:
+  - Home: Index.md
+```
+
+Save..
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Live Pre-view of the site (Local Server)
+
+In terminal.
+
+``` bash
+#| eval: false
+mkdocs serve  
+```
+
+INFO - Building documentation...\
+INFO - Cleaning site directory\
+INFO - Documentation built in 0.07 seconds\
+INFO - \[16:12:35\] Watching paths for changes: 'docs', 'mkdocs.yml'\
+INFO - \[16:12:35\] Serving on <http://127.0.0.1:8000/>\
+INFO - \[16:13:00\] Browser connected: <http://127.0.0.1:8000/>
+
+[top](#)
+
+------------------------------------------------------------------------
+
+### To create more Nav Tabs
+
+In editor: New File \> language: .md \> {# Name of the Tab or Section} \> Save: {NewNavTabName} \> Save Eg. NewNavTab1.md NewNavTab2.md
+
+Open mkdocs.yml \> Add NavTabs file Names to Nav
+
+``` yaml
+site_name: Hello-siteTest
+site_url: https://example.com_or_my.github
+nav:
+  - Home: Index.md
+  - New Nav Tab 1: NewNavTab1.md
+  - New Nav Tab 2: NewNavTab2.md
+```
+
+[top](#)
+
+### MkDocs Themes
+
+In the **mkdocs.yml** file add a theme: Eg theme: readthedocs
+
+``` yaml
+site_name: Test site
+site_url: https://example.com_or_my.github
+nav:
+  - Home: index.md
+  - New Nav Tab 1: NewNavTab1.md
+  - New Nav Tab 2: NewNavTab2.md
+
+theme: readthedocs 
+```
+
+Other themes.
+
+``` yaml
+theme: 
+#  name: readthedocs 
+  name: material
+```
+
+[top](#)
+
+### Add images/assets
+
+Stop server.\
+Create assets/ in the docs/ .\
+Insert images in the folder.\
+In the Home
+
+![NiigataUicon](assets/NiigataUicon.png){size, position}
+
+[top](#)
+
+### Internationalization plugin
+
+#### Pages
+
+1.  Create the pages in the desired languages.
+
+Index.md --\> Index.en.md\
+\| --\> Index.jp.md\
+\| --\> Index.es.md
+
+2.  Add plugins to .yaml file
+
+``` yaml
+plugins:
+  - search # add search box.
+  - i18n: # language plugin. 
+      default_language: en
+      languages:
+        en: English
+        jp: 日本語
+        es: Español
+```
+
+Then deploy: mkdocs serve\
+\> May require Install plunging
+
+``` bash
+#| eval: false
+pip install mkdocs-static-i18n  
+```
+
+More info [here](https://github.com/ultrabug/mkdocs-static-i18n)
+
+#### Images
+
+1.  Create the images in the desired languages and **`add the language as an extension`**.
+
+img.png --\> img.en.png\
+\| --\> img.ja.png\
+\| --\> img.es.png\
+\> WARNING - Language jp is not supported by mkdocs-material==8.3.8, not setting the 'theme.language' option. CORRECTION: is `ja` for Japanese, not jp.
+
+It works anyways‼!
+
+2.  In md files just use the name of the image, plug in will automatically assign the language extension to the corresponding language .md file. Eg.
+
+``` md
+![imgName](assets/img.png)   
+```
+
+[top](#)
+
+### To build site
+
+Once site is finished, stop live preview **`Cnt+C`**\
+In Terminal:
+
+``` bash
+#| eval: false
+mkdocs build
+```
+
+INFO - Cleaning site directory\
+INFO - Building documentation to directory:\
+/Users/marcelorosales/Documents/GitHub/MkDocs/MkDocsTut220704/Hello-siteTest/site\
+INFO - Documentation built in 0.11 seconds
+
+> Will create all the files and folders required for an HTML site.\
+> In terminal: (Make sure you are in the directory containing the site)
+
+``` bash
+#| eval: false
+mkdocs gh-deploy
+```
+
+[top](#)
+
+### To deploy in Github
+
+\*\*To create a site with Terminal (\>\_):\*\*\
+cd /Documents/GitHub..(local, not in cloud)\
+`mkdocs new {rojectName}` (Creates new dir)\
+cd ProjectName\
+`tree` (√ if ∃ mkdocs.yml, index.md)
+
+**In VS code:**\
+drag/File \> Add Folder to Workspace ProjectName \|\| code mkdocs.yml\
+copy/paste template \|\| code .ylm\
+touch .md (Create page content)\
+.\
+\*\*In \>\_:\*\*\
+`mkdocs serve` (no need to build to serve)\
+stop server Cont+C
+
+**Connect to Github**\
+\*\*With \>\_:\*\*\
+`git init` (√ if ∃? .git)\
+`gedit gitignore` (edit gitignore to don't track files...)\
+`git add .` (add all files to git)\
+`git status` (files currently staged)\
+`git config --global user.name “MyGitAccount”` (MR)\
+`git config --global user.email “myemail.com”` (hot)\
+`git commit -m “Initial Commit”`\
+`git status` (empty, no files staged) -\> up to here, ver control only in local dir/repo.\
+**In github.com:**\
+create git repo in github.com\
+copy the repo_url\
+\*\*In \>\_:\*\*\
+`git remote add origin repo_url`\
+`git push origin master`\
+type github username:\
+type github Password: (push from local master branch to remote master branch)\
+\*\*Mkdocs deploy in \>\_:\*\*\
+`mkdocs build`\
+`mkdocs gh-deploy`
+
+**After first commit:**\
+Modify code. (and save files)\
+`mkdocs build`\
+`mkdocs gh-deploy`\
+`git add .`\
+`git status`\
+`git commit -m “”`\
+`git status` (nothing to commit)\
+`git reflog` (commit history)
+
+**Other git commands:**\
+`git reflog` (past git logs)\
+`git checkout -b other-branch` (Switch to a new branch)\
+`git branch -a` (lists of branches)\
+`rm -fr .git` (remove git files)
+
+\*\*To create a site with GitHub Desktop (\>\_):\*\*
+
+1.  Create mkdocs site in \>\_ (local, not cloud)\
+2.  Open Github Desktop\
+3.  Add \> Add an existing repocitory \> ..\[\].. \> choose \> path \> add \> ..\[!∆!\].. © `create a repository` \> ...\[\]...\
+4.  Name:{} \> Description: {} \> © Create Repository.\
+5.  Commit \> Description \> © Commit to main\
+6.  Go to my github.com \> General \> Danger zone \> Change visibility \> ...\[\]... Make public \> Please type ... to confirm.\
+7.  Go to Pages \> Branch: © gh-pages \> © root \> save\
+8.  \` Your site is published at Error! Hyperlink reference not valid.
+
+After committing to github.\
+VS Source Control \> stage all changes \> commitName \> Commit \> Push
+
+[Adding Existing Project To Git/GitHub Using Command Line](https://youtu.be/KlggT7ZjKOw)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KlggT7ZjKOw" title="Adding Existing Project To Git/GitHub Using Command Line" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+**Extra comments**
+
+```         
+>_ git init
+hint: Using 'master' as the name for the initial branch. This default branch name  
+hint: is subject to change. To configure the initial branch name to use in all  
+hint: of your new repositories, which will suppress this warning, call:  
+hint:   
+hint:   git config --global init.defaultBranch <name>  
+hint:   
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and   
+hint: 'development'. The just-created branch can be renamed via this command:  
+hint:   
+hint:   git branch -m <name>  
+
+github.com  
+new repository  
+=============================================================  
+Quick setup — if you’ve done this kind of thing before  
+or    
+https://github.com/MarceloRosales/mkt2.git  
+Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.  
+  
+…or create a new repository on the command line  
+echo "# mkt2" >> README.md  
+git init  
+git add README.md  
+git commit -m "first commit"  
+git branch -M main  
+git remote add origin https://github.com/MarceloRosales/mkt2.git  
+git push -u origin main  
+…or push an existing repository from the command line  
+git remote add origin https://github.com/MarceloRosales/mkt2.git  
+git branch -M main  
+git push -u origin main  
+…or import code from another repository  
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.  
+===============================================================  
+
+>_ git status  
+On branch master  
+nothing to commit, working tree clean  
+>_  
+>_ git remote add origin https://github.com/MarceloRosales/mkt2.git  
+>_  
+>_  git push origin master  
+Enumerating objects: 60, done.  
+Counting objects: 100% (60/60), done.  
+Delta compression using up to 4 threads  
+Compressing objects: 100% (53/53), done.  
+Writing objects: 100% (60/60), 447.09 KiB | 1.92 MiB/s, done.  
+Total 60 (delta 7), reused 0 (delta 0), pack-reused 0  
+remote: Resolving deltas: 100% (7/7), done.  
+To https://github.com/MarceloRosales/mkt2.git  
+ * [new branch]      master -> master  
+```
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Automatic mkdocs gh-deploy and plugin extensions {#automatic-mkdocs-gh-deploy-and-plugin-extensions}
+
+[**Alexys Jacob - Create beautiful and localized documentations and websites using MkDocs + Github**](https://youtu.be/0pYN6Z-t1-s)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0pYN6Z-t1-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+Use **Github Actions** to run **`mkdocs gh-deploy`** automatically when `push` new commits.
+
+.github/workflows/gh-deploy.yml
+
+\[ \] Finish this section.
+
+### Theme Materials
+
+Install
+
+``` bash
+#| eval: false
+pip install mkdocs-material
+```
+
+**Check this Resources¶**\
+Some useful and awesome MkDocs plugins¶\
+ref. website: [ultrabug](https://ultrabug.fr/Tech%20Blog/2021/2021-07-28-create-beautiful-and-localized-documentations-and-websites-using-mkdocs-github/#resources)\
+https://github.com/ultrabug/ultrabug.fr
+
+[MkDocs Wiki's Plugins list (community based)](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins)\
+[Plugin to handle URL redirections](https://github.com/datarobot/mkdocs-redirects)\
+[Plugin to handle navigation pages ordering in a very flexible way](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin)\
+[Plugin to hook your own functions without having to create a MkDocs plugin](https://github.com/aklajnert/mkdocs-simple-hooks)
+
+[top](#)
+
+### Material theme extension guide
+
+[Navigation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-expansion)
+
+### brewfile Mkdocs Install MAC OS
+
+### Demo:
+
+\*\*Installed required (\>\_)\*\*
+
+``` bash
+#| eval: false
+
+brew --version  
+python --version  
+brew list <formula1> || brew install <formula1>  
+brew install python3  
+brew install python@3.10  
+pip --version  
+pip3 install --upgrade pip  
+pip3 install mkdoc  
+brew install mkdocs (error)   
+pip3 install mkdocs-material  
+Other Plugins:  
+pip install mkdocs-static-i18n  
+pip install mkdocs-material  
+```
+
+\*\*Create a site with Terminal (\>\_)\*\*
+
+``` bash
+#| eval: false
+
+mkdocs -h  # (help)  
+mkdocs new {dir-name}   
+    ls  
+    tree  
+mkdocs serve 
+Cnt+C 
+    + code  .  
+    + rstudio . 
+    + open -na Rstudio  
+    + open myproject.Rproj  
+        - Modify yml # (simple, just to check if render)
+        - Theme, nav, plugs  
+        - Add content file  
+mkdocs serve 
+Cnt+C 
+```
+
+**In github.com:**\
+create git repo in github.com (follow recommendation of Hernandez?)\
+1. Github \> create new repo \> name: {x: demo_docmaker } \> description {dockmaker demo} \> ©Public \> © Add readme file \> © Add .gitignore: ˇ{R} \> © Create repository\
+2. Repo settings \> Pages \> Source \> ˇBranch: © main \> /(root) \> ©save (new page is created)\
+3. Got to // Code \> code \> clone \> htpps (copy github page address)
+
+-   git ignore R files\
+-   copy the repo_url
+
+\*\*Connect Mkdocs to Gith with \>\_:\*\*
+
+``` bash
+#| eval: false
+git init  
+  git config --global init.defaultBranch main # New repos will use "main" as default branch.
+  git branch -m main  # changes the name of branch from "master" to "main"
+git add .  
+git status  
+git config --global user.name “MyGitAccount”  (MR)  
+git config --global user.email “myemail.com”  (hot)  
+git commit -m “Initial Commit”  
+git status (empty) 
+
+gedit gitignore #(edit gitignore to don’t track files…??)  
+```
+
+\*\*Connect Mkdocs to Github repository \>\_:\*\*
+
+``` bash
+#| eval: false
+
+git remote add origin <repo_url>  
+git push origin master  
+type github username:
+type github Password:
+# (push from local master branch to remote master branch)  
+```
+
+\*\*Mkdocs site build and deploy in \>\_:\*\*
+
+``` bash
+#| eval: false
+mkdocs build  
+mkdocs gh-deploy  
+```
+
+**After first commit:**
+
+``` bash
+#| eval: false
+Modify code. (and save files)  
+mkdocs build  
+mkdocs gh-deploy   
+git add .  
+git status  
+git commit -m “commit message”    
+git status   
+```
+
+**Other git commands:**
+
+``` bash
+#| eval: false
+
+git reflog # (past git logs)  
+git checkout -b other-branch # (Switch to a new branch)  
+git branch -a # (lists of branches)  
+rm -fr .git # (remove git files)  
+git config --global user.name "MarceloRosales"  
+git config --global user.email "...@hotmail.com"  
+git config credential.helper store  
+git commit -m "1st commit"  
+git log # If want to revert to a preview's version, Copy hash click Q to quit.  
+git checkout {hash copied from log}  
+git checkout -b {new branch name} # Create a new branch.  
+git branch {new branch name} {hash}  # Create new branch, if revert to previous, add hash
+git checkout {branch name} # To change branches
+git merge {branch name} # merge branch to main
+```
+
+### Other examples
+
+[yml example of a Mkdoc site in R documentation](https://github.com/rstudio/team-admin.rstudio.com/blob/main/mkdocs.yml) » here the [github page](https://github.com/rstudio/team-admin.rstudio.com) » and here the render [html page](https://team-admin.rstudio.com/)
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## Mkdocs Markdown guide
+
+### Key shortcuts format
+
+++ctrl+alt+del+cmd+fn++\
+++opt++ ++alt+opt++ ++alt+shift+f++
+
+```         
+++ctrl+alt+del+cmd+fn++  
+++opt++   
+++alt+opt++
+++alt+shift+f++
+```
+
+------------------------------------------------------------------------
+
+### Admonition anotations
+
+`!!! Fix Note`\
+`??? Collapsable Note`\
+`???+ Uncollapse collapsable note`\
+to add content into the anotation box, 2x tab indentation is requierd.
+
+!!! Info "This is an **admonition** markdown extension info icon(!)."\
+This is the emal address.
+
+```         
+!!! Info "This is an **admonition** markdown extension  info icon(!)."  
+        This is the emal address.  
+```
+
+!!! note " This is and admonition note icon (pencil)" See manual [here](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#collapsible-blocks)
+
+```         
+!!! note " This is and admonition note  icon (pencil)"
+        See manual [here](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#collapsible-blocks)  
+```
+
+??? "collapsable note"\
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+
+```         
+???  "collapsable note"  
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. 
+```
+
+???+ note Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.\
+Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+
+```         
+???+ note
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.  
+```
+
+!!! example "![picture](assets/NiigataUicon.png "pic/iconName"){: style="width:20px"} [Ansible Infra](https://github.com/binbashar/le-ansible-infra)" 1. Get into the folder that you need to work with (e.g. `ansible-playbook-vpn-pritunl`) 2. Run `leverage run init` to get all the necessary Ansible roles based on each `requirements.yml` 3. Make whatever changes you need to make as stated in each Playbook Documentation (check Documentation section above) - Opt-1: - Opt-2:\
+- Opt-3:
+
+```         
+!!! example "![picture](assets/NiigataUicon.png "pic/iconName"){: style="width:20px"} [Ansible Infra](https://github.com/binbashar/le-ansible-infra)"
+    1. Get into the folder that you need to work with (e.g. `ansible-playbook-vpn-pritunl`)
+    2. Run `leverage run init` to get all the necessary Ansible roles based on each `requirements.yml`
+    3. Make whatever changes you need to make as stated in each Playbook Documentation (check Documentation section above)
+        - Opt-1:
+        - Opt-2:  
+        - Opt-3:  
+```
+
+??? check "Governance \| AWS Organizations" - \[x\] [AWS Organizations Initialization]() - \[x\] [Invite pre-exiting accounts to AWS Organizations]() - \[ \] other
+
+```         
+??? check "Governance | AWS Organizations"
+    - [x] [AWS Organizations Initialization]()
+    - [x] [Invite pre-exiting accounts to AWS Organizations]()
+    - [ ] other
+```
+
+!!! summary "sumary, abstract, tldr have tge same icon"
+
+```         
+!!! summary
+    "sumary, abstract, tldr have tge same icon"
+```
+
+!!! tip `!!! tip`
+
+```         
+!!! tip
+    `!!! tip`
+```
+
+!!! success `!!! success`
+
+```         
+!!! success
+    `!!! success`
+```
+
+!!! question question, help, faq have tge same icon
+
+!!! warning !!! failure !!! danger !!! bug
+
+**In html**
+
+::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: #000000; background-color: #eeeee; border-color: #FF7475;"}
+::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #FF7475; background-color: #FFEDED;"}
+Fail
+:::
+
+::: {style="padding: 5px;"}
+message
+:::
+:::
+
+::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: #000000; background-color: #eeeee; border-color: #ebccd1;"}
+::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #a94442; background-color: #FFF4E5;"}
+Warning
+:::
+
+::: {style="padding: 5px;"}
+message
+:::
+:::
+
+::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: #000000; background-color: #eeeee; border-color: #64DD22;"}
+::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #64DD22; background-color: #F0FBE6;"}
+Question / Success
+:::
+
+::: {style="padding: 5px;"}
+message
+:::
+:::
+
+::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: #000000; background-color: #eeeee; border-color: #FF3F69;"}
+::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #FF3F69; background-color: #FFE7EC;"}
+Danger
+:::
+
+::: {style="padding: 5px;"}
+message
+:::
+:::
+
+::: {style="border: 1px solid transparent; border-color: transparent; margin-bottom: 10px; border-radius: 4px; color: #000000; background-color: #eeeee; border-color: #57C0FE;"}
+::: {style="padding: 5px; border: 1px solid transparent; border-color: transparent; border-radius: 4px; color: #57C0FE; background-color: #E8F6FF;"}
+Tip/Summary
+:::
+
+::: {style="padding: 5px;"}
+message
+:::
+:::
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Inline blocks
+
+\[:octicons-tag-24: 7.0.0\]\[Inline support\] · :octicons-beaker-24: Experimental
+
+Admonitions can also be rendered as inline blocks (i.e. for sidebars), placing them to the right using the `inline` + `end` modifiers, or to the left using only the `inline` modifier:
+
+!!! info inline end
+
+```         
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+```
+
+Use `inline end` to align to the right (left for rtl languages).
+
+```         
+!!! info inline end
+  
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+```
+
+------------------------------------------------------------------------
+
+!!! info inline Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Use `inline` to align to the left (right for rtl languages).
+
+```         
+!!! info inline
+  
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+```
+
+------------------------------------------------------------------------
+
+[top](#)
+
+### Nested Fence Format
+
+For this refer to [Fenced Code Blocks](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/?h=fence#codehilite), [Extension](https://python-markdown.github.io/extensions/fenced_code_blocks/), or better the [SuperFences](https://facelessuser.github.io/pymdown-extensions/extensions/superfences/) in mkdocs page. This does not work in rmd nor word md.
+
+Visit /Users/marcelorosales/Box Sync/Github/mkdocs/MBA03/docs/All.md and run with vs code mkdocs package.
+
+**Fenced Block**\
+Fenced blocks have a specific use, revise later!!! \>
+
+```         
+  a fenced block  
+```
+
+or better:
+
+!!! check "best option" in mkdocs.
+
+```         
+fenced block
+```
+
+```         
+  >
+```
+
+fenced block
+
+```         
+```
+
+**title**
+
+End!!!
+
+### Button
+
+[Subscribe to our newsletter](#){.md-button}
+
+### Tabs
+
+Mkdocs only.
+
+=== "Tab 1" Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.\
+{ .annotate }\
+1. :man_raising_hand: I'm an annotation!
+
+=== "Tab 2" Phasellus posuere in sem ut cursus (1)\
+{ .annotate }\
+1. :woman_raising_hand: I'm an annotation as well!
+
+Example:
+
+=== ":octicons-arrow-right-16: inline end"
+
+````         
+!!! info inline end
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+``` markdown
+!!! info inline end
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+```
+
+Use `inline end` to align to the right (left for rtl languages).
+````
+
+=== ":octicons-arrow-left-16: inline"
+
+````         
+!!! info inline
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et
+    euismod nulla.
+
+``` markdown
+!!! info inline
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+    
+```
+
+Use `inline` to align to the left (right for rtl languages).
+````
+
+Next, you will setup all required dependencies to work on a Leverage project in your local machine.
+
+```         
+::: {.grid .cards markdown=""}
+-   :fontawesome-brands-html5: **HTML** for content and structure
+-   :fontawesome-brands-js: **JavaScript** for interactivity
+-   :fontawesome-brands-css3: **CSS** for text running out of boxes
+-   :fontawesome-brands-internet-explorer: **Internet Explorer** ... huh?
+:::
+```
+
+Example:
+
+```         
+::: {.grid .cards markdown=""}
+-   :material-clock-fast:{ .lg .middle } **Set up in 5 minutes**
+
+    ------------------------------------------------------------------------
+
+    Install [`mkdocs-material`](#) with [`pip`](#) and get up and running in minutes
+
+    [:octicons-arrow-right-24: Getting started](#)
+
+-   :fontawesome-brands-markdown:{ .lg .middle } **It's just Markdown**
+
+    ------------------------------------------------------------------------
+
+    Focus on your content and generate a responsive and searchable static site
+
+    [:octicons-arrow-right-24: Reference](#)
+
+-   :material-format-font:{ .lg .middle } **Made to measure**
+
+    ------------------------------------------------------------------------
+
+    Change the colors, fonts, language, icons, logo and more with a few lines
+
+    [:octicons-arrow-right-24: Customization](#)
+
+-   :material-scale-balance:{ .lg .middle } **Open Source, MIT**
+
+    ------------------------------------------------------------------------
+
+    Material for MkDocs is licensed under MIT and available on \[GitHub\]
+
+    [:octicons-arrow-right-24: License](#)
+:::
+```
+
+::: {.grid markdown=""}
+:fontawesome-brands-html5: **HTML** for content and structure { .card }
+
+:fontawesome-brands-js: **JavaScript** for interactivity { .card }
+
+:fontawesome-brands-css3: **CSS** for text running out of boxes { .card }
+
+> :fontawesome-brands-internet-explorer: **Internet Explorer** ... huh?
+:::
+
+Example:
+
+Example below to be run in mkdocs files only:
+
+::: {.grid markdown=""}
+=== "Unordered list"\
+\* Sed sagittis eleifend rutrum\
+\* Donec vitae suscipit est\
+\* Nulla tempor lobortis orci
+
+=== "Ordered list"\
+1. Sed sagittis eleifend rutrum\
+2. Donec vitae suscipit est\
+3. Nulla tempor lobortis orci
+
+\`\`\`title="Content tabs" === "Unordered list" \* Sed sagittis eleifend rutrum \* Donec vitae suscipit est \* Nulla tempor lobortis orci
+
+=== "Ordered list" 1. Sed sagittis eleifend rutrum 2. Donec vitae suscipit est 3. Nulla tempor lobortis orci \`\`\`
+:::
+
+The fence 4\`\`\`\` is added coz it prevents code fence to extend. I don't know why it does that.
+
+------------------------------------------------------------------------
+
+### TOC
+
+not added.
+
+------------------------------------------------------------------------
+
+### Adding abbreviations
+
+Abbreviations can be defined by using a special syntax similar to [links](#adding-tooltips) and [footnotes](footnotes.md), starting with a `*` and immediately followed by the term or acronym to be associated in square brackets:
+
+```{markdown title="Text with abbreviations"}
+The HTML specification is maintained by the W3C.
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+```
+
+::: {.result markdown=""}
+The HTML specification is maintained by the W3C.
+
+*\[HTML\]: Hyper Text Markup Language* \[W3C\]: World Wide Web Consortium
+:::
+
+------------------------------------------------------------------------
+
+### Adding a glossary
+
+The \[Snippets\] extension can be used to implement a simple glossary by moving all abbreviations in a dedicated file[^1], and [auto-append](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#auto-append-snippets) this file to all pages with the following configuration:
+
+[^1]: It's highly recommended to put the Markdown file containing the abbreviations outside of the `docs` folder (here, a folder with the name `includes` is used), as MkDocs might otherwise complain about an unreferenced file. In vs preview, this glossary snippet will be displayed (auto-append) at the end of the page, will it be displayed in mkdocs page?.
+
+=== "includes/abbreviations.md"
+
+`````         
+```` markdown
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+````
+`````
+
+=== "mkdocs.yml"
+
+`````         
+```` yaml
+markdown_extensions:
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+````
+`````
+
+------------------------------------------------------------------------
+
+### Content tabs
+
+Sometimes, it's desirable to group alternative content under different tabs, e.g. when describing how to access an API from different languages or environments. Material for MkDocs allows for beautiful and functional tabs, grouping code blocks and other content.
+
+**Configuration**\
+This configuration enables content tabs, and allows to nest arbitrary content inside content tabs, including code blocks and ... more content tabs! Add the following lines to mkdocs.yml:
+
+``` yaml
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+```
+
+**code**:
+
+\`\`\` title="Content tabs" === "Unordered list"
+
+```         
+* Sed sagittis eleifend rutrum
+* Donec vitae suscipit est
+* Nulla tempor lobortis orci
+```
+
+=== "Ordered list"
+
+```         
+1. Sed sagittis eleifend rutrum
+2. Donec vitae suscipit est
+3. Nulla tempor lobortis orci
+```
+
+```         
+ulla tempor lobortis orci
+```
+
+**Result**:
+
+=== "Unordered list"
+
+```         
+* Sed sagittis eleifend rutrum
+* Donec vitae suscipit est
+* Nulla tempor lobortis orci
+```
+
+=== "Ordered list"
+
+```         
+1. Sed sagittis eleifend rutrum
+2. Donec vitae suscipit est
+3. Nulla tempor lobortis orci
+```
+
+------------------------------------------------------------------------
+
+### Images and Galleries Tests
+
+[top](#)
+
+#### Markdown images
+
+**Configuration** ¶ This configuration adds the ability to align images, add captions to images (rendering them as figures), and mark large images for lazy-loading. Add the following lines to mkdocs.yml:
+
+``` yaml
+markdown_extensions:
+  - attr_list
+  - md_in_html
+```
+
+**Lightbox**¶ If you want to add image zoom functionality to your documentation, the glightbox plugin is an excellent choice, as it integrates perfectly with Material for MkDocs. Install it with pip:
+
+``` bash
+pip install mkdocs-glightbox
+```
+
+Then, add the following lines to mkdocs.yml:
+
+``` yaml
+plugins:
+  - glightbox
+```
+
+!!! warning \* Images with mkdocs markdown code will not be displayed correctly by vs code preview. \* html image code is not recognize by mkdocs build \* Image galleries in html may not work in mkdocs markdown
+
+``` markdown
+![name](img/src/path "alt"){width="300"}  
+![01-Incisor-1000x684](img/01-Incisor-1000x684.jpg "incisor"){width="300"}  
+```
+
+To reference an image:\
+`![02-Premolar][Premolar]{width="300"}`
+
+Place the reference at the end or in a list of image references. Reference code line will not be displayed. (Space between this line and the reference is required)
+
+Above this section there is a reference list, but it is not displayed in vs code nor mkdocs is:
+
+```         
+[Incisor]: img/01-Incisor-1000x684.jpg  
+[Premolar]: img/02-Premolar-1000x684.jpg   
+[Molar]: img/03-Molar-1000x684.jpg  
+[Articulator]: img/04-Articulator-1000x684.jpg  
+[Waxup]: img/05-Waxup-1000x684.jpg  
+[MetalPlate]: img/06-metalplate.png  
+[Pro-Arch]: img/Pro-Arch-Ig.png
+[Incisor_3]: img/s300/01-Incisor-300.jpg  
+[Premolar_3]: img/s300/02-Premolar-300.jpg   
+[Molar_3]: img/s300/03-Molar-300.jpg  
+[Articulator_3]: img/s300/04-Articulator-300.jpg  
+[Waxup_3]: img/s300/05-Waxup-300.jpg 
+```
+
+??? failure "**Other references for md image size** (not working with mkdocs)"\
+[Changing image size in Markdown](https://stackoverflow.com/questions/14675913/changing-image-size-in-markdown)
+
+```         
+With certain Markdown implementations (including Mou and Marked 2 (only macOS)) you can append **=WIDTHxHEIGHT** after the URL of the graphic file to resize the image. Do not forget the space before the =.  
+
+`![](./pic/pic1_50.png =100x20)`   
+`![01-Incisor-1000x684](img/01-Incisor-1000x684.jpg =200x100)` not working.  
+
+You can skip the HEIGHT
+`![](./pic/pic1s.png =250x)`
+
+And Width
+`![](./pic/pic1s.png =x250)`
+```
+
+**Nested images, from small to larger ver** (not working?)
+
+To make a link from image displayed (small size thumb img) to larger version of the img: Nested links...
+
+![![](http://unsplash.it/500/500?image=1000)](http://unsplash.it/50/50?image=1000)
+
+![\<image src="http://unsplash.it/50/50?image=1000"](http://unsplash.it/500/500?image=1000){width="300"}
+
+```         
+![![](http://unsplash.it/500/500?image=1000)](http://unsplash.it/50/50?image=1000)   
+![<image src="http://unsplash.it/50/50?image=1000"](http://unsplash.it/500/500?image=1000){ width="300" }  
+```
+
+```         
+![<image src="img/01-Incisor-1000x684.jpg"](img/01-Incisor-1000x684.jpg){ width="10%" } 
+```
+
+<http://unsplash.it/50/50?image=1000>\
+<http://unsplash.it/500/500?image=1000>
+
+------------------------------------------------------------------------
+
+#### Simple list of images mkdocs
+
+[top](#)
+
+Better to place a space between images.
+
+![Inc](img/01-Incisor-1000x684.jpg){width="200"}
+
+![Prem](img/02-Premolar-1000x684.jpg){width="200"}
+
+![Mol](img/03-Molar-1000x684.jpg){width="200"}
+
+![Art](img/04-Articulator-1000x684.jpg){width="200"}
+
+``` markdown
+![Inc][Incisor]{ width="200" }   
+![Prem][Premolar]{width="200" }   
+![Mol][Molar]{width="200" }   
+![Art][Articulator]{width="200" }   
+```
+
+#### Image align left and right
+
+[top](#)
+
+![Image title](img/s300/01-Incisor-300.jpg){align="left"} `![Image title](img/s300/01-Incisor-300.jpg){ align=left }` **Lorem Ipsum** is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+![Image title](img/s300/02-Premolar-300.jpg){align="right"} **Start Text in the same line as code,** `![Image title](img/s300/02-Premolar-300.jpg){ align=right }` so text align to top of the image.\
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+**Aling + image reference**
+
+![Inc](img/s300/01-Incisor-300.jpg){align="left"} `![Inc][Incisor_3]{ align=left }` Start Text in the same line as code, so text align to top of the image. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+![Inc](img/s300/02-Premolar-300.jpg){align="right"} `![Inc][Premolar_3]{ align=right }` Start Text in the same line as code, so text align to top of the image. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+**Image reference + size + Align**
+
+1.  ![01-Incisor-1000x684](img/01-Incisor-1000x684.jpg "incisor"){width="100"; align=right} `![01-Incisor-1000x684](img/01-Incisor-1000x684.jpg "incisor"){width="100"; align=right}` Start Text in the same line as code, so text align to top of the image. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+2.  ![01-Incisor](img/s300/01-Incisor-300.jpg){width="100"; align=right} `![01-Incisor][Incisor_3]{width="100"; align=right}` Start Text in the same line as code, so text align to top of the image. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+#### Image align center
+
+[top](#)
+
+<figure>
+
+![Inc](img/01-Incisor-1000x684.jpg){width="300"}
+
+<figcaption>Image caption</figcaption>
+
+</figure>
+
+#### Photo gallery
+
+-   [ ] [Simple Photo Gallery](https://haltakov.net/simple-photo-gallery/)
+
+#### HTML photo gallery (bootstrap?)
+
+[top](#)
+
+Not working coz needs style or align tags. Appears just like a list of images.
+
+``` html
+ <div class="container-fluid" id="spacer-Nav-Content"></div>
+  <div class="header" id="メディア"> <h1>ビデオ・メディア</h1></div>
+  <div class="wrapper"><b><a href="動画の再生方法について.html" target="_blank"><h2>動画の再生方法</h2></a></b></div>
+  <!-- Gallery Grid Start -minmax() in auto-fill repeating tracks, by example https://gridbyexample.com/examples/example28/ -->
+  <div class="wrapper">
+    <div class="box a"><a href="movies/Video01/video01.m3u8" target="_blank"><img src="/img/01-Incisor-1000x684.jpg" alt="" style="width:50%"/><br>上顎左側中切歯ビデオ</a></div>
+    <div class="box b"><a href="movies/Video02/video02.m3u8" target="_blank"><img src="/img/02-Premolar-1000x684.jpg" alt="" width="100"/><br>上顎左側第１小臼歯ビデオ</a></div>
+    <div class="box c"><a href="movies/Video03/video03.m3u8" target="_blank"><img src="/img/03-Molar-1000x684.jpg" alt="" width="200"/><br>上顎左側第１大臼歯ビデオ</a></div>
+    <div class="box d"><a href="movies/2019-ArticulatorMount/video01.m3u8" target="_blank"><img src="/img/04-Articulator-1000x684.jpg" alt="" width="200"/><br>咬合器装着ビデオ</a></div>
+    <div class="box d"><a href="movies/video04mp4/ProArchGI.mp4" target="_blank"><img src="/img/Pro-Arch-Ig.png" alt="" width="200"/><br>プロアーチIG咬合器装着ビデオ</a></div>
+    <div class="box e"><a href="movies/2019-wax-up/2019-wax-up.m3u8" target="_blank"><img src="/img/05-Waxup-1000x684.jpg" alt="" width="20"/><br>下顎右側第1大臼歯ワックスアップビデオ</a></div>
+    <div class="box f"><a href="movies/202001/202001.mp4" target="_blank"><img src="/img/06-metalplate.png" alt="" width="20"/><br>金属板の取り出し方法</a></div>
+    <!--<div class="box g">G</div>-->
+    <!--<div class="box h">H</div>-->
+
+  </div>
+  <!-- Gallery Grid End -minmax() in auto-fill repeating tracks, by example https://gridbyexample.com/examples/example28/ -->
+```
+
+------------------------------------------------------------------------
+
+#### Check this out
+
+Search:\
+- simple html photo gallery code
+
+-   [57 CSS Galleries](https://freefrontend.com/css-gallery/)\
+-   [Rmarkdown image gallery](https://stackoverflow.com/questions/68196767/rmarkdown-image-gallery)
+
+#### Simple list of images in html
+
+(added the {sh} code and fence for Rmd coz of error rendering page. For md and mkdocs, delete the fence)
+
+``` bash
+<img src="/docs/img/01-Incisor-1000x684.jpg" alt="HTML5 Icon" width="128" height="128">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:100%;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:30%;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:30%;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:30%;">
+```
+
+``` html
+<img src="/docs/img/01-Incisor-1000x684.jpg" alt="HTML5 Icon" width="128" height="128">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:100%;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:30%;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:30%;">
+<img src="/docs/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:30%;">
+```
+
+† Does display in vs code preview,\
+Does not display in word md panel (preview),\
+Does display in mkdocs site,
+
+It is also possible to **set the size of all images at once** with the
+
+```{=html}
+<style></style>
+```
+tags in heading. ex.
+
+``` html
+<!DOCTYPE html>
+<html>
+<head> <!--CAUTION: This is a head style! This will set the size of ALL images in the page, not only in this section but all the page -->
+<style>
+img {
+  width: 50%;
+}
+</style>
+</head>
+<body>
+<img src="/img/01-Incisor-1000x684.jpg" alt="HTML5 Icon" width="128" height="128">
+<img src="/img/02-Premolar-1000x684.jpg" alt="HTML5 Icon" style="width:128px;height:128px;">
+.
+.
+.
+</body>
+</html>
+```
+
+!!! warning CAUTION: This is a head style, it will set the size of ALL images in the page
+
+#### Gallery using .md Table
+
+``` html
+|   |   |   |   |
+|---|---|---|---|
+| <div class="box a"><a href="movies/Video01/video01.m3u8" target="_blank"><img src="/img/01-Incisor-1000x684.jpg" alt="" width="30%"/><br>上顎左側中切歯ビデオ</a></div>  |  <div class="box b"><a href="movies/Video02/video02.m3u8" target="_blank"><img src="/img/02-Premolar-1000x684.jpg" alt="" width="200"/><br>上顎左側第１小臼歯ビデオ</a></div>  |   <div class="box c"><a href="movies/Video03/video03.m3u8" target="_blank"><img src="/img/03-Molar-1000x684.jpg" alt="" width="200"/><br>上顎左側第１大臼歯ビデオ</a></div> |   |
+| ![01-Incisor-1000x684](img/01-Incisor-1000x684.jpg "incisor")  |   |   |   |
+```
+
+#### Simple photo gallery, github free open source
+
+[Simple Photo Gallery - Vladimir Haltakovhttps://haltakov.net › simple-photo-gallery](https://haltakov.net/simple-photo-gallery/)
+
+#### Animated GIFs in HTML
+
+`<img src="programming.gif" alt="Computer Man" style="width:48px;height:48px;">`
+
+#### Image as Link
+
+``` html
+<a href="default.asp">
+  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;">
+</a>
+```
+
+<a href="https://www.w3schools.com/html/html_images.asp"> <img src="img/01-Incisor-1000x684.jpg" alt="HTML tutorial" style="width:50%"/> </a>
+
+#### Image Floating position in html
+
+Use the CSS float property to let the image float to the right or to the left of a text:
+
+```         
+<p><img src="smiley.gif" alt="Smiley face" style="float:right;width:42px;height:42px;">
+The image will float to the right of the text.</p>
+
+<p><img src="smiley.gif" alt="Smiley face" style="float:left;width:42px;height:42px;">
+The image will float to the left of the text.</p>
+```
+
+Delete fence for mkdocs in the code below:
+
+<p><img src="/img/01-Incisor-1000x684.jpg" alt="Smiley face" style="float:right;width:50%;"/> The image will float to the right of the text.</p>
+
+/img/\~... path in:\
+Vs code: will NOT be diplayed\
+Mkdocs: WILL be displayed
+
+Delete fence for mkdocs in the code below:
+
+<p><img src="/img/02-Premolar-1000x684.jpg" alt="Smiley face" style="float:left;width:50%;"/> The image will float to the left of the text.</p>
+
+/docs/img/... path in:\
+Vs code: WILL be displayed\
+Mkdocs: will NOT be diplayed
+
+</br>
+
+------------------------------------------------------------------------
+
+</br>
+
+#### Photo gallery samples
+
+##### W3 school CSS photo gallery sample 1
+
+``` html
+<!-- coment this block coz it interfere with the mkdocs nav template
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+</head>
+End head comment-->
+<body>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/img/01-Incisor-1000x684.jpg" alt="Los Angeles" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/02-Premolar-1000x684.jpg" alt="Chicago" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/03-Molar-1000x684.jpg" alt="New York" width="1100" height="500">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+</body>
+```
+
+##### W3 school CSS photo gallery sample 2
+
+[w3schools photos](https://www.w3schools.com/howto/howto_js_slideshow.asp) Delete fence for mkdocs in the code below:
+
+```         
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/*Slideshow container*/
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/*Caption text*/
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/*Number text (1/3 etc)*/
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/*The dots/bullets/indicators*/
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/*Fading animation*/
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*On smaller screens, decrease text size*/
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<h2>Automatic Slideshow</h2>
+<p>Change image every 4 seconds:</p>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="/img/01-Incisor-1000x684.jpg" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="/img/02-Premolar-1000x684.jpg" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="/img/03-Molar-1000x684.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 4000); // Change image every 4 seconds
+}
+</script>
+
+</body>
+</html>
+```
+
+------------------------------------------------------------------------
+
+### Resize batch files
+
+[top](#)
+
+!!! tip Batch Resize files.\
+Batch Rename files.
+
+\*\*Resize multiple images (resize img batch) in \>\_:\*\*
+
+``` bash
+sips -Z 600 *.jpg
+```
+
+!!! danger\
+Original files will be changed, **NO undo option** available.
+
+sips: sips command is used to query or modify raster image files (JPG/GIF/PNG) and ColorSync ICC profiles. Image processing options include flip, rotate, change image format/width/height. Its functionality can also be used through the "Image Events" AppleScript suite.\
+-Z: Maintain aspect ratio.\
+600: output width? size in pixels.\
+\*.jpg: files to modify, in this case, all .jpg files in the current directory.
+
+```         
+sips -Z 600 *.jpg --out ~/new/dir/path/and/name
+```
+
+This will create a new directory, make a copy of the files, modify size and save in the new directory.
+
+**Small Script to auto resize**
+
+Improve this script with user input.
+
+``` bash
+#!/bin/bash
+# Change format, and change max size. 20181231 DM
+
+oldFormat=HEIC
+newFormat=png
+newSize=800
+
+for i in *.$oldFormat
+do
+    sips --setProperty format $newFormat --resampleHeightWidthMax $newSize "$i" --out "${i%$oldFormat}"$newFormat
+done
+exit 0
+```
+
+------------------------------------------------------------------------
+
+### Rename batch files
+
+[top](#)
+
+!!! check "**Step By Step: Using The Mac Batch Rename Tool**"
+
+<iframe width="426" height="240" src="https://www.youtube.com/embed/rRIZAjylKDw" title="Step By Step: Using The Mac Batch Rename Tool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+1.  Select all files you want to rename.
+2.  Finder// File\> Rename..Items \> ...\[\]... Rename Finder items: Find= text_to_find Replace with= Text_to_replace
+
+!!! failure "\*\*Rename all the files (rename batch) in \>\_: (not working, permission error)\*\*"\
+!!! bug bash: ./03-Molar-1000x684.jpg: Permission denied
+
+1.  Go to the directory containing files.\
+2.  run command:
+
+``` bash
+find . -type f -exec bash -c `mv “$0” “${0%  .jpg}-300.jpg”` {}   ;
+```
+
+find all the files in the current directory of this type of files\
+then, execute this command ? ? disregard the extension .jpg and add the suffix: -300.jpg
+
+------------------------------------------------------------------------
+
+### Md tables
+
+[top](#)
+
+**Markdown table generator**
+
+-   [x] 1. [Markdown Table Editor and Generator](https://tableconvert.com/markdown-generator).
+-   [x] 2. [Tables Generator](https://www.tablesgenerator.com/markdown_tables#).
+-   [x] 3. [Copy Table in Excel and Paste as a Markdown Table](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/).
+-   \[ \]
+
+!!! check "Md shortcut tables" - \[ \] Selecting text (don\`t know how separation is made (coma?, tab?, space?))\
+- \[x\] right click \> Add table (with header)\
+- \[x\] Table will be automatically created
+
+Tables created with [Markdown Table Editor and Generator](https://tableconvert.com/markdown-generator) space cells width equally, much easer to see in raw md code but only up to 20 x 20 tables.\
+Tables created witn right click shortcut are in line separation and harder to see as raw data.
+
+!!! tip ++alt+shift+f++ Table formatter. After creating the table with shortcut ( cell size depends on word lenght, difficult to read in raw data). This key command will arrange cell space to be qual. See Mardown all in one extension for more tips.
+
+**Photo gallery**
+
+-   [ ] [Simple Photo Gallery](https://haltakov.net/simple-photo-gallery/)
+
+## HOW TO INSERT TABLES IN RSTUDIO.
+
+[top](#)
+
+[A new RStudio addin to facilitate inserting tables in Rmarkdown documents](https://lbusett.netlify.app/post/a-new-rstudio-addin-to-facilitate-inserting-tables-in-rmarkdown-documents/#:~:text=To%20use%20it%2C%20open%20a,Addins%20%E2%80%93%3E%20Insert%20Table%E2%80%9D)
+
+[Copy Table in Excel and Paste as a Markdown Table](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
+
+https://www.tablesgenerator.com/markdown_tables
+
+## Pandocs
+
+[top](#)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N31E_NZYQQY" title=" Using Pandoc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+**What is Pandoc?**: Is a universal document converter for:
+
+1.  **text** markup (markdown). *italics* --\> <i>italics</i>\
+2.  standalone **files**. .md --\> .docx (or html, etc)
+
+[pandoc](https://pandoc.org/)
+
+### Install
+
+**macOS** [link](https://pandoc.org/installing.html#macos)\
+There is a package installer at pandoc's [download page](https://github.com/jgm/pandoc/releases/latest). If you later want to **uninstall** the package, you can do so by downloading [this script](https://raw.githubusercontent.com/jgm/pandoc/master/macos/uninstall-pandoc.pl) and running it with perl uninstall-pandoc.pl. Alternatively, you can install pandoc using Homebrew:
+
+``` bash
+brew install pandoc
+```
+
+Homebrew can also install other software that integrates with Pandoc. For example, to install [librsvg](https://wiki.gnome.org/Projects/LibRsvg) (its rsvg-convert covers formats without SVG support), [Python](https://www.python.org/) (to use Pandoc filters), and [BasicTeX](https://www.tug.org/mactex/morepackages.html) (to typeset PDFs with LaTeX):
+
+``` bash
+brew install librsvg python homebrew/cask/basictex
+```
+
+Note: On unsupported versions of macOS (more than three releases old), Homebrew installs from source, which takes additional time and disk space for the ghc compiler and dependent Haskell libraries. We also provide a zip file containing the binaries and man pages, for those who prefer not to use the installer. Simply unzip the file and move the binaries and man pages to whatever directory you like. By default, Pandoc creates PDFs using LaTeX. Because a full MacTeX installation uses four gigabytes of disk space, we recommend BasicTeX or TinyTeX and using the tlmgr tool to install additional packages as needed. If you receive errors warning of fonts not found: tlmgr install collection-fontsrecommended
+
+### Using Pandoc
+
+1.  Open \>\_
+2.  Go to folder containing files (or use path to files)
+3.  Ex. Txt -\> RTF
+
+```         
+pandoc test.txt --bibliography testlibrary.bib --smart --normalize -s -o success.rtf
+```
+
+-   pandoc: use pandoc package
+-   test.txt: "input" file to be converted to .rtf
+-   --bibliography testlibrary.bib: Generate citations (bibliography) using bib file (all the metadata needed for the citations is in the file testlibrary.bib (created before), Default format is Chicago Author-Date)
+-   -- smart: Produce topographically correct output.
+-   --normalize: Remove repeated spaces, other cleanup.
+-   -s: Produce a stand alone document.\
+-   -o: output to a file.\
+-   success.rtf: Is the name of the "output" file and the extension rtf is the type of file to convert to.
+
+If input and bib files are not in the same folder where you run pandoc, you will need to include the file paths, too.
+
+**Convert Markdown into a Word Document**
+
+Enter:
+
+``` bash
+pandoc -o output.docx -f markdown -t docx filename.md  
+```
+
+### Academic Writing in Markdown
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hpAJMSS8pvs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+Here are three recommendations for people interested in learning more:
+
+1.  The Markdown Field Guide: <https://www.macsparky.com/markdown/>
+2.  The Pandoc website: <http://pandoc.org/>
+3.  David Smith's blog: <http://www.davidsmith.name/>
+
+------------------------------------------------------------------------
+
+## Create Mkdocs site
+
+::: note
+\*\*Installed required (\>\_)\*\*
+
+``` bash
+#| eval: false
+
+brew --version   
+python --version  
+brew list <formula1> || brew install <formula1>  
+brew install python3  
+brew install python@3.10  
+pip --version  
+pip3 install --upgrade pip  
+pip3 install mkdoc  
+brew install mkdocs (error)   
+pip3 install mkdocs-material  
+Other Plugins:  
+pip install mkdocs-static-i18n  
+pip install mkdocs-material  
+```
+
+\*\*Create a site with Terminal (\>\_)\*\*
+
+```{bash}
+#| eval: false
+
+mkdocs -h  (help)  
+mkdocs new {dir-name}   
+cd {dir-name}  
+  ls   
+  tree   
+mkdocs serve  
+Cnt+C  
+
+# Other commands
+code .  
+rstudio .   
+open -na Rstudio   
+open myproject.Rproj
+
+```
+
+Then continue by:
+
+```         
+- Modify yml (simple, just to check if render)  
+- Theme, nav, plugs   
+- Create Tab2.md, Tab3.md, Tab4.md for trial  
+```
+
+``` yaml
+site_name: LabNotes
+site_url: https://example.com_or_my.github
+repo_url: https://github.com/squidfunk/mkdocs-material # url link of ripo in navbar
+repo_name: squidfunk/mkdocs-material # name of ripo to be displayed in navbar
+
+nav:
+  - Home:
+    -  Hi: "index.md"
+  - Tab2: "01-Tab2.md"
+  - Tab3: "02-Tab3.md"
+  - Tab4: 
+    - sub1:
+      - sub2: 
+        - sub3: 
+          - sub4: "03-Tab4.md"
+
+theme: # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#accent-color 
+  name: material
+  favicon: assets/NiigataUicon.png #small icon in the "browser`s" tap.Save @ /dir  
+  features:
+    #- navigation.instant
+    - navigation.tabs #Nav tabs on top
+    - navigation.tabs.sticky # Keeps top nav menu from hiding.
+    #- header.autohide # Hides all top menu.
+    #- navigation.sections  #uncollapse all tab sections.
+    - navigation.top
+
+  palette:
+    #primary: green # Color of the Header
+    #accent: red # Colors change on hover. 
+    # Palette toggle for light mode
+    - primary: Default  # The original was scheme: Default 
+      accent: red # Colors change on hover. 
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      accent: light green # Colors change on hover. 
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+        accent: red # Colors change on hover. 
+  logo: # assets/logo.png
+        assets/NiigataUicon.png
+  icon:
+    repo: fontawesome/brands/git-alt # repo icon
+
+extra:
+  homepage: https://www.niigata-u.ac.jp/ # url for the logo icon
+
+  
+
+#include_sidebar: true
+
+#===================================================================================
+# Mkdocs Markdown Extentions, Plugins & extras
+#===================================================================================
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - codehilite
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      # insert a blank space before the character
+      permalink: "#"
+
+plugins:
+  - glightbox # istall requied: images/lightbox
+  - search # add search box.
+  - i18n: # language plugin. 
+      default_language: en
+      languages:
+        en: English
+        ja: 日本語
+        es: Español
+```
+
+-   Add content files: **Copy/paste Tabs.md files**
+
+mkdocs serve\
+Cnt+C
+
+> mkdocs build ??
+
+**In github.com:**\
+create git repo in github.com (follow recommendation of Hernandez?)\
+1. Github \> create new repo \>\
+name: {x: demo_docmaker } \>\
+description {dockmaker demo} \>\
+©Public \>\
+© Add readme file \>\
+© Add .gitignore: ˇ{R} \>\
+© Create repository
+
+> 1.  Repo settings \> Pages \>\
+>     Source: Deploy form a branch \>\
+>     ˇBranch: © main \> /(root) \> ©save (new page is created)\
+> 2.  Got to // Code \> code \> clone \> htpps (copy github page address)\
+>     https://github.com/MarceloRosales/mkd_LabNotes.git
+
+**Connect Mkdocs to Git** \>\_:\
+git init\
+git add .\
+git status
+
+**Connect Mkdocs to Github repository** \>\_:
+
+git remote add origin {git_url}
+
+> Sometime requires:\
+> git config --global user.name "MyGitAccount"\
+> git config --global user.email "myemail.com"\
+> git config credential.helper store\
+> gedit gitignore (edit gitignore to don't track files...??)
+
+git commit -m "Initial Commit"\
+git status (empty)\
+git push origin master
+
+> Sometime requires:\
+> type github username:\
+> type github Password:\
+> (push from local master branch to remote master branch)
+
+***Mkdocs site build and deploy*** \>\_:\
+mkdocs build\
+mkdocs gh-deploy
+
+**In github.com:**\
+Make sure deploy branch is gh-pages.\
+1. Repo settings \> Pages \> Source: Deploy form a branch \> ˇBranch: © **gh-paages** \> /(root) \> ©save (new page is created)
+
+### Adding content
+
+**After first commit:**\
+`Modify code. (and save files)`\
+mkdocs build\
+mkdocs gh-deploy\
+git add .\
+git status\
+git commit -m "commit message"\
+git push origin master
+
+**Other git commands:**\
+git reflog (past git logs)\
+git checkout -b other-branch (Switch to a new branch)\
+git branch -a (lists of branches)\
+rm -fr .git (remove git files)\
+git config --global user.name "MarceloRosales"\
+git config --global user.email "...@hotmail.com"\
+git config credential.helper store\
+git commit -m "1st commit"\
+git log \# If want to revert to a preview's version, Copy hash click Q to quit.\
+git checkout {hash copied from log}\
+git checkout -b {new branch name} \# Create a new branch.\
+git branch {new branch name} {hash} \# Create new branch, if revert to previous, add hash\
+git checkout {branch name} \# To change branches\
+git merge {branch name} \# merge branch to main
+:::
+
+## Create bs4_book in Rstudio
+
+//Rstudio \> New Project \>\
+Book project using bookdown \> ...\[\]... \>\
+Select book format: bs4_book \>\
+© Open in new session.\
+Add 08-Preparation.Rmd\
+\[Build\] \> Build Book \>\
+bs4_book (wil convert .Rmd -\> .md in /\_book)
+
+## Creating symlinks
+
+To make symlink:
+
+``` bash
+ln -s /path/of/original/file /path/to/taget/dir/{filename} 
+```
+
+Box Sync/../.md -\> \~/Documents/gitrepo/.md
+
+Ex.\
+From: "/Users/marcelorosales/Box Sync/Github/mkdocs/bs4_LabNotes/\_book/08-Preparation.md"\
+To: "/Users/marcelorosales/Documents/GitHub/Mkdocs_books/mkd_LabNotebooks/mkd_LabNotes/docs"
+
+Samples "/Users/marcelorosales/Box Sync/Github/mkdocs/mkdocs_dumpAll/Samples/08-Preparation.Rmd"
+
+``` bash
+ ln -s "/Users/marcelorosales/Box Sync/Github/mkdocs/bs4_LabNotes/_book/08-Preparation.md" "/Users/marcelorosales/Documents/GitHub/Mkdocs_books/mkd_LabNotebooks/mkd_LabNotes/docs"
+```
+
+``` bash
+ ln -s "/Users/marcelorosales/Box Sync/Github/mkdocs/bs4_LabNotes/_book/08-Preparation.md" "/Users/marcelorosales/Box Sync/Github/mkdocs/mkdocs_dumpAll/Samples/08-Preparation.Rmd"
+```
+
+!!! fail Partial address do NOT work.\
+"\~/Box Sync/Github/mkdocs/bs4_LabNotes/\_book/08-Preparation.md"\
+"\~/Documents/GitHub/Mkdocs_books/mkd_LabNotebooks/mkd_LabNotes/docs"\
+ln -s "\~/Box Sync/Github/mkdocs/bs4_LabNotes/\_book/08-Preparation.md"
+
+> Allways work the in bs4_book .Rmd
+
+------------------------------------------------------------------------
+
+## R » md » mkdocs » githug
+
+**Crear páginas web con Rmarkdown, MkDocs y GitHub pages: una alternativa para documentación.**\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ytngbbTt0Xo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Github Page](https://github.com/ronnyhdez/docmaker)
+
+### docmaker
+
+!!! fail "Warning"\
+Not working as described in the tutorials
+
+<a href="url"><img src="/docs/img/s300/01-Incisor-300.jpg" align="right" width="50%"/></a>
+
+<!-- badges: start -->
+
+[![CRAN status](https://www.r-pkg.org/badges/version/docmaker)](https://cran.r-project.org/package=docmaker)
+
+<!-- badges: end -->
+
+**Overview**
+
+`docmaker` is a package that allows you to automate your steps for using GitHub pages, MkDocs and Rmarkdown.
+
+If you have a project in which there are files built with Rmarkdown that you would like to take to MkDocs, `docmaker` will help you with the all the steps in the middle to achieve this.
+
+**Installation:**
+
+You can install the development version of `docmaker` from [GitHub](https://github.com/) with:
+
+``` r
+#| eval: false
+
+devtools::install_github("ronnyhdez/docmaker")
+```
+
+When published on CRAN, you will be able to install the package with:
+
+``` r
+#| eval: false
+install.packages("devtools")
+```
+
+### Usage
+
+You can create your repository on GitHub, clone your repo and from there, you will need to implement a structure to be able to use GitHub pages and MkDocs. For this you can use the function:
+
+``` r
+#| eval: false
+library(docmaker)
+build_repo(github_page_url = "https://ronnyhdez.github.io/drawer/",
+           site_author = "Ronny A. Hernández Mora")
+```
+
+Once you have a repository, you can take your Rmd notes and deploy it to GitHup pages
+
+``` r
+#| eval: false
+make_doc(file = "check.Rmd", mkdocs_build = TRUE, mkdocs_deploy = TRUE)
+```
+
+If you have several files in the root of your project directory, you can instead use the following function to build and deploy all your Rmd files:
+
+``` r
+#| eval: false
+make_all_docs(deploy = TRUE)
+```
+
+**Getting help:**
+
+If you find a bug please fill an issue with a reproducible example on [GitHub](https://github.com/ronnyhdez/docmaker/issues/)
+
+### Demo:
+
+[Video](https://www.youtube.com/watch?v=ytngbbTt0Xo) demo starts at 17:00 min.\
+[dockmaker page](https://ronnyhdez.github.io/docmaker/)\
+[dockmaker blog English](https://ronnyhdez.github.io/blog/)\
+[Github Page](https://github.com/ronnyhdez/docmaker)
+
+**requirements:**\
+- python - R - mkdocs - git - github account - docmaker installed in r
+
+**In Github**\
+1. Github \> create new repo \> name: {x: demo_docmaker } \> description {dockmaker demo} \> ©Public \> © Add readme file \> © Add .gitignore: ˇ{R} \> © Create repository\
+1. Repo settings \> Pages \> Source \> ˇBranch: © main \> /(root) \> ©save (new page is created)\
+1. Got to // Code \> code \> clone \> htpps (copy github page address)
+
+**In Rstudio**\
+1. // New project \> Version control \> Git \> Repository URL: {paste github repo address} \> ...\[\]... choose directory: (/Documents/github or github_repos, **don't use sync folders** \> ©ü Open in new session \> © Create project.\
+- If error: Repository Already exists \>Go // Open Project (in New Session) \> ...\[\]... \> select folder \> Open
+
+**In Rstudio console**\
+1. Load docmaker library and make sure you are in the correct working directory.
+
+``` r
+#| eval: false
+library(docmaker)
+getwd()
+```
+
+1.  Built the mkdocs repository (through docmaker function)
+
+!!! bug "outdated"\
+///////////////// Outdated\
+`dockmaker::build.repo()     # or?     build_repo(github_page_url, site_author)` 1. Configure repo\
+`dockmaker::build.repo(github_page_url = "https://myname.github.io/ex:demo_docmaker/",  site_author = "My Name")` //////////////////
+
+1.  Build and configure repo: **Updated code 2022**\
+
+```         
+build_repo(github_page_url = "https://github.com/MarceloRosales/docmakertest2.git",  site_author = "Marcelo Rosales")
+```
+
+1.  It creates a "docs" folder (empty) and a .yml file
+2.  Open .yml file and modify as for mkdocs site: theme: material, nav ... etc
+
+**Add content** 1. // New Rmarkdown \> write content... 1. // New folder \> {img} \> place all images here (this img folder is outside of docs).\
+1. Now add Rmd files to github (through \>\_).
+
+\*\*In \>\_\*\*: 1. Check all modified or added files not yet commited (Rmd or images)
+
+``` bash
+git status
+```
+
+1.  Stage all files
+
+``` bash
+git add .
+```
+
+1.  Commit all files
+
+``` bash
+git commit -m “estructura del repositorio y primeras notas”
+```
+
+1.  Because is first time adding in the new git repo it will not commit, git will ask " \*\*\* Please tell me who you are... ", Run:
+
+``` bash
+git config user.email myemail@github
+git config user.name mynameingithub
+```
+
+1.  Repeat Commit all files
+
+``` bash
+git commit -m “estructura del repositorio y primeras notas”
+```
+
+1.  Push all files to git. Will ask username and password.
+
+``` bash
+git push
+```
+
+1.  To avoid typing credential on every commit and pull
+
+``` bash
+git config credential.helper store
+```
+
+1.  To pull form github
+
+``` bash
+git pull
+```
+
+Up to here we just added contents, but in github the doc folder is not added (coz is empty) and github pages is only rendering form the readme.md file (28:35).
+
+**To construct the mkdocs pages in Rstudio console** make the .md files 1. In Rstudio \> Console \> If `Docmaker::make_all_docs()` or `Docmaker::make_all_docs(FALSE)`, it is not going to construct the documentation in github. It is going to render in local computer, like a preview or the page before commiting to github.
+
+!!! bug "outdated"\
+///////////////// Outdated\
+`Docmaker::make_all_docs(TRUE)` or `docmaker::make_all_docs(deploy = TRUE)` //////////////////
+
+**Update 2022**
+
+```         
+make_all_docs(deploy = FALSE)
+make_all_docs(deploy = TRUE)
+```
+
+!!! warning This will create .md files, images, plots, etc and it will commit-push to githubpages automatically\
+`docmaker::make_doc` is to make md from Rmd one by one.
+
+```         
+make_doc(file = "check.Rmd", mkdocs_build = TRUE, mkdocs_deploy = TRUE)
+```
+
+1.  **Go back to github** \> code \> (next to branches) ˇmain \> ©gh-pages. Do not merge with main brach.
+2.  Go Setting \>Source \> ˇBranch: gh-pages; (/root) \> save
+
+[Github Page](https://github.com/ronnyhdez/docmaker)
+
+!!! fail\
+THIS DOCMAKER PACKAGE IS NOT WORKING, THERE IS AN ERROR WHILE CONVERTING THE RMD TO MD FILES.
+
+##### Fail Solutions:
+
+1.  Check and correct package code (with cran, issue to author or self)\
+2.  Find alternative conversion.\
+    [How to convert .Rmd into .md in R studio? \[duplicate\]]()\
+
+``` r
+#| eval: false
+---
+title: "Example"
+author: My Name
+date: March 22, 2050
+output: md_document
+# or
+output:
+  md_document:
+    variant: markdown_github
+---
+```
+
+[knitr output to a different folder](https://www.thecodeteacher.com/question/105275/R:-In-RStudio-how-do-I-make-knitr-output-to-a-different-folder-to-avoid-cluttering-up-my-drive?)
+
+```         
+---
+title: "Tab1"
+author: "Marcelo Rosales"
+date: "2022-08-16"
+output: md_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
+editor_options: 
+  chunk_output_type: console
+---
+```
+
+save rmarkdown output in different folder R: In RStudio how do I make knitr output to a different folder to avoid cluttering up my drive?
+
+In console: `rmarkdown::render('my.Rmd', output_file = 'folder/my.html')`
+
+1.  Disregard and move on!!!.
+
+#### examples:
+
+Search: rstudio how to deploy a mkdocs project\
+https://github.com/rstudio/team-admin.rstudio.com/blob/main/mkdocs.yml\
+https://team-admin.rstudio.com/getting-started/how-it-works/ nice page in github (seems it was made in Rstudio) with white background
+
+https://leverage.binbash.com.ar/ Nice page created with Mkdocs with custom land pages. [Github repo](https://github.com/binbashar/le-ref-architecture-doc)
+
+**Ultrabug**: see [Automatic mkdocs gh-deploy and plugin extensions](#automatic-mkdocs-gh-deploy-and-plugin-extensions), and [video](https://youtu.be/0pYN6Z-t1-s), web site at [ultrabug](https://ultrabug.fr/Tech%20Blog/2021/2021-07-28-create-beautiful-and-localized-documentations-and-websites-using-mkdocs-github/#resources)\
+https://github.com/ultrabug/ultrabug.fr
+
+#### Trial pages:
+
+/Users/Marcelo-Rosales/Documents/GitHub_Repos/MkDocsTest1\
+/Users/marcelorosales/Documents/GitHub/MkDocsTest1: gh-pages active, only .md, no Rmd.\
+- index.en.md - index.es.md - index.ja.md - MkDocs.md: Mkdocs good info, move to archive\
+- VS_Code.md: Vs code demo.. archive.\
+/Users/marcelorosales/Box Sync/Github/mkdocs/MBA03: No gh-pages constructed, actually; DO NOT CONSTRUCT /SITE, only local, that's why it is in Box Sync\
+- All.md: All notes are here\
+- index.md: Welcome to MkDoc\
+- Tab1.md: Mkdocs Markdown guide\
+- Tab2.md: Images and Galleries Tests\
+- Tab3.md: Markdown and Visual Studio Code\
+- Tab4.md: Html guide
+
+~~/Users/marcelorosales/Documents/GitHub/MBP20mkdocsT01: Page not working (deleted)~~\
+Init.Rmd: - Docmaker package guide - Docmaker package functions code: make_all_docs, make_doc.\
+~~/Users/marcelorosales/Documents/GitHub/MBP20mkT02: Empty 404 site (deleted)~~\
+~~/Users/marcelorosales/Documents/GitHub/MBP20mkT03: Empty site.~~
+
+/Users/ rosalesrocabadomarcelo/Documents/GitHub/mkdocs/MBAdocmaker01: No gh-page, no /site. In github: Yes, In github desktop: NO MBP15: None.\
+MBP20: None.\
+MBA11: Yes. Only test. Delete
+
+/Users/Marcelo-Rosales/Documents/GitHub_Repos/docmaker_demo2/Init.Rmd: No /site.\
+- Init.Rmd: How to use docmaker tutorial (moved Rmd to dump).
+
+~~mkt2: https://marcelorosales.github.io/mkt2/Page3/ Where are the files? Not in MBP20, just a test delete.~~
+
+**Word table:** PC MBP20 MBP15 MBA11 /folder /Users/marcelorosales/Documents/GitHub/MkDocsTest1 /Users/Marcelo-Rosales/Documents/GitHub_Repos/MkDocsTest1\
+GH desktop yes yes Gh-page yes\
+Details only .md\`s no .Rmd
+
+[R: In RStudio how do I make knitr output to a different folder to avoid cluttering up my drive?](https://stackoverflow.com/questions/26174565/r-in-rstudio-how-do-i-make-knitr-output-to-a-different-folder-to-avoid-clutteri)\
+Dumpall
+
+#### Overview
+
+1.Working with different file types is difficult and confusing. Here I mainly work with .R, .Rmd, .md, docx, excel, python, .html. Notting and keeping record is challenging. But I think I finally found a good workflow.\
+Notes and reports:\
+- Use MS word (.docx) file to keep record of all research, it is easy to manage tables and figures, however:\
+- **Download Markdown add in:** // Insert \> Add ins \> Get add ins \> ...\[\]... \> Search {markdown} \> ©Markdown (britva Technologies LLC) \> Add\
+- **Keep all notes in word but written as markdown**, you can use the markdown viewer panel. Try not to make the file too long, md preview pane will slowdown computer\
+- **Keep notes by date, dump all in one folder with Sync service** (Box Sync).\
+- Keep track of all note changes: **Turn ON track changes**, // Review \> Track changes: ON \> SimpleMakup (red line to the left of doc).\
+- **Create a gh-page to organize all notes and reports**. I recommend Bookdown or mkdocs. Mkdocs seems sleeker and more compact.\
+- **Copy paste the notes from word to Rstudio** (as md or Rmd?) for now I think **as .md**, it is easier to go from md to Rmd than Rmd to md.\
+- Once copied to gh-page, highlight copied section, and use the // Track changes \> Accept This change, to indicate that the section was been pushed.\
+- Use mainly R and Rstudio, will make things easer on the long run, vs code is also good for keeping track of changes, statistical analysis and reports.
+
+Create mkdocs directory.\
+- Do not create new project in Rstudio, mkdocs will create the folder, use terminal.\
+- If scripting is in r; open new session // Session \> New Session
+
+```         
+# In >_
+: 
+cd ~/Documents/GitHub
+mkdocs new {dirname}
+cd ~/Documents/GitHub/{dirname}
+
+ls
+tree
+
+# Check if create correctly.  
+# WARNING: Close all browser tabs connected. If Browser tab is or was connected: http://127.0.0.1:8000/All/ code 404
+mkdocs serve 
+
+# To stop live preview **`Cnt+C`**  
+
+touch home.md
+# Add content, mod .yml
+
+# Git and git command list:  
+git init
+git add .
+git status
+git config
+git config --global user.name “MarceloRosales”  
+git config --global user.email “selasorolecram@hotmail.com”  
+git commit -m "1st commit"  
+git log # If want to revert to a previews version, Copy hash click Q to quit. 
+git checkout {hash copied from log}  
+git checkout -b {new branch name} # Create a new branch.  
+git branch {new branch name} {hash}  # Create new branch, if revert to previous, add hash
+git checkout {branch name} # To change branches
+git merge {branch name} # merge branch to main
+
+# ref: https://youtu.be/DVRQoVRzMIY
+
+# 2. Create repository in github.   
+# Copy github address
+
+git remote add origin {https//github.com/MarceloRosales/test_.git  
+# https://github.com/MarceloRosales/MBP20mkT02.git
+git checkout master # makesure you are in master branch  
+git push -u origin master # push commits to the "origin" repo and to the branch "master"; -u = save settings (next time with just "git push" will automatically add to the origin master.)   
+# Some times it requies  
+git push origin {other branch name}  # to commit changes to a different branch.  
+git config --global user.name “MR”  
+git config --global user.email “….@hotmail.com”  
+git pull origin master
+
+
+
+mkdocs build
+
+git add .
+git status
+git commit -m "2nd commit"  
+git push 
+
+mkdocs gh-deploy
+```
+
+#### Non stop workflow Example
+
+```         
+
+cd ~
+mkdocs new MBP20mkT03
+ls
+cd ~/Documents/GitHub/MBP20mkT03
+ls
+mkdocs serve
+
+# Change .yml file 
+theme:
+    name: material
+    palette:
+        primary: white
+        accent: #75AADB
+    font:
+        text: Source Sans Pro
+
+mkdocs serve
+
+# Create repository in github and **Copy github address**.  
+
+#make the /site folder.  
+mkdocs build 
+
+git init
+git add .
+git status
+
+git config --global user.name “MR”
+git config --global user.email “....@hotmail.com”
+git remote add origin https://github.com/MarceloRosales/MBP20mkT03.git  
+
+git commit -m "1st commit"
+git status # nothing to commit, working tree clean
+git push origin master  
+
+mkdocs build # necessary?
+mkdocs gh-deploy # all settings to deploy in github -branch gh-pages
+
+git status
+git add .
+git commit -m "2nd commit"
+git push origin master
+
+# Add content
+
+git pull origin master
+mkdocs serve
+mkdocs build
+git add .
+git status
+git commit -m "3rd commit"
+git push origin master
+```
+
+mkdocs gh-deploy creates 2 branches + the default github branch "main": - gh-pages - master - main
+
+The "main" branch contains: - .gitignore file - License - readme.md
+
+The "master" branch contains: - /doc - /site - mkdocs.yml
+
+The gh-pages contains: **only all the files created in the /site folder**; it mirrors the /site content to create the wegpage.
+
+#### Docmaker trials
+
+Init.Rmd in MBP20mkdocsT01
+
+**See also mkdocs_demo.Rmd too**\
+\~/Documents/GitHub/MkDocsTest1 Config git ignore like in video?
+
+```         
+library(docmaker)
+```
+
+```         
+build_repo(github_page_url = "https://github.com/MarceloRosales/MBP20mkdocsT01.git", site_author = "Marcelo Rosales")  
+```
+
+```         
+git status
+git add .
+git commit -m "1 commit"
+git push
+git pull
+```
+
+```         
+docmaker::make_all_docs(deploy = TRUE)
+```
+
+```         
+make_doc(file = "Tab1.Rmd")
+```
+
+make_doc function run for the first time will execute the creation of the md file and the corresponding plot image folder in the docs folder. Error for the Error **UseMethod("close") : no applicable method for 'close' applied to an object of class "character"**
+
+If run for a second time, it will create the plot images folder in root and NOT in the docs folder.
+
+#### Docmaker fx code
+
+```{r make_all_docs, echo=FALSE, eval=FALSE}
+#| eval: false
+
+make_all_docs <- function(deploy = FALSE) {
+  
+  # List all files except the readme
+  files <- fs::dir_ls(glob = "*.Rmd") 
+  
+  if (fs::file_exists("README.Rmd")) {
+    rm_readme <- !files %in% c("README.Rmd")
+    files <- files[rm_readme]
+  }
+  
+  # Use own package function to render everything to md into docs folder
+  files %>% 
+    purrr::map(make_doc)
+  
+  # Deploy when all md files are ready (do it once)
+  if (deploy == TRUE) {
+    system("mkdocs build --config-file=mkdocs.yml")
+    system("mkdocs gh-deploy --strict --force")
+  }
+}
+```
+
+```{r make_doc, echo=FALSE, eval=FALSE}
+#| eval: false
+
+make_doc <- function(file, mkdocs_build = FALSE, mkdocs_deploy = FALSE) {
+  
+  # Workflow with files out of a folder ----
+  
+  # Remove path and keep just the file name and extension
+  original_file_name <- stringr::str_remove(file, ".*/")
+  
+  # Change Rmd file extension to md.
+  file_name <- paste0(fs::path_ext_remove(original_file_name), ".md")
+  
+  # Render the file in here
+  rmarkdown::render(input = file, 
+                    output_file = file_name,
+                    output_format = "md_document")
+  
+  # Copy new md file to docs/ folder (where site in rendered)
+  fs::file_move(file_name, new_path = "docs/")
+  
+  # Create path string to copy from.
+  images_generated_from_file <- paste0(fs::path_ext_remove(file_name),
+                                       "_files/")
+  
+  if (fs::dir_exists(images_generated_from_file)) {
+    file_path_name <- paste0("docs/", images_generated_from_file)
+    images_output <- paste0(here::here(), "/", file_path_name)
+    
+    if (!fs::dir_exists(images_output)) {
+      file_outputs <- paste0(here::here(), "/", images_generated_from_file)
+      fs::dir_copy(path = file_outputs,
+                   # Path by default on resulting md file involves a
+                   # second docs/ folder. That's why I have to create
+                   # a path that takes this in account.
+                   new_path = paste0(here::here(), "/", file_path_name),
+                   overwrite = TRUE)
+      
+      # Remove unused folder
+      fs::dir_delete(file_outputs)
+    }
+  }
+  
+  copy_rmd_images(file_to_deploy = file)
+  
+  # Build mkdocs documentation
+  if (mkdocs_build == TRUE) {
+    system("mkdocs build --config-file=mkdocs.yml")
+  }
+  
+  # Deploy static site
+  if (mkdocs_deploy == TRUE) {
+    system("mkdocs gh-deploy --strict --force")
+  }
+}
+```
+
+[R: In RStudio how do I make knitr output to a different folder to avoid cluttering up my drive?](https://stackoverflow.com/questions/26174565/r-in-rstudio-how-do-i-make-knitr-output-to-a-different-folder-to-avoid-clutteri)
+
+#### Yml code added examples
+
+\~/Documents/GitHub/MBP20mkT03 MBP20mkT03.Rproj Overview.Rmd\
+Overview.md\
+docs\
+mkdocs.yml: Color theme is white:
+
+```         
+site_name: My Docs
+theme:
+    name: material
+    palette:
+        primary: white
+        accent: #75AADB
+    font:
+        text: Source Sans Pro
+
+nav:
+    - Home: index.md
+    - Overview: Overview.md
+```
+
+/Users/marcelorosales/Documents/GitHub/MBP20mkdocsT01
+
+``` yaml
+
+title: "Tab1"
+author: "Marcelo Rosales"
+date: "2022-08-16"
+output: md_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
+editor_options: 
+  chunk_output_type: console
+```
+
+``` yaml
+
+Added section
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "docs") })
+```
+
+##### Example 1:
+
+[team-admin.rstudio](https://github.com/rstudio/team-admin.rstudio.com/tree/main/docs)\
+https://team-admin.rstudio.com/getting-started/how-it-works/ nice page in github (seems it was made in Rstudio) with white background
+
+``` yaml
+
+site_name: "RStudio Team :: Admin Training"
+repo_url: https://github.com/rstudio/team-admin.rstudio.com
+copyright: RStudio, PBC. All Rights Reserved.
+google_analytics:
+    - UA-20375833-3
+    - auto
+edit_uri: ""
+
+theme:
+    name: material
+    custom_dir: overrides
+    logo: 'images/rstudio-logo.png'
+    favicon: 'images/favicon.ico'
+    palette:
+        primary: white
+        accent: #75AADB
+    font:
+        text: Source Sans Pro
+
+nav:
+    - Home: index.md
+    - Overview: overview.md
+    - 1. Getting started:  <!-- #this is a folder, inside are the md files -->
+        - 1.1 How the course works: getting-started/how-it-works.md
+        - 1.2 Lab - SSH in: getting-started/lab-ssh-in.md
+    - 2. R:
+        - 2.1 Installing R: r/install-r.md
+        - 2.1 Lab: r/lab-install-r.md
+    - 3. RStudio Workbench:
+        - 3.1 Install RStudio Workbench: rstudio-workbench/install-rsw.md
+        - 3.1 Lab: rstudio-workbench/lab-install-rsw.md
+        - 3.2 RStudio Workbench Security: rstudio-workbench/security.md
+        - 3.2 Lab: rstudio-workbench/lab-security.md
+        - 3.3 RStudio Workbench Startup and packages: rstudio-workbench/startup-and-packages.md
+        - 3.3 Lab: rstudio-workbench/lab-startup-and-packages.md
+    - 4. RStudio Connect:
+        - 4.1 Installing RStudio Connect:   rstudio-connect/install-connect.md
+        - 4.1 Lab: rstudio-connect/lab-install-connect.md
+        - 4.2 Configuring RStudio Connect:  rstudio-connect/configure-connect.md
+        - 4.2 Lab: rstudio-connect/lab-configure-connect.md
+        - 4.3 Using RStudio Connect: rstudio-connect/using-connect.md
+        - 4.3 Lab: rstudio-connect/lab-using-connect.md
+    - 5. Deploying to Connect:
+        - 5.1 Deploying Shiny Apps: using-rstudio-connect/deploy-shiny.md
+        - 5.2 Lab: using-rstudio-connect/lab-deploy-shiny.md
+        - 5.3 Deploying Rmarkdown: using-rstudio-connect/deploy-markdown.md
+        - 5.4 Lab: using-rstudio-connect/lab-deploy-markdown.md
+        - 5.5 Deploying plumber APIs: using-rstudio-connect/deploy-plumber.md
+        - 5.6 Lab: using-rstudio-connect/lab-deploy-plumber.md
+    - 9. Troubleshooting:
+        - 9.1 Troubleshooting: troubleshooting/troubleshoot.md
+        - 9.2 Lab: troubleshooting/lab-troubleshoot.md
+    - "---": separator.md
+    - Cheat sheet:   cheatsheet.md
+    - Documentation: documentation.md
+    - Frequently encountered problems: faq.md
+    - Asking questions: asking-questions.md
+
+markdown_extensions:
+    - toc:
+        permalink: "#"
+    - admonition
+    - pymdownx.arithmatex
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tabbed
+    - pymdownx.tilde
+
+extra_css:
+    - assets/custom.css
+    - assets/cheatsheet.css
+
+extra_javascript:
+    - assets/js/asciinema-player.js
+    - assets/js/openLinksInNewTabs.js
+
+plugins:
+    - search
+#     - redirects:
+#         redirect_maps:
+#             overview/concept-map:      overview.md
+#             overview/coarse-goals:     overview.md
+#             overview/assumptions:      overview.md
+#             overview/pre-requirements: overview.md
+#             overview/how-it-works:     overview.md
+#             get-started:                 getting-started/how-it-works.md
+#             get-started/getting-started: getting-started/how-it-works.md
+#             get-started/ssh-in:          getting-started/lab-ssh-in.md
+#             install-r:                    r/install-r.md
+#             install-r/install-r:          r/install-r.md
+#             install-r/install-r-exercise: r/lab-install-r.md
+```
+
+##### Example 2:
+
+https://leverage.binbash.com.ar/ Nice page created with Mkdocs with custom land pages. [Github repo](https://github.com/binbashar/le-ref-architecture-doc)
+
+``` yaml
+
+# ref link: https://alinex.gitlab.io/env/mkdocs/
+
+# Site Information
+site_name: Binbash Leverage™
+repo_name: "binbashar/le-ref-architecture-doc"
+repo_url: https://github.com/binbashar/le-ref-architecture-doc
+site_url: https://leverage.binbash.com.ar/
+site_description: Binbash Leverage Reference Architecture Documentation
+site_author: Binbash
+copyright: Copyright &copy; 2017-2022 <a href="https://www.binbash.com.ar">Binbash</a>
+
+# Mkdocs Theme (Material Mkdocs) + Extras
+theme:
+  name: material
+  custom_dir: material
+  language: en
+  #logo: assets/images/logos/binbash-icon.png
+  icon: # https://www.materialpalette.com/icons
+    logo: material/book-open-page-variant
+  favicon: assets/images/logos/favicon.ico
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - header.autohide
+    #- content.tabs.link #Insiders only so far
+  palette: # https://www.materialpalette.com/colors
+    - scheme: default
+      #primary: "teal" # comment to replace by /docs/assets/stylesheets
+      accent: deep purple
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      #primary: "teal" # comment to replace by /docs/assets/stylesheets
+      accent: teal
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+  include_sidebar: true
+
+extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+
+## Temporally only available for Insiders
+## (https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/#was-this-page-helpful)
+#    feedback:
+#      title: Was this page helpful?
+#      ratings:
+#        - icon: material/emoticon-happy-outline
+#          name: This page was helpful
+#          data: 1
+#          note: >-
+#            Thanks for your feedback!
+#        - icon: material/emoticon-sad-outline
+#          name: This page could be improved
+#          data: 0
+#          note: >-
+#            Thanks for your feedback! Help us improve this page by
+#            using our <a href="..." target=_blank>feedback form</a>.
+
+  social:
+    - icon: material/home
+      link: 'https://www.binbash.com.ar'
+    - icon: material/github
+      link: 'https://github.com/binbashar'
+    - icon: material/linkedin
+      link: 'https://www.linkedin.com/company/binbash'
+    - icon: material/slack
+      link: 'https://join.slack.com/t/binbashar/shared_invite/zt-fw1692b6-9k4ADsWJ47lKacszphXM1w'
+    - icon: material/youtube
+      link: 'https://www.youtube.com/channel/UCUjQ3duzxQB_VtNsKNqPwDA/playlists'
+    - icon: fontawesome/brands/medium
+      link: 'https://medium.com/binbash-inc'
+    - icon: material/twitter
+      link: 'https://twitter.com/binbash_devops'
+    - icon: material/docker
+      link: 'https://hub.docker.com/orgs/binbash'
+
+  alternate:
+    # Switch to English
+    - name: English
+      #link: https://leverage.binbash.com.ar
+      link: /
+      lang: en
+
+    # Switch to Spanish
+    - name: Spanish
+      #link: https://leverage.binbash.com.ar/es/
+      link: /es
+      lang: es
+
+# Mkdocs Markdown Extentions, Plugins & extras
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - codehilite
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+      # insert a blank space before the character
+      permalink: " ¶"
+
+plugins:
+  - search
+#  - awesome-pages
+
+extra_css:
+    - assets/stylesheets/extra.css
+
+# Mkdocs Navigation Tree
+nav:
+  - Home:
+    - Home: index.md
+    - Welcome: "welcome.md"
+    - First steps: "first-steps/introduction.md"
+
+  - How it works:
+    - Reference Architecture:
+        - Overview: "how-it-works/ref-architecture/index.md"
+        - General concepts:
+          - Why Leverage?: "how-it-works/ref-architecture/general-concepts/why-leverage.md"
+          - Why our stack?: "how-it-works/ref-architecture/general-concepts/why-tech-stack.md"
+        - Considerations: "how-it-works/ref-architecture/considerations.md"
+
+  - Work with us:
+      - Overview: "work-with-us/index.md"
+      - Support:
+          - Support: "work-with-us/support.md"
+      - Releases:
+          - Releases and Versions: "work-with-us/releases/releases-and-versions.md"
+          - Versions compatibility matrix: "work-with-us/releases/versions-compatibility-matrix.md"
+      - Leverage vs Competition: "work-with-us/leverage-vs-competition.md"
+      #- Subscription Plans: "work-with-us/subscription-plans.md"
+      - Contribute: "work-with-us/contribute.md"
+      - Roadmap:
+        - Reference Architecture:
+          - Overview: "work-with-us/roadmap/ref-arch/overview.md"
+          - Operational Excellence: "work-with-us/roadmap/ref-arch/operational-excellence.md"
+          - Reliability & Performance: "work-with-us/roadmap/ref-arch/reliability-performance.md"
+          - Security: "work-with-us/roadmap/ref-arch/security.md"
+          - Cost Optimization: "work-with-us/roadmap/ref-arch/cost-optimization.md"
+          - Demo Applications: "work-with-us/roadmap/ref-arch/demo-apps.md"
+        - Leverage CLI: "work-with-us/roadmap/leverage-cli/overview.md"
+      - Careers: "work-with-us/careers.md"
+      #- Team: "work-with-us/team.md"
+      #- Testimonials: "work-with-us/testimonials.md"
+      - FAQs: "work-with-us/faqs.md"
+      - Contact Us: https://www.binbash.com.ar/contact
+```
+
+[R: In RStudio how do I make knitr output to a different folder to avoid cluttering up my drive?](https://stackoverflow.com/questions/26174565/r-in-rstudio-how-do-i-make-knitr-output-to-a-different-folder-to-avoid-clutteri)
+
+**Bookdown and GitHub Pages**\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RdSmYvbQkhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+------------------------------------------------------------------------
+
+## Bookdown and GitHub Pages
+
+==**Git book is the default theme for bookdown.**==
+
+```         
+- [ ] [Gitbook style]( https://bookdown.org/yihui/bookdown/html.html)  
+
+- [ ] [The Material Design theme in the rmdformats package in bookdown]( https://bookdown.org/yihui/rmarkdown/rmdformats.html)   
+```
+
+How to change colors and attributes of Table of Contents in R Markdown HTML document?
+
+!!! note SEE THIS TWO‼
+
+```         
+- [ ] [memoiR]( https://ericmarcon.github.io/memoiR/ ).  Templates to publish well-formatted documents both in HTML and PDF formats In R Markdown.
+```
+
+Gallery:\
+- HTML GitBook\
+- HTML Bootstrap 4 book (documentation on Zotero, Shyni, very extensive. R34D I7!!!. [Docs](https://bookdown.org/yihui/bookdown/html.html#bs4-book), [writing a bs4_book](https://bookdown.org/yihui/bookdown/html.html#writing-a-bs4_book)\
+- Simple Article\
++ HTML Document\
++ Downcute HTML\
++ distill article
+
+```         
+- [Zotero](https://ericmarcon.github.io/WorkingWithR/chap-logiciels.html#sec:Zotero)  
+```
+
+[R Markdown and Bookdown Templates to Publish Documents](https://ericmarcon.github.io/memoiR/articles/memoiR.html#getting-started)
+
+```         
+- [ ] [Pkdown](https://pkgdown.r-lib.org/) pkgdown is designed to make it quick and easy to build a website for your package with R studio.   
+- [ ] https://rmarkdown.rstudio.com/gallery.html  
+```
+
+Get Started With Our Bookdown Thesis Template video https://youtu.be/LBHxcuCMjnk\
+[My lecture notes Rmd template • lecturenotes - Grant McDermott](http://grantmcdermott.com/lecturenotes/)\
+[Change toc_depth field in bookdown pdf output](https://stackoverflow.com/questions/56625517/change-toc-depth-field-in-bookdown-pdf-output)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RdSmYvbQkhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8uFABzUG6Lw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[video](https://youtu.be/8uFABzUG6Lw)
+
+Use with zotero!!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RdSmYvbQkhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[video](https://youtu.be/RdSmYvbQkhs)
+
+To insert citations with Zotero in Rstudio:
+
+© \[visual\]... ++shift+cmd+F8++
+
+Opt+cmd+T ++shift+cmd+I++ ++shift+cmd+F7++
+
+-   {rticles} for document formatting
+-   {Zotero Plugin} for citations
+-   {report} & {glue} for making reproducible model summaries
+-   {gt} + {gtsummary} for tables
+-   {ggplot} + {ggpubr} for graphs
+
+### R packages required:
+
+install.packages("memoiR") install.packages("distill") install.packages("rmdformats") install.packages("rmarkdown")
+
+library(memoiR) library(distill) library(rmdformats) library(rmarkdown)
+
+#### Types of books--\> html
+
+Avoid using the straight brackets, `[]` like in `[Build]` coz it confuse gitbook as a reference.
+
+```         
+1.  Website using blogdown
+2.  Book project using book down
+  - gitbook
+  - bs4_book: [Bulild]: 
+    1.  bs4_book. converts .Rmd to .md automatically‼‼ saved on /_book. 
+    2.  epub_book.   
+3.  R Package using devtools
+4.  Distill Blog
+  - [Bulild]: 1. Distill_blog. 
+5.  Distill Website
+  - [Bulild]: 1. Distill_site.
+6.  Document Project using memoiR
+  - Memoir: [Bulild] 
+    1.  git_book. OK
+    2.  bs4_book.  OK
+    3.  ePub_book. OK
+  - Simple Article: ++Knit++ 
+    1.  html_document2. OK
+    2.  git_book.  OK
+    3.  downcute. OK
+  - Stylish Article: ++Knit++ 
+    1.  html_document2. NOT WORKING!
+    2.  git_book.  OK
+    3.  downcute. OK
+  - Beamer Presentation: ++Knit++ 
+    1.  beamer_presentation2. NOT OK
+    2.  Powerpoint_presentation2.  OK
+    3.  slidy_presentation2. ?
+    4.  ioslide_presentation2. ?
+7.  Simple R Markdown Website
+  - [Bulild]: 1. Rmd_website.  OK
+```
+
+#### R books samples view:
+
+MBP20\
+[gitbook:](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/gitbook_samp/_book/index.html)\
+[bs4_book:](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/bs4_book_samp/_book/index.html)\
+[Distill_blog:](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/Distill_Blog_samp/_site/posts/welcome/index.html)\
+[Distill_website:](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/Distill_website_samp/_site/index.html)\
+\[MemoiR:\] - gitbook\
+- bs4_book\
+- Simple Article: **ˇKnit**: [Html_document2](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/SimpleArticle_samp/SimpleArticle_samp.html)\
+- Stylish Article: **ˇKnit**: [downcute:](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/Stylish_Article_samp/Stylish_Article_samp.html)\
+[Simple Rmarkdown Website:](file:///Users/marcelorosales/Box%20Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book%20samples/Simple_Rmarkdown_samp/_site/index.html)
+
+> Idea:\
+> bs4_book, converts .Rmd to .md automatically‼‼ saved on /\_book. Create bs4 in Rstuidio \@ BoxSync --\> build .md files =\> Create Mkdocs with github in /Doc/github --\> for .md files use symlink to bs4.md's =\> build page --\> push to github.
+
+Why use Mkdocs instead of just using the Rbookdown::bs4? Mkdocs admonitions are much easy to follow and nice clean layout.
+
+### Book projects using bookdown
+
+```         
+- gitbook
+- bs4_book:  It converts .Rmd to .md automatically‼‼ saved on /_book.
+```
+
+.Rmd files --\> to --\>.md files in /\_book folder.
+
+### Distill Blog and Distill Website
+
+//Environment \> Build \> Build Website
+
+### Document Project using memoiR
+
+#### Memoir
+
+```         
+Build tab  
+    Gitbook (working)  
+    Bs4_book (working)  
+        _output.yml: Theme: primary: “#092872” (color)   
+    Epub_book (working, save in books app. )  
+```
+
+#### Simple Article
+
+```         
+No Build tab  
+    Html_document2 (working)  
+    Gitbook (working)  
+    Downcute (working)  
+```
+
+#### Stylish Article
+
+```         
+No Build tab  
+    Html_document2 (Not Working)  
+    Gitbook (working)  
+    Downcute (working)  
+```
+
+#### Beamer Presentation
+
+```         
+No Build tab  
+
+Beamer_presentation2: Not working  
+    [WARNING] Deprecated: --self-contained. use --embed-resources --standalone
+    ! LaTeX Error: File `framed.sty’ not found.
+    ! Emergency stop.
+powerpoint_presentation2: Working  
+```
+
+Memoir Simple Article Stylish Article Beamer Presentation
+
+#### Simple R Markdown Website
+
+For more information about simple R Markdown websites, please read the documentation at https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html.
+
+Please also note that simple R Markdown sites are *not* based on **blogdown**. They are probably good for websites with only a few Rmd documents. For larger-scale and more sophisticated websites (such as blogs), you may want to use **blogdown** instead: https://github.com/rstudio/blogdown.
+
+------------------------------------------------------------------------
+
+## Hugo: use / set up
+
+[top](#)
+
+1.  Install golang.\
+2.  Install hugo. \@ <https://gohugo.io/> Mac
+
+``` bash
+brew install hugo  
+```
+
+1.  brew should have updated your path to include Hugo. You can confirm by opening a new terminal window and running a few commands:
+
+```         
+<!---  # show the location of the hugo executable  -->
+which hugo  
+$ /usr/local/bin/hugo
+<!---  # show the installed version  -->
+ls -l $( which hugo )
+$ lrwxr-xr-x  1 mdhender admin  30 Mar 28 22:19 /usr/local/bin/hugo -> ../Cellar/hugo/0.13_1/bin/hugo
+<!---  # verify that hugo runs correctly  -->
+hugo version
+$ Hugo Static Site Generator v0.13 BuildDate: 2015-03-09T21:34:47-05:00
+```
+
+1.  Build from Source: To compile Hugo yourself\
+    rew install go.
+
+2.  Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.\
+
+3.  You can also
+
+New project \>
+
+------------------------------------------------------------------------
