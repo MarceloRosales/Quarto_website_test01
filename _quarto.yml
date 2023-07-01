@@ -114,5 +114,5 @@ editor_options:
   markdown:
     canonical: true
 
-execute: 
-  freeze: auto  # This prevent R, Python, and Julia code is only executed locally,
+#execute: 
+#  freeze: auto  # This prevent R, Python, and Julia code is only executed locally,
