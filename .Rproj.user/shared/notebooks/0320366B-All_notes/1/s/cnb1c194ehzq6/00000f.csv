@@ -1,0 +1,8 @@
+"0","# HTML table"
+"0","dt <- mtcars[1:5, 1:4]"
+"0",""
+"0","kbl(dt, caption = ""Demo Table"") %>%"
+"0","  kable_styling(bootstrap_options = ""striped"","
+"0","                full_width = F) %>%"
+"0","  add_header_above(c("" "", ""Group 1"" = 2, ""Group 2[note]"" = 2)) %>%"
+"0","  footnote(c(""table footnote""))"

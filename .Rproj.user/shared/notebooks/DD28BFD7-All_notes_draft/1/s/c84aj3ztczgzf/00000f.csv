@@ -1,0 +1,11 @@
+"0","system(paste(""rsync -avh --progress"", shQuote(source), shQuote(destination)))
+"
+"1","building file list ... 
+0 files to consider
+"
+"2","rsync: link_stat ""/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/~/Box Sync/Niigata Uni Box/Books-Notes/Notes/All_notes_draft.qmd"" failed: No such file or directory (2)
+rsync: push_dir#3 ""/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/~/Documents/GitHub/Quarto/quarto-trials/quarto_website"" failed: No such file or directory (2)
+rsync error: errors selecting input/output files, dirs (code 3) at /AppleInternal/Library/BuildRoots/c2cb9645-dafc-11ed-aa26-6ec1e3b3f7b3/Library/Caches/com.apple.xbs/Sources/rsync/rsync/main.c(581) [receiver=2.6.9]
+rsync: connection unexpectedly closed (8 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at /AppleInternal/Library/BuildRoots/c2cb9645-dafc-11ed-aa26-6ec1e3b3f7b3/Library/Caches/com.apple.xbs/Sources/rsync/rsync/io.c(453) [sender=2.6.9]
+"

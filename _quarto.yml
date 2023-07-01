@@ -1,0 +1,119 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "MySite"
+  image: "images/img01.png" # where this images goes?. only works with specifit themes?...
+  favicon: "images/favicon.png" # Small icon in the bewbrowser tab (ex. uni logo)
+  open-graph: true #https://quarto.org/docs/websites/website-tools.html, https://www.youtube.com/watch?v=QwEQKM4YRnU&t=2s
+  #twitter-card: true #https://quarto.org/docs/websites/website-tools.html#twitter-cards
+  search: true 
+  navbar:
+    background: light # this is the color option of the nav bg, but I set color in format: with theme.scss. # Options:`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`
+    logo: "images/nav_img.png" # logo in nav bar.
+    logo-alt: "link to Mkdocs"
+    logo-href: "https://marcelorosales.github.io/MkDocsTest1/MkDocs/"
+    collapse-below: lg
+    
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "All Notes"
+        href: All_notes.qmd
+      - text: "Software"   #  href: files/Software/index.qmd # Dropdown menu can not have lading page. 
+        menu: 
+          - text: "RStudio"
+            href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.
+          - text: "ImageJ"
+            href: files/Software/ImageJ/index.qmd
+          - text: "Analyze12"
+            href: files/Software/Analyze12/index.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "NavSubmenu"
+        menu:
+          - text: "Notes & 2do"
+            href: files/Notes_2do/index.qmd #In "" because & is not a valid caracter for raw yml
+          - text: "Report a Bug"
+            icon: "bug"
+            href: "https://github.com/quarto-dev/quarto-cli/issues"
+          - text: "Ask a Question"
+            icon: "chat-right-text"
+            href: "https://github.com/quarto-dev/quarto-cli/discussions"
+          - text: "FAQ"
+            icon: "question-circle"
+#            href: docs/faq/index.qmd
+    right: 
+      - icon: github
+        href: https://github.com/quarto-dev/quarto-cli
+#        text: Quarto GitHub
+      - icon: rss
+        href: https://quarto.org/docs/blog/index.xml
+        
+  sidebar:
+    - id: RStudio 
+      title: "Get Started with the RStudio"
+      style: "floating"
+      collapse-level: 3
+      align: left
+      contents:  
+        - text: R Studio
+          href: files/Software/RStudio/index.qmd  
+        - text: "Install"
+          href: files/Software/RStudio/R_install.qmd  
+        - text: "R Packages"
+          href: files/Software/RStudio/R_Packages.qmd
+
+    - id: ImageJ 
+      title: "Get Started with ImageJ"
+      style: "floating"
+      collapse-level: 3
+      align: left
+      contents:  
+        - files/Software/ImageJ/index.qmd  
+        - text: "Install"
+          href: files/Software/ImageJ/ImgJ_install.qmd  
+        - text: "ImgJ Packade"
+          href: files/Software/ImageJ/ImgJ_Packages.qmd
+        - text: "Git try"
+          href: posts/Git.qmd
+
+format:
+  html:
+    fontsize: ""
+    toc: true
+    toc-depth: 6
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss] # change theme (cosmo) colors and formats in the scss files
+    code-copy: true
+    code-fold: false
+    code-overflow: wrap
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+#    code-line-numbers: true
+    css: styles.css
+    include-after-body: js.html
+    self-contained: false # If true, it will not create the site files but one html file. 
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+#    tbl-colwidths: [40, 60]  # tables column withs 40% and 60%
+
+filters:
+  - lightbox #this section is for the managing img as galleries
+lightbox:
+  match: auto
+
+editor: source
+editor_options:
+  markdown:
+    canonical: true
+    wrap: true 
+
+execute: 
+  freeze: auto  # This prevent R, Python, and Julia code is only executed locally,

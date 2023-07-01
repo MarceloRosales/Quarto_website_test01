@@ -1,0 +1,4 @@
+"0",""
+"0","# DT::datatable  (Onlyone that shows table correctly in )"
+"0","library(DT)"
+"0","datatable(head(mtcars[1:5, 1:4]))"

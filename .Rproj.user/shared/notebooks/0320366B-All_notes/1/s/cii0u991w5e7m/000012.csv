@@ -1,0 +1,5 @@
+"0","y <- add_header_above(x, c("" "", ""Group 1"" = 5, ""Group 2"" = 6))
+"
+"2","Error in add_header_above(x, c("" "", `Group 1` = 5, `Group 2` = 6)) : 
+  could not find function ""add_header_above""
+"

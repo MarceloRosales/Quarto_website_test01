@@ -1,0 +1,252 @@
+---
+title: "GIT Management"
+description: "git and git commands"
+author: "Marcelo Rosales"
+date: "2023/03/27"
+categories:
+  - R
+  - version
+  - Git
+  - Rpackages
+format: 
+  html: 
+    code-fold: false
+    code-copy: true
+    code-overflow: wrap
+---
+
+## Install git
+
+``` bash
+brew install git   
+```
+
+In windows, git provides the Git BASH app, a BASH emulation used to run Git form the command line.
+
+## Git Config
+
+``` bash
+git config --global user.name "{your name}" # Quotes if there is a space between the names
+git config --global user.email your_email@service.com
+
+# Specify default editor
+git config --global core.editor "code --wait"  # VScode as default editor
+git config --global -e  # Opens defautl editor # Opens default editor to edit all the global settings. 
+
+# How to handle end of lines. In windows: \r, \n; on mac: \n. May provoke conflicts, cofig property "core.autocrlf" (11:41)
+# Windows:
+git config --global core.autocrlf true
+# Mac:
+git config --global core.autocrlf input
+```
+
+To have a colorfull terminal window like in the video install\
+On Mac: Zsh with git plugin\
+Windows: posh-git
+
+[video1](https://youtu.be/DcoNNVM_GlQ){target="_blank"}\
+[video2](https://youtu.be/235G6X5EAvM){target="_blank"}\
+[Using zsh on Windows](https://walterteng.com/using-zsh-on-windows){target="_blank"}
+
+[Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf){target="_blank"}\
+[Git cheat sheet2](https://about.gitlab.com/images/press/git-cheat-sheet.pdf){target="_blank"}\
+[Git cheat sheet3](https://github.com/WebDevStudios/CLI-Cheat-Sheet/blob/master/git-commands.md){target="_blank"}\
+[Git cheat sheet4](https://gist.github.com/akras14/3d242d80af8388ebca60){target="_blank"}\
+[Git cheat sheet3](){target="_blank"}
+
+``` {.bash filename="Terminal"}
+# Start control version
+git init
+ls -a # To see hidden files
+open .git
+git clone [url]
+
+# Stage & Snapshot
+git pull
+git status
+git add .
+git checkout
+git commit -m "[message]"
+git push
+git pull
+
+rm [file_name]  # removes/delete file
+mv [old_filename] [new_filename]
+```
+
+## Video Tutorials
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8JJ101D3knE" title="Git Tutorial for Beginners: Learn Git in 1 Hour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HkdAHXoRtos" title="Git It? How to use Git and Github" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0z448j3juw0" title="Mastering Git and Github: A Beginner&#39;s Guide (2023 Edition)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+``` {.bash filename="terminal"}
+brew install git
+git --version
+git init
+git init --bare # Repository for only push and pull, not changes possible  
+git status
+git add {filename}
+git add .   
+git commit -m "{message}" # If forgot -m (1:06:40), press i, --INSERT-- type message
+git commit -am "{message}" # If modify file already added to git you can use "-a" flag, for new files use the "add" flag. 
+git diff # to see the differences and modifications on the files.
+git diff --color-words # color code for added and deleted portions of each file.
+git log
+git log --pertty=oneline #Log as one line, not showing all the changes.
+git diff {commit log#} {commit log#}
+# 1:24:00
+git branch
+git branch --all
+git branch {branch name1} # To create a new branch
+git branch checkout {branch name1} #To change/jump branches
+git status
+git commit -am "Changes in the new branch"
+git log #Check HEAD -> {branch name1}
+git log --pretty=oneline #To see all commits log
+git checkout -b {branch name2} #Jump to branch2 and if it doesn't exist create it. 
+git diff {branch name1}...{branch name2} #To see differences between branches.  
+
+## Mergin braches to master.  Go to master first.
+git checkout master
+git branch
+git merge {branch name}
+
+## To push a branch from local to github
+git push --set-upstream origin {branch name}
+
+## To delete a branch. Caution!! Can not delete if you are in branch
+git branch -d {branch name}
+
+## Discard/Unstage ex .DS_Store file from git panel. Find all ".DS_Store" files in all folders and delete.  
+find . -name ".DS_Store" -delete    
+find . -name '.DS_Store' -type f -delete
+git restore .DS_Store 
+git restore .
+```
+
+## Trouble shooting.
+
+### Branch is ahead error
+
+``` {.bash filename="terminal"}
+git add .
+git commit -m "python install"
+```
+
+``` {.bash filename="error message"}
+remote: fatal error in commit_refs To https://github.com/MarceloRosales/Quarto_website_test01.git ! \[remote rejected\] master -> master (failure) **error: failed to push some refs to 'https://github.com/MarceloRosales/Quarto_website_test01.git'**
+```
+
+Solution:
+
+::: callout-important
+ALL SOLUTIONS ***REVERT TO LAST COMMIT AND DELETE ALL CONTENT*** EVEN IF SAVED!! SAVE CONTENT IN A DIFFERENT FILE BEFORE MERGING, AFTER MERGING (REVERT TO LAST COMMIT) COPY PASTE CONTENT AGAIN.
+:::
+
+[git - Your branch is ahead of 'origin/master' by 1 commit](https://stackoverflow.com/questions/10169328/git-your-branch-is-ahead-of-origin-master-by-1-commit){target="_blank"}
+
+``` bash
+git reset HEAD^ --soft (Save your changes, back to last commit)
+git reset HEAD^ --hard (Discard changes, back to last commit)
+```
+
+[This one worked!!](https://www.nblog09.com/w/2019/01/24/git-ahead/){target="_blank"}
+
+``` {.bash filename="terminal"}
+git pull origin {branch name}
+git reset --hard origin/{branch name}
+git branch
+```
+
+``` bash
+git pull     
+git merge 
+git pull origin
+git reset --hard origin/master
+# HEAD is now at 4fd3039 R, RStudio and packages upgrade
+git pull
+git push
+git add .
+git commit -m "message"
+git push
+```
+
+### Git Stash Changes
+
+**Learn Git Stash Apply, Pop, Clear, Show, Drop**
+
+Another alternative for the Branch ahead error, you can use:
+
+``` {.bash filename="Terminal"}
+git stash
+git pull
+git stash show
+# To exit git stash ++Cnt+z++.  
+git stash list
+git stash clear # Warning!! all changes make in the stash will be lost and revert to last saved version. 
+git status
+```
+
+[how to git stash changes](https://www.junosnotes.com/git/how-to-git-stash-changes/#Git_stash_clear){target="_blank"}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fXGug4itlTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+### Delete .DS_Store
+
+Delete .DS_Store recursively from all directories and sub-directories.
+
+[How to Recursively Remove .DS_Store](https://jonbellah.com/articles/recursively-remove-ds-store){target="_blank"}
+
+On a Mac, it is common to run into an issue when committing files to a git repo, where a file named .DS_Store appears in every folder. This file, although it contains useful information for the directory, is usually not something you want to commit to your repo. Similar problems exist on linux as well.
+
+**Solution:**
+
+1.  Add the `.DS_Store` to the `.gitignore` file \> save \> commit.\
+2.  Check if file still recurs.\
+
+``` bash
+git status
+```
+
+```         
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .DS_Store
+```
+
+Sometimes, despite adding this to your .gitignore file, it still somehow ends up in your git repo.\
+To remove all instances of a particular file, such as .DS_Store, on your computer, you can run the following command:
+
+``` bash
+find . -name ".DS_Store" -delete
+```
+
+Steps: 1. Uncommit/Discard/Unstage the .DS_Store file from git panel
+
+``` r
+git restore .DS_Store  # If it is the only file on stage
+git restore .  
+ls -a  #find if still present
+find . -name ".DS_Store" -delete  #Find all ".DS_Store" files in all folders and delete
+
+git status
+git add . 
+git commit -m "delete all DS_Store files"
+git push
+git pull 
+```
+
+1.  Render \> commit \> push \> pull.\
+    `.DS_Store` file will be automatically created by Mac in the folder, but it won't appear on the stageing steps anymore.

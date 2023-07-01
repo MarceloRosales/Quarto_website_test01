@@ -1,0 +1,4 @@
+"0","system(paste(""open"", shQuote(folder_path)))
+"
+"2","Error: object 'folder_path' not found
+"

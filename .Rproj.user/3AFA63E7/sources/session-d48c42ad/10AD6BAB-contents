@@ -1,0 +1,22 @@
+---
+title: "Software"
+author: "Marcelo Rosales"
+---
+
+# Do I really need this File??!!!
+
+# All related to Software
+
+Software used:
+
+-   RStudio
+-   Git
+-   ImageJ
+-   Analyze12
+
+Info and How to's.
+
+``` r
+plot(pressure)
+system(paste("open", shQuote(Markdown02)))
+```

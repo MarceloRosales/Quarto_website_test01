@@ -1,0 +1,4 @@
+"0",""
+"0","# kableExtra"
+"0","library(kableExtra)"
+"0","kbl(mtcars[1:5, 1:4], caption = ""Demo Table"")"

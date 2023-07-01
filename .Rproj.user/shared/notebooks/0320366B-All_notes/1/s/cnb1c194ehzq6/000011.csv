@@ -1,0 +1,7 @@
+"0",""
+"0","# LaTeX Table"
+"0","kbl(dt, booktabs = T, caption = ""Demo Table"") %>%"
+"0","  kable_styling(latex_options = c(""striped"", ""hold_position""),"
+"0","                full_width = F) %>%"
+"0","  add_header_above(c("" "", ""Group 1"" = 2, ""Group 2[note]"" = 2)) %>%"
+"0","  footnote(c(""table footnote""))"

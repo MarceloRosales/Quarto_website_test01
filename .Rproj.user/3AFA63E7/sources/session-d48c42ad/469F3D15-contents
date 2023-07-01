@@ -1,0 +1,303 @@
+---
+title: "Starting with quarto"
+description: "how to start with quarto for documentation"
+author: "Marcelo Rosales"
+date: "2023/03/20"
+categories:
+  - quarto
+  - code
+  - website
+format: 
+  html: 
+    code-fold: false
+    code-copy: true
+    code-overflow: wrap
+---
+
+## Intro:
+
+Since the appearance of quarto, perhaps it would be more effective to write all in .qmd files cos of its advantages,
+
+-   images can be added easily and automatically
+-   img captions
+-   code writing and
+-   compatible with Zotero bibliography (for word, Rstudio and quarto)
+-   Almost same code/outcome flexibility as Mkdocs code package.
+-   Qmd files can be opened in vs code directly and updates instantaneously as I write for color copy/paste code.
+-   Visual mode is very convenient, as I can copy paste format directly to word (no need to convert/apply format code to word format).
+
+## Quarto install or upgrade
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org .
+
+``` {.bash filename="terminal-brew"}
+brew install --cask quarto 
+brew upgrade --cask quarto
+```
+
+::: callout-note
+20230330 upgrade: quarto --version: 1.2.475 (Release Candidate --- v1.3.296 available as CLI, but not as brew cask)
+:::
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+#| eval: false
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+you can write chunk options in the body of a code chunk after #\|, e.g.,
+
+```{r}
+#| my-chunk, echo = FALSE, fig.width = 10,
+#| fig.cap = "This is a long long long long caption."
+
+plot(cars)
+```
+
+for more info see [here](https://yihui.org/knitr/options/).
+
+**Seattle Precipitation by Day (2012 to 2016)**
+
+For ojs and pkp (public knowledge project) install packages first. follow this [pkp installation guide](https://typeset.io/resources/how-to-install-ojs-a-step-by-step-guide/){target="_blank"}.\
+
+https://pkp.sfu.ca/software/ojs/download/
+
+```{ojs}
+data = FileAttachment("../data/seattle-weather.csv")
+  .csv({typed: true})
+  
+Plot.plot({
+  width: 800, height: 500, padding: 0,
+  color: { scheme: "blues", type: "sqrt"},
+  y: { tickFormat: i => "JFMAMJJASOND"[i] },
+  marks: [
+    Plot.cell(data, Plot.group({fill: "mean"}, {
+      x: d => d.date.getUTCDate(),
+      y: d => d.date.getUTCMonth(),
+      fill: "precipitation", 
+      inset: 0.5
+    }))
+  ]
+})
+```
+
+**Air Quality**
+
+@fig-airquality further explores the impact of temperature on ozone level.
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess"
+)
+```
+
+For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+> Make sure that the console in the r and not in Python. In the top label you will see either the R logo with \> or the python logo with \>\>\>, to exit python console press esc and you will go back to the R console.
+
+```{r}
+library(reticulate)
+
+```
+
+``` bash
+# install python see Python
+
+pip3 install numpy
+pip3 install matplotlib
+python3 -m pip install numpy
+python3.11 -m pip install --upgrade pip
+pip3.10 install numpy
+python3.10 -m pip install --upgrade pip
+```
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+# Pre-intallation required through terminal:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+If error: ModuleNotFoundError: No module named 'numpy' in Python\
+See [here](https://bobbyhadz.com/blog/python-no-module-named-numpy)
+
+Python test.
+
+```{python}
+
+import numpy as np
+
+
+```
+
+```{r}
+library(reticulate)
+
+```
+
+### Running Code summary
+
+Related to code and code chunks.
+
+In yml sections:
+
+```         
+---
+format: 
+  html: 
+    code-fold: show
+    code-copy: true
+    code-overflow: wrap
+---
+```
+
+In chuncks:
+
+```         
+#| eval: false
+#| echo: false
+#| my-chunk, echo = FALSE, fig.width = 10,
+#| label: fig-airquality
+#| fig.cap = "This is a long long long long caption."
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+# For python, pre-intallation required through terminal:
+# pip install numpy
+# pip install matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+
+1 + 1
+```
+
+## Nav and sidebar
+
+Nav bar example use in this page
+
+```{r, eval=FALSE}
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "MySite"
+  image: "images/img01.png" # where this images goes?. only works with specifit themes?...
+  favicon: "images/favicon.png" # Small icon in the bewbrowser tab (ex. uni logo)
+  open-graph: true #https://quarto.org/docs/websites/website-tools.html, https://www.youtube.com/watch?v=QwEQKM4YRnU&t=2s
+  #twitter-card: true #https://quarto.org/docs/websites/website-tools.html#twitter-cards
+  search: true 
+  navbar:
+    background: light # this is the color option of the nav bg, but I set color in format: with theme.scss. # Options:`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`
+    logo: "images/nav_img.png" # logo in nav bar.
+    logo-alt: "link to Mkdocs"
+    logo-href: "https://marcelorosales.github.io/MkDocsTest1/MkDocs/"
+    collapse-below: lg
+    
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: "About"
+      - text: "Software"
+        menu: 
+          - href: files/Software/RStudio/index.qmd # when inputing index.qmd doesnt work. Try other file and retry.
+            text: "RStudio"
+          - href: files/Software/ImageJ/index.qmd
+            text: "ImageJ"
+          - href: files/Software/Analyze12/index.qmd
+            text: "Analyze12"
+      - text: "Blog"
+        href: blog.qmd
+      - text: "NavSubmenu"
+        menu:
+          - text: "Report a Bug"
+            icon: "bug"
+            href: "https://github.com/quarto-dev/quarto-cli/issues"
+          - text: "Ask a Question"
+            icon: "chat-right-text"
+            href: "https://github.com/quarto-dev/quarto-cli/discussions"
+          - text: "FAQ"
+            icon: "question-circle"
+#            href: docs/faq/index.qmd
+    right: 
+      - icon: github
+        href: https://github.com/quarto-dev/quarto-cli
+#        text: Quarto GitHub
+      - icon: rss
+        href: https://quarto.org/docs/blog/index.xml
+        
+  sidebar:
+    - id: RStudio 
+      title: "Get Started with the RStudio"
+      style: "floating"
+      collapse-level: 2
+      align: left
+      contents:  
+        - files/Software/RStudio/index.qmd  
+        - text: "Install"
+          href: files/Software/RStudio/R_install.qmd  
+        - text: "R Packages"
+          href: files/Software/RStudio/R_Packages.qmd
+
+    - id: ImageJ 
+      title: "Get Started with ImageJ"
+      style: "floating"
+      collapse-level: 2
+      align: left
+      contents:  
+        - files/Software/ImageJ/index.qmd  
+        - text: "Install"
+          href: files/Software/ImageJ/ImgJ_install.qmd  
+        - text: "R Packages"
+          href: files/Software/ImageJ/ImgJ_Packages.qmd
+
+format:
+  html:
+    toc: true
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss] # change theme (cosmo) colors and formats in the scss files
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
+    include-after-body: js.html
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+
+
+editor: visual
+
+```

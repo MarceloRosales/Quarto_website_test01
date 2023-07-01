@@ -1,0 +1,31 @@
+{
+    "id": "469F3D15",
+    "path": "~/Documents/GitHub/Quarto/quarto-trials/quarto_website/posts/quarto_start.qmd",
+    "project_path": "posts/quarto_start.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1685632766090.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "183:75.55555725097656",
+        "cursorPosition": "13,23",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1681100522,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1681100522,
+    "read_only": false,
+    "read_only_alternatives": []
+}
