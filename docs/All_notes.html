@@ -600,10 +600,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#code-notation" id="toc-code-notation" class="nav-link" data-scroll-target="#code-notation">Code Notation</a></li>
   <li><a href="#videos-in-q" id="toc-videos-in-q" class="nav-link" data-scroll-target="#videos-in-q">Videos in Q</a></li>
   </ul></li>
-  <li><a href="#plan-220826" id="toc-plan-220826" class="nav-link" data-scroll-target="#plan-220826">Plan 220826</a></li>
-  <li><a href="#plan-220901" id="toc-plan-220901" class="nav-link" data-scroll-target="#plan-220901">Plan 220901</a></li>
-  <li><a href="#special-entries-to-review-later" id="toc-special-entries-to-review-later" class="nav-link" data-scroll-target="#special-entries-to-review-later">Special entries to review later</a></li>
-  <li><a href="#foot" id="toc-foot" class="nav-link" data-scroll-target="#foot">foot</a></li>
   </ul>
 </nav>
     </div>
@@ -9775,8 +9771,8 @@ git push -f origin main # Forces push, careful!! deletes one of the branches (lo
 <span id="cb403-4"><a href="#cb403-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages <span class="co"># main?  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fatal: a branch named 'gh-pages' already exists
-HEAD is now at 52b1351 Initialising main branch
-[master 0c1326a] Initialising main branch
+HEAD is now at 12ae26b commit video
+[master a1e4e43] Initialising main branch
 Everything up-to-date</code></pre>
 </div>
 </div>
@@ -10249,151 +10245,9 @@ git pull</p>
 <p>or to insert web pages.</p>
 <div class="sourceCode" id="cb415"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb415-1"><a href="#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"780"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"500"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://quarto.org/"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"Quarto Documentation"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
-<p><a href="#">top</a><br>
-## Videos</p>
-<p><a href="https://youtu.be/Mh0Of4LzEfk">5 — Markdown Images — Mastering Markdown</a></p>
-<iframe width="355" height="200" src="https://www.youtube.com/embed/Mh0Of4LzEfk" title="#5 — Markdown Images — Mastering Markdown" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<p><a href="https://youtu.be/VQraviuwbzU">5 simple tips to making responsive layouts the easy way</a></p>
-<iframe width="355" height="200" src="https://www.youtube.com/embed/VQraviuwbzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<p><a href="https://youtu.be/TSRtBISvsh4">How To Create Image Gallery Using HTML, CSS and Javascript | Lightbox Gallery</a><br>
-<strong>Lightbox Gallery</strong></p>
-<iframe width="355" height="200" src="https://www.youtube.com/embed/TSRtBISvsh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-</section>
-</section>
-<section id="plan-220826" class="level2">
-<h2 class="anchored" data-anchor-id="plan-220826">Plan 220826</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">Create all the files in .Rmd as normal (in Box sync service) as bs4_book<br>
-Use Rstudio::New Project.<br>
-mkdocs new LabNotes….<br>
-</li>
-<li><input type="checkbox" disabled="" checked="">Build site in bs4 -&gt; Converts .Rmd to .m -&gt; Creates a folder with all converted .md files (all files in Box Sync, do NOT connect with git or GitHub)<br>
-</li>
-<li><input type="checkbox" disabled="" checked="">Create Mkdocs repositories in /documents/GitHub/<br>
-</li>
-<li><input type="checkbox" disabled="" checked="">Confect them to a GitHub repo<br>
-</li>
-<li><input type="checkbox" disabled="" checked="">Use symlinks for the .md files stored in doc/github/ folders<br>
-</li>
-<li><input type="checkbox" disabled="" checked="">Make GitHub commits as normal<br>
-</li>
-<li><input type="checkbox" disabled="" checked="">Build and deploy site as normal. So far OK.</li>
-</ul>
-</section>
-<section id="plan-220901" class="level2">
-<h2 class="anchored" data-anchor-id="plan-220901">Plan 220901</h2>
-<p>All the data together is big, too big for cloud or laptop. Perhaps better place it all in Synology and then symlinks of only the .Rmd to clouds. Modifying a symlink What if sinology gets disconnected? Since it is also connected to github. Data will still be available anywhere. Create and</p>
-<p><strong>Problem</strong>: Even by dividing the section in individual Rmd files to make building and rendering book more manageable, and place them in sinology cloud with symlinks and connected with github, updates and changes made with other connected devices will be not possible. Symlink will point to the file with path to file to a specific folder (in sinology), but in other devices, the symlink path will not work. The file needs to be physically or remotely connected with the device, in this case, perhaps will be better:<br>
-[ ] Place all the Rmd files in cloud service (Box)<br>
-[ ] Create the symlinks from Box to Local folder (Git/Githb) for each device in use.<br>
-[ ] Connect each local book to same repository in gihub. ]; building of the book will not be possible form</p>
-<p><strong>Important folders:</strong><br>
-MBP20<br>
-Box &gt; Github &gt; Mkdocs &gt; mkdocs_dumpAll (all the Rmd and md? From all experiment, notes): make the symlinks from here to the other folders.<br>
-<strong>Samples</strong>: Contains all the book samples except mkdocs materialize.<br>
-Bs4_book creates md files to create the html (useful for converting into mkdocs materialize)<br>
-<strong>Temp</strong>: Contains all the Rmd files form the LabNotesAll_bs4, continuation of the folder with the same name (2nd trial)<br>
-MBA03 (mkdocs build locally for All.md only, no html files)<br>
-LabNotesAll_bs4 (currently working in this project as trial, contains: Initialization, Terminal, VSCode, Markdown. All are first trial)<br>
-bs4_LabNotes<br>
-Gitbooks:<br>
-Niigata Uni Box &gt; Book-Notes &gt;<br>
-Notes: All notes are here.</p>
-<p>Documents &gt; GitHub &gt;<br>
-Research_Notebook: Made in bookdown, is the old research notes (do not mistake with other samples. Keep for the moment)‼</p>
-<p>~/Box Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book samples/SimpleArticle_samp</p>
-<p>/Volumes/homes/RosalesJM/SynDS220/GitHub/Experiments_Lab/LabNotesAll/AllNotes_SimpArt<br>
-~/Box Sync/Github/mkdocs/LabNotesAll_bs4</p>
-<p>~/Box Sync/Github/mkdocs/mkdocs_dumpAll/Markdown02.Rmd</p>
-<hr>
-<p><a href="#">top</a></p>
-</section>
-<section id="special-entries-to-review-later" class="level2">
-<h2 class="anchored" data-anchor-id="special-entries-to-review-later">Special entries to review later</h2>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" checked="">Markdown all in one. For toc, see how to modify table here.</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="https://about.gitlab.com/handbook/markdown-guide/">Handbook Markdown Guide</a>. Seems like only works for gitlab….<br>
-</p></li>
-<li><p><input type="checkbox" disabled=""><a href="https://community.rstudio.com/t/rmarkdown-into-word-change-a-title-in-toc/48137">Rmarkdown into Word - change a title in toc</a><br>
-In the yaml set:<br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked="">How to Create A Batch <strong>Cask Installer</strong> for Homebrew (Using a Simple Bash Script). https://youtu.be/1J9NKpjJegk</p></li>
-<li><p><input type="checkbox" disabled="" checked="">Create the brewfile with dump command.<br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked="">Customize Prompt with dotfiles.<br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked="">Make a MkDocs Site. Made Site, very good documentation but is an md non RStudio package, so I change to quarto for better productivity<br>
-</p></li>
-<li><p><input type="checkbox" disabled="">create a Hugo Theme form scratch</p></li>
-<li><p><input type="checkbox" disabled="" checked="">Costumize iTerm2. (Powerlevel10k theme installed succesfully )<br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked="">Zotero plugin not downloading form chrome (refreshed page and worked normal).<br>
-</p></li>
-<li><p><input type="checkbox" disabled="">Outlines: Tips for Preparing Large Writing Projects (play list): https://youtu.be/osxUFsnY6zg<br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked="">Academic Writing in Markdown: bib, Bib(La)Tex, Pandocs, Marked 2 AppleScripts: Zotpick (playlist) https://www.youtube.com/watch?v=hpAJMSS8pvs&amp;list=PLXt-tu7G1H3tLeZgbbUmYjE0_kvbjA4YU<br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="https://youtu.be/RdSmYvbQkhs">Bookdown and Github Pages</a><br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="https://youtu.be/J72LP2_yv1U+">R tip: Schedule R scripts on a Mac</a> <strong>review this again, good for run exc files on schedule.</strong><br>
-</p></li>
-<li><p><input type="checkbox" disabled=""><a href="https://automatetheboringstuff.com/#toc">Automate the boring stuff -ebook-</a><br>
-</p></li>
-<li><p><input type="checkbox" disabled=""><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a><br>
-</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="https://www.youtube.com/watch?v=WkF7nqEYF1E">R Markdown Advanced Tips to Become a Better Data Scientist &amp; RStudio Connect | With Tom Mock</a> <strong>Good, review, specially the part of shiny applications.</strong><br>
-</p></li>
-<li><p><input type="checkbox" disabled=""><a href="https://markdownmonster.west-wind.com/docs/_69j1049io.htm">Markdown Monster Documentation</a><br>
-</p></li>
-<li><p><input type="checkbox" disabled=""><a href="https://rmd4sci.njtierney.com/">RMarkdown for Scientists</a></p></li>
-</ul>
-<p>Rmarkdown directing output file into a directory<br>
-<a href="https://shinsen-mc.co.jp/test/prosth2/research.html">Uni biopro2 webpage</a></p>
-<p><a href="https://youtu.be/Xx51jzysb1s">Setting up a brand new Hugo Site</a><br>
-<iframe width="560" height="315" src=" https://www.youtube.com/embed/Xx51jzysb1s " title="LIVE: #JAMSTACK - Setting up a brand new Hugo Site" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
-<p><a href="https://youtu.be/E4IvX7wT9HE">Building a Hugo Theme from Scratch</a><br>
-<iframe width="560" height="315" src=" https://www.youtube.com/embed/E4IvX7wT9HE " title="LIVE: #JAMSTACK - Building a Hugo Theme from Scratch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
-<p><a href="https://youtu.be/GlpMokJL28U">Building a Hugo Theme from Scratch PART 2</a><br>
-<iframe width="560" height="315" src=" https://www.youtube.com/embed/GlpMokJL28U " title="
-LIVE: #JAMSTACK - Building a Hugo Theme from Scratch PART 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
-<p>Virtual machines.</p>
-<p><a href="https://youtu.be/Qte4X-rdr2Q">VirtualBox: How to Use Snapshots</a><br>
-<iframe width="560" height="315" src=" https://www.youtube.com/embed/Qte4X-rdr2Q " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
-<p><a href="https://youtu.be/x3dxfpQ8KGY">How to Record and Play Back Mouse Activity in macOS automator</a><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x3dxfpQ8KGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>.</p>
-<p><a href="https://www.w3schools.com/html/html_comments.asp" class="uri">https://www.w3schools.com/html/html_comments.asp</a></p>
-<p>Git &amp; GitHub Crash Course For Beginners. Vid<br>
-<iframe width="560" height="315" src=" https://www.youtube.com/embed/SWYqp7iY_Tc " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>.</p>
-<p><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Getting Started - Installing Git</a></p>
-<p>How to set a Directory as an Argument in Bash</p>
-<p><strong>R Programming Tutorial - 3 - How to Run a Simple Program.</strong><br>
-<iframe width="560" height="315" src=" https://www.youtube.com/embed/ufzQxIqNuwM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
-<p><strong>Iterm2 customization</strong> <a href="https://www.atpeaz.com/macos-set-up-for-coding-and-development/">macOS set up for coding and development (2022 edition)</a> Install and customise Powerlevel10k theme for ZSH</p>
-<p>iTerm2 - Accessibility and Full Disk Access<br>
-If you want to access special directories/files such as <code>~/Library/Application Support/AddressBook</code>or <code>~/Pictures/Photos Library.photoslibrary</code>, yes you need to give Full Disk Access to iTerm2. If don’t, you can not access those directories. For more information, here is the iTerm2 wiki <a href="https://gitlab.com/gnachman/iterm2/wikis/fulldiskaccess" class="uri">https://gitlab.com/gnachman/iterm2/wikis/fulldiskaccess</a>. Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Unlock to make changes &gt; Full disk access &gt; + &gt; Applications &gt; iTerm2 &gt; Open &gt; Quit &gt;</p>
-<p><a href="https://bookdown.org/home/archive/">All books on bookdown.org</a><br>
-<a href="https://bookdown.org/pkaldunn/SRM-Textbook/index.html">Scientific Research and Methodology:</a><br>
-<a href="https://bookdown.org/gongchangzhaojie/TranslationalBioinformaticsWithR/">Translational Bioinformatics with R</a><br>
-<a href="https://bookdown.org/ggiaever/omic_sciences/">Omic Sciences</a><br>
-<a href="https://bookdown.org/satwik91/SpaceX_supplementary/">Network Estimation in Spatial Transcriptomics</a><br>
-<a href="https://bookdown.org/tpinto_home/Regularisation/">Machine Learning for Biostatistics</a><br>
-<a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a><br>
-<a href="https://bookdown.org/victor_morales/TecnicasML/">Machine Learning: Teoría y Práctica</a><br>
-<a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a></p>
-</section>
-<section id="foot" class="level2">
-<h2 class="anchored" data-anchor-id="foot">foot</h2>
-<p><a href="#">top</a></p>
-<p>!/bin/bash Change format, and change max size. 20181231 DM</p>
-<p>oldFormat=HEIC newFormat=png newSize=800</p>
-<p>for i in *.$oldFormat do sips –setProperty format $newFormat –resampleHeightWidthMax <span class="math inline">\(newSize "\)</span>i” –out “<span class="math inline">\({i%\)</span>oldFormat}”$newFormat done exit 0</p>
-<p>Scientific Research and Methodology: <a href="https://bookdown.org/gongchangzhaojie/TranslationalBioinformaticsWithR/">Translational Bioinformatics with R</a> Omic Sciences Network Estimation in Spatial Transcriptomics Machine Learning for Biostatistics bookdown: Authoring Books and Technical Documents with R Markdown Machine Learning: Teoría y Práctica R Markdown Cookbook</p>
-<hr>
 
 
+</section>
 </section>
 
 
@@ -10652,7 +10506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":true,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":true,"selector":".lightbox","descPosition":"bottom"});</script>
 
 
 

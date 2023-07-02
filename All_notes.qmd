@@ -8951,7 +8951,6 @@ $navbar-bg: #EEEEEE ;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
-
 ```
 
 theme-dark.scss
@@ -9499,5 +9498,178 @@ or to insert web pages.
 ``` html
 <iframe width="780" height="500" src="https://quarto.org/" title="Quarto Documentation"></iframe>
 ```
+
+------------------------------------------------------------------------
+
+[top](#)\
+\## Videos
+
+[5 --- Markdown Images --- Mastering Markdown](https://youtu.be/Mh0Of4LzEfk)
+
+<iframe width="355" height="200" src="https://www.youtube.com/embed/Mh0Of4LzEfk" title="#5 — Markdown Images — Mastering Markdown" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[5 simple tips to making responsive layouts the easy way](https://youtu.be/VQraviuwbzU)
+
+<iframe width="355" height="200" src="https://www.youtube.com/embed/VQraviuwbzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+[How To Create Image Gallery Using HTML, CSS and Javascript \| Lightbox Gallery](https://youtu.be/TSRtBISvsh4)\
+**Lightbox Gallery**
+
+<iframe width="355" height="200" src="https://www.youtube.com/embed/TSRtBISvsh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Plan 220826
+
+-   [x] Create all the files in .Rmd as normal (in Box sync service) as bs4_book\
+    Use Rstudio::New Project.\
+    mkdocs new LabNotes....\
+-   [x] Build site in bs4 -\> Converts .Rmd to .m -\> Creates a folder with all converted .md files (all files in Box Sync, do NOT connect with git or GitHub)\
+-   [x] Create Mkdocs repositories in /documents/GitHub/\
+-   [x] Confect them to a GitHub repo\
+-   [x] Use symlinks for the .md files stored in doc/github/ folders\
+-   [x] Make GitHub commits as normal\
+-   [x] Build and deploy site as normal. So far OK.
+
+## Plan 220901
+
+All the data together is big, too big for cloud or laptop. Perhaps better place it all in Synology and then symlinks of only the .Rmd to clouds. Modifying a symlink What if sinology gets disconnected? Since it is also connected to github. Data will still be available anywhere. Create and
+
+**Problem**: Even by dividing the section in individual Rmd files to make building and rendering book more manageable, and place them in sinology cloud with symlinks and connected with github, updates and changes made with other connected devices will be not possible. Symlink will point to the file with path to file to a specific folder (in sinology), but in other devices, the symlink path will not work. The file needs to be physically or remotely connected with the device, in this case, perhaps will be better:\
+\[ \] Place all the Rmd files in cloud service (Box)\
+\[ \] Create the symlinks from Box to Local folder (Git/Githb) for each device in use.\
+\[ \] Connect each local book to same repository in gihub. \]; building of the book will not be possible form
+
+**Important folders:**\
+MBP20\
+Box \> Github \> Mkdocs \> mkdocs_dumpAll (all the Rmd and md? From all experiment, notes): make the symlinks from here to the other folders.\
+**Samples**: Contains all the book samples except mkdocs materialize.\
+Bs4_book creates md files to create the html (useful for converting into mkdocs materialize)\
+**Temp**: Contains all the Rmd files form the LabNotesAll_bs4, continuation of the folder with the same name (2nd trial)\
+MBA03 (mkdocs build locally for All.md only, no html files)\
+LabNotesAll_bs4 (currently working in this project as trial, contains: Initialization, Terminal, VSCode, Markdown. All are first trial)\
+bs4_LabNotes\
+Gitbooks:\
+Niigata Uni Box \> Book-Notes \>\
+Notes: All notes are here.
+
+Documents \> GitHub \>\
+Research_Notebook: Made in bookdown, is the old research notes (do not mistake with other samples. Keep for the moment)‼
+
+\~/Box Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book samples/SimpleArticle_samp
+
+/Volumes/homes/RosalesJM/SynDS220/GitHub/Experiments_Lab/LabNotesAll/AllNotes_SimpArt\
+\~/Box Sync/Github/mkdocs/LabNotesAll_bs4
+
+\~/Box Sync/Github/mkdocs/mkdocs_dumpAll/Markdown02.Rmd
+
+------------------------------------------------------------------------
+
+[top](#)
+
+## Special entries to review later
+
+-   [x] Markdown all in one. For toc, see how to modify table here.
+
+-   [x] [Handbook Markdown Guide](https://about.gitlab.com/handbook/markdown-guide/). Seems like only works for gitlab....\
+
+-   [ ] [Rmarkdown into Word - change a title in toc](https://community.rstudio.com/t/rmarkdown-into-word-change-a-title-in-toc/48137)\
+    In the yaml set:\
+
+-   [x] How to Create A Batch **Cask Installer** for Homebrew (Using a Simple Bash Script). https://youtu.be/1J9NKpjJegk
+
+-   [x] Create the brewfile with dump command.\
+
+-   [x] Customize Prompt with dotfiles.\
+
+-   [x] Make a MkDocs Site. Made Site, very good documentation but is an md non RStudio package, so I change to quarto for better productivity\
+
+-   [ ] create a Hugo Theme form scratch
+
+-   [x] Costumize iTerm2. (Powerlevel10k theme installed succesfully )\
+
+-   [x] Zotero plugin not downloading form chrome (refreshed page and worked normal).\
+
+-   [ ] Outlines: Tips for Preparing Large Writing Projects (play list): https://youtu.be/osxUFsnY6zg\
+
+-   [x] Academic Writing in Markdown: bib, Bib(La)Tex, Pandocs, Marked 2 AppleScripts: Zotpick (playlist) https://www.youtube.com/watch?v=hpAJMSS8pvs&list=PLXt-tu7G1H3tLeZgbbUmYjE0_kvbjA4YU\
+
+-   [x] [Bookdown and Github Pages](https://youtu.be/RdSmYvbQkhs)\
+
+-   [x] [R tip: Schedule R scripts on a Mac](https://youtu.be/J72LP2_yv1U+) **review this again, good for run exc files on schedule.**\
+
+-   [ ] [Automate the boring stuff -ebook-](https://automatetheboringstuff.com/#toc)\
+
+-   [ ] [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)\
+
+-   [x] [R Markdown Advanced Tips to Become a Better Data Scientist & RStudio Connect \| With Tom Mock](https://www.youtube.com/watch?v=WkF7nqEYF1E) **Good, review, specially the part of shiny applications.**\
+
+-   [ ] [Markdown Monster Documentation](https://markdownmonster.west-wind.com/docs/_69j1049io.htm)\
+
+-   [ ] [RMarkdown for Scientists](https://rmd4sci.njtierney.com/)
+
+Rmarkdown directing output file into a directory\
+[Uni biopro2 webpage](https://shinsen-mc.co.jp/test/prosth2/research.html)
+
+[Setting up a brand new Hugo Site](https://youtu.be/Xx51jzysb1s)\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/Xx51jzysb1s " title="LIVE: #JAMSTACK - Setting up a brand new Hugo Site" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Building a Hugo Theme from Scratch](https://youtu.be/E4IvX7wT9HE)\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/E4IvX7wT9HE " title="LIVE: #JAMSTACK - Building a Hugo Theme from Scratch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Building a Hugo Theme from Scratch PART 2](https://youtu.be/GlpMokJL28U)\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/GlpMokJL28U " title="
+LIVE: #JAMSTACK - Building a Hugo Theme from Scratch PART 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Virtual machines.
+
+[VirtualBox: How to Use Snapshots](https://youtu.be/Qte4X-rdr2Q)\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/Qte4X-rdr2Q " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[How to Record and Play Back Mouse Activity in macOS automator](https://youtu.be/x3dxfpQ8KGY)\
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x3dxfpQ8KGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>.
+
+<https://www.w3schools.com/html/html_comments.asp>
+
+Git & GitHub Crash Course For Beginners. Vid\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/SWYqp7iY_Tc " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>.
+
+[Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+How to set a Directory as an Argument in Bash
+
+**R Programming Tutorial - 3 - How to Run a Simple Program.**\
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/ufzQxIqNuwM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Iterm2 customization** [macOS set up for coding and development (2022 edition)](https://www.atpeaz.com/macos-set-up-for-coding-and-development/) Install and customise Powerlevel10k theme for ZSH
+
+iTerm2 - Accessibility and Full Disk Access\
+If you want to access special directories/files such as `~/Library/Application Support/AddressBook`or `~/Pictures/Photos Library.photoslibrary`, yes you need to give Full Disk Access to iTerm2. If don't, you can not access those directories. For more information, here is the iTerm2 wiki <https://gitlab.com/gnachman/iterm2/wikis/fulldiskaccess>. Preferences \> Security & Privacy \> Privacy \> Unlock to make changes \> Full disk access \> + \> Applications \> iTerm2 \> Open \> Quit \>
+
+[All books on bookdown.org](https://bookdown.org/home/archive/)\
+[Scientific Research and Methodology:](https://bookdown.org/pkaldunn/SRM-Textbook/index.html)\
+[Translational Bioinformatics with R](https://bookdown.org/gongchangzhaojie/TranslationalBioinformaticsWithR/)\
+[Omic Sciences](https://bookdown.org/ggiaever/omic_sciences/)\
+[Network Estimation in Spatial Transcriptomics](https://bookdown.org/satwik91/SpaceX_supplementary/)\
+[Machine Learning for Biostatistics](https://bookdown.org/tpinto_home/Regularisation/)\
+[bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)\
+[Machine Learning: Teoría y Práctica](https://bookdown.org/victor_morales/TecnicasML/)\
+[R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+
+## foot
+
+[top](#)
+
+!/bin/bash Change format, and change max size. 20181231 DM
+
+oldFormat=HEIC newFormat=png newSize=800
+
+for i in \*.\$oldFormat do sips --setProperty format \$newFormat --resampleHeightWidthMax $newSize "$i" --out "${i%$oldFormat}"\$newFormat done exit 0
+
+Scientific Research and Methodology: [Translational Bioinformatics with R](https://bookdown.org/gongchangzhaojie/TranslationalBioinformaticsWithR/) Omic Sciences Network Estimation in Spatial Transcriptomics Machine Learning for Biostatistics bookdown: Authoring Books and Technical Documents with R Markdown Machine Learning: Teoría y Práctica R Markdown Cookbook
 
 ------------------------------------------------------------------------
