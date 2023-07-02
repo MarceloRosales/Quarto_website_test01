@@ -8886,31 +8886,83 @@ New project \>
 
 ### Summary
 
-1.  Create New quarto project.
+#### 1. Create New quarto project.
 
-File \> New Project \> New directory \> Quarto website \> Browse: \~/Documents/GitHub/Quarto; dir name: descSPIM_LSmicro \> create repository.
+File » New Project » New directory » Quarto website » Browse: \~/Documents/GitHub/Quarto; dir name: descSPIM_LSmicro » create repository.
 
-**Files:**\
-- Renv » + styles.css » + \_quarto.yml + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj
+> To wrap code in Rstudio: `//Code » Soft wrap long lines`
 
-**Files + hiden files:**\
-- .git » - .Rproj.user » - Renv » + styles.css + \_quarto.yml + .gitignore + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj
+**Files:**
 
-**Render Q site files:**\
-- \_site » - .git - .quarto\
-- .Rproj.user - renv + styles.css + \_quarto.yml + .gitignore + .Rprofile + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj
+-   Renv »
+    -   styles.css »
+    -   \_quarto.yml
+    -   renv.lock
+    -   about.qmd
+    -   index.qmd
+    -   Research_Notes_230601.Rproj
 
-Open files: index.qmd, \_quarto.yml
+**Files + hiden files:**
 
-Folder contains: styles.css about.qmd index.qmd descSPIM_LSmicro.Rproj \_quarto.yml
+-   `.git` »
+-   `.Rproj.user` »
+-   Renv »
+    -   styles.css
+    -   \_quarto.yml
+    -   `.gitignore`
+    -   renv.lock
+    -   about.qmd
+    -   index.qmd
+    -   Research_Notes_230601.Rproj
 
-2.  Configure \_quarto.yml file nav
+**Render Q site files:**
+
+-   `_site` »
+-   .git
+-   `.quarto`
+-   .Rproj.user
+-   renv
+    -   styles.css
+    -   \_quarto.yml
+    -   .gitignore
+    -   .Rprofile
+    -   renv.lock
+    -   about.qmd
+    -   index.qmd
+    -   Research_Notes_230601.Rproj
+
+Open files:
+
+-   index.qmd,
+-   \_quarto.yml
+
+Folder contains:
+
+-   styles.css
+-   about.qmd
+-   index.qmd
+-   descSPIM_LSmicro.Rproj
+-   \_quarto.yml
+
+#### 2. Configure \_quarto.yml file
 
 Auto-completion works by pressing tab. Careful!! tab level influence auto-complation options. If in the wrong level, then option will not be found.
 
-See: [Website Navigation](https://quarto.org/docs/websites/website-navigation.html#overview) [Page Layout](https://quarto.org/docs/output-formats/page-layout.html#grid-customization)
+See:
 
-**Create scss files** for theme and theme-dark options:
+[Website Navigation](https://quarto.org/docs/websites/website-navigation.html#overview) [Page Layout](https://quarto.org/docs/output-formats/page-layout.html#grid-customization)
+
+##### 2.1 Change output dir:
+
+Change output form `_site` to `docs`.
+
+``` yaml
+project:
+  type: website
+  output-dir: docs
+```
+
+##### 2.2 Create scss files for theme and theme-dark options:
 
 theme.scss
 
@@ -8922,6 +8974,7 @@ $text-muted: #6a737b;
 // Navigation element colors
 $footer-bg: #181818;
 $navbar-bg: #EEEEEE ;
+
 
 /*-- scss:rules --*/
 
@@ -8969,6 +9022,7 @@ $light: #525252;
 $footer-bg: #181818;
 $navbar-bg: #303030;
 
+
 // Code blocks
 $code-block-bg-alpha: -.8;
 
@@ -8983,6 +9037,7 @@ $dropdown-link-color: $body-color;
 $dropdown-link-hover-bg: $gray-600;
 $dropdown-link-hover-color: white;
 
+
 /*-- scss:rules --*/
 
 .layout-example {
@@ -8990,83 +9045,198 @@ $dropdown-link-hover-color: white;
 }
 ```
 
-3.  Render the created page and check status.
+##### 2.3 Set hltm format and add css created
 
-Build \> Render Web site
+Original yaml:
 
-Folder now contains: \_quarto.yml docs styles.css about.qmd index.qmd descSPIM_LSmicro.Rproj theme-dark.scss theme.scss
+``` yaml
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
 
-4.  Add a .nojekyll file to the root of your repository that tells GitHub Pages not to do additional processing of your published site using Jekyll (the GitHub default site generation tool). see: **Quarto-GitHub Pages**
+Personalized html format in yaml:
+
+``` yaml
+format:
+  html:
+    fontsize: "6"
+    toc: true
+    toc-depth: 6
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss] # change theme (cosmo) colors and formats in the scss files
+    code-copy: true
+    code-fold: false
+    code-overflow: wrap
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+#    code-line-numbers: true
+    css: styles.css
+    include-after-body: js.html
+    self-contained: false # If true, it will not create the site files but one html file. 
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+#    tbl-colwidths: [40, 60]  # tables column withs 40% and 60%
+```
+
+##### 2.4 Styled website nav
+
+Add Icons and search bar:
+
+``` yaml
+website:
+  title: "MySite"
+  image: "images/img01.png" # where this images goes?. only works with specifit themes?...
+  favicon: "images/favicon.png" # Small icon in the bewbrowser tab (ex. uni logo)
+  open-graph: true #https://quarto.org/docs/websites/website-tools.html, https://www.youtube.com/watch?v=QwEQKM4YRnU&t=2s
+  #twitter-card: true #https://quarto.org/docs/websites/website-tools.html#twitter-cards
+  search: true 
+```
+
+##### 2.5 Add a .nojekyll file
+
+to the root of your repository that tells GitHub Pages not to do additional processing of your published site using Jekyll (the GitHub default site generation tool). see: **Quarto-GitHub Pages**
 
 ``` bash
-#| eval: false
-
 touch .nojekyll
 ```
 
-4.  Connect to GitHub.
+#### 3. Render the created page and check status.
 
-Go to GitHub account \> Create New Repository \> Repo name \> Add description \> Create Repo
+Build » Render Web site
 
-Git ignore: R files
+**Render Q site files:**
 
-**In github.com:**\
-1. Github \> create new repo \> name: \> description: \> ©Public \> © Add readme file \> © Add .gitignore: ˇ{R} \> © Create repository\
-1. Repo settings \> Pages \> Source \> ˇBranch: © main \> /(root) \> ©save (new page is created)\
-1. Got to // Code \> code \> clone \> htpps (copy github page address)
+-   `_site` »
+-   .git
+-   `.quarto`
+-   .Rproj.user
+-   renv
+    -   styles.css
+    -   \_quarto.yml
+    -   .gitignore
+    -   .Rprofile
+    -   renv.lock
+    -   about.qmd
+    -   index.qmd
+    -   Research_Notes_230601.Rproj
 
-git ignore R files copy the repo_url
+#### 4. Connect to GitHub
 
-\*\*Connect Quarto website to Github with \>\_:\*\*\
-git init\
-git config --global init.defaultBranch main \# New repos will use "main" as default branch. git branch -m main \# changes the name of branch from "master" to "main" git add .\
-git status\
-git config --global user.name <MyGitAccount> \# (MR)\
-git config --global user.email \<myemail.com\> \# (hot)\
-git commit -m "Initial Commit"\
-git status \# (empty)
+##### 4.1 In github.com:
 
-gedit gitignore (edit gitignore to don't track files...??)
+1.  `Github » create new repo » name: » description: » ©Public » © Add readme file » © Add .gitignore: ˇ{R} » © Create repository`
+2.  Repo settings » Pages » Source » ˇBranch: © main » /(root) » ©save (new page is created)
+3.  Got to // Code » code » clone » htpps (copy github page address)
+4.  In gitignore add:
 
-Messages: (Solved) \@ git init: Using 'master' as the name for the initial branch. This default branch name is subject to change. To configure the initial branch name to use in all of your new repositories, which will suppress this warning, call: git config --global init.defaultBranch <name> Names commonly chosen instead of 'master' are 'main', 'trunk' and 'development'. The just-created branch can be renamed via this command: git branch -m <name>
+git ignore R files\
+copy the repo_url
 
-\*\*\>\_:\*\*\
-git remote add origin <repo_url>\
-! \[rejected\] main -\> main (fetch first) error: failed to push some refs to 'https://github.com/MarceloRosales/descSPIM_LSmicro.git' git pull \* \[new branch\] main -\> origin/main There is no tracking information for the current branch. Please specify which branch you want to merge with.
+##### 4.2 Connect Quarto website to Github with:
 
-[What to do when git push is rejected](https://qiita.com/Takao_/items/5e563d5ea61d2829e497) **Solution 1**\
-git pull origin main git push origin main\
-! \[rejected\] main -\> main (fetch first) error: failed to push some refs to 'https://github.com/MarceloRosales/descSPIM_LSmicro.git' **Solution 2 (solved)**\
-git push -f origin main \# Forces push, careful!! deletes one of the branches (local?/remote?)
+``` bash
+git init
+git config --global init.defaultBranch main # New repos will use "main" as default branch
+git branch -m main # changes the name of branch from "master" to "main"-git add .
+git status
+git config --global user.name <MyGitAccount> # (MR)
+git config --global user.email <myemail.com> # (hot)
+git commit -m "Initial Commit"
+git status # (empty)
+gedit gitignore (edit gitignore to do not track files…??)
+```
+
+Messages:
+
+(Solved) \@ git init: Using 'master' as the name for the initial branch. This default branch name is subject to change. To configure the initial branch name to use in all of your new repositories, which will suppress this warning, call:
+
+``` bash
+git config –global init.defaultBranch <main> 
+```
+
+Names commonly chosen instead of 'master' are 'main', 'trunk' and 'development'. The just-created branch can be renamed via this command:
+
+``` bash
+git branch -m old-name new-name
+```
+
+**\>\_:**
+
+``` bash
+git remote add origin <repo_url>
+```
+
+::: callout-warning
+message:\
+! \[rejected\] main -\> main (fetch first) error: failed to push some refs to 'https://github.com/\~'
+:::
+
+``` bash
+git pull
+```
+
+::: callout-warning
+message:\
+\* \[new branch\] main -\> origin/main There is no tracking information for the current branch. Please specify which branch you want to merge with.
+:::
+
+[What to do when git push is rejected](https://qiita.com/Takao_/items/5e563d5ea61d2829e497)
+
+**Solution 1**
+
+``` bash
+git pull origin main 
+git push origin main
+```
+
+::: callout-warning
+! \[rejected\] main -\> main (fetch first) error: failed to push some refs to 'https://github.com/MarceloRosales/descSPIM_LSmicro.git'
+:::
+
+**Solution 2 (solved)**
+
+``` bash
+git push -f origin main # Forces push, careful!! deletes one of the branches (local?/remote?)
+```
 
 type github username: type github Password: (push from local main branch to remote main branch)
 
-===================================
+------------------------------------------------------------------------
 
-Up to now, there have been conflicts conectig github and local repo; this might help. Try next time.
+Up to now, there have been conflicts conecting github and local repo; this might help.
+
+Try next time.
 
 See: <https://quarto.org/docs/publishing/github-pages.html>
 
-**Publish Command** The quarto publish command is an easy way to publish locally rendered documents and websites. Before attempting to use quarto publish (either locally or from a GitHub Action) you should be sure to configure the Source Branch and Ignore Output as described below.
+**Publish Command**
 
-**Source Branch** Before attempting to publish you should ensure that the Source branch for your repository is gh-pages (now is
+The quarto publish command is an easy way to publish locally rendered documents and websites.
 
-<main>
+Before attempting to use quarto publish (either locally or from a GitHub Action) you should be sure to configure the Source Branch and Ignore Output as described below.
 
-) and that the site directory is set to the repository root (/) (now
+**Source Branch**
 
-<main>
+Before attempting to publish you should ensure that the Source branch for your repository is gh-pages (now is `main` ) and that the site directory is set to the repository root (/) (now `main` ).
 
-). You can modify these options in Settings : Pages for your repository.
+You can modify these options in Settings : Pages for your repository.
 
-```{bash}
+``` bash
 git checkout --orphan gh-pages # main?
 git reset --hard # make sure you've committed changes before running this!
 git commit --allow-empty -m "Initialising main branch"
 git push origin gh-pages # main?  
 ```
 
-**Ignoring Output** It's important to note that you don't need to check your \_site or \_book directory into version control (if you have done this in the past you know it makes for very messy diffs!). Before proceeding you should add the output directory of your project to .gitignore. For example:
+**Ignoring Output**
+
+It's important to note that you don't need to check your \_site or \_book directory into version control (if you have done this in the past you know it makes for very messy diffs!). Before proceeding you should add the output directory of your project to .gitignore. For example:
 
 ``` gitignore
 .gitignore
@@ -9082,45 +9252,49 @@ git rm -r _site
 
 See also **Freezing Computations**.
 
-===================================\
-**After first commit:**\
-Modify code. (and save files)\
-Render\
-git add .\
-git status\
-git commit -m "commit message"\
-git status\
-git push git pull
+##### 4.3 After first commit:
 
-**Other git commands:**\
-git reflog (past git logs)\
-git checkout -b other-branch (Switch to a new branch)\
-git branch -a (lists of branches)\
-rm -fr .git (remove git files)\
-git config --global user.name "MR"\
-git config --global user.email "...@ho"\
-git config credential.helper store\
-git commit -m "1st commit"\
-git log \# If want to revert to a preview's version, Copy hash click Q to quit.\
-git checkout {hash copied from log}\
-git checkout -b {new branch name} \# Create a new branch.\
-git branch {new branch name} {hash} \# Create new branch, if revert to previous, add hash\
-git checkout {branch name} \# To change branches\
-git merge {branch name} \# merge b[\[\](https://qiita.com/Takao\_/items/5e563d5ea61d2829e497)](https://qiita.com/Takao_/items/5e563d5ea61d2829e497)ranch to main
+Modify code. (and save files) Render
+
+``` bash
+git add .
+git status
+git commit -m "commit message"
+git status
+git push
+git pull
+```
+
+**Other git commands:**
+
+``` bash
+git reflog (past git logs)
+git checkout -b other-branch (Switch to a new branch)
+git branch -a (lists of branches)
+rm -fr .git (remove git files)
+git config --global user.name "MR"
+git config --global user.email "...@ho"
+git config credential.helper store
+git commit -m "1st commit"
+git log  # If want to revert to a preview's version, Copy hash click Q to quit.
+git checkout {hash copied from log}
+git checkout -b {new branch name} # Create a new branch.
+git branch {new branch name} {hash} # Create new branch, if revert to previous, add hash
+git checkout {branch name} # To change branches
+git merge {branch name} # merge [\[\](https://qiita.com/Takao\_/items/5e563d5ea61d2829e497)](https://qiita.com/Takao_/items/5e563d5ea61d2829e497) branch to main
+```
 
 **Deploy to github pages:**
 
-Settings \> Pages \> Branch:
+Settings » Pages » Branch: `main`, built: `docs` » save
 
-<main>
+link address will be display at the top of the GitHub Pages
 
-, built: </docs> \> save
-
-link address will be display at the top of the GitHub Pages Github Pages \> Your site is live at....
+Github Pages » Your site is live at....
 
 **Set address in Repo profile:**
 
-Code \> About (gear icon) \> ...\[\]... \> website: use you GitHub Pages website
+Code » About (gear icon) » ...\[\]... » website: use you GitHub Pages website
 
 **Add custom domain:**
 
@@ -9482,7 +9656,7 @@ Or simply: /
 For iframe video, select the html Block, it will make a {=html} block that will display the video when quarto page is render. see <https://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html>
 
 ```{=html}
-<iframe width="426" height="240" src="https://www.youtube.com/embed/fP3H75_Xg18" title="Chaos Theory: The Science Behind the Miracle of Intelligent Life | Doc Of The Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="1164" height="480" src="https://www.youtube.com/embed/fP3H75_Xg18" title="Chaos Theory: The Science Behind the Miracle of Intelligent Life | Doc Of The Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
 Code for videos:
 
@@ -9498,6 +9672,8 @@ or to insert web pages.
 ``` html
 <iframe width="780" height="500" src="https://quarto.org/" title="Quarto Documentation"></iframe>
 ```
+
+------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
