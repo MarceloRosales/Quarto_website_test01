@@ -9482,7 +9482,7 @@ Or simply: /
 For iframe video, select the html Block, it will make a {=html} block that will display the video when quarto page is render. see <https://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html>
 
 ```{=html}
-<iframe width="1164" height="480" src="https://www.youtube.com/embed/fP3H75_Xg18" title="Chaos Theory: The Science Behind the Miracle of Intelligent Life | Doc Of The Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="426" height="240" src="https://www.youtube.com/embed/fP3H75_Xg18" title="Chaos Theory: The Science Behind the Miracle of Intelligent Life | Doc Of The Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ```
 Code for videos:
 
