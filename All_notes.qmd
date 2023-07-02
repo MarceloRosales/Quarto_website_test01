@@ -8881,3 +8881,623 @@ $ Hugo Static Site Generator v0.13 BuildDate: 2015-03-09T21:34:47-05:00
 New project \>
 
 ------------------------------------------------------------------------
+
+## Quarto
+
+### Summary
+
+1.  Create New quarto project.
+
+File \> New Project \> New directory \> Quarto website \> Browse: \~/Documents/GitHub/Quarto; dir name: descSPIM_LSmicro \> create repository.
+
+**Files:**\
+- Renv » + styles.css » + \_quarto.yml + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj
+
+**Files + hiden files:**\
+- .git » - .Rproj.user » - Renv » + styles.css + \_quarto.yml + .gitignore + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj
+
+**Render Q site files:**\
+- \_site » - .git - .quarto\
+- .Rproj.user - renv + styles.css + \_quarto.yml + .gitignore + .Rprofile + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj
+
+Open files: index.qmd, \_quarto.yml
+
+Folder contains: styles.css about.qmd index.qmd descSPIM_LSmicro.Rproj \_quarto.yml
+
+2.  Configure \_quarto.yml file nav
+
+Auto-completion works by pressing tab. Careful!! tab level influence auto-complation options. If in the wrong level, then option will not be found.
+
+See: [Website Navigation](https://quarto.org/docs/websites/website-navigation.html#overview) [Page Layout](https://quarto.org/docs/output-formats/page-layout.html#grid-customization)
+
+**Create scss files** for theme and theme-dark options:
+
+theme.scss
+
+``` css
+/*-- scss:defaults --*/
+$link-color: #39729E;
+$text-muted: #6a737b;
+
+// Navigation element colors
+$footer-bg: #181818;
+$navbar-bg: #EEEEEE ;
+
+/*-- scss:rules --*/
+
+.layout-example {
+  background: $gray-500;
+  color: $white;
+  text-align: center;
+  margin-bottom: 1em;
+  font-family: $font-family-monospace;
+  font-size: .875em;
+  font-weight: 600;
+  padding-top: 1em;
+  border-radius: 3px;
+}
+
+.left {
+  text-align: left;
+  padding-left: 1em;
+}
+
+.right {
+  text-align: right;
+  padding-right: 1em;
+}
+
+.hello-quarto-banner h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+```
+
+theme-dark.scss
+
+``` css
+/*-- scss:defaults --*/
+
+// Base document colors
+$body-bg: #181818;
+$body-color: white;
+$link-color: #75AADB;
+
+$light: #525252;
+
+// Navigation element colors
+$footer-bg: #181818;
+$navbar-bg: #303030;
+
+// Code blocks
+$code-block-bg-alpha: -.8;
+
+// Bootstrap popovers
+$popover-bg: #242424;
+
+// Bootstrap inputs
+$input-bg: #242424;
+$dropdown-bg: $body-bg;
+$dropdown-color: $body-color;
+$dropdown-link-color: $body-color;
+$dropdown-link-hover-bg: $gray-600;
+$dropdown-link-hover-color: white;
+
+/*-- scss:rules --*/
+
+.layout-example {
+  background: $gray-700;
+}
+```
+
+3.  Render the created page and check status.
+
+Build \> Render Web site
+
+Folder now contains: \_quarto.yml docs styles.css about.qmd index.qmd descSPIM_LSmicro.Rproj theme-dark.scss theme.scss
+
+4.  Add a .nojekyll file to the root of your repository that tells GitHub Pages not to do additional processing of your published site using Jekyll (the GitHub default site generation tool). see: **Quarto-GitHub Pages**
+
+``` bash
+#| eval: false
+
+touch .nojekyll
+```
+
+4.  Connect to GitHub.
+
+Go to GitHub account \> Create New Repository \> Repo name \> Add description \> Create Repo
+
+Git ignore: R files
+
+**In github.com:**\
+1. Github \> create new repo \> name: \> description: \> ©Public \> © Add readme file \> © Add .gitignore: ˇ{R} \> © Create repository\
+1. Repo settings \> Pages \> Source \> ˇBranch: © main \> /(root) \> ©save (new page is created)\
+1. Got to // Code \> code \> clone \> htpps (copy github page address)
+
+git ignore R files copy the repo_url
+
+\*\*Connect Quarto website to Github with \>\_:\*\*\
+git init\
+git config --global init.defaultBranch main \# New repos will use "main" as default branch. git branch -m main \# changes the name of branch from "master" to "main" git add .\
+git status\
+git config --global user.name <MyGitAccount> \# (MR)\
+git config --global user.email \<myemail.com\> \# (hot)\
+git commit -m "Initial Commit"\
+git status \# (empty)
+
+gedit gitignore (edit gitignore to don't track files...??)
+
+Messages: (Solved) \@ git init: Using 'master' as the name for the initial branch. This default branch name is subject to change. To configure the initial branch name to use in all of your new repositories, which will suppress this warning, call: git config --global init.defaultBranch <name> Names commonly chosen instead of 'master' are 'main', 'trunk' and 'development'. The just-created branch can be renamed via this command: git branch -m <name>
+
+\*\*\>\_:\*\*\
+git remote add origin <repo_url>\
+! \[rejected\] main -\> main (fetch first) error: failed to push some refs to 'https://github.com/MarceloRosales/descSPIM_LSmicro.git' git pull \* \[new branch\] main -\> origin/main There is no tracking information for the current branch. Please specify which branch you want to merge with.
+
+[What to do when git push is rejected](https://qiita.com/Takao_/items/5e563d5ea61d2829e497) **Solution 1**\
+git pull origin main git push origin main\
+! \[rejected\] main -\> main (fetch first) error: failed to push some refs to 'https://github.com/MarceloRosales/descSPIM_LSmicro.git' **Solution 2 (solved)**\
+git push -f origin main \# Forces push, careful!! deletes one of the branches (local?/remote?)
+
+type github username: type github Password: (push from local main branch to remote main branch)
+
+===================================
+
+Up to now, there have been conflicts conectig github and local repo; this might help. Try next time.
+
+See: <https://quarto.org/docs/publishing/github-pages.html>
+
+**Publish Command** The quarto publish command is an easy way to publish locally rendered documents and websites. Before attempting to use quarto publish (either locally or from a GitHub Action) you should be sure to configure the Source Branch and Ignore Output as described below.
+
+**Source Branch** Before attempting to publish you should ensure that the Source branch for your repository is gh-pages (now is
+
+<main>
+
+) and that the site directory is set to the repository root (/) (now
+
+<main>
+
+). You can modify these options in Settings : Pages for your repository.
+
+```{bash}
+git checkout --orphan gh-pages # main?
+git reset --hard # make sure you've committed changes before running this!
+git commit --allow-empty -m "Initialising main branch"
+git push origin gh-pages # main?  
+```
+
+**Ignoring Output** It's important to note that you don't need to check your \_site or \_book directory into version control (if you have done this in the past you know it makes for very messy diffs!). Before proceeding you should add the output directory of your project to .gitignore. For example:
+
+``` gitignore
+.gitignore
+/.quarto/
+/_site/
+```
+
+If you've already checked these files into source control you may need to remove them explicitly:
+
+``` bash
+git rm -r _site
+```
+
+See also **Freezing Computations**.
+
+===================================\
+**After first commit:**\
+Modify code. (and save files)\
+Render\
+git add .\
+git status\
+git commit -m "commit message"\
+git status\
+git push git pull
+
+**Other git commands:**\
+git reflog (past git logs)\
+git checkout -b other-branch (Switch to a new branch)\
+git branch -a (lists of branches)\
+rm -fr .git (remove git files)\
+git config --global user.name "MR"\
+git config --global user.email "...@ho"\
+git config credential.helper store\
+git commit -m "1st commit"\
+git log \# If want to revert to a preview's version, Copy hash click Q to quit.\
+git checkout {hash copied from log}\
+git checkout -b {new branch name} \# Create a new branch.\
+git branch {new branch name} {hash} \# Create new branch, if revert to previous, add hash\
+git checkout {branch name} \# To change branches\
+git merge {branch name} \# merge b[\[\](https://qiita.com/Takao\_/items/5e563d5ea61d2829e497)](https://qiita.com/Takao_/items/5e563d5ea61d2829e497)ranch to main
+
+**Deploy to github pages:**
+
+Settings \> Pages \> Branch:
+
+<main>
+
+, built: </docs> \> save
+
+link address will be display at the top of the GitHub Pages Github Pages \> Your site is live at....
+
+**Set address in Repo profile:**
+
+Code \> About (gear icon) \> ...\[\]... \> website: use you GitHub Pages website
+
+**Add custom domain:**
+
+------------------------------------------------------------------------
+
+### Outline
+
+What I have done it so far... What are the problems? What are the solution? What I am expecting to accomplish?
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+The choice between using Quarto and simple R Markdown depends on the specific needs and requirements of your project. Here are a few reasons why you might consider using Quarto:
+
+1.  Enhanced functionality: Quarto offers additional features and functionality compared to simple R Markdown. It provides support for literate programming, version control, customizable templates, and more. If you require advanced capabilities for your project, such as generating reports with complex formatting, incorporating interactive elements, or integrating code and documentation seamlessly, Quarto can be a powerful tool.
+
+2.  Document generation and collaboration: Quarto is designed for collaborative document generation, making it easier for teams to work together on projects. It provides features like automated rendering, document caching, and document diffing, which can facilitate collaboration and streamline the document development process.
+
+3.  Extensibility: Quarto allows for extensibility through custom engines, allowing you to integrate additional programming languages or document formats into your project. This flexibility can be beneficial if you need to incorporate non-R code or work with specific document formats beyond what simple R Markdown offers.
+
+4.  Community and support: Quarto has an active community of users and developers who contribute to its development and provide support. If you encounter any issues or have questions, you can rely on community resources to find assistance and guidance.
+
+However, it's important to note that simple R Markdown is still a powerful and widely used tool for generating documents with R. If your project requirements are straightforward and don't require the additional features provided by Quarto, using simple R Markdown may be sufficient and more straightforward. Ultimately, the choice between Quarto and simple R Markdown should be based on your specific project needs, preferences, and the complexity of the document you aim to generate.
+
+### Intent
+
+**Problem 1: Notebook keeping.**
+
+Experimental notes are distributed in many different folders and files; sometimes even in different drives and it is difficult to **keep track** of all information. A centralized direct access to information at any time is required.
+
+The standard way to do it is by using Microsoft Office programs
+
+Word:\
+Pros:
+
+-   Best way to manage "tables" within text editor.\
+-   Inter-compatibility with word, excel, ppt and other programs.\
+-   Easy to send and collaborate with others.\
+-   The Standard for all purposes.
+
+Cons:
+
+-   File size gets too big very fast.\
+-   images and links slows down computer.\
+-   Files are scatter all around different folders, hard to manage.\
+-   No easy way to compile information across projects and experiments.
+
+**Problem 2: Software and code management.**
+
+-   Code management is a serious problem, word cannot manage it at all.
+-   
+
+Software:
+
+-   brew to install all research software.\
+-   MS Office\
+-   R and RStudio\
+-   VS Code\
+-   Quarto\
+-   Zotero\
+-   Anaconda\
+-   Git\
+-   GitHub\
+-   Git Kraken\
+-   ImageJ\
+-   Calibre\
+-   DigiKam\
+-   Docker?\
+-   Syncthing\
+-   FreeCad\
+-   Blender
+
+> Small digression: Think on the possibility of a centrilized Folder for all notes, word, r, qmd, pyton, bash, and using symlinks to move and compile projects (like a puzzle) to create new content.
+
+> Why I am changeing to quarto?
+
+### Solutions:
+
+**key Shortcuts**: Files: Excel best tricks.xlsx; Markdown02.docx
+
+#### Notekeeping:
+
+**1. Save all notes in one place.**
+
+/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes, then symlik to other projects.
+
+-   Does symlinks work with github, syncthing, synology, host (hostinger), etc?
+-   Which type of symlik is best? soft or hard?
+
+**2. Files and folders:**
+
+/Users/marcelorosales/Box Sync/Github
+
+-   DotFiles: What are dotfiles? To create executable file to install all programs ex. [brew.sh](/Users/marcelorosales/Box%20Sync/Github/DotFiles/CMSs%20dotfiles/CMdotfiles-master/brew.sh) and settings at once with one executable command.
+    -   conda shells
+    -   iTerm: Fonts
+-   GitBooks: What are Gitbooks?
+-   mkdocs
+-   NiigataU-Carving: html
+-   Quarto (VS and R)
+-   Rstudio: Shared files among devices
+-   Visual Studio Code
+
+/Users/marcelorosales/Box Sync/Documents/R
+
+-   Course01-R Programming A-Z\
+-   Course02- R Programing - Advanced Analitics\
+-   R Bookdown\
+-   R Example scripts\
+-   R exmple df\
+-   R external sources\
+-   R package files\
+-   R Preferences and packages\
+-   Rmarkdown\
+-   Tests forlder\
+-   Working Directory
+
+MBP20 files: /Users/marcelorosales/Documents/GitHub:
+
+-   **Bioinformatics_RNA-seq** (Gitbook)\*\*
+-   **Carving** (HTML web page made entirely manually)
+-   DotFiles (Empty) x
+-   Example (Hugo Site trial01, empty) x\
+-   Img (RNA analysis image samples)\
+-   Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/ \_book/08-Preparation.md) \*\
+-   mkdocs_Tests (Trial of submenus in mkdocs) x\
+-   MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md) \*\
+-   Quarto:\
+-   **quarto-tip-a-day** (webpage downloaded from quarto site)\
+-   **quarto-trials:**
+    -   quarto_blog\
+    -   quarto_book\
+    -   quarto_project\
+    -   **quarto_website** (Quarto page test01, <https://marcelorosales.github.io/Quarto_website_test01/>) +++\
+-   **quarto-web** (Downloaded entire quarto web site)\
+-   Research_Experiments:
+    -   PhotoConvertibleCells (Example only, no content)\
+-   Research_Notebook: (Experiment Notebooks, All reseach Notes, <https://marcelorosales.github.io/Research_Notebook/> )\
+-   Retrolog (Hugo lithium) x\
+-   Temptests (RNA Seq for STAT3 example of RNA sequencing) \*\*\
+-   VS Code (VS code cheat sheets) \*\
+-   ZdocTest1 (Zdoc-blogdown test) x\
+-   zipfiles\
+-   Hugotree.docx\
+-   Research_Notebook.Rmd (Research Notes, Research Notebook) \*\*
+
+MBP15 files:
+
+Synology files:
+
+Github pages:
+
+MarceloRosales/MkDocsTest1\
+MarceloRosales/Research_Notebook\
+MarceloRosales/mkd_LabNotes\
+MarceloRosales/Bioinformatics_RNA-seq\
+MarceloRosales/NiigataU-SV\
+MarceloRosales/Carving\
+MarceloRosales/MarceloRosales ¿???\
+MarceloRosales/PCC-Experiment\
+MarceloRosales/RBD02\
+MarceloRosales/NiigataU-Carving\
+MarceloRosales/RBlogdowntest01\
+MarceloRosales/WebDev-01\
+MarceloRosales/BootstrapCarrousel\
+MarceloRosales/staticrypt
+
+MkDocsTest1 https://marcelorosales.github.io/MkDocsTest1/MkDocs/\
+Research_Notebook https://marcelorosales.github.io/Research_Notebook/\
+mkd_LabNotes https://marcelorosales.github.io/mkd_LabNotes/\
+Bioinformatics_RNA-seq https://marcelorosales.github.io/Bioinformatics_RNA-seq/\
+NiigataU-SV https://marcelorosales.github.io/NiigataU-SV/\
+Carving https://marcelorosales.github.io/Carving/\
+MarceloRosales ¿?? PCC-Experiment https://marcelorosales.github.io/PCC-Experiment/\
+RBD02 https://marcelorosales.github.io/RBD02/ A minimal book ex.\
+NiigataU-Carving https://marcelorosales.github.io/NiigataU-Carving/\
+RBlogdowntest01 (not live) WebDev-01 https://marcelorosales.github.io/WebDev-01/\
+BootstrapCarrousel https://marcelorosales.github.io/BootstrapCarrousel/\
+Staticrypt (exec only)
+
+MarceloRosales/MkDocsTest1 \> MkDocsTest1 \<https://marcelorosales.github.io/MkDocsTest1/MkDocs/ \>\
+MarceloRosales/Research_Notebook \> Research_Notebook <https://marcelorosales.github.io/Research_Notebook/>\
+MarceloRosales/mkd_LabNotes \> mkd_LabNotes <https://marcelorosales.github.io/mkd_LabNotes/>\
+MarceloRosales/Bioinformatics_RNA-seq \> Bioinformatics_RNA-seq <https://marcelorosales.github.io/Bioinformatics_RNA-seq/>\
+MarceloRosales/NiigataU-SV \> NiigataU-SV <https://marcelorosales.github.io/NiigataU-SV/>\
+MarceloRosales/Carving \> Carving <https://marcelorosales.github.io/Carving/>\
+MarceloRosales/MarceloRosales ¿??? \> MarceloRosales ¿?? MarceloRosales/PCC-Experiment \> PCC-Experiment <https://marcelorosales.github.io/PCC-Experiment/>\
+MarceloRosales/RBD02 \> RBD02 <https://marcelorosales.github.io/RBD02/> A minimal book ex.\
+MarceloRosales/NiigataU-Carving \> NiigataU-Carving <https://marcelorosales.github.io/NiigataU-Carving/>\
+MarceloRosales/RBlogdowntest01 \> RBlogdowntest01 (not live) MarceloRosales/WebDev-01 \> WebDev-01 <https://marcelorosales.github.io/WebDev-01/>\
+MarceloRosales/BootstrapCarrousel \> BootstrapCarrousel <https://marcelorosales.github.io/BootstrapCarrousel/>\
+MarceloRosales/staticrypt \> Staticrypt (exec only)
+
+|                                       |     |                                                                                   |
+|---------------------------------------|-----|-----------------------------------------------------------------------------------|
+| MarceloRosales/MkDocsTest1            | \>  | MkDocsTest1 <https://marcelorosales.github.io/MkDocsTest1/MkDocs/>                |
+| MarceloRosales/Research_Notebook      | \>  | Research_Notebook <https://marcelorosales.github.io/Research_Notebook/>           |
+| MarceloRosales/mkd_LabNotes           | \>  | mkd_LabNotes <https://marcelorosales.github.io/mkd_LabNotes/>                     |
+| MarceloRosales/Bioinformatics_RNA-seq | \>  | Bioinformatics_RNA-seq <https://marcelorosales.github.io/Bioinformatics_RNA-seq/> |
+| MarceloRosales/NiigataU-SV            | \>  | NiigataU-SV <https://marcelorosales.github.io/NiigataU-SV/>                       |
+| MarceloRosales/Carving                | \>  | Carving <https://marcelorosales.github.io/Carving/>                               |
+| MarceloRosales/MarceloRosales ¿???    | \>  | \<MarceloRosales ¿??\>                                                            |
+| MarceloRosales/PCC-Experiment         | \>  | PCC-Experiment <https://marcelorosales.github.io/PCC-Experiment/>                 |
+| MarceloRosales/RBD02                  | \>  | RBD02 \<https://marcelorosales.github.io/RBD02/ A minimal book ex.\>              |
+| MarceloRosales/NiigataU-Carving       | \>  | NiigataU-Carving <https://marcelorosales.github.io/NiigataU-Carving/>             |
+| MarceloRosales/RBlogdowntest01        | \>  | \<RBlogdowntest01 (not live)\>                                                    |
+| MarceloRosales/WebDev-01              | \>  | WebDev-01 <https://marcelorosales.github.io/WebDev-01/>                           |
+| MarceloRosales/BootstrapCarrousel     | \>  | BootstrapCarrousel <https://marcelorosales.github.io/BootstrapCarrousel/>         |
+| MarceloRosales/staticrypt             | \>  | \<Staticrypt (exec only)\>                                                        |
+
+#### How to use:
+
+Where do I write the text first? word, Rstudio .qmd, VS code?
+
+Seems like VS code is the best transitional software for word and Rstudio.
+
+1.  I am thinking I will I will use the 3 of them (word, RStudio (RS).qmd, VS code (VSC)) at the same time.\
+2.  Seems like VC code is the middle ground between word and Rstudio. 20230502 test: Use VS code as the main text/code editor, then copy paste to word.
+    1.  Create a qmd file/project in RS, git init, save project.\
+    2.  Open RS qmd file or better, open the project folder in VS code and use as main text editor.\
+    3.  Change/add content, save in VS code \> will auto update in RS (no need to do anything except to reload/open file).\
+    4.  Check if render is correct.(It is possible to render in VS directly as well)\
+    5.  Copy/paste to word and save in word. Currently it is not possible to open a word file directly in VSC.\
+3.  Use word and **.qmd (in source mode only)** at the same time and indistinctively...\
+4.  DO NOT SWITCH TO VISUAL MODE. Changing to visual mode will modify text in the source code format. Space between lines is doble and there is no way to change it in the ui of rstudio, only in the render output. It makes it difficult to read and orginize.\
+5.  Thus, keep all records in the word file at all times. Make de word file the default saving format.
+6.  Open Untitled .qmd files to try and test code chunks or formats.
+7.  Open an Image .qmd file **in visual mode** to store all image code and links for a fast gallery, then easy to copy/paste images to other places.\
+8.  If large code needs to be quickly formated for word (coz copy/paste from rstudio to word directly does not copy code highlight formats), use VS code, copy/paste Rstudio \> VS Code \> word. Then adjust line spacing.
+
+#### Open Word file
+
+(See Markdown02.docx \> Word and Rstudio for detail info on the code)
+
+files:
+
+Mac:
+
+``` r
+#| eval: false
+
+Markdown02 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx"  
+
+Research_map <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx"  
+
+Markdown01 <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+
+Notes <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"
+
+#open in mac OS
+system(paste("open", shQuote(Markdown02)))
+system(paste("open", shQuote(Research_map)))
+system(paste("open", shQuote(Notes)))
+```
+
+Windows:
+
+``` r
+#| eval: false
+
+file_path <- "/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"
+shell(paste("start", shQuote(file_path)))
+# or 
+system(paste("start", shQuote(file_path)))
+```
+
+### Quarto extensions:
+
+quarto add quarto-ext/lightbox
+
+git pull\
+hint: You have divergent branches and need to specify how to reconcile them. hint: You can do so by running one of the following commands sometime before hint: your next pull: hint: hint: git config pull.rebase false \# merge hint: git config pull.rebase true \# rebase hint: git config pull.ff only \# fast-forward only hint: hint: You can replace "git config" with "git config --global" to set a default hint: preference for all repositories. You can also pass --rebase, --no-rebase, hint: or --ff-only on the command line to override the configured default per hint: invocation. fatal: Need to specify how to reconcile divergent branches.
+
+git config pull.rebase true\
+git pull
+
+Auto-merging docs/blog.html CONFLICT (content): Merge conflict in docs/blog.html Auto-merging docs/posts/quarto_start.html Auto-merging docs/search.json error: could not apply f3a6a9e... error? hint: Resolve all conflicts manually, mark them as resolved with hint: "git add/rm <conflicted_files>", then run "git rebase --continue". hint: You can instead skip this commit: run "git rebase --skip". hint: To abort and get back to the state before "git rebase", run "git rebase --abort". Could not apply f3a6a9e... error?
+
+git checkout docs/blog.html: needs merge error: you need to resolve your current index first
+
+git status interactive rebase in progress; onto bf0a829 Last command done (1 command done): pick f3a6a9e error? No commands remaining. You are currently rebasing branch 'master' on 'bf0a829'. (fix conflicts and then run "git rebase --continue") (use "git rebase --skip" to skip this patch) (use "git rebase --abort" to check out the original branch)
+
+Changes to be committed: (use "git restore --staged <file>..." to unstage) modified: .quarto/xref/dfb84dd8 modified: docs/posts/quarto_start.html modified: docs/search.json modified: posts/quarto_start.qmd
+
+Unmerged paths: (use "git restore --staged <file>..." to unstage) (use "git add <file>..." to mark resolution) both modified: docs/blog.html
+
+Changes not staged for commit: (use "git add <file>..." to update what will be committed) (use "git restore <file>..." to discard changes in working directory) modified: .Rproj.user/shared/notebooks/paths
+
+   \~/Doc/G/Q/quarto-tr/quarto_website   @bf0a8290 rebase-i 1/1 \~1 +4 !1 
+
+git add <file> \# to update what will be committed git restore <file> \# to discard changes in working directory
+
+commit bf0a82908adb25739312fc1472774f1c884f54c0 (HEAD, origin/master) Author: MarceloRosales [selasorolecram\@hotmail.com](mailto:selasorolecram@hotmail.com){.email} Date: Fri Mar 31 12:18:08 2023 +0900
+
+```         
+misc update
+```
+
+commit 2f93766898fab40f2b516968cb4db51608d3cead Author: "MarceloRosales" \<"selasorolecram\@hotmail.com"\> Date: Thu Mar 30 20:34:08 2023 +0900
+
+fatal: It seems that there is already a rebase-merge directory, and I wonder if you are in the middle of another rebase. If that is the case, please try git rebase (--continue \| --abort \| --skip) If that is not the case, please rm -fr ".git/rebase-merge" and run me again. I am stopping in case you still have something valuable there.
+
+https://www.gakkai-tama.com/register_form/jps132/menu
+
+### Code Notation
+
+``` yaml
+---
+format: 
+  html: 
+    code-fold: true
+    code-copy: true
+    code-overflow: wrap
+
+---
+```
+
+``` markdown
+---
+
+title: Simple Lightbox Example
+filters:
+   - lightbox
+lightbox: auto
+
+---
+
+![A Lovely Image](mv-1.jpg)
+```
+
+``` markdown
+![A Lovely Image](mv-1.jpg){group="my-gallery"}
+
+![Another Lovely Image](mv-2.jpg){group="my-gallery"}
+
+![The Last Lovely Image](mv-3.jpg){group="my-gallery"}
+```
+
+```{r}
+#| fig-cap: 
+#|   - Caption for first plot
+#|   - Caption for second plot
+#| lightbox: 
+#|   group: cars
+#|   description: 
+#|     - This is the decription for first graph
+#|     - This is the decription for second graph
+#| eval: false
+
+plot(mtcars)
+plot(cars)
+```
+
+### Videos in Q
+
+In visual editor: Insert Anything You can also use the catch-all Cmd+//Ctrl+/ shortcut to insert just about anything. Just execute the shortcut then type what you want to insert.
+
+Or simply: /
+
+For iframe video, select the html Block, it will make a {=html} block that will display the video when quarto page is render. see <https://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html>
+
+```{=html}
+<iframe width="1164" height="480" src="https://www.youtube.com/embed/fP3H75_Xg18" title="Chaos Theory: The Science Behind the Miracle of Intelligent Life | Doc Of The Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+Code for videos:
+
+``` r
+# In quarto for video
+{{< video https://youtu.be/wo9vZccmqwc width="250" height="175" >}}
+```
+
+see <https://quarto.org/docs/authoring/videos.html#video-url>
+
+or to insert web pages.
+
+``` html
+<iframe width="780" height="500" src="https://quarto.org/" title="Quarto Documentation"></iframe>
+```
+
+------------------------------------------------------------------------
