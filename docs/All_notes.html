@@ -588,7 +588,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a>
   <ul>
   <li><a href="#summary-4" id="toc-summary-4" class="nav-link" data-scroll-target="#summary-4">Summary</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#intent" id="toc-intent" class="nav-link" data-scroll-target="#intent">Intent</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions:</a>
+  <ul>
+  <li><a href="#notekeeping" id="toc-notekeeping" class="nav-link" data-scroll-target="#notekeeping">Notekeeping:</a></li>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use:</a></li>
+  <li><a href="#open-word-file" id="toc-open-word-file" class="nav-link" data-scroll-target="#open-word-file">Open Word file</a></li>
   </ul></li>
+  <li><a href="#quarto-extensions" id="toc-quarto-extensions" class="nav-link" data-scroll-target="#quarto-extensions">Quarto extensions:</a></li>
+  <li><a href="#code-notation" id="toc-code-notation" class="nav-link" data-scroll-target="#code-notation">Code Notation</a></li>
+  <li><a href="#videos-in-q" id="toc-videos-in-q" class="nav-link" data-scroll-target="#videos-in-q">Videos in Q</a></li>
+  </ul></li>
+  <li><a href="#plan-220826" id="toc-plan-220826" class="nav-link" data-scroll-target="#plan-220826">Plan 220826</a></li>
+  <li><a href="#plan-220901" id="toc-plan-220901" class="nav-link" data-scroll-target="#plan-220901">Plan 220901</a></li>
+  <li><a href="#special-entries-to-review-later" id="toc-special-entries-to-review-later" class="nav-link" data-scroll-target="#special-entries-to-review-later">Special entries to review later</a></li>
+  <li><a href="#foot" id="toc-foot" class="nav-link" data-scroll-target="#foot">foot</a></li>
   </ul>
 </nav>
     </div>
@@ -9620,6 +9635,13 @@ rew install go.</p></li>
 <li>Create New quarto project.</li>
 </ol>
 <p>File &gt; New Project &gt; New directory &gt; Quarto website &gt; Browse: ~/Documents/GitHub/Quarto; dir name: descSPIM_LSmicro &gt; create repository.</p>
+<p><strong>Files:</strong><br>
+- Renv » + styles.css » + _quarto.yml + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj</p>
+<p><strong>Files + hiden files:</strong><br>
+- .git » - .Rproj.user » - Renv » + styles.css + _quarto.yml + .gitignore + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj</p>
+<p><strong>Render Q site files:</strong><br>
+- _site » - .git - .quarto<br>
+- .Rproj.user - renv + styles.css + _quarto.yml + .gitignore + .Rprofile + renv.lock + about.qmd + index.qmd + Research_Notes_230601.Rproj</p>
 <p>Open files: index.qmd, _quarto.yml</p>
 <p>Folder contains: styles.css about.qmd index.qmd descSPIM_LSmicro.Rproj _quarto.yml</p>
 <ol start="2" type="1">
@@ -9637,36 +9659,34 @@ rew install go.</p></li>
 <span id="cb400-6"><a href="#cb400-6" aria-hidden="true" tabindex="-1"></a>$footer-bg<span class="in">: #181818;</span></span>
 <span id="cb400-7"><a href="#cb400-7" aria-hidden="true" tabindex="-1"></a>$navbar-bg<span class="in">: #EEEEEE</span> ;</span>
 <span id="cb400-8"><a href="#cb400-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-9"><a href="#cb400-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-10"><a href="#cb400-10" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
-<span id="cb400-11"><a href="#cb400-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-12"><a href="#cb400-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.layout-example</span> {</span>
-<span id="cb400-13"><a href="#cb400-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span>: $gray-500<span class="op">;</span></span>
-<span id="cb400-14"><a href="#cb400-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: $white<span class="op">;</span></span>
-<span id="cb400-15"><a href="#cb400-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
-<span id="cb400-16"><a href="#cb400-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb400-17"><a href="#cb400-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span>: $font-family-monospace<span class="op">;</span></span>
-<span id="cb400-18"><a href="#cb400-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span>: <span class="dv">.875</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb400-19"><a href="#cb400-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span>: <span class="dv">600</span><span class="op">;</span></span>
-<span id="cb400-20"><a href="#cb400-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding-top</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb400-21"><a href="#cb400-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span>: <span class="dv">3</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb400-22"><a href="#cb400-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb400-23"><a href="#cb400-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-24"><a href="#cb400-24" aria-hidden="true" tabindex="-1"></a><span class="fu">.left</span> {</span>
-<span id="cb400-25"><a href="#cb400-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span>: <span class="dv">left</span><span class="op">;</span></span>
-<span id="cb400-26"><a href="#cb400-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding-left</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb400-27"><a href="#cb400-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb400-28"><a href="#cb400-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-29"><a href="#cb400-29" aria-hidden="true" tabindex="-1"></a><span class="fu">.right</span> {</span>
-<span id="cb400-30"><a href="#cb400-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span>: <span class="dv">right</span><span class="op">;</span></span>
-<span id="cb400-31"><a href="#cb400-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding-right</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb400-32"><a href="#cb400-32" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb400-33"><a href="#cb400-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-34"><a href="#cb400-34" aria-hidden="true" tabindex="-1"></a><span class="fu">.hello-quarto-banner</span> h1 {</span>
-<span id="cb400-35"><a href="#cb400-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-top</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb400-36"><a href="#cb400-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span>: <span class="dv">0.5</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb400-37"><a href="#cb400-37" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb400-38"><a href="#cb400-38" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb400-9"><a href="#cb400-9" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb400-10"><a href="#cb400-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-11"><a href="#cb400-11" aria-hidden="true" tabindex="-1"></a><span class="fu">.layout-example</span> {</span>
+<span id="cb400-12"><a href="#cb400-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span>: $gray-500<span class="op">;</span></span>
+<span id="cb400-13"><a href="#cb400-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: $white<span class="op">;</span></span>
+<span id="cb400-14"><a href="#cb400-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb400-15"><a href="#cb400-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb400-16"><a href="#cb400-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span>: $font-family-monospace<span class="op">;</span></span>
+<span id="cb400-17"><a href="#cb400-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span>: <span class="dv">.875</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb400-18"><a href="#cb400-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span>: <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb400-19"><a href="#cb400-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding-top</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb400-20"><a href="#cb400-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span>: <span class="dv">3</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb400-21"><a href="#cb400-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb400-22"><a href="#cb400-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-23"><a href="#cb400-23" aria-hidden="true" tabindex="-1"></a><span class="fu">.left</span> {</span>
+<span id="cb400-24"><a href="#cb400-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span>: <span class="dv">left</span><span class="op">;</span></span>
+<span id="cb400-25"><a href="#cb400-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding-left</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb400-26"><a href="#cb400-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb400-27"><a href="#cb400-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-28"><a href="#cb400-28" aria-hidden="true" tabindex="-1"></a><span class="fu">.right</span> {</span>
+<span id="cb400-29"><a href="#cb400-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span>: <span class="dv">right</span><span class="op">;</span></span>
+<span id="cb400-30"><a href="#cb400-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding-right</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb400-31"><a href="#cb400-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb400-32"><a href="#cb400-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-33"><a href="#cb400-33" aria-hidden="true" tabindex="-1"></a><span class="fu">.hello-quarto-banner</span> h1 {</span>
+<span id="cb400-34"><a href="#cb400-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-top</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb400-35"><a href="#cb400-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span>: <span class="dv">0.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb400-36"><a href="#cb400-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>theme-dark.scss</p>
 <div class="sourceCode" id="cb401"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb401-1"><a href="#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
 <span id="cb401-2"><a href="#cb401-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -9681,27 +9701,25 @@ rew install go.</p></li>
 <span id="cb401-11"><a href="#cb401-11" aria-hidden="true" tabindex="-1"></a>$footer-bg<span class="in">: #181818;</span></span>
 <span id="cb401-12"><a href="#cb401-12" aria-hidden="true" tabindex="-1"></a>$navbar-bg<span class="in">: #303030;</span></span>
 <span id="cb401-13"><a href="#cb401-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-14"><a href="#cb401-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-15"><a href="#cb401-15" aria-hidden="true" tabindex="-1"></a><span class="er">// Code blocks</span></span>
-<span id="cb401-16"><a href="#cb401-16" aria-hidden="true" tabindex="-1"></a>$code-block-bg-alpha<span class="in">: -</span><span class="fu">.8</span>;</span>
-<span id="cb401-17"><a href="#cb401-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-18"><a href="#cb401-18" aria-hidden="true" tabindex="-1"></a><span class="er">// Bootstrap popovers</span></span>
-<span id="cb401-19"><a href="#cb401-19" aria-hidden="true" tabindex="-1"></a>$popover-bg<span class="in">: #242424;</span></span>
-<span id="cb401-20"><a href="#cb401-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-21"><a href="#cb401-21" aria-hidden="true" tabindex="-1"></a><span class="er">// Bootstrap inputs</span></span>
-<span id="cb401-22"><a href="#cb401-22" aria-hidden="true" tabindex="-1"></a>$input-bg<span class="in">: #242424;</span></span>
-<span id="cb401-23"><a href="#cb401-23" aria-hidden="true" tabindex="-1"></a>$dropdown-bg<span class="in">: $body-bg</span>;</span>
-<span id="cb401-24"><a href="#cb401-24" aria-hidden="true" tabindex="-1"></a>$dropdown-color<span class="in">: $body-color</span>;</span>
-<span id="cb401-25"><a href="#cb401-25" aria-hidden="true" tabindex="-1"></a>$dropdown-link-color<span class="in">: $body-color</span>;</span>
-<span id="cb401-26"><a href="#cb401-26" aria-hidden="true" tabindex="-1"></a>$dropdown-link-hover-bg<span class="in">: $gray-600</span>;</span>
-<span id="cb401-27"><a href="#cb401-27" aria-hidden="true" tabindex="-1"></a>$dropdown-link-hover-color<span class="in">: white</span>;</span>
-<span id="cb401-28"><a href="#cb401-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb401-14"><a href="#cb401-14" aria-hidden="true" tabindex="-1"></a><span class="er">// Code blocks</span></span>
+<span id="cb401-15"><a href="#cb401-15" aria-hidden="true" tabindex="-1"></a>$code-block-bg-alpha<span class="in">: -</span><span class="fu">.8</span>;</span>
+<span id="cb401-16"><a href="#cb401-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb401-17"><a href="#cb401-17" aria-hidden="true" tabindex="-1"></a><span class="er">// Bootstrap popovers</span></span>
+<span id="cb401-18"><a href="#cb401-18" aria-hidden="true" tabindex="-1"></a>$popover-bg<span class="in">: #242424;</span></span>
+<span id="cb401-19"><a href="#cb401-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb401-20"><a href="#cb401-20" aria-hidden="true" tabindex="-1"></a><span class="er">// Bootstrap inputs</span></span>
+<span id="cb401-21"><a href="#cb401-21" aria-hidden="true" tabindex="-1"></a>$input-bg<span class="in">: #242424;</span></span>
+<span id="cb401-22"><a href="#cb401-22" aria-hidden="true" tabindex="-1"></a>$dropdown-bg<span class="in">: $body-bg</span>;</span>
+<span id="cb401-23"><a href="#cb401-23" aria-hidden="true" tabindex="-1"></a>$dropdown-color<span class="in">: $body-color</span>;</span>
+<span id="cb401-24"><a href="#cb401-24" aria-hidden="true" tabindex="-1"></a>$dropdown-link-color<span class="in">: $body-color</span>;</span>
+<span id="cb401-25"><a href="#cb401-25" aria-hidden="true" tabindex="-1"></a>$dropdown-link-hover-bg<span class="in">: $gray-600</span>;</span>
+<span id="cb401-26"><a href="#cb401-26" aria-hidden="true" tabindex="-1"></a>$dropdown-link-hover-color<span class="in">: white</span>;</span>
+<span id="cb401-27"><a href="#cb401-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb401-28"><a href="#cb401-28" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
 <span id="cb401-29"><a href="#cb401-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-30"><a href="#cb401-30" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
-<span id="cb401-31"><a href="#cb401-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-32"><a href="#cb401-32" aria-hidden="true" tabindex="-1"></a><span class="fu">.layout-example</span> {</span>
-<span id="cb401-33"><a href="#cb401-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span>: $gray-700<span class="op">;</span></span>
-<span id="cb401-34"><a href="#cb401-34" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb401-30"><a href="#cb401-30" aria-hidden="true" tabindex="-1"></a><span class="fu">.layout-example</span> {</span>
+<span id="cb401-31"><a href="#cb401-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span>: $gray-700<span class="op">;</span></span>
+<span id="cb401-32"><a href="#cb401-32" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>Render the created page and check status.</li>
 </ol>
@@ -9741,6 +9759,7 @@ git pull origin main git push origin main<br>
 ! [rejected] main -&gt; main (fetch first) error: failed to push some refs to ‘https://github.com/MarceloRosales/descSPIM_LSmicro.git’ <strong>Solution 2 (solved)</strong><br>
 git push -f origin main # Forces push, careful!! deletes one of the branches (local?/remote?)</p>
 <p>type github username: type github Password: (push from local main branch to remote main branch)</p>
+<p>===================================</p>
 <p>Up to now, there have been conflicts conectig github and local repo; this might help. Try next time.</p>
 <p>See: <a href="https://quarto.org/docs/publishing/github-pages.html" class="uri">https://quarto.org/docs/publishing/github-pages.html</a></p>
 <p><strong>Publish Command</strong> The quarto publish command is an easy way to publish locally rendered documents and websites. Before attempting to use quarto publish (either locally or from a GitHub Action) you should be sure to configure the Source Branch and Ignore Output as described below.</p>
@@ -9756,8 +9775,8 @@ git push -f origin main # Forces push, careful!! deletes one of the branches (lo
 <span id="cb403-4"><a href="#cb403-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages <span class="co"># main?  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fatal: a branch named 'gh-pages' already exists
-HEAD is now at e057004 change freeze extension
-[master a38d2b8] Initialising main branch
+HEAD is now at 52b1351 Initialising main branch
+[master 0c1326a] Initialising main branch
 Everything up-to-date</code></pre>
 </div>
 </div>
@@ -9768,7 +9787,8 @@ Everything up-to-date</code></pre>
 <p>If you’ve already checked these files into source control you may need to remove them explicitly:</p>
 <div class="sourceCode" id="cb406"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb406-1"><a href="#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">-r</span> _site</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See also <strong>Freezing Computations</strong>.</p>
-<p><strong>After first commit:</strong><br>
+<p>===================================<br>
+<strong>After first commit:</strong><br>
 Modify code. (and save files)<br>
 Render<br>
 git add .<br>
@@ -9800,9 +9820,580 @@ git merge {branch name} # merge b<a href="https://qiita.com/Takao_/items/5e563d5
 <p>Code &gt; About (gear icon) &gt; …[]… &gt; website: use you GitHub Pages website</p>
 <p><strong>Add custom domain:</strong></p>
 <hr>
-
-
 </main></main></main></section>
+<section id="outline" class="level3">
+<h3 class="anchored" data-anchor-id="outline">Outline</h3>
+<p>What I have done it so far… What are the problems? What are the solution? What I am expecting to accomplish?</p>
+<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<p>The choice between using Quarto and simple R Markdown depends on the specific needs and requirements of your project. Here are a few reasons why you might consider using Quarto:</p>
+<ol type="1">
+<li><p>Enhanced functionality: Quarto offers additional features and functionality compared to simple R Markdown. It provides support for literate programming, version control, customizable templates, and more. If you require advanced capabilities for your project, such as generating reports with complex formatting, incorporating interactive elements, or integrating code and documentation seamlessly, Quarto can be a powerful tool.</p></li>
+<li><p>Document generation and collaboration: Quarto is designed for collaborative document generation, making it easier for teams to work together on projects. It provides features like automated rendering, document caching, and document diffing, which can facilitate collaboration and streamline the document development process.</p></li>
+<li><p>Extensibility: Quarto allows for extensibility through custom engines, allowing you to integrate additional programming languages or document formats into your project. This flexibility can be beneficial if you need to incorporate non-R code or work with specific document formats beyond what simple R Markdown offers.</p></li>
+<li><p>Community and support: Quarto has an active community of users and developers who contribute to its development and provide support. If you encounter any issues or have questions, you can rely on community resources to find assistance and guidance.</p></li>
+</ol>
+<p>However, it’s important to note that simple R Markdown is still a powerful and widely used tool for generating documents with R. If your project requirements are straightforward and don’t require the additional features provided by Quarto, using simple R Markdown may be sufficient and more straightforward. Ultimately, the choice between Quarto and simple R Markdown should be based on your specific project needs, preferences, and the complexity of the document you aim to generate.</p>
+</section>
+<section id="intent" class="level3">
+<h3 class="anchored" data-anchor-id="intent">Intent</h3>
+<p><strong>Problem 1: Notebook keeping.</strong></p>
+<p>Experimental notes are distributed in many different folders and files; sometimes even in different drives and it is difficult to <strong>keep track</strong> of all information. A centralized direct access to information at any time is required.</p>
+<p>The standard way to do it is by using Microsoft Office programs</p>
+<p>Word:<br>
+Pros:</p>
+<ul>
+<li>Best way to manage “tables” within text editor.<br>
+</li>
+<li>Inter-compatibility with word, excel, ppt and other programs.<br>
+</li>
+<li>Easy to send and collaborate with others.<br>
+</li>
+<li>The Standard for all purposes.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>File size gets too big very fast.<br>
+</li>
+<li>images and links slows down computer.<br>
+</li>
+<li>Files are scatter all around different folders, hard to manage.<br>
+</li>
+<li>No easy way to compile information across projects and experiments.</li>
+</ul>
+<p><strong>Problem 2: Software and code management.</strong></p>
+<ul>
+<li>Code management is a serious problem, word cannot manage it at all.</li>
+<li></li>
+</ul>
+<p>Software:</p>
+<ul>
+<li>brew to install all research software.<br>
+</li>
+<li>MS Office<br>
+</li>
+<li>R and RStudio<br>
+</li>
+<li>VS Code<br>
+</li>
+<li>Quarto<br>
+</li>
+<li>Zotero<br>
+</li>
+<li>Anaconda<br>
+</li>
+<li>Git<br>
+</li>
+<li>GitHub<br>
+</li>
+<li>Git Kraken<br>
+</li>
+<li>ImageJ<br>
+</li>
+<li>Calibre<br>
+</li>
+<li>DigiKam<br>
+</li>
+<li>Docker?<br>
+</li>
+<li>Syncthing<br>
+</li>
+<li>FreeCad<br>
+</li>
+<li>Blender</li>
+</ul>
+<blockquote class="blockquote">
+<p>Small digression: Think on the possibility of a centrilized Folder for all notes, word, r, qmd, pyton, bash, and using symlinks to move and compile projects (like a puzzle) to create new content.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Why I am changeing to quarto?</p>
+</blockquote>
+</section>
+<section id="solutions" class="level3">
+<h3 class="anchored" data-anchor-id="solutions">Solutions:</h3>
+<p><strong>key Shortcuts</strong>: Files: Excel best tricks.xlsx; Markdown02.docx</p>
+<section id="notekeeping" class="level4">
+<h4 class="anchored" data-anchor-id="notekeeping">Notekeeping:</h4>
+<p><strong>1. Save all notes in one place.</strong></p>
+<p>/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes, then symlik to other projects.</p>
+<ul>
+<li>Does symlinks work with github, syncthing, synology, host (hostinger), etc?</li>
+<li>Which type of symlik is best? soft or hard?</li>
+</ul>
+<p><strong>2. Files and folders:</strong></p>
+<p>/Users/marcelorosales/Box Sync/Github</p>
+<ul>
+<li>DotFiles: What are dotfiles? To create executable file to install all programs ex. <a href="./Users/marcelorosales/Box Sync/Github/DotFiles/CMSs dotfiles/CMdotfiles-master/brew.sh">brew.sh</a> and settings at once with one executable command.
+<ul>
+<li>conda shells</li>
+<li>iTerm: Fonts</li>
+</ul></li>
+<li>GitBooks: What are Gitbooks?</li>
+<li>mkdocs</li>
+<li>NiigataU-Carving: html</li>
+<li>Quarto (VS and R)</li>
+<li>Rstudio: Shared files among devices</li>
+<li>Visual Studio Code</li>
+</ul>
+<p>/Users/marcelorosales/Box Sync/Documents/R</p>
+<ul>
+<li>Course01-R Programming A-Z<br>
+</li>
+<li>Course02- R Programing - Advanced Analitics<br>
+</li>
+<li>R Bookdown<br>
+</li>
+<li>R Example scripts<br>
+</li>
+<li>R exmple df<br>
+</li>
+<li>R external sources<br>
+</li>
+<li>R package files<br>
+</li>
+<li>R Preferences and packages<br>
+</li>
+<li>Rmarkdown<br>
+</li>
+<li>Tests forlder<br>
+</li>
+<li>Working Directory</li>
+</ul>
+<p>MBP20 files: /Users/marcelorosales/Documents/GitHub:</p>
+<ul>
+<li><strong>Bioinformatics_RNA-seq</strong> (Gitbook)**</li>
+<li><strong>Carving</strong> (HTML web page made entirely manually)</li>
+<li>DotFiles (Empty) x</li>
+<li>Example (Hugo Site trial01, empty) x<br>
+</li>
+<li>Img (RNA analysis image samples)<br>
+</li>
+<li>Mkdocs_books (Trial site with 1 symlink file from /Box Sync/Github/mkdocs/bs4_LabNotes/ _book/08-Preparation.md) *<br>
+</li>
+<li>mkdocs_Tests (Trial of submenus in mkdocs) x<br>
+</li>
+<li>MkDocsTest1 (Trial of mkdocs multilingual feature, VS_code,md, MkDocs,md) *<br>
+</li>
+<li>Quarto:<br>
+</li>
+<li><strong>quarto-tip-a-day</strong> (webpage downloaded from quarto site)<br>
+</li>
+<li><strong>quarto-trials:</strong>
+<ul>
+<li>quarto_blog<br>
+</li>
+<li>quarto_book<br>
+</li>
+<li>quarto_project<br>
+</li>
+<li><strong>quarto_website</strong> (Quarto page test01, <a href="https://marcelorosales.github.io/Quarto_website_test01/" class="uri">https://marcelorosales.github.io/Quarto_website_test01/</a>) +++<br>
+</li>
+</ul></li>
+<li><strong>quarto-web</strong> (Downloaded entire quarto web site)<br>
+</li>
+<li>Research_Experiments:
+<ul>
+<li>PhotoConvertibleCells (Example only, no content)<br>
+</li>
+</ul></li>
+<li>Research_Notebook: (Experiment Notebooks, All reseach Notes, <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a> )<br>
+</li>
+<li>Retrolog (Hugo lithium) x<br>
+</li>
+<li>Temptests (RNA Seq for STAT3 example of RNA sequencing) **<br>
+</li>
+<li>VS Code (VS code cheat sheets) *<br>
+</li>
+<li>ZdocTest1 (Zdoc-blogdown test) x<br>
+</li>
+<li>zipfiles<br>
+</li>
+<li>Hugotree.docx<br>
+</li>
+<li>Research_Notebook.Rmd (Research Notes, Research Notebook) **</li>
+</ul>
+<p>MBP15 files:</p>
+<p>Synology files:</p>
+<p>Github pages:</p>
+<p>MarceloRosales/MkDocsTest1<br>
+MarceloRosales/Research_Notebook<br>
+MarceloRosales/mkd_LabNotes<br>
+MarceloRosales/Bioinformatics_RNA-seq<br>
+MarceloRosales/NiigataU-SV<br>
+MarceloRosales/Carving<br>
+MarceloRosales/MarceloRosales ¿???<br>
+MarceloRosales/PCC-Experiment<br>
+MarceloRosales/RBD02<br>
+MarceloRosales/NiigataU-Carving<br>
+MarceloRosales/RBlogdowntest01<br>
+MarceloRosales/WebDev-01<br>
+MarceloRosales/BootstrapCarrousel<br>
+MarceloRosales/staticrypt</p>
+<p>MkDocsTest1 https://marcelorosales.github.io/MkDocsTest1/MkDocs/<br>
+Research_Notebook https://marcelorosales.github.io/Research_Notebook/<br>
+mkd_LabNotes https://marcelorosales.github.io/mkd_LabNotes/<br>
+Bioinformatics_RNA-seq https://marcelorosales.github.io/Bioinformatics_RNA-seq/<br>
+NiigataU-SV https://marcelorosales.github.io/NiigataU-SV/<br>
+Carving https://marcelorosales.github.io/Carving/<br>
+MarceloRosales ¿?? PCC-Experiment https://marcelorosales.github.io/PCC-Experiment/<br>
+RBD02 https://marcelorosales.github.io/RBD02/ A minimal book ex.<br>
+NiigataU-Carving https://marcelorosales.github.io/NiigataU-Carving/<br>
+RBlogdowntest01 (not live) WebDev-01 https://marcelorosales.github.io/WebDev-01/<br>
+BootstrapCarrousel https://marcelorosales.github.io/BootstrapCarrousel/<br>
+Staticrypt (exec only)</p>
+<p>MarceloRosales/MkDocsTest1 &gt; MkDocsTest1 &lt;https://marcelorosales.github.io/MkDocsTest1/MkDocs/ &gt;<br>
+MarceloRosales/Research_Notebook &gt; Research_Notebook <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a><br>
+MarceloRosales/mkd_LabNotes &gt; mkd_LabNotes <a href="https://marcelorosales.github.io/mkd_LabNotes/" class="uri">https://marcelorosales.github.io/mkd_LabNotes/</a><br>
+MarceloRosales/Bioinformatics_RNA-seq &gt; Bioinformatics_RNA-seq <a href="https://marcelorosales.github.io/Bioinformatics_RNA-seq/" class="uri">https://marcelorosales.github.io/Bioinformatics_RNA-seq/</a><br>
+MarceloRosales/NiigataU-SV &gt; NiigataU-SV <a href="https://marcelorosales.github.io/NiigataU-SV/" class="uri">https://marcelorosales.github.io/NiigataU-SV/</a><br>
+MarceloRosales/Carving &gt; Carving <a href="https://marcelorosales.github.io/Carving/" class="uri">https://marcelorosales.github.io/Carving/</a><br>
+MarceloRosales/MarceloRosales ¿??? &gt; MarceloRosales ¿?? MarceloRosales/PCC-Experiment &gt; PCC-Experiment <a href="https://marcelorosales.github.io/PCC-Experiment/" class="uri">https://marcelorosales.github.io/PCC-Experiment/</a><br>
+MarceloRosales/RBD02 &gt; RBD02 <a href="https://marcelorosales.github.io/RBD02/" class="uri">https://marcelorosales.github.io/RBD02/</a> A minimal book ex.<br>
+MarceloRosales/NiigataU-Carving &gt; NiigataU-Carving <a href="https://marcelorosales.github.io/NiigataU-Carving/" class="uri">https://marcelorosales.github.io/NiigataU-Carving/</a><br>
+MarceloRosales/RBlogdowntest01 &gt; RBlogdowntest01 (not live) MarceloRosales/WebDev-01 &gt; WebDev-01 <a href="https://marcelorosales.github.io/WebDev-01/" class="uri">https://marcelorosales.github.io/WebDev-01/</a><br>
+MarceloRosales/BootstrapCarrousel &gt; BootstrapCarrousel <a href="https://marcelorosales.github.io/BootstrapCarrousel/" class="uri">https://marcelorosales.github.io/BootstrapCarrousel/</a><br>
+MarceloRosales/staticrypt &gt; Staticrypt (exec only)</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>MarceloRosales/MkDocsTest1</td>
+<td>&gt;</td>
+<td>MkDocsTest1 <a href="https://marcelorosales.github.io/MkDocsTest1/MkDocs/" class="uri">https://marcelorosales.github.io/MkDocsTest1/MkDocs/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/Research_Notebook</td>
+<td>&gt;</td>
+<td>Research_Notebook <a href="https://marcelorosales.github.io/Research_Notebook/" class="uri">https://marcelorosales.github.io/Research_Notebook/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/mkd_LabNotes</td>
+<td>&gt;</td>
+<td>mkd_LabNotes <a href="https://marcelorosales.github.io/mkd_LabNotes/" class="uri">https://marcelorosales.github.io/mkd_LabNotes/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/Bioinformatics_RNA-seq</td>
+<td>&gt;</td>
+<td>Bioinformatics_RNA-seq <a href="https://marcelorosales.github.io/Bioinformatics_RNA-seq/" class="uri">https://marcelorosales.github.io/Bioinformatics_RNA-seq/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/NiigataU-SV</td>
+<td>&gt;</td>
+<td>NiigataU-SV <a href="https://marcelorosales.github.io/NiigataU-SV/" class="uri">https://marcelorosales.github.io/NiigataU-SV/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/Carving</td>
+<td>&gt;</td>
+<td>Carving <a href="https://marcelorosales.github.io/Carving/" class="uri">https://marcelorosales.github.io/Carving/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/MarceloRosales ¿???</td>
+<td>&gt;</td>
+<td>&lt;MarceloRosales ¿??&gt;</td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/PCC-Experiment</td>
+<td>&gt;</td>
+<td>PCC-Experiment <a href="https://marcelorosales.github.io/PCC-Experiment/" class="uri">https://marcelorosales.github.io/PCC-Experiment/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/RBD02</td>
+<td>&gt;</td>
+<td>RBD02 &lt;https://marcelorosales.github.io/RBD02/ A minimal book ex.&gt;</td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/NiigataU-Carving</td>
+<td>&gt;</td>
+<td>NiigataU-Carving <a href="https://marcelorosales.github.io/NiigataU-Carving/" class="uri">https://marcelorosales.github.io/NiigataU-Carving/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/RBlogdowntest01</td>
+<td>&gt;</td>
+<td>&lt;RBlogdowntest01 (not live)&gt;</td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/WebDev-01</td>
+<td>&gt;</td>
+<td>WebDev-01 <a href="https://marcelorosales.github.io/WebDev-01/" class="uri">https://marcelorosales.github.io/WebDev-01/</a></td>
+</tr>
+<tr class="odd">
+<td>MarceloRosales/BootstrapCarrousel</td>
+<td>&gt;</td>
+<td>BootstrapCarrousel <a href="https://marcelorosales.github.io/BootstrapCarrousel/" class="uri">https://marcelorosales.github.io/BootstrapCarrousel/</a></td>
+</tr>
+<tr class="even">
+<td>MarceloRosales/staticrypt</td>
+<td>&gt;</td>
+<td>&lt;Staticrypt (exec only)&gt;</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-to-use" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-use">How to use:</h4>
+<p>Where do I write the text first? word, Rstudio .qmd, VS code?</p>
+<p>Seems like VS code is the best transitional software for word and Rstudio.</p>
+<ol type="1">
+<li>I am thinking I will I will use the 3 of them (word, RStudio (RS).qmd, VS code (VSC)) at the same time.<br>
+</li>
+<li>Seems like VC code is the middle ground between word and Rstudio. 20230502 test: Use VS code as the main text/code editor, then copy paste to word.
+<ol type="1">
+<li>Create a qmd file/project in RS, git init, save project.<br>
+</li>
+<li>Open RS qmd file or better, open the project folder in VS code and use as main text editor.<br>
+</li>
+<li>Change/add content, save in VS code &gt; will auto update in RS (no need to do anything except to reload/open file).<br>
+</li>
+<li>Check if render is correct.(It is possible to render in VS directly as well)<br>
+</li>
+<li>Copy/paste to word and save in word. Currently it is not possible to open a word file directly in VSC.<br>
+</li>
+</ol></li>
+<li>Use word and <strong>.qmd (in source mode only)</strong> at the same time and indistinctively…<br>
+</li>
+<li>DO NOT SWITCH TO VISUAL MODE. Changing to visual mode will modify text in the source code format. Space between lines is doble and there is no way to change it in the ui of rstudio, only in the render output. It makes it difficult to read and orginize.<br>
+</li>
+<li>Thus, keep all records in the word file at all times. Make de word file the default saving format.</li>
+<li>Open Untitled .qmd files to try and test code chunks or formats.</li>
+<li>Open an Image .qmd file <strong>in visual mode</strong> to store all image code and links for a fast gallery, then easy to copy/paste images to other places.<br>
+</li>
+<li>If large code needs to be quickly formated for word (coz copy/paste from rstudio to word directly does not copy code highlight formats), use VS code, copy/paste Rstudio &gt; VS Code &gt; word. Then adjust line spacing.</li>
+</ol>
+</section>
+<section id="open-word-file" class="level4">
+<h4 class="anchored" data-anchor-id="open-word-file">Open Word file</h4>
+<p>(See Markdown02.docx &gt; Word and Rstudio for detail info on the code)</p>
+<p>files:</p>
+<p>Mac:</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb407-1"><a href="#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb407-2"><a href="#cb407-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-3"><a href="#cb407-3" aria-hidden="true" tabindex="-1"></a>Markdown02 <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown02.docx"</span>  </span>
+<span id="cb407-4"><a href="#cb407-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-5"><a href="#cb407-5" aria-hidden="true" tabindex="-1"></a>Research_map <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Research_map and guide.docx"</span>  </span>
+<span id="cb407-6"><a href="#cb407-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-7"><a href="#cb407-7" aria-hidden="true" tabindex="-1"></a>Markdown01 <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"</span></span>
+<span id="cb407-8"><a href="#cb407-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-9"><a href="#cb407-9" aria-hidden="true" tabindex="-1"></a>Notes <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/"</span></span>
+<span id="cb407-10"><a href="#cb407-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-11"><a href="#cb407-11" aria-hidden="true" tabindex="-1"></a><span class="co">#open in mac OS</span></span>
+<span id="cb407-12"><a href="#cb407-12" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(Markdown02)))</span>
+<span id="cb407-13"><a href="#cb407-13" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(Research_map)))</span>
+<span id="cb407-14"><a href="#cb407-14" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"open"</span>, <span class="fu">shQuote</span>(Notes)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Windows:</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb408-1"><a href="#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb408-2"><a href="#cb408-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb408-3"><a href="#cb408-3" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"/Users/marcelorosales/Box Sync/Niigata Uni Box/Books-Notes/Notes/Markdown01.docx"</span></span>
+<span id="cb408-4"><a href="#cb408-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shell</span>(<span class="fu">paste</span>(<span class="st">"start"</span>, <span class="fu">shQuote</span>(file_path)))</span>
+<span id="cb408-5"><a href="#cb408-5" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
+<span id="cb408-6"><a href="#cb408-6" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste</span>(<span class="st">"start"</span>, <span class="fu">shQuote</span>(file_path)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="quarto-extensions" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-extensions">Quarto extensions:</h3>
+<p>quarto add quarto-ext/lightbox</p>
+<p>git pull<br>
+hint: You have divergent branches and need to specify how to reconcile them. hint: You can do so by running one of the following commands sometime before hint: your next pull: hint: hint: git config pull.rebase false # merge hint: git config pull.rebase true # rebase hint: git config pull.ff only # fast-forward only hint: hint: You can replace “git config” with “git config –global” to set a default hint: preference for all repositories. You can also pass –rebase, –no-rebase, hint: or –ff-only on the command line to override the configured default per hint: invocation. fatal: Need to specify how to reconcile divergent branches.</p>
+<p>git config pull.rebase true<br>
+git pull</p>
+<p>Auto-merging docs/blog.html CONFLICT (content): Merge conflict in docs/blog.html Auto-merging docs/posts/quarto_start.html Auto-merging docs/search.json error: could not apply f3a6a9e… error? hint: Resolve all conflicts manually, mark them as resolved with hint: “git add/rm <conflicted_files>”, then run “git rebase –continue”. hint: You can instead skip this commit: run “git rebase –skip”. hint: To abort and get back to the state before “git rebase”, run “git rebase –abort”. Could not apply f3a6a9e… error?</conflicted_files></p>
+<p>git checkout docs/blog.html: needs merge error: you need to resolve your current index first</p>
+<p>git status interactive rebase in progress; onto bf0a829 Last command done (1 command done): pick f3a6a9e error? No commands remaining. You are currently rebasing branch ‘master’ on ‘bf0a829’. (fix conflicts and then run “git rebase –continue”) (use “git rebase –skip” to skip this patch) (use “git rebase –abort” to check out the original branch)</p>
+<p>Changes to be committed: (use “git restore –staged <file>…” to unstage) modified: .quarto/xref/dfb84dd8 modified: docs/posts/quarto_start.html modified: docs/search.json modified: posts/quarto_start.qmd</file></p>
+<p>Unmerged paths: (use “git restore –staged <file>…” to unstage) (use “git add <file>…” to mark resolution) both modified: docs/blog.html</file></file></p>
+<p>Changes not staged for commit: (use “git add <file>…” to update what will be committed) (use “git restore <file>…” to discard changes in working directory) modified: .Rproj.user/shared/notebooks/paths</file></file></p>
+<p>   ~/Doc/G/Q/quarto-tr/quarto_website   <span class="citation" data-cites="bf0a8290">@bf0a8290</span> rebase-i 1/1 ~1 +4 !1 </p>
+<p>git add <file> # to update what will be committed git restore <file> # to discard changes in working directory</file></file></p>
+<p>commit bf0a82908adb25739312fc1472774f1c884f54c0 (HEAD, origin/master) Author: MarceloRosales <a href="mailto:selasorolecram@hotmail.com" class="email">selasorolecram@hotmail.com</a> Date: Fri Mar 31 12:18:08 2023 +0900</p>
+<pre><code>misc update</code></pre>
+<p>commit 2f93766898fab40f2b516968cb4db51608d3cead Author: “MarceloRosales” &lt;“selasorolecram@hotmail.com”&gt; Date: Thu Mar 30 20:34:08 2023 +0900</p>
+<p>fatal: It seems that there is already a rebase-merge directory, and I wonder if you are in the middle of another rebase. If that is the case, please try git rebase (–continue | –abort | –skip) If that is not the case, please rm -fr “.git/rebase-merge” and run me again. I am stopping in case you still have something valuable there.</p>
+<p>https://www.gakkai-tama.com/register_form/jps132/menu</p>
+</section>
+<section id="code-notation" class="level3">
+<h3 class="anchored" data-anchor-id="code-notation">Code Notation</h3>
+<div class="sourceCode" id="cb410"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb410-1"><a href="#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb410-2"><a href="#cb410-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb410-3"><a href="#cb410-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb410-4"><a href="#cb410-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb410-5"><a href="#cb410-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-copy</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb410-6"><a href="#cb410-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-overflow</span><span class="kw">:</span><span class="at"> wrap</span></span>
+<span id="cb410-7"><a href="#cb410-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb410-8"><a href="#cb410-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb411-1"><a href="#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb411-2"><a href="#cb411-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb411-3"><a href="#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Simple Lightbox Example</span></span>
+<span id="cb411-4"><a href="#cb411-4" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb411-5"><a href="#cb411-5" aria-hidden="true" tabindex="-1"></a><span class="co">   - lightbox</span></span>
+<span id="cb411-6"><a href="#cb411-6" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb411-7"><a href="#cb411-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb411-8"><a href="#cb411-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb411-9"><a href="#cb411-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb411-10"><a href="#cb411-10" aria-hidden="true" tabindex="-1"></a><span class="al">![A Lovely Image](mv-1.jpg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb412-1"><a href="#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="al">![A Lovely Image](mv-1.jpg)</span>{group="my-gallery"}</span>
+<span id="cb412-2"><a href="#cb412-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-3"><a href="#cb412-3" aria-hidden="true" tabindex="-1"></a><span class="al">![Another Lovely Image](mv-2.jpg)</span>{group="my-gallery"}</span>
+<span id="cb412-4"><a href="#cb412-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-5"><a href="#cb412-5" aria-hidden="true" tabindex="-1"></a><span class="al">![The Last Lovely Image](mv-3.jpg)</span>{group="my-gallery"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb413"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb413-1"><a href="#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars)</span>
+<span id="cb413-2"><a href="#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="videos-in-q" class="level3">
+<h3 class="anchored" data-anchor-id="videos-in-q">Videos in Q</h3>
+<p>In visual editor: Insert Anything You can also use the catch-all Cmd+//Ctrl+/ shortcut to insert just about anything. Just execute the shortcut then type what you want to insert.</p>
+<p>Or simply: /</p>
+<p>For iframe video, select the html Block, it will make a {=html} block that will display the video when quarto page is render. see <a href="https://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html" class="uri">https://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html</a></p>
+<iframe width="1164" height="480" src="https://www.youtube.com/embed/fP3H75_Xg18" title="Chaos Theory: The Science Behind the Miracle of Intelligent Life | Doc Of The Day" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<p>Code for videos:</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb414-1"><a href="#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In quarto for video</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>see <a href="https://quarto.org/docs/authoring/videos.html#video-url" class="uri">https://quarto.org/docs/authoring/videos.html#video-url</a></p>
+<p>or to insert web pages.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb415-1"><a href="#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"780"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"500"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://quarto.org/"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"Quarto Documentation"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p><a href="#">top</a><br>
+## Videos</p>
+<p><a href="https://youtu.be/Mh0Of4LzEfk">5 — Markdown Images — Mastering Markdown</a></p>
+<iframe width="355" height="200" src="https://www.youtube.com/embed/Mh0Of4LzEfk" title="#5 — Markdown Images — Mastering Markdown" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p><a href="https://youtu.be/VQraviuwbzU">5 simple tips to making responsive layouts the easy way</a></p>
+<iframe width="355" height="200" src="https://www.youtube.com/embed/VQraviuwbzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p><a href="https://youtu.be/TSRtBISvsh4">How To Create Image Gallery Using HTML, CSS and Javascript | Lightbox Gallery</a><br>
+<strong>Lightbox Gallery</strong></p>
+<iframe width="355" height="200" src="https://www.youtube.com/embed/TSRtBISvsh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</section>
+</section>
+<section id="plan-220826" class="level2">
+<h2 class="anchored" data-anchor-id="plan-220826">Plan 220826</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">Create all the files in .Rmd as normal (in Box sync service) as bs4_book<br>
+Use Rstudio::New Project.<br>
+mkdocs new LabNotes….<br>
+</li>
+<li><input type="checkbox" disabled="" checked="">Build site in bs4 -&gt; Converts .Rmd to .m -&gt; Creates a folder with all converted .md files (all files in Box Sync, do NOT connect with git or GitHub)<br>
+</li>
+<li><input type="checkbox" disabled="" checked="">Create Mkdocs repositories in /documents/GitHub/<br>
+</li>
+<li><input type="checkbox" disabled="" checked="">Confect them to a GitHub repo<br>
+</li>
+<li><input type="checkbox" disabled="" checked="">Use symlinks for the .md files stored in doc/github/ folders<br>
+</li>
+<li><input type="checkbox" disabled="" checked="">Make GitHub commits as normal<br>
+</li>
+<li><input type="checkbox" disabled="" checked="">Build and deploy site as normal. So far OK.</li>
+</ul>
+</section>
+<section id="plan-220901" class="level2">
+<h2 class="anchored" data-anchor-id="plan-220901">Plan 220901</h2>
+<p>All the data together is big, too big for cloud or laptop. Perhaps better place it all in Synology and then symlinks of only the .Rmd to clouds. Modifying a symlink What if sinology gets disconnected? Since it is also connected to github. Data will still be available anywhere. Create and</p>
+<p><strong>Problem</strong>: Even by dividing the section in individual Rmd files to make building and rendering book more manageable, and place them in sinology cloud with symlinks and connected with github, updates and changes made with other connected devices will be not possible. Symlink will point to the file with path to file to a specific folder (in sinology), but in other devices, the symlink path will not work. The file needs to be physically or remotely connected with the device, in this case, perhaps will be better:<br>
+[ ] Place all the Rmd files in cloud service (Box)<br>
+[ ] Create the symlinks from Box to Local folder (Git/Githb) for each device in use.<br>
+[ ] Connect each local book to same repository in gihub. ]; building of the book will not be possible form</p>
+<p><strong>Important folders:</strong><br>
+MBP20<br>
+Box &gt; Github &gt; Mkdocs &gt; mkdocs_dumpAll (all the Rmd and md? From all experiment, notes): make the symlinks from here to the other folders.<br>
+<strong>Samples</strong>: Contains all the book samples except mkdocs materialize.<br>
+Bs4_book creates md files to create the html (useful for converting into mkdocs materialize)<br>
+<strong>Temp</strong>: Contains all the Rmd files form the LabNotesAll_bs4, continuation of the folder with the same name (2nd trial)<br>
+MBA03 (mkdocs build locally for All.md only, no html files)<br>
+LabNotesAll_bs4 (currently working in this project as trial, contains: Initialization, Terminal, VSCode, Markdown. All are first trial)<br>
+bs4_LabNotes<br>
+Gitbooks:<br>
+Niigata Uni Box &gt; Book-Notes &gt;<br>
+Notes: All notes are here.</p>
+<p>Documents &gt; GitHub &gt;<br>
+Research_Notebook: Made in bookdown, is the old research notes (do not mistake with other samples. Keep for the moment)‼</p>
+<p>~/Box Sync/Github/mkdocs/mkdocs_dumpAll/Samples/Book samples/SimpleArticle_samp</p>
+<p>/Volumes/homes/RosalesJM/SynDS220/GitHub/Experiments_Lab/LabNotesAll/AllNotes_SimpArt<br>
+~/Box Sync/Github/mkdocs/LabNotesAll_bs4</p>
+<p>~/Box Sync/Github/mkdocs/mkdocs_dumpAll/Markdown02.Rmd</p>
+<hr>
+<p><a href="#">top</a></p>
+</section>
+<section id="special-entries-to-review-later" class="level2">
+<h2 class="anchored" data-anchor-id="special-entries-to-review-later">Special entries to review later</h2>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" checked="">Markdown all in one. For toc, see how to modify table here.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://about.gitlab.com/handbook/markdown-guide/">Handbook Markdown Guide</a>. Seems like only works for gitlab….<br>
+</p></li>
+<li><p><input type="checkbox" disabled=""><a href="https://community.rstudio.com/t/rmarkdown-into-word-change-a-title-in-toc/48137">Rmarkdown into Word - change a title in toc</a><br>
+In the yaml set:<br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked="">How to Create A Batch <strong>Cask Installer</strong> for Homebrew (Using a Simple Bash Script). https://youtu.be/1J9NKpjJegk</p></li>
+<li><p><input type="checkbox" disabled="" checked="">Create the brewfile with dump command.<br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked="">Customize Prompt with dotfiles.<br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked="">Make a MkDocs Site. Made Site, very good documentation but is an md non RStudio package, so I change to quarto for better productivity<br>
+</p></li>
+<li><p><input type="checkbox" disabled="">create a Hugo Theme form scratch</p></li>
+<li><p><input type="checkbox" disabled="" checked="">Costumize iTerm2. (Powerlevel10k theme installed succesfully )<br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked="">Zotero plugin not downloading form chrome (refreshed page and worked normal).<br>
+</p></li>
+<li><p><input type="checkbox" disabled="">Outlines: Tips for Preparing Large Writing Projects (play list): https://youtu.be/osxUFsnY6zg<br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked="">Academic Writing in Markdown: bib, Bib(La)Tex, Pandocs, Marked 2 AppleScripts: Zotpick (playlist) https://www.youtube.com/watch?v=hpAJMSS8pvs&amp;list=PLXt-tu7G1H3tLeZgbbUmYjE0_kvbjA4YU<br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://youtu.be/RdSmYvbQkhs">Bookdown and Github Pages</a><br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://youtu.be/J72LP2_yv1U+">R tip: Schedule R scripts on a Mac</a> <strong>review this again, good for run exc files on schedule.</strong><br>
+</p></li>
+<li><p><input type="checkbox" disabled=""><a href="https://automatetheboringstuff.com/#toc">Automate the boring stuff -ebook-</a><br>
+</p></li>
+<li><p><input type="checkbox" disabled=""><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a><br>
+</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://www.youtube.com/watch?v=WkF7nqEYF1E">R Markdown Advanced Tips to Become a Better Data Scientist &amp; RStudio Connect | With Tom Mock</a> <strong>Good, review, specially the part of shiny applications.</strong><br>
+</p></li>
+<li><p><input type="checkbox" disabled=""><a href="https://markdownmonster.west-wind.com/docs/_69j1049io.htm">Markdown Monster Documentation</a><br>
+</p></li>
+<li><p><input type="checkbox" disabled=""><a href="https://rmd4sci.njtierney.com/">RMarkdown for Scientists</a></p></li>
+</ul>
+<p>Rmarkdown directing output file into a directory<br>
+<a href="https://shinsen-mc.co.jp/test/prosth2/research.html">Uni biopro2 webpage</a></p>
+<p><a href="https://youtu.be/Xx51jzysb1s">Setting up a brand new Hugo Site</a><br>
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/Xx51jzysb1s " title="LIVE: #JAMSTACK - Setting up a brand new Hugo Site" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p><a href="https://youtu.be/E4IvX7wT9HE">Building a Hugo Theme from Scratch</a><br>
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/E4IvX7wT9HE " title="LIVE: #JAMSTACK - Building a Hugo Theme from Scratch" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p><a href="https://youtu.be/GlpMokJL28U">Building a Hugo Theme from Scratch PART 2</a><br>
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/GlpMokJL28U " title="
+LIVE: #JAMSTACK - Building a Hugo Theme from Scratch PART 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p>Virtual machines.</p>
+<p><a href="https://youtu.be/Qte4X-rdr2Q">VirtualBox: How to Use Snapshots</a><br>
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/Qte4X-rdr2Q " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p><a href="https://youtu.be/x3dxfpQ8KGY">How to Record and Play Back Mouse Activity in macOS automator</a><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x3dxfpQ8KGY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>.</p>
+<p><a href="https://www.w3schools.com/html/html_comments.asp" class="uri">https://www.w3schools.com/html/html_comments.asp</a></p>
+<p>Git &amp; GitHub Crash Course For Beginners. Vid<br>
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/SWYqp7iY_Tc " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>.</p>
+<p><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Getting Started - Installing Git</a></p>
+<p>How to set a Directory as an Argument in Bash</p>
+<p><strong>R Programming Tutorial - 3 - How to Run a Simple Program.</strong><br>
+<iframe width="560" height="315" src=" https://www.youtube.com/embed/ufzQxIqNuwM " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p><strong>Iterm2 customization</strong> <a href="https://www.atpeaz.com/macos-set-up-for-coding-and-development/">macOS set up for coding and development (2022 edition)</a> Install and customise Powerlevel10k theme for ZSH</p>
+<p>iTerm2 - Accessibility and Full Disk Access<br>
+If you want to access special directories/files such as <code>~/Library/Application Support/AddressBook</code>or <code>~/Pictures/Photos Library.photoslibrary</code>, yes you need to give Full Disk Access to iTerm2. If don’t, you can not access those directories. For more information, here is the iTerm2 wiki <a href="https://gitlab.com/gnachman/iterm2/wikis/fulldiskaccess" class="uri">https://gitlab.com/gnachman/iterm2/wikis/fulldiskaccess</a>. Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Unlock to make changes &gt; Full disk access &gt; + &gt; Applications &gt; iTerm2 &gt; Open &gt; Quit &gt;</p>
+<p><a href="https://bookdown.org/home/archive/">All books on bookdown.org</a><br>
+<a href="https://bookdown.org/pkaldunn/SRM-Textbook/index.html">Scientific Research and Methodology:</a><br>
+<a href="https://bookdown.org/gongchangzhaojie/TranslationalBioinformaticsWithR/">Translational Bioinformatics with R</a><br>
+<a href="https://bookdown.org/ggiaever/omic_sciences/">Omic Sciences</a><br>
+<a href="https://bookdown.org/satwik91/SpaceX_supplementary/">Network Estimation in Spatial Transcriptomics</a><br>
+<a href="https://bookdown.org/tpinto_home/Regularisation/">Machine Learning for Biostatistics</a><br>
+<a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a><br>
+<a href="https://bookdown.org/victor_morales/TecnicasML/">Machine Learning: Teoría y Práctica</a><br>
+<a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a></p>
+</section>
+<section id="foot" class="level2">
+<h2 class="anchored" data-anchor-id="foot">foot</h2>
+<p><a href="#">top</a></p>
+<p>!/bin/bash Change format, and change max size. 20181231 DM</p>
+<p>oldFormat=HEIC newFormat=png newSize=800</p>
+<p>for i in *.$oldFormat do sips –setProperty format $newFormat –resampleHeightWidthMax <span class="math inline">\(newSize "\)</span>i” –out “<span class="math inline">\({i%\)</span>oldFormat}”$newFormat done exit 0</p>
+<p>Scientific Research and Methodology: <a href="https://bookdown.org/gongchangzhaojie/TranslationalBioinformaticsWithR/">Translational Bioinformatics with R</a> Omic Sciences Network Estimation in Spatial Transcriptomics Machine Learning for Biostatistics bookdown: Authoring Books and Technical Documents with R Markdown Machine Learning: Teoría y Práctica R Markdown Cookbook</p>
+<hr>
+
+
 </section>
 
 
